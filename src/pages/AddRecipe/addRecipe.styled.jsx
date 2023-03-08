@@ -59,6 +59,7 @@ export const AddRecepiSection = styled.div`
     justify-content: center;
     cursor: pointer;
     color: white;
+    overflow: hidden;
   }
 
   input[type='file'] {
@@ -96,6 +97,10 @@ export const RecepieSection = styled.div`
     margin-top: 24px;
     height: 155px;
     font-family: inherit;
+  }
+
+  button {
+    margin-top: 32px;
   }
 `;
 
@@ -136,4 +141,9 @@ export const PopularItem = styled.li`
   img {
     margin-right: 12px;
   }
+`;
+
+export const Icon = styled.img`
+  width: 50px;
+  height: 50px;
 `;
