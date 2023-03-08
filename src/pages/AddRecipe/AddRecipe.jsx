@@ -2,8 +2,8 @@ import { TextField } from '@mui/material';
 import { Counter } from 'components/Counter/Counter';
 import { SubTitle } from 'components/SubTitle/SubTitle';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import Select from 'react-select';
-import { nanoid } from 'nanoid';
 
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
@@ -23,6 +23,9 @@ import {
   RecipeWrap,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
+import { nanoid } from '@reduxjs/toolkit';
+import { InputsWrapper } from './addRecipe.styled';
+import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 
 const popular = [
   {
@@ -62,7 +65,13 @@ const options2 = [
 ];
 
 const AddRecipe = () => {
-  const [inputs, setInputs] = useState({ recipe: '', file: null });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
+  const [inputs, setInputs] = useState({
+    recipe: '',
+    file: null,
+    title: '',
+    about: '',
+  });
   const [counter, setCounter] = useState(0);
   const [ingredients, setIngredients] = useState([]);
 
@@ -81,6 +90,22 @@ const AddRecipe = () => {
     const newList = ingredients.filter(el => el.id !== currentTarget.id);
     setIngredients(newList);
     setCounter(prev => prev - 1);
+  };
+
+  const handleChange = ({ currentTarget }) => {
+    const { name, value } = currentTarget;
+    console.log('name', name, 'value', value);
+    setInputs(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFile = ({ currentTarget }) => {
+    const { files } = currentTarget;
+    const [file] = files;
+    setInputs(prev => ({ ...prev, file }));
+  };
+
+  const handleAdd = e => {
+    console.log(e);
   };
 
   const ingredientsList = ingredients.map(el => {
@@ -105,75 +130,83 @@ const AddRecipe = () => {
     </PopularItem>
   ));
 
-  const handleChange = ({ currentTarget }) => {
-    const { name, value } = currentTarget;
-    setInputs(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleFile = ({ currentTarget }) => {
-    const { files } = currentTarget;
-    const [file] = files;
-    setInputs(prev => ({ ...prev, file }));
-  };
-
   return (
     <RecipeWrap>
-      <Title text="Add recipe" />
-      <AddRecepiSection>
-        <label htmlFor="file" id="labelFile">
-          {inputs.file?.name ? (
-            inputs.file.name
-          ) : (
-            <img src={iconFile} alt="ico" />
-          )}
-        </label>
-        <input type="file" id="file" name="file" onChange={handleFile} />
-        <TextField
-          hiddenLabel
-          fullWidth
-          id="filled-hidden-label-normal"
-          value={inputs.title}
-          size="normal"
-          variant="standard"
-          placeholder="Enter item title"
-        />
-        <TextField
-          hiddenLabel
-          fullWidth
-          id="filled-hidden-label-normal"
-          value={inputs.title}
-          size="normal"
-          variant="standard"
-          placeholder="Enter about recipe"
-        />
-      </AddRecepiSection>
+      <div style={{ width: '100%' }}>
+        <Title title="Add recipe" />
 
-      <IngredientsSection>
-        <IngredientsTitle>
-          <SubTitle text="Ingredients" />
-          <Counter
-            counter={counter}
-            handleDecrement={handleDecrement}
-            handleIncrement={handleIncrement}
-          />
-        </IngredientsTitle>
-        <IngredientsList>{ingredientsList}</IngredientsList>
-      </IngredientsSection>
+        <AddRecepiSection>
+          <div>
+            <label htmlFor="file" id="labelFile">
+              {inputs.file?.name ? (
+                inputs.file.name
+              ) : (
+                <img src={iconFile} alt="ico" />
+              )}
+            </label>
+            <input type="file" id="file" name="file" onChange={handleFile} />
+          </div>
+          <InputsWrapper>
+            <TextField
+              hiddenLabel
+              fullWidth
+              size="normal"
+              variant="standard"
+              placeholder="Enter item title"
+              name="title"
+              value={inputs.title}
+              onChange={handleChange}
+            />
+            <TextField
+              hiddenLabel
+              fullWidth
+              size="normal"
+              variant="standard"
+              placeholder="Enter about recipe"
+              name="about"
+              value={inputs.about}
+              onChange={handleChange}
+            />
+          </InputsWrapper>
+        </AddRecepiSection>
 
-      <RecepieSection>
-        <SubTitle text="Recipe Preparation" />
-        <textarea
-          name="recipe"
-          value={inputs.recipe}
-          placeholder="Enter recipe"
-          onChange={handleChange}
-        ></textarea>
-        <button type="click">Add</button>
-      </RecepieSection>
+        <IngredientsSection>
+          <IngredientsTitle>
+            <SubTitle text="Ingredients" />
+            <Counter
+              counter={counter}
+              handleDecrement={handleDecrement}
+              handleIncrement={handleIncrement}
+            />
+          </IngredientsTitle>
+          <IngredientsList>{ingredientsList}</IngredientsList>
+        </IngredientsSection>
+
+        <RecepieSection>
+          <SubTitle text="Recipe Preparation" />
+          <textarea
+            name="recipe"
+            value={inputs.recipe}
+            placeholder="Enter recipe"
+            onChange={handleChange}
+          ></textarea>
+          <ButtonSkew type="click" text="Add" fn={handleAdd} styled="other" />
+        </RecepieSection>
+      </div>
 
       <PopularSection>
-        <SubTitle text="Popular recipe" />
-        <PupularList>{popularList}</PupularList>
+        {isDesktop && (
+          <div>
+            <SubTitle text="Follow us" />
+            <div
+              style={{ width: '165px', height: '50px', backgroundColor: 'red' }}
+            ></div>
+          </div>
+        )}
+        <div>
+          <SubTitle text="Popular recipe" />
+          <PupularList>{popularList}</PupularList>
+        </div>
       </PopularSection>
     </RecipeWrap>
   );

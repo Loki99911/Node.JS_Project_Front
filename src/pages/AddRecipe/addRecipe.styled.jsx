@@ -1,33 +1,25 @@
 import styled from 'styled-components';
 
 export const RecipeWrap = styled.div`
-  h1,
-  h2,
-  h3,
-  p,
-  button {
-    padding: 0;
-    margin: 0;
+  padding: 0 16px;
+
+  @media (min-width: 768px) {
+    padding: 0 32px;
   }
-  ul {
-    list-style: none;
-    padding: 0;
+
+  @media (min-width: 1440px) {
+    display: flex;
+    gap: 120px;
   }
 
   .css-1hb7zxy-IndicatorsContainer {
     display: none;
   }
-
-  * {
-    box-sizing: border-box;
-  }
-
   .css-13cymwt-control {
     border-style: unset;
     background-color: #d9d9d9;
     border-radius: 6px;
   }
-
   .css-b62m3t-container {
     width: 194px;
     &:nth-child(2) {
@@ -45,11 +37,16 @@ export const IngredientsTitle = styled.div`
 export const AddRecepiSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 72px;
 
+  @media (min-width: 768px) {
+    flex-direction: unset;
+    gap: 32px;
+  }
+
   input {
-    padding: 15px;
+    padding: 15px 0;
   }
 
   label[id='labelFile'] {
@@ -75,6 +72,12 @@ export const AddRecepiSection = styled.div`
   }
 `;
 
+export const InputsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const IngredientsSection = styled.div`
   margin-top: 72px;
 `;
@@ -94,27 +97,11 @@ export const RecepieSection = styled.div`
     height: 155px;
     font-family: inherit;
   }
-
-  button {
-    margin-top: 18px;
-    color: white;
-    padding: 12px 0;
-    background-color: black;
-    outline: none;
-    border: none;
-
-    border-top-left-radius: 30px;
-    border-top-right-radius: 80px;
-    border-bottom-left-radius: 80px;
-    border-bottom-right-radius: 30px;
-
-    width: 130px;
-    text-align: center;
-  }
 `;
 
 export const PopularSection = styled.div`
   margin-top: 72px;
+  max-width: 320px;
 `;
 
 export const IngredientsItem = styled.li`
@@ -125,7 +112,7 @@ export const IngredientsItem = styled.li`
   }
 `;
 
-export const IngredientsList = styled.li`
+export const IngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
