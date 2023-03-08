@@ -1,9 +1,7 @@
-import { Header } from 'components/Header/Header';
-
 const SearchIngredients = () => {
   return (
     <>
-      <Header />
+      <div>Your Code....</div>
     </>
   );
 };
