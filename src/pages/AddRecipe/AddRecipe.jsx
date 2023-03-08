@@ -12,6 +12,7 @@ import img4 from './img/4.jpg';
 import iconFile from './img/icon_file.svg';
 import {
   AddRecepiSection,
+  Icon,
   IngredientsItem,
   IngredientsList,
   IngredientsSection,
@@ -54,9 +55,18 @@ const popular = [
   },
 ];
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  {
+    value: 'chocolate',
+    label: 'Chocolate',
+  },
+  {
+    value: 'strawberry',
+    label: 'Strawberry',
+  },
+  {
+    value: 'vanilla',
+    label: 'Vanilla',
+  },
 ];
 const options2 = [
   { value: 'gr', label: 'gr' },
@@ -65,7 +75,9 @@ const options2 = [
 ];
 
 const AddRecipe = () => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 1440px)',
+  });
   const [inputs, setInputs] = useState({
     recipe: '',
     file: null,
@@ -74,6 +86,7 @@ const AddRecipe = () => {
   });
   const [counter, setCounter] = useState(0);
   const [ingredients, setIngredients] = useState([]);
+  const [path, setPath] = useState('');
 
   const handleDecrement = () => {
     if (counter <= 0) return;
@@ -95,13 +108,21 @@ const AddRecipe = () => {
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
     console.log('name', name, 'value', value);
-    setInputs(prev => ({ ...prev, [name]: value }));
+    setInputs(prev => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleFile = ({ currentTarget }) => {
     const { files } = currentTarget;
     const [file] = files;
-    setInputs(prev => ({ ...prev, file }));
+    if (!file.type.includes('image')) return;
+    setInputs(prev => ({
+      ...prev,
+      file,
+    }));
+    setPath(window.URL.createObjectURL(file));
   };
 
   const handleAdd = e => {
@@ -133,15 +154,14 @@ const AddRecipe = () => {
   return (
     <RecipeWrap>
       <div style={{ width: '100%' }}>
-        <Title title="Add recipe" />
-
+        <Title>Add recipe</Title>
         <AddRecepiSection>
           <div>
             <label htmlFor="file" id="labelFile">
               {inputs.file?.name ? (
-                inputs.file.name
+                <img src={path} alt="ico" />
               ) : (
-                <img src={iconFile} alt="ico" />
+                <Icon src={iconFile} alt="ico" />
               )}
             </label>
             <input type="file" id="file" name="file" onChange={handleFile} />
@@ -169,7 +189,6 @@ const AddRecipe = () => {
             />
           </InputsWrapper>
         </AddRecepiSection>
-
         <IngredientsSection>
           <IngredientsTitle>
             <SubTitle text="Ingredients" />
@@ -181,7 +200,6 @@ const AddRecipe = () => {
           </IngredientsTitle>
           <IngredientsList>{ingredientsList}</IngredientsList>
         </IngredientsSection>
-
         <RecepieSection>
           <SubTitle text="Recipe Preparation" />
           <textarea
@@ -190,7 +208,7 @@ const AddRecipe = () => {
             placeholder="Enter recipe"
             onChange={handleChange}
           ></textarea>
-          <ButtonSkew type="click" text="Add" fn={handleAdd} styled="other" />
+          <ButtonSkew type="click" text="Add" fn={handleAdd} styled="black" />
         </RecepieSection>
       </div>
 
@@ -199,7 +217,11 @@ const AddRecipe = () => {
           <div>
             <SubTitle text="Follow us" />
             <div
-              style={{ width: '165px', height: '50px', backgroundColor: 'red' }}
+              style={{
+                width: '165px',
+                height: '50px',
+                backgroundColor: 'red',
+              }}
             ></div>
           </div>
         )}
