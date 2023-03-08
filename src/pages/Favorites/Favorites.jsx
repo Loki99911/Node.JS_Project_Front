@@ -1,9 +1,7 @@
-import { Header } from 'components/Header/Header';
-
 const Favorites = () => {
   return (
     <>
-      <Header />
+      <div>Your Code....</div>
     </>
   );
 };
