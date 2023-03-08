@@ -1,9 +1,7 @@
-import { Header } from 'components/Header/Header';
-
 const ShopingList = () => {
   return (
     <>
-      <Header />
+      <div>Your Code....</div>
     </>
   );
 };

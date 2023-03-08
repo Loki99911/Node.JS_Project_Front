@@ -3,7 +3,7 @@ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 const Singin = () => {
   return (
     <>
-      <RegisterForm/>
+      <RegisterForm />
     </>
   );
 };
