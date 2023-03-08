@@ -1,11 +1,14 @@
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import AuthPages from 'components/AuthPages/AuthPages';
+import FormLogin from 'components/FormLogin/FormLogin';
 
-const Singin = () => {
+const Signin = () => {
   return (
     <>
-      <RegisterForm />
+      <AuthPages>
+        <FormLogin />
+      </AuthPages>
     </>
   );
 };
 
-export default Singin;
+export default Signin;

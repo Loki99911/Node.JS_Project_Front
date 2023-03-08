@@ -1,7 +1,9 @@
+import {BoxForMain} from './style'
+
 const Main = () => {
   return (
     <>
-      <div>Your Code....</div>
+      <BoxForMain></BoxForMain>
     </>
   );
 };

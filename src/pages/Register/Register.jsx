@@ -1,9 +1,12 @@
-import { RegisterForm } from "components/RegisterForm/RegisterForm";
+import AuthPages from 'components/AuthPages/AuthPages';
+import FormRegister from 'components/FormRegister/FormRegister';
 
 const Register = () => {
   return (
     <>
-      <RegisterForm />
+      <AuthPages>
+        <FormRegister />
+      </AuthPages>
     </>
   );
 };
