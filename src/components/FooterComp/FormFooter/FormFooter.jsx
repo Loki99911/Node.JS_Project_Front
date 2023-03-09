@@ -5,14 +5,14 @@ import {
   FooterFormaText,
 } from './FormFooter.styled';
 import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
-import * as Yup from 'yup';
+// import { useDispatch } from 'react-redux';
+// import * as Yup from 'yup';
 import { ReactComponent as IconInputFooter } from '../../../images/footer/mail.mob.svg';
 import { useMediaRules } from 'MediaRules/MediaRules';
 
 export const FormFooter = () => {
  const { isDesktop } = useMediaRules();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <>
       <Formik
