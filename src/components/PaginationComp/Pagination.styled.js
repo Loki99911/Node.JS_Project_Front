@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const PaginationWrapper = styled.div`
   max-width: 275px;
+  box-sizing: border-box;
   height: 51px;
   margin: 0 auto;
   margin-top: 50px;
