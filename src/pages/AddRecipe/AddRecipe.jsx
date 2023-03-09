@@ -161,6 +161,7 @@ const AddRecipe = () => {
 
   const handleAdd = e => {
     console.log(e);
+    e.preventDefault();
   };
 
   const handleSelect = (...arg) => {
