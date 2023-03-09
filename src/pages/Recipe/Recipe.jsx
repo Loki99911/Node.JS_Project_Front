@@ -4,7 +4,9 @@ import RecipePreparation from "components/RecipePreparation/RecipePreparation";
 import { Container } from "components/Container/Container";
 import { ReportsTable } from "./Recipe.styled";
 
+
 const MainPaigeTitle = "Salmon Avocado Salad"
+const recipeArray = ["morkwa", "pomidor", "kartoszka"]
 
 const Recipe = () => {
   return (
@@ -19,7 +21,7 @@ const Recipe = () => {
             Number <span>Add to list</span>
           </p>
         </ReportsTable>
-        <RecipeInngredientsList/>
+        <RecipeInngredientsList ingredients={recipeArray}/>
         <RecipePreparation/>
       </Container>
     </>

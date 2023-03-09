@@ -1,8 +1,10 @@
-const RecipeInngredientsList = () => {
+import RecipeInngredientsItem from "components/RecipeInngredientsItem/RecipeInngredientsItem";
+
+const RecipeInngredientsList = ({ingredients}) => {
   return (
-    <>
-      <div>RecipeInngredientsList</div>
-    </>
+    <ul>
+      {ingredients.map(inngredient => <RecipeInngredientsItem/>)}
+    </ul>
   );
 };
 
