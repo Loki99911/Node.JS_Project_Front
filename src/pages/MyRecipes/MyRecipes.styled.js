@@ -13,3 +13,7 @@ export const ContentWrapper = styled.ul`
     gap: 50px;
   }
 `;
+
+export const Wrapper = styled.div`
+  margin-bottom: 50px;
+`;

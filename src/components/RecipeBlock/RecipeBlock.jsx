@@ -30,13 +30,12 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
           )}
           {location === 'recipes' && <DeleteBtn location={location} />}
         </TitleWrapper>
-        <DescrWrapper>
-          <p>{text}</p>
-        </DescrWrapper>
+        <DescrWrapper>{text}</DescrWrapper>
         <TimeWrapper>
           <Time>{time}</Time>
           {!isRowBased && location === 'recipes' && (
             <ButtonSkew
+              location={location}
               type="button"
               text="See recipe"
               fn={handleRecipeBtnClick}
@@ -48,6 +47,7 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
           )}
           {isRowBased && (
             <ButtonSkew
+              location={location}
               type="button"
               text="See recipe"
               fn={handleRecipeBtnClick}
