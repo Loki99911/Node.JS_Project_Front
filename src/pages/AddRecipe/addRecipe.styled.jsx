@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RecipeWrap = styled.div`
-  padding: 0 16px;
+  /* padding: 0 16px;
 
   @media (min-width: 768px) {
     padding: 0 32px;
@@ -10,7 +10,7 @@ export const RecipeWrap = styled.div`
   @media (min-width: 1440px) {
     display: flex;
     gap: 120px;
-  }
+  } */
 `;
 
 export const IngredientsTitle = styled.div`
