@@ -35,12 +35,20 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(4, 'Your password is short')
     .max(25, 'Enter a valid Password*')
-    .matches(/^[A-ZА-Я]*)*$/, 'Your password is little secure')
+    .matches(/[A-Z]/, 'Your password is little secure')
     .required('Enter a valid Password*'),
 });
+
+  export const getColor = (errors, values) => {
+    if (errors === 'Your password is little secure') {
+      return '#F6C23E'
+    }
+    return values ? (errors && '#E74A3B') || '#3CBC81' : 'rgba(255, 255, 255, 0.8)';
+  }
+
 const FormRegister = props => {
   const dispatch = useDispatch();
-
+  
   return (
     <div>
       <Formik
@@ -69,11 +77,7 @@ const FormRegister = props => {
               <BoxForInput>
                 <IconForInput>
                   <SvgAuth
-                    color={
-                      props.values.name
-                      ? (props.errors.name && '#E74A3B') || '#3CBC81'
-                      : 'rgba(255, 255, 255, 0.8)'
-                    }
+                    color={getColor(props.errors.name, props.values.name)}
                   >
                     <use href={`${SVG}#person`}></use>
                   </SvgAuth>
@@ -93,19 +97,13 @@ const FormRegister = props => {
                   type="text"
                   name="name"
                   placeholder="Name"
-                  color={props.values.name
-                      ? (props.errors.name && '#E74A3B') || '#3CBC81'
-                      : 'rgba(255, 255, 255, 0.8)'}
+                  color={getColor(props.errors.name, props.values.name)}
                 />
               </BoxForInput>
               <BoxForInput>
                 <IconForInput>
                   <svg
-                    fill={
-                      props.values.email
-                        ? (props.errors.email && '#E74A3B') || '#3CBC81'
-                        : 'rgba(255, 255, 255, 0.8)'
-                    }
+                    fill={getColor(props.errors.email, props.values.email)}
                   >
                     <use href={`${SVG}#email`}></use>
                   </svg>
@@ -125,22 +123,13 @@ const FormRegister = props => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  color={props.values.email
-                        ? (props.errors.email && '#E74A3B') || '#3CBC81'
-                        : 'rgba(255, 255, 255, 0.8)'}
+                  color={getColor(props.errors.email, props.values.email)}
                 />
               </BoxForInput>
               <BoxForInput>
                 <IconForInput>
                   <SvgAuth
-                    color={props.values.password?
-                      (props.errors.password ===
-                        'Your password is little secure' &&
-                        '#F6C23E') ||
-                      (props.errors.password && '#E74A3B') ||
-                      '#3CBC81': 
-                      'rgba(255, 255, 255, 0.8)'
-                    }
+                    color={getColor(props.errors.password, props.values.password)}
                   >
                     <use href={`${SVG}#password`}></use>
                   </SvgAuth>
@@ -164,26 +153,12 @@ const FormRegister = props => {
                   type="text"
                   name="password"
                   placeholder="Password"
-                  color={
-                    props.values.password?
-                      (props.errors.password ===
-                        'Your password is little secure' &&
-                        '#F6C23E') ||
-                      (props.errors.password && '#E74A3B') ||
-                      '#3CBC81': 
-                      'rgba(255, 255, 255, 0.8)'
-                  }
+                  color={getColor(props.errors.password, props.values.password)}
                 />
                 {props.values.password && (
                   <ErrorMessage
                     id="feedback"
-                    color={
-                      (props.errors.password ===
-                        'Your password is little secure' &&
-                        '#F6C23E') ||
-                      (props.errors.password && '#E74A3B') ||
-                      '#3CBC81'
-                    }
+                    color={getColor(props.errors.password, props.values.password)}
                   >
                     {props.errors.password || 'Password is secure'}
                   </ErrorMessage>
