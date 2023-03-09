@@ -74,6 +74,9 @@ export const InputForAuth = styled(Field)`
   padding-left: 50px;
   color: rgba(255, 255, 255, 0.8);
   transition: ${theme.transitions.main};
+   :-webkit-autofill {
+    transition: background-color 250s linear, color 250s linear;
+  }
   &:hover {
     border: 1px solid ${theme.colors.mainLight};
     color: ${theme.colors.mainLight};
