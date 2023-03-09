@@ -17,14 +17,14 @@ export const App = () => {
   const isUserLogin = true;
   return (
     <Routes>
-      {isUserLogin && (
+      {!isUserLogin && (
         <>
           <Route path="/" element={<Main />} />
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<Signin />} />
         </>
       )}
-      {!isUserLogin && (
+      {isUserLogin && (
         <Route path="/" element={<SharedLayout />}>
           <Route path="/categories" element={<Categories />} />
           <Route path="/add" element={<AddRecipe />} />

@@ -1,5 +1,5 @@
-// import { useDispatch } from 'react-redux';
-// import { addContact } from 'redux/operationPhonebook';
+import { useDispatch } from 'react-redux';
+import { signUp } from 'redux/auth/authOperations';
 import { Link } from 'react-router-dom';
 
 import { Formik } from 'formik';
@@ -13,9 +13,6 @@ import {
   FormForAuth,
   TitleForForm,
 } from './style';
-// import StyleList from '../ComponentStyles/PhonebookStyles';
-
-// const { FormStyle, FieldStyles, BtnStyle, ErrorMessageStyle } = StyleList;
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -39,7 +36,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 const FormRegister = props => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -51,12 +48,13 @@ const FormRegister = props => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          //   dispatch(
-          //     addContact({
-          //       name: values.name.trim(),
-          //       phone: values.number.trim(),
-          //     })
-          //   );
+          dispatch(
+            signUp({
+              name: values.name.trim(),
+              email: values.email,
+              password: values.password.trim(),
+            })
+          );
           actions.setSubmitting(false);
           actions.resetForm();
         }}
