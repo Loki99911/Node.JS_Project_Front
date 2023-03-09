@@ -1,5 +1,7 @@
 // import { useDispatch } from 'react-redux';
 // import { addContact } from 'redux/operationPhonebook';
+import { Link } from 'react-router-dom';
+
 import {
   BoxForInput,
   IconForInput,
@@ -58,7 +60,7 @@ const FormLogin = props => {
             <BoxForInput>
               <IconForInput></IconForInput>
               <FlagForInput></FlagForInput>
-              <InputForAuth type="email" name="email" placeholder="Email"/>
+              <InputForAuth type="email" name="email" placeholder="Email" />
               {props.errors.email && (
                 <div id="feedback">{props.errors.email}</div>
               )}
@@ -66,7 +68,11 @@ const FormLogin = props => {
             <BoxForInput>
               <IconForInput></IconForInput>
               <FlagForInput></FlagForInput>
-              <InputForAuth type="text" name="password" placeholder="Password"/>
+              <InputForAuth
+                type="text"
+                name="password"
+                placeholder="Password"
+              />
               {props.errors.password && (
                 <div id="feedback">{props.errors.password}</div>
               )}
@@ -75,6 +81,7 @@ const FormLogin = props => {
           </FormForAuth>
         )}
       </Formik>
+      <Link to="/register">Registration</Link>
     </div>
   );
 };

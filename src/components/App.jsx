@@ -17,11 +17,13 @@ export const App = () => {
   const isUserLogin = true;
   return (
     <Routes>
-      {isUserLogin && (<>
-        <Route path="/" element={<Main />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/signin" element={<Signin />} />
-      </>)}
+      {isUserLogin && (
+        <>
+          <Route path="/" element={<Main />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/signin" element={<Signin />} />
+        </>
+      )}
       {!isUserLogin && (
         <Route path="/" element={<SharedLayout />}>
           <Route path="/categories" element={<Categories />} />

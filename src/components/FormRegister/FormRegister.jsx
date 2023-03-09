@@ -1,5 +1,6 @@
 // import { useDispatch } from 'react-redux';
 // import { addContact } from 'redux/operationPhonebook';
+import { Link } from 'react-router-dom';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -95,6 +96,7 @@ const FormRegister = props => {
           </FormForAuth>
         )}
       </Formik>
+      <Link to="/signin">Sign in</Link>
     </div>
   );
 };
