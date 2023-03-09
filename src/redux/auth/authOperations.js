@@ -48,14 +48,19 @@ export const logIn = createAsyncThunk(
   }
 );
 
-// ----------- not active for now !!!!!!!!
-
 export const logOut = createAsyncThunk(
   'auth/logout',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
     try {
       const data = await logOutUserAPI();
       token.unset();
+      console.log('successful log out');
       return data;
     } catch (error) {
       console.log(error.message);
