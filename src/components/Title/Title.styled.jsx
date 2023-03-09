@@ -4,7 +4,6 @@ import sq_black_12 from '../../images/sq_black_12.png';
 import sq_green_8 from '../../images/sq_green_8.png';
 import sq_green_14 from '../../images/sq_green_14.png';
 
-
 export const TitleConteiner = styled.div`
   height: 192px;
   width: 100%;
