@@ -9,7 +9,8 @@ import desktop2 from "../../images/desktop/recipeHero_desktop_2x.jpg"
 
 export const RecipeHeroConteiner = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-image: url(${mob1});
   background-repeat: no-repeat;
   width: 100%;
@@ -64,11 +65,13 @@ export const HeroTitle = styled.title`
     font-weight: 600;
     font-size: 24px;
     line-height: 100%;
+    margin-bottom: 18px;
     letter-spacing: ${p => p.theme.letterSpacings.content};
     color: ${p => p.theme.colors.mainAccent};
 
      @media screen and (min-width: 768px) {
     font-size: 44px;
+    margin-bottom: 24px;
      }
      @media screen and (min-width: 1440px) {
         
