@@ -2,11 +2,14 @@
 
 body {
   margin: 0;
+  background-color: #ececec;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 ul {

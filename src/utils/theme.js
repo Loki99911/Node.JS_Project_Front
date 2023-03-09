@@ -11,6 +11,7 @@ export const theme = {
     mainAccent: '#8BAA36',
     secondaryAccent: '#EBF3D4',
 
+    mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
     sectionHeaderDark: '#001833',
 
@@ -24,10 +25,12 @@ export const theme = {
   },
   fontWeights: [400, 500, 600, 700],
   lineHeights: {
-    subheader: '1.16',
+    subheader: '1',
     content: '1.33',
     extraContent: '1.29',
     btnText: '1.12',
+    description: '1.25',
+    time: '1.43',
   },
   letterSpacings: {
     subheader: '-0.24px',

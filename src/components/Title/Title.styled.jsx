@@ -4,12 +4,11 @@ import sq_black_12 from '../../images/sq_black_12.png';
 import sq_green_8 from '../../images/sq_green_8.png';
 import sq_green_14 from '../../images/sq_green_14.png';
 
-
 export const TitleConteiner = styled.div`
   height: 192px;
   width: 100%;
   padding-top: 114px;
-
+  box-sizing: border-box;
   background-image: url(${sq_green_8}), url(${sq_black_6}), url(${sq_green_8});
   background-repeat: no-repeat;
   background-size: 10px 10px, 7px 7px, 10px 10px;
