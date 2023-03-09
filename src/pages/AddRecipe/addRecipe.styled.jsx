@@ -11,22 +11,6 @@ export const RecipeWrap = styled.div`
     display: flex;
     gap: 120px;
   }
-
-  .css-1hb7zxy-IndicatorsContainer {
-    display: none;
-  }
-  .css-13cymwt-control {
-    border-style: unset;
-    background-color: #d9d9d9;
-    border-radius: 6px;
-  }
-  .css-b62m3t-container {
-    width: 194px;
-    &:nth-child(2) {
-      width: 85px;
-      margin-left: 14px;
-    }
-  }
 `;
 
 export const IngredientsTitle = styled.div`
@@ -79,8 +63,64 @@ export const InputsWrapper = styled.div`
   flex-direction: column;
 `;
 
+export const InputsWithSelectWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .css-1hb7zxy-IndicatorsContainer {
+    svg {
+      fill: ${({ theme }) => theme.colors.mainAccent};
+    }
+
+    .css-1u9des2-indicatorSeparator {
+      opacity: 0;
+    }
+  }
+  .css-1fdsijx-ValueContainer {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .css-13cymwt-control {
+    border-style: unset;
+    background-color: transparent;
+    border-radius: 6px;
+  }
+
+  .css-b62m3t-container {
+    width: 150px;
+    position: absolute;
+    top: 10%;
+    right: 0;
+  }
+`;
+
 export const IngredientsSection = styled.div`
   margin-top: 72px;
+
+  .css-1hb7zxy-IndicatorsContainer {
+    svg {
+      fill: ${({ theme }) => theme.colors.mainAccent};
+    }
+
+    .css-1u9des2-indicatorSeparator {
+      opacity: 0;
+    }
+  }
+
+  .css-13cymwt-control {
+    border-style: unset;
+    background-color: #d9d9d9;
+    border-radius: 6px;
+  }
+  .css-b62m3t-container {
+    width: 194px;
+    &:nth-child(2) {
+      width: 85px;
+      margin-left: 14px;
+    }
+  }
 `;
 
 export const RecepieSection = styled.div`
@@ -111,10 +151,7 @@ export const PopularSection = styled.div`
 
 export const IngredientsItem = styled.li`
   display: flex;
-
-  button {
-    margin-left: 20px;
-  }
+  align-items: center;
 `;
 
 export const IngredientsList = styled.ul`
@@ -146,4 +183,11 @@ export const PopularItem = styled.li`
 export const Icon = styled.img`
   width: 50px;
   height: 50px;
+`;
+
+export const ButtonRemoveItem = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
 `;
