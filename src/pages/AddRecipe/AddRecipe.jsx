@@ -198,121 +198,119 @@ const AddRecipe = () => {
       <Title>Add recipe</Title>
 
       <RecipeWrap>
-        <div style={{ width: '100%' }}>
-          <AddRecepiSection>
-            <div>
-              <label htmlFor="file" id="labelFile">
-                {inputs.file?.name ? (
-                  <img src={path} alt="user_picture" />
-                ) : (
-                  <Icon src={iconFile} alt="ico" />
-                )}
-              </label>
-              <input type="file" id="file" name="file" onChange={handleFile} />
-            </div>
-            <InputsWrapper>
-              <TextField
-                hiddenLabel
-                fullWidth
-                size="normal"
-                variant="standard"
-                placeholder="Enter item title"
-                name="title"
-                value={inputs.title}
-                onChange={handleChange}
-              />
-              <TextField
-                hiddenLabel
-                fullWidth
-                size="normal"
-                variant="standard"
-                placeholder="Enter about recipe"
-                name="about"
-                value={inputs.about}
-                onChange={handleChange}
-              />
-              <InputsWithSelectWrapper>
-                <TextField
-                  hiddenLabel
-                  fullWidth
-                  size="normal"
-                  variant="standard"
-                  placeholder="Category"
-                  name="category"
-                  value={inputs.category}
-                  readOnly
-                />
-                <Select
-                  options={optionsCategories}
-                  defaultValue={optionsCategories[2]}
-                  placeholder=" "
-                  onChange={handleSelect}
-                  name="category"
-                />
-              </InputsWithSelectWrapper>
-              <InputsWithSelectWrapper>
-                <TextField
-                  hiddenLabel
-                  fullWidth
-                  size="normal"
-                  variant="standard"
-                  placeholder="Time"
-                  name="time"
-                  value={inputs.time}
-                  readOnly
-                />
-                <Select
-                  options={optionsTime}
-                  defaultValue={optionsTime[2]}
-                  placeholder=" "
-                  onChange={handleSelect}
-                  name="time"
-                />
-              </InputsWithSelectWrapper>
-            </InputsWrapper>
-          </AddRecepiSection>
-          <IngredientsSection>
-            <IngredientsTitle>
-              <SubTitle text="Ingredients" />
-              <Counter
-                counter={counter}
-                handleDecrement={handleDecrement}
-                handleIncrement={handleIncrement}
-              />
-            </IngredientsTitle>
-            <IngredientsList>{ingredientsList}</IngredientsList>
-          </IngredientsSection>
-          <RecepieSection>
-            <SubTitle text="Recipe Preparation" />
-            <textarea
-              name="recipe"
-              value={inputs.recipe}
-              placeholder="Enter recipe"
-              onChange={handleChange}
-            ></textarea>
-            <ButtonSkew type="click" text="Add" fn={handleAdd} styled="black" />
-          </RecepieSection>
-        </div>
-
-        <PopularSection>
-          {isDesktop && (
-            <div>
-              <SubTitle text="Follow us" />
-              <div
-                style={{
-                  width: '165px',
-                  height: '50px',
-                  backgroundColor: 'red',
-                }}
-              ></div>
-            </div>
-          )}
+        <AddRecepiSection>
           <div>
-            <SubTitle text="Popular recipe" />
-            <PupularList>{popularList}</PupularList>
+            <label htmlFor="file" id="labelFile">
+              {inputs.file?.name ? (
+                <img src={path} alt="user_picture" />
+              ) : (
+                <Icon src={iconFile} alt="ico" />
+              )}
+            </label>
+            <input type="file" id="file" name="file" onChange={handleFile} />
           </div>
-        </PopularSection>
+          <InputsWrapper>
+            <TextField
+              hiddenLabel
+              fullWidth
+              size="normal"
+              variant="standard"
+              placeholder="Enter item title"
+              name="title"
+              value={inputs.title}
+              onChange={handleChange}
+            />
+            <TextField
+              hiddenLabel
+              fullWidth
+              size="normal"
+              variant="standard"
+              placeholder="Enter about recipe"
+              name="about"
+              value={inputs.about}
+              onChange={handleChange}
+            />
+            <InputsWithSelectWrapper>
+              <TextField
+                hiddenLabel
+                fullWidth
+                size="normal"
+                variant="standard"
+                placeholder="Category"
+                name="category"
+                value={inputs.category}
+                readOnly
+              />
+              <Select
+                options={optionsCategories}
+                defaultValue={optionsCategories[2]}
+                placeholder=" "
+                onChange={handleSelect}
+                name="category"
+              />
+            </InputsWithSelectWrapper>
+            <InputsWithSelectWrapper>
+              <TextField
+                hiddenLabel
+                fullWidth
+                size="normal"
+                variant="standard"
+                placeholder="Time"
+                name="time"
+                value={inputs.time}
+                readOnly
+              />
+              <Select
+                options={optionsTime}
+                defaultValue={optionsTime[2]}
+                placeholder=" "
+                onChange={handleSelect}
+                name="time"
+              />
+            </InputsWithSelectWrapper>
+          </InputsWrapper>
+        </AddRecepiSection>
+        <IngredientsSection>
+          <IngredientsTitle>
+            <SubTitle text="Ingredients" />
+            <Counter
+              counter={counter}
+              handleDecrement={handleDecrement}
+              handleIncrement={handleIncrement}
+            />
+          </IngredientsTitle>
+          <IngredientsList>{ingredientsList}</IngredientsList>
+        </IngredientsSection>
+        <RecepieSection>
+          <SubTitle text="Recipe Preparation" />
+          <textarea
+            name="recipe"
+            value={inputs.recipe}
+            placeholder="Enter recipe"
+            onChange={handleChange}
+          ></textarea>
+          <ButtonSkew type="click" text="Add" fn={handleAdd} styled="black" />
+        </RecepieSection>
       </RecipeWrap>
+
+      <PopularSection>
+        {isDesktop && (
+          <div>
+            <SubTitle text="Follow us" />
+            <div
+              style={{
+                width: '165px',
+                height: '50px',
+                backgroundColor: 'red',
+              }}
+            ></div>
+          </div>
+        )}
+        <div>
+          <SubTitle text="Popular recipe" />
+          <PupularList>{popularList}</PupularList>
+        </div>
+      </PopularSection>
     </Container>
   );
 };

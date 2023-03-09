@@ -1,16 +1,7 @@
 import styled from 'styled-components';
 
 export const RecipeWrap = styled.div`
-  /* padding: 0 16px;
-
-  @media (min-width: 768px) {
-    padding: 0 32px;
-  }
-
-  @media (min-width: 1440px) {
-    display: flex;
-    gap: 120px;
-  } */
+  width: 100%;
 `;
 
 export const IngredientsTitle = styled.div`
