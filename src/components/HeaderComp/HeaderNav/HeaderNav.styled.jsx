@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const StyledLink = styled(
-  NavLink
-)`
+export const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
 
-  &:hover {
-    text-decoration: underline;
+  &.active {
+    color: #8baa36;
   }
-  &:active {
-    color: red;
+
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    color: #8baa36;
   }
 `;
 
