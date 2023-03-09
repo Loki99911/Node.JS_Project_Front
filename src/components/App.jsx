@@ -7,7 +7,7 @@ import Recipe from 'pages/Recipe/Recipe';
 import Register from 'pages/Register/Register';
 import SearchIngredients from 'pages/SearchIngredients/SearchIngredients';
 import ShopingList from 'pages/ShoppingList/ShoppingList';
-import Singin from 'pages/Signin/Signin';
+import Signin from 'pages/Signin/Signin';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 // import { PrivateRoute, PublicRoute } from 'service/routes';
@@ -18,10 +18,11 @@ export const App = () => {
   return (
     <Routes>
       {!isUserLogin && (
-        <Route path="/" element={<Main />}>
+        <>
+          <Route path="/" element={<Main />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<Singin />} />
-        </Route>
+          <Route path="/signin" element={<Signin />} />
+        </>
       )}
       {isUserLogin && (
         <Route path="/" element={<SharedLayout />}>
