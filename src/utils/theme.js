@@ -47,6 +47,7 @@ export const theme = {
     logo: '12px',
     image: '8px',
     switch: '50px',
+    pagination: '26px',
     circle: '50%',
   },
   transitions: {

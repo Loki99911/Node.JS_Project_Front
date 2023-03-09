@@ -1,9 +1,9 @@
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
-import close from '../../images/close.svg';
-import { useEffect } from 'react';
-import { logout } from 'redux/Auth/authOperations.js';
-import { useDispatch } from 'react-redux';
+// import close from '../../images/close.svg';
+// import { useEffect } from 'react';
+// import { logout } from 'redux/Auth/authOperations.js';
+// import { useDispatch } from 'react-redux';
 
 export default function UserLogoModal({ title, modalChange }) {
 //   const dispatch = useDispatch();
@@ -25,13 +25,13 @@ export default function UserLogoModal({ title, modalChange }) {
   };
 
   const onSubmitButton = () => {
-     dispatch(logout());
+    //  dispatch(logout());
     modalChange(true);
     return false;
   };
-  const onRejectButton = () => {
-    modalChange(false);
-  };
+  // const onRejectButton = () => {
+  //   modalChange(false);
+  // };
 
   return createPortal(
     <div className={css.backdrop} onClick={handleOverlay}>

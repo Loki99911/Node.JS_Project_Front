@@ -4,6 +4,7 @@ import { Title } from 'components/Title/Title';
 import { ContentWrapper, Wrapper } from './MyRecipes.styled';
 
 import img from '../../images/default.jpg';
+import { PaginationComp } from 'components/PaginationComp/Pagination';
 
 const MyRecipes = () => {
   return (
@@ -28,6 +29,7 @@ const MyRecipes = () => {
             time="20 min"
           />
         </ContentWrapper>
+        <PaginationComp />
       </Container>
     </Wrapper>
   );

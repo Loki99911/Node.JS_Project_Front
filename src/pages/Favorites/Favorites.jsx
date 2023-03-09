@@ -3,6 +3,7 @@ import { Title } from 'components/Title/Title';
 import { ContentWrapper, Wrapper } from './Favorites.styled';
 import img from '../../images/default.jpg';
 import { RecipeBlock } from 'components/RecipeBlock/RecipeBlock';
+import { PaginationComp } from 'components/PaginationComp/Pagination';
 
 const Favorites = () => {
   return (
@@ -27,6 +28,7 @@ const Favorites = () => {
             time="20 min"
           />
         </ContentWrapper>
+        <PaginationComp />
       </Container>
     </Wrapper>
   );
