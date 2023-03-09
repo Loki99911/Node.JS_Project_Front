@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.5f7ed645.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.43a6160b.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.d167d9a3.js",
     "static/media/mainDes.png": "/Node.JS_Project_Front/static/media/mainDes.3acda1baf59e52f3b907.png",
     "static/media/bg_big_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_2x.088180e00dd0b716a522.png",
     "static/media/bg_big_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_2x.315208ec35d471abc100.png",
@@ -10,15 +10,20 @@
     "static/media/bg_big_mobile_2x.png": "/Node.JS_Project_Front/static/media/bg_big_mobile_2x.e6bddf98431a062a2c9a.png",
     "static/media/bg_big_tablet_1x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_1x.df22f7cad53eb74831f8.png",
     "static/media/bg_small_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_small_tablet_2x.d0755725e0e15adf9ea0.png",
+    "static/media/recipeHero_desktop_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_desktop_2x.924484b464f126e26139.jpg",
     "static/media/bg_small_desktop_1x.png": "/Node.JS_Project_Front/static/media/bg_small_desktop_1x.62aeca015d405cb3d721.png",
     "static/media/bg_big_mobile_1x.png": "/Node.JS_Project_Front/static/media/bg_big_mobile_1x.ab9dc927e6e3af42cae1.png",
+    "static/media/recipeHero_tab_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_tab_2x.aa991d8fde13c9d1d35f.jpg",
     "static/media/bg_small_mob_2x.png": "/Node.JS_Project_Front/static/media/bg_small_mob_2x.b2d8cebd8d8139202231.png",
+    "static/media/recipeHero_desktop_1x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_desktop_1x.77f181a0d904350a0307.jpg",
     "static/media/bg_small_tablet_1x.png": "/Node.JS_Project_Front/static/media/bg_small_tablet_1x.cd965a444181b88f1cfd.png",
     "static/media/AuthPanaDes.png": "/Node.JS_Project_Front/static/media/AuthPanaDes.e08f7e490c1af69bde3b.png",
+    "static/media/recipeHero_mob_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_mob_2x.04772b35d4bcde8116a5.jpg",
     "static/media/2.jpg": "/Node.JS_Project_Front/static/media/2.f01d18e37f2a25fba7c6.jpg",
     "static/media/3.jpg": "/Node.JS_Project_Front/static/media/3.bf5dca5105b3d630325e.jpg",
     "static/media/4.jpg": "/Node.JS_Project_Front/static/media/4.af88d01ee85fe1e899f3.jpg",
     "static/media/bg_small_mob_1x.png": "/Node.JS_Project_Front/static/media/bg_small_mob_1x.22078318d1abb582886d.png",
+    "static/media/recipeHero_tab_1x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_tab_1x.9eca7de25584899934cd.jpg",
     "static/media/1.jpg": "/Node.JS_Project_Front/static/media/1.621904d9570b2cf34ff5.jpg",
     "static/media/sprite.svg": "/Node.JS_Project_Front/static/media/sprite.0a7076fa6052295acdafa7fd53b3f100.svg",
     "static/media/icon_file.svg": "/Node.JS_Project_Front/static/media/icon_file.9ef7621b39d058098ee8a37774afedb8.svg",
@@ -26,10 +31,10 @@
     "static/media/logo_desc.svg": "/Node.JS_Project_Front/static/media/logo_desc.3326a095578a5f612526f7ab93edd379.svg",
     "static/media/search.svg": "/Node.JS_Project_Front/static/media/search.d4b2fa3a3c050142ab2b3735272b0144.svg",
     "main.5f7ed645.css.map": "/Node.JS_Project_Front/static/css/main.5f7ed645.css.map",
-    "main.43a6160b.js.map": "/Node.JS_Project_Front/static/js/main.43a6160b.js.map"
+    "main.d167d9a3.js.map": "/Node.JS_Project_Front/static/js/main.d167d9a3.js.map"
   },
   "entrypoints": [
     "static/css/main.5f7ed645.css",
-    "static/js/main.43a6160b.js"
+    "static/js/main.d167d9a3.js"
   ]
 }
