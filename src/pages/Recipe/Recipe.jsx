@@ -6,7 +6,16 @@ import { ReportsTable } from "./Recipe.styled";
 
 
 const MainPaigeTitle = "Salmon Avocado Salad"
-const recipeArray = ["morkwa", "pomidor", "kartoszka"]
+const recipeArray = [{
+  image: "https://us.123rf.com/450wm/cepn/cepn2009/cepn200900012/155940259-fresh-watermelon-isolated-organic-water-melon-slice-on-white-background.jpg?ver=6",
+  name: "morkwa",
+}, {
+  image: "https://us.123rf.com/450wm/cepn/cepn2009/cepn200900012/155940259-fresh-watermelon-isolated-organic-water-melon-slice-on-white-background.jpg?ver=6",
+  name: "pomidor",
+}, {
+  image: "https://us.123rf.com/450wm/cepn/cepn2009/cepn200900012/155940259-fresh-watermelon-isolated-organic-water-melon-slice-on-white-background.jpg?ver=6",
+  name: "cebula",
+}]
 
 const Recipe = () => {
   return (
