@@ -27,7 +27,7 @@ export const DeleteBtnWrapper = styled.button`
   }
 
   & svg {
-    fill: ${p =>
+    stroke: ${p =>
       p.location === 'recipes'
         ? p.theme.colors.mainLight
         : p.theme.colors.mainDark};

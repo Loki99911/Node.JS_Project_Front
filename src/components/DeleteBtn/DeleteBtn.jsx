@@ -1,4 +1,4 @@
-import sprite from 'images/tablet/sprite.svg';
+import sprite from '../../images/sprite.svg';
 import { DeleteBtnWrapper } from './DeleteBtn.styled';
 
 export const DeleteBtn = ({ location }) => {

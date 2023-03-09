@@ -11,6 +11,7 @@ export const theme = {
     mainAccent: '#8BAA36',
     secondaryAccent: '#EBF3D4',
 
+    mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
     sectionHeaderDark: '#001833',
 

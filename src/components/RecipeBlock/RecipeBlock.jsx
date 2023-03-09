@@ -35,14 +35,15 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
         </DescrWrapper>
         <TimeWrapper>
           <Time>{time}</Time>
-          {!isRowBased && location === 'recipes' ? (
+          {!isRowBased && location === 'recipes' && (
             <ButtonSkew
               type="button"
               text="See recipe"
               fn={handleRecipeBtnClick}
               styled="olive"
             />
-          ) : (
+          )}
+          {!isRowBased && location === 'favorite' && (
             <DeleteBtn location={location} />
           )}
           {isRowBased && (
