@@ -10,23 +10,57 @@ import ShopingList from 'pages/ShoppingList/ShoppingList';
 import Signin from 'pages/Signin/Signin';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-// import { PrivateRoute, PublicRoute } from 'service/routes';
+import { PrivateRoute, PublicRoute } from 'service/routes';
+import { getIsLoggedIn } from '../redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
+import CategoriesByName from 'pages/CategoriesByName/CategoriesByName';
+import MainPage from 'pages/MainPage/MainPage';
 
 export const App = () => {
-  // const isUserLogin = useSelector(getUserLogin);
-  const isUserLogin = true;
+  const isUserLogin = useSelector(getIsLoggedIn);
+  // const isUserLogin = true;
   return (
     <Routes>
-      {isUserLogin && (
+      {!isUserLogin ? (
         <>
-          <Route path="/" element={<Main />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<Signin />} />
+          <Route
+            path="/"
+            element={
+              <PublicRoute restricted>
+                <Main />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <PublicRoute restricted>
+                <Signin />
+              </PublicRoute>
+            }
+          />
         </>
-      )}
-      {!isUserLogin && (
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="/categories" element={<Categories />} />
+      ) : (
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <SharedLayout />
+            </PrivateRoute>
+          }
+        >
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/categories" element={<Categories />}>
+            <Route path=":categoryName" element={<CategoriesByName />} />
+          </Route>
           <Route path="/add" element={<AddRecipe />} />
           <Route path="/my" element={<MyRecipes />} />
           <Route path="/favorite" element={<Favorites />} />

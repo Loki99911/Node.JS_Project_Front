@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const ButtonSkewStyle = styled.button`
+  font-family: ${p => p.theme.fonts.main};
+  font-weight: ${p => p.theme.fontWeights[0]};
+  line-height: ${p => p.theme.lineHeights.subheader};
+  font-size: 14px;
+
   color: ${({ styled, theme }) => {
     switch (styled) {
       case 'black':
@@ -16,7 +21,11 @@ export const ButtonSkewStyle = styled.button`
     }
   }};
 
-  padding: 20px 40px;
+  padding: ${p =>
+    p.location === 'favorite' || p.location === 'recipes'
+      ? '6px 14px'
+      : '16px 30px'};
+
   background-color: ${({ styled, theme }) => {
     switch (styled) {
       case 'black':
@@ -39,7 +48,7 @@ export const ButtonSkewStyle = styled.button`
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 30px;
 
-  width: 130px;
+  min-width: 130px;
   text-align: center;
 
   border: ${({ styled, theme }) => {
@@ -92,5 +101,22 @@ export const ButtonSkewStyle = styled.button`
         ? `1px solid ${theme.colors.mainAccent}`
         : '1px solid transparent';
     }};
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: ${p =>
+      p.location === 'favorite' || p.location === 'recipes'
+        ? '12px 32px'
+        : '16px 40px'};
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    line-height: ${p => p.theme.lineHeights.btnText};
+    padding: ${p =>
+      p.location === 'favorite' || p.location === 'recipes'
+        ? '18px 44px'
+        : '20px 40px'};
+    min-width: 160px;
   }
 `;
