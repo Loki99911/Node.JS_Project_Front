@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
-import { Link } from 'react-router-dom';
+import SVG from 'images/sprite.svg';
 
 import {
   BoxForInput,
@@ -10,6 +10,10 @@ import {
   FormButton,
   FormForAuth,
   TitleForForm,
+  LinkAuth,
+  BoxForForm,
+  SvgAuth,
+  ErrorMessage,
 } from '../FormRegister/style';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -29,7 +33,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 const FormLogin = props => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -40,12 +44,12 @@ const FormLogin = props => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-            dispatch(
-              logIn({
+          dispatch(
+            logIn({
               email: values.email,
               password: values.password.trim(),
-              })
-            );
+            })
+          );
           actions.setSubmitting(false);
           actions.resetForm();
         }}
@@ -53,32 +57,88 @@ const FormLogin = props => {
         {props => (
           <FormForAuth>
             <TitleForForm>Sign in</TitleForForm>
-
-            <BoxForInput>
-              <IconForInput></IconForInput>
-              <FlagForInput></FlagForInput>
-              <InputForAuth type="email" name="email" placeholder="Email" />
-              {props.errors.email && (
-                <div id="feedback">{props.errors.email}</div>
-              )}
-            </BoxForInput>
-            <BoxForInput>
-              <IconForInput></IconForInput>
-              <FlagForInput></FlagForInput>
-              <InputForAuth
-                type="text"
-                name="password"
-                placeholder="Password"
-              />
-              {props.errors.password && (
-                <div id="feedback">{props.errors.password}</div>
-              )}
-            </BoxForInput>
+            <BoxForForm>
+              <BoxForInput>
+                <IconForInput>
+                  <svg
+                    fill={
+                      props.values.email
+                        ? (props.errors.email && '#E74A3B') || '#3CBC81'
+                        : 'rgba(255, 255, 255, 0.8)'
+                    }
+                  >
+                    <use href={`${SVG}#email`}></use>
+                  </svg>
+                </IconForInput>
+                {props.values.email && (
+                  <FlagForInput>
+                    <svg>
+                      <use
+                        href={`${SVG}#${
+                          (props.errors.email && 'red') || 'green'
+                        }`}
+                      ></use>
+                    </svg>
+                  </FlagForInput>
+                )}
+                <InputForAuth
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  color={
+                    (props.errors.email && '#E74A3B') ||
+                    (props.values.email && '#3CBC81')
+                  }
+                />
+              </BoxForInput>
+              <BoxForInput>
+                <IconForInput>
+                  <SvgAuth
+                    color={
+                      props.values.password
+                        ? (props.errors.password && '#E74A3B') || '#3CBC81'
+                        : 'rgba(255, 255, 255, 0.8)'
+                    }
+                  >
+                    <use href={`${SVG}#password`}></use>
+                  </SvgAuth>
+                </IconForInput>
+                {props.values.password && (
+                  <FlagForInput>
+                    <svg>
+                      <use
+                        href={`${SVG}#${
+                          (props.errors.password && 'red') || 'green'
+                        }`}
+                      ></use>
+                    </svg>
+                  </FlagForInput>
+                )}
+                <InputForAuth
+                  type="text"
+                  name="password"
+                  placeholder="Password"
+                  color={
+                    props.values.password
+                      ? (props.errors.password && '#E74A3B') || '#3CBC81'
+                      : 'rgba(255, 255, 255, 0.8)'
+                  }
+                />
+                {props.values.password && (
+                  <ErrorMessage
+                    id="feedback"
+                    color={(props.errors.password && '#E74A3B') || '#3CBC81'}
+                  >
+                    {props.errors.password || 'Password is secure'}
+                  </ErrorMessage>
+                )}
+              </BoxForInput>
+            </BoxForForm>
             <FormButton type="submit">Login</FormButton>
           </FormForAuth>
         )}
       </Formik>
-      <Link to="/register">Registration</Link>
+      <LinkAuth to="/register">Registration</LinkAuth>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import bgrImage from '../../images/desktop/mainDes.png';
 
 export const BoxForMain = styled.div`
   width: 1440px;
+  margin: 0 auto;
   height: 100vh;
   display: flex;
   flex-direction: column;

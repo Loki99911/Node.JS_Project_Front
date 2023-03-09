@@ -3,6 +3,7 @@ import bgrImage from 'images/desktop/FormAuthDes.png'
 
 export const BoxForAuth = styled.div`
   width: 1440px;
+  margin: 0 auto;
   height: 100vh;
   display: flex;
   align-items: center;
