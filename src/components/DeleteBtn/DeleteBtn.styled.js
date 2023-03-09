@@ -8,11 +8,22 @@ export const DeleteBtnWrapper = styled.button`
   align-items: center;
   border: none;
   padding: 5px;
+  cursor: pointer;
   border-radius: ${p => p.theme.radii.btnIcon};
   background-color: ${p =>
     p.location === 'recipes'
       ? p.theme.colors.mainAccent
       : p.theme.colors.secondaryAccent};
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.btnHoverBg};
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: ${p => p.theme.colors.mainLight};
+  }
 
   @media screen and (min-width: 768px) {
     width: 38px;
