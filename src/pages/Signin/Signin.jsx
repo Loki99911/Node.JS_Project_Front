@@ -3,11 +3,9 @@ import FormLogin from 'components/FormLogin/FormLogin';
 
 const Signin = () => {
   return (
-    <>
-      <AuthPages>
-        <FormLogin />
-      </AuthPages>
-    </>
+    <AuthPages>
+      <FormLogin />
+    </AuthPages>
   );
 };
 

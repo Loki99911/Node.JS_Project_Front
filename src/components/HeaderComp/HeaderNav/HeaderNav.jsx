@@ -1,6 +1,5 @@
 import { Navi, StyledLink } from './HeaderNav.styled';
-// import sprite from '../../images/sprite.svg';
-import search from '../../images/svg-before sprite/search.svg';
+import search from '../../../images/svg-before sprite/search.svg';
 
 export const HeaderNav = () => {
   return (
@@ -21,11 +20,6 @@ export const HeaderNav = () => {
         Shopping list
       </StyledLink>
       <StyledLink to="/search">
-        {/* <svg width="24" height="24">
-          <use
-            xlinkHref={`${sprite}#icon-search`}
-          />
-        </svg> */}
         <img
           src={search}
           alt="search"
