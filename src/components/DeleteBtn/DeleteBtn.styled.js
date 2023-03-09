@@ -15,6 +15,16 @@ export const DeleteBtnWrapper = styled.button`
       ? p.theme.colors.mainAccent
       : p.theme.colors.secondaryAccent};
 
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.btnHoverBg};
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: ${p => p.theme.colors.mainLight};
+  }
+
   @media screen and (min-width: 768px) {
     width: 38px;
     height: 38px;
