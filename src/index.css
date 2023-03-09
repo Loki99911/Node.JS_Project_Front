@@ -6,8 +6,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 ul {
@@ -27,4 +26,17 @@ h5,
 p {
   margin: 0;
   padding: 0;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

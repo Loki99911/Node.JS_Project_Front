@@ -1,3 +1,8 @@
-export const Title = ({ title }) => {
-  return <h1>{title}</h1>;
+import {TitleConteiner} from './Title.styled'
+export const Title = ({ children }) => {
+  return (
+    <TitleConteiner>
+      <h2>{children}</h2>
+    </TitleConteiner>
+  );
 };
