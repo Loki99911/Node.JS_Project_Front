@@ -1,3 +1,10 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode } from 'swiper';
+import 'swiper/css';
+
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import { TextField } from '@mui/material';
 import { Counter } from 'components/Counter/Counter';
 import { SubTitle } from 'components/SubTitle/SubTitle';
@@ -25,10 +32,10 @@ import {
   PupularList,
   RecepieSection,
   RecipeWrap,
+  InputsWrapper,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
-import { InputsWrapper } from './addRecipe.styled';
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { Container } from 'components/Container/Container';
 
@@ -198,6 +205,17 @@ const AddRecipe = () => {
       </div>
     </PopularItem>
   ));
+  const swiperList = popular.map(({ id, title, text, img }) => (
+    <SwiperSlide key={id}>
+      <PopularItem>
+        <img src={img} alt={title} />
+        <div>
+          <p>{title}</p>
+          <p>{text}</p>
+        </div>
+      </PopularItem>
+    </SwiperSlide>
+  ));
 
   return (
     <Container>
@@ -295,7 +313,7 @@ const AddRecipe = () => {
             placeholder="Enter recipe"
             onChange={handleChange}
           ></textarea>
-          <ButtonSkew type="click" text="Add" fn={handleAdd} styled="black" />
+          <ButtonSkew type="submit" text="Add" fn={handleAdd} styled="black" />
         </RecepieSection>
       </RecipeWrap>
 
@@ -317,6 +335,21 @@ const AddRecipe = () => {
           <PupularList>{popularList}</PupularList>
         </div>
       </PopularSection>
+
+      <Swiper
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
+        centeredSlides={false}
+        slidesPerView={2}
+        spaceBetween={32}
+        freeMode={true}
+        modules={[FreeMode, Autoplay]}
+        style={{ padding: '20px 0' }}
+      >
+        {swiperList}
+      </Swiper>
     </Container>
   );
 };
