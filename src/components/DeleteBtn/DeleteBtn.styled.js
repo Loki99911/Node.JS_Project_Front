@@ -14,6 +14,7 @@ export const DeleteBtnWrapper = styled.button`
     p.location === 'recipes'
       ? p.theme.colors.mainAccent
       : p.theme.colors.secondaryAccent};
+  transition: ${p => p.theme.transitions.main};
 
   &:hover,
   &:focus {
