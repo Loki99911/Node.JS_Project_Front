@@ -138,7 +138,13 @@ const AddRecipe = () => {
   const handleFile = ({ currentTarget }) => {
     const { files } = currentTarget;
     const [file] = files;
-    if (!file.type.includes('image')) return;
+    if (!file?.type.includes('image')) {
+      setInputs(prev => ({
+        ...prev,
+        file: null,
+      }));
+      return;
+    }
     setInputs(prev => ({
       ...prev,
       file,
