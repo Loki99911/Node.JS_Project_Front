@@ -27,5 +27,11 @@ export const PaginationWrapper = styled.div`
 
   & .MuiPaginationItem-page.Mui-selected {
     background-color: ${p => p.theme.colors.secondaryAccent};
+
+    &:hover,
+    &:focus {
+      background-color: ${p => p.theme.colors.btnHoverBg};
+      color: ${p => p.theme.colors.mainLight};
+    }
   }
 `;
