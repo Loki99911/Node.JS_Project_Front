@@ -20,16 +20,16 @@ export const BoxForMain = styled.div`
 
   width: 100%;
   background-image: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.6) 58.58%,
-        rgba(0, 0, 0, 0.345172) 78.98%,
-        rgba(0, 0, 0, 0) 100%
-      ),
-      url(${bgrImageMob});
+      180deg,
+      rgba(0, 0, 0, 0.6) 58.58%,
+      rgba(0, 0, 0, 0.345172) 78.98%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(${bgrImageMob});
   @media screen and (min-width: 376px) and (max-width: 768px) {
     width: 375px;
   }
-  @media screen and (min-width: 769px) and  (max-width: 1440px) {
+  @media screen and (min-width: 769px) and (max-width: 1440px) {
     width: 768px;
     background-image: linear-gradient(
         180deg,
@@ -61,9 +61,9 @@ export const BoxForSVG = styled.div`
   background-color: ${theme.colors.mainAccent};
 
   @media screen and (min-width: 769px) {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 45px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 45px;
   }
 `;
 
@@ -87,19 +87,19 @@ export const TextMain = styled.p`
   text-align: center;
   letter-spacing: -0.02em;
 
-    @media screen and (min-width: 769px) {
-  font-size: 18px;
+  @media screen and (min-width: 769px) {
+    font-size: 18px;
     width: 425px;
   }
 `;
 
 export const BoxForLink = styled.div`
-gap:12px;
+  gap: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-      @media screen and (min-width: 769px) {
-  gap: 20px;
+  @media screen and (min-width: 769px) {
+    gap: 20px;
   }
 `;
 
@@ -111,7 +111,7 @@ export const LinkToRegister = styled(Link)`
   border-radius: 20px 60px;
   display: block;
   font-family: ${theme.fonts.main};
-  line-height: calc(24/16);
+  line-height: calc(24 / 16);
   border: 1px solid ${theme.colors.btnTextLight};
   transition: ${theme.transitions.main};
   &:hover {
@@ -119,8 +119,8 @@ export const LinkToRegister = styled(Link)`
     border: none;
   }
 
-        @media screen and (min-width: 769px) {
+  @media screen and (min-width: 769px) {
     padding: 22px 44px;
-  font-size: 16px;
+    font-size: 16px;
   }
 `;
