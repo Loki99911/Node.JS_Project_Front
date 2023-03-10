@@ -5,6 +5,7 @@ export const CardDishes = styled.div`
 width: 343px;
 height: 323px;
 border-radius: 8px;
+position: relative;
 `;
 
 
@@ -30,39 +31,37 @@ color: ${theme.colors.secondaryDark};
 padding: 16px;
 background-color: ${theme.colors.mainLight};
 position: absolute;
-bottom: 100px;
+margin: -84px 16px;
 border-radius: 8px;
-width: 45vw;
-margin: 0 18px;
+width: 275px;
 `
 
 export const BtnCategories = styled.a`
-
-width: 94px;
-height: 38px;
 border-radius: 6px;
 font-family: ${theme.fonts.main};
 font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 18px;
-display: flex;
-align-items: center;
-text-align: center;
 color: ${theme.colors.btnTextLight};
+padding: 10px 24px;
 margin-top: 24px;
 background-color: ${theme.colors.mainAccent};
 cursor: pointer;
-margin-left: auto;
-justify-content: center;
+float: right; 
 transition: ${theme.transitions.main};
-
 &:hover {
-    color: ${theme.colors.secondaryDark};
+    background-color: ${theme.colors.mainDark};
     }
 `
 
 export const CardWrapper = styled.div`
-margin: 0 16px 32px;
-position: relative;
+margin: 0 16px 94px;
+/*  */
+`
+
+export const CardImg = styled.img`
+height: 322px;
+width: 100%;
+
 `

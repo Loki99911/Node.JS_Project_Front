@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "utils/theme";
 
-export const ButtonOthCtg = styled.a`
+export const BtnOthCtg = styled.a`
 font-family: ${theme.fonts.main};
 font-style: normal;
 font-weight: 400;
@@ -14,7 +14,8 @@ padding: 14px 32px;
 border: ${theme.borders.btnHover};
 transition: ${theme.transitions.main};
 &:hover {
-    border: 2px solid ${theme.colors.mainAccent};
+    background-color: ${theme.colors.mainAccent};
+    color: ${theme.colors.btnTextLight};
 }
 @media (min-width: 768px) {
         padding: 20px 52px;

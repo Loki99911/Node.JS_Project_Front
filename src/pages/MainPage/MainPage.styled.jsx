@@ -8,6 +8,7 @@ export const MainPageH1 = styled.h1`
        
     margin: 132px 12px 0px 12px;
     color: ${theme.colors.btnHoverBg};
+    background-color: ${theme.colors.mainLight};
     font-family: ${theme.fonts.main};
     font-style: normal;
     font-weight: 400;
@@ -33,6 +34,11 @@ export const MainPageH1 = styled.h1`
     }
 `
 
+export const ColorWrap = styled.h1`
+        background-color: ${theme.colors.btnTextLight};
+
+`
+
 export const SpanGr = styled.h1`
         color: ${theme.colors.mainAccent};
         font-family: ${theme.fonts.main};
@@ -48,6 +54,7 @@ export const SpanGr = styled.h1`
 export const MainPageText = styled.p`      
     margin: 14px 40px 157px 40px;
     color: ${theme.colors.mainDark};
+    background-color: ${theme.colors.mainLight};
     font-family: ${theme.fonts.main};
     font-style: normal;
     font-weight: 400;

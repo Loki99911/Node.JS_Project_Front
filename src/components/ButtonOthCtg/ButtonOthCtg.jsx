@@ -1,10 +1,10 @@
-import { ButtonOthCtgWrap } from "./ButtonOthCtg.styled";
+import { BtnOthCtg, ButtonOthCtgWrap } from "./ButtonOthCtg.styled";
 
 
 export const ButtonOthCtg = () => {
   return ( 
     <ButtonOthCtgWrap>
-    <ButtonOthCtg href="/categories">Other categories</ButtonOthCtg>
+    <BtnOthCtg href="/categories">Other categories</BtnOthCtg>
     </ButtonOthCtgWrap>
   );
 };

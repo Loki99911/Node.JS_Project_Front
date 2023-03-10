@@ -32,8 +32,9 @@ export const SearchBlock = styled.div`
     }
 `
 export const SearhButton = styled.div`
-    width: 113px;
-    height: 52px;
+    /* width: 113px;
+    height: 52px; */
+    padding: 16px 32px;
     background-color: ${theme.colors.mainBlack};
     border-radius: 20px 40px;
      /* border: 1px solid ${theme.colors.mainBlack}; */
@@ -48,6 +49,7 @@ export const SearhButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     
     @media (min-width: 768px) {
         width: 161px;
@@ -66,9 +68,8 @@ export const SearhButton = styled.div`
 
 export const SearchIn = styled.form`
     padding-left: 8px;
-    margin: auto;
     display: flex;
-    background-color: transparent !important;
+    justify-content: flex-end;
 `
 
 export const SearchInput = styled.form`
