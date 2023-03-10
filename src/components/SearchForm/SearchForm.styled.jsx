@@ -28,6 +28,7 @@ export const SearchBlock = styled.div`
         height: 59px;
         font-size: 16px;
         line-height: 24px;
+        margin: 0 16px 195px;
     }
 
     @media (min-width: 1440px) {

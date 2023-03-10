@@ -18,7 +18,7 @@ export const MainPageH1 = styled.h1`
     letter-spacing: -0.005em;
 
     @media (min-width: 768px) {
-       
+       margin: 204px 12px 0px 12px;
         font-size: 72px;
         line-height: 72px;
     }
@@ -69,32 +69,47 @@ export const MainPageText = styled.p`
 
 
     @media (min-width: 768px) {
-        /* width: 369px;
-        height: 59px; */
+ margin: 24px 40px 32px 40px;
         font-size: 14px;
         line-height: 18px;
     }
 
     @media (min-width: 1440px) {
-        width: 510px;
-        height: 71px;
+        /* width: 510px;
+        height: 71px; */
         font-size: 16px;
         line-height: 24px;
     }
 `
 
 export const MainPageBg = styled.p`      
-  background-image: url(${bgrImageMob});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
+    background-image: url(${bgrImageMob});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: ${theme.colors.btnTextLight};
+    display: flex;
 
     @media (min-width: 768px) {
     background-image: url(${bgrImageTab});
+    
     }
 
     @media (min-width: 1440px) {
     background-image: url(${bgrImageDesk});    
+    }
+`
+export const MainPageDiv = styled.div`      
+    
+
+    @media (min-width: 768px) {
+    display: flex;
+    margin-right: 368px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    }
+
+    @media (min-width: 1440px) {
+      margin-right: 568px;
     }
 `

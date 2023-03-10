@@ -19,6 +19,9 @@ export const ChooseBlock = styled.div`
         letter-spacing: -0.24px;
         width: 261px;
         height: 100px;
+        position: absolute;
+        bottom: 140px;
+        right: 55px;
     }
 
     @media (min-width: 1440px) {
