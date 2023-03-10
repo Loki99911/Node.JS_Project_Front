@@ -19,7 +19,7 @@ export const SharedLayoutConteiner = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
+  position: relative;
   background-image: url(${bigMob1}), url(${smallMob1});
   background-repeat: no-repeat;
   background-size: 315px 487px, 179px 155px;
@@ -54,7 +54,7 @@ export const SharedLayoutConteiner = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    
+
     background-image: url(${bigDesk1}), url(${smallDesk1});
     background-repeat: no-repeat;
     background-size: 696px 1037px, 531px 391px;

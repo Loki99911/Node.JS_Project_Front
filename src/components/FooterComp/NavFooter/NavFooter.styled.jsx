@@ -8,8 +8,7 @@ export const Link = styled(NavLink)`
   line-height: 18px;
   letter-spacing: -0.02em;
   color: ${p => p.theme.colors.mainLight};
-
-  transition: color linear 250ms;
+  transition: ${p => p.theme.transitions.main};
 
   &.active {
     color: ${p => p.theme.colors.mainAccent};
