@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { theme } from 'utils/theme';
-import bgrImage from '../../images/mobile/mainpage1x_mob.png';
-
+import bgrImageMob from '../../images/mobile/mainpage1x_mob.png';
+import bgrImageTab from '../../images/tablet/mainpage1x_tab.png';
+import bgrImageDesk from '../../images/desktop/mainpage1x_desk.png';
 
 export const MainPageH1 = styled.h1`
        
@@ -34,7 +35,6 @@ export const MainPageH1 = styled.h1`
 
 export const SpanGr = styled.h1`
         color: ${theme.colors.mainAccent};
-        
         font-family: ${theme.fonts.main};
         font-style: normal;
         font-weight: 400;
@@ -73,18 +73,17 @@ export const MainPageText = styled.p`
 `
 
 export const MainPageBg = styled.p`      
-  background-image: 
-    url(${bgrImage});
+  background-image: url(${bgrImageMob});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
 
     @media (min-width: 768px) {
-        
+    background-image: url(${bgrImageTab});
     }
 
     @media (min-width: 1440px) {
-        
+    background-image: url(${bgrImageDesk});    
     }
 `
