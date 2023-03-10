@@ -198,9 +198,4 @@ export const UserTogglerWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
-
-  @media screen and (min-width: 768px) {
-    gap: 50px;
-  }
 `;

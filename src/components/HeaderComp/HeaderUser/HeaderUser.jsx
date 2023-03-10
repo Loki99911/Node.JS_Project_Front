@@ -1,9 +1,11 @@
+import userAvatar from '../../../images/default.jpg';
+import { HeaderUserWrapper } from './HeaderUser.styled';
 
-export const HeaderUser = () => {
+export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
   return (
-    <div>
-      <img src="" alt="User" />
-      <p>User NamE</p>
-    </div>
+    <HeaderUserWrapper>
+      <img src={avatarUrl} alt={name} />
+      <p>{name}</p>
+    </HeaderUserWrapper>
   );
 };

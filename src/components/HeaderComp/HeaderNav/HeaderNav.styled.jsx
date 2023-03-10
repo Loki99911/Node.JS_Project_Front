@@ -16,16 +16,27 @@ export const StyledLink = styled(NavLink)`
 
   &.active {
     color: ${p => p.theme.colors.mainAccent};
+    font-weight: ${p => p.theme.fontWeights[2]};
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: ${p => p.theme.colors.mainAccent};
+    font-weight: ${p => p.theme.fontWeights[2]};
   }
 
   &:hover svg,
   &:focus svg {
     stroke: ${p => p.theme.colors.mainAccent};
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+    line-height: ${p => p.theme.lineHeights.headerLinks};
   }
 
   & span {
@@ -63,5 +74,7 @@ export const Navi = styled.nav`
     flex-direction: row;
     gap: 30px;
     justify-content: space-between;
+    margin-left: 180px;
+    margin-right: 220px;
   }
 `;
