@@ -1,6 +1,13 @@
+import { SocialLinksConteiner } from 'components/FooterComp/SocialLinks/SocialLinks.styled';
 import styled from 'styled-components';
 
-export const RecipeWrap = styled.form`
+export const MainWrapper = styled.div`
+  display: ${({ isDesktop }) => (isDesktop ? 'flex' : 'unset')};
+  gap: 100px;
+  padding-bottom: 200px;
+`;
+
+export const RecipeForm = styled.form`
   width: 100%;
 `;
 
@@ -25,8 +32,8 @@ export const AddRecepiSection = styled.div`
   }
 
   label[id='labelFile'] {
-    width: 280px;
-    height: 270px;
+    width: ${({ isDesktop }) => (isDesktop ? '360px' : '280px')};
+    height: ${({ isDesktop }) => (isDesktop ? '345px' : '270px')};
     background-color: #8baa36;
     border-radius: 8px;
     display: flex;
@@ -85,6 +92,10 @@ export const InputsWithSelectWrapper = styled.div`
     top: 10%;
     right: 0;
   }
+
+  input {
+    caret-color: transparent;
+  }
 `;
 
 export const IngredientsSection = styled.div`
@@ -137,7 +148,12 @@ export const RecepieSection = styled.div`
 
 export const PopularSection = styled.div`
   margin-top: 72px;
-  max-width: 320px;
+  width: ${({ isDesktop }) => (isDesktop ? '320px' : '100%')};
+  padding-bottom: 100px;
+`;
+
+export const PopularRecipe = styled.div`
+  width: 100%;
 `;
 
 export const IngredientsItem = styled.li`
@@ -161,19 +177,41 @@ export const PopularItem = styled.li`
   display: flex;
   padding: 15px 0;
   border-bottom: 1px solid #707070;
-
-  p:nth-child(1) {
-    font-weight: 500;
-  }
-
-  img {
-    margin-right: 12px;
-  }
 `;
 
-export const Icon = styled.img`
-  width: 50px;
+export const RecipeTitle = styled.p`
+  font-weight: ${({ theme }) => theme.fontWeights[1]};
+  font-size: 16px;
+  line-height: ${({ theme }) => theme.lineHeights.description};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+`;
+
+export const RecipeText = styled.p`
+  margin-top: 3px;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* width: 200px; */
   height: 50px;
+  color: ${({ theme }) => theme.colors.mainGrey};
+  font-weight: ${({ theme }) => theme.fontWeights[0]};
+  font-size: 12px;
+  line-height: ${({ theme }) => theme.lineHeights.content};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+`;
+
+export const RecepiImg = styled.img`
+  border-radius: 8px;
+  height: 85px;
+  width: 100px;
+  margin-right: 12px;
 `;
 
 export const ButtonRemoveItem = styled.button`
@@ -181,4 +219,12 @@ export const ButtonRemoveItem = styled.button`
   align-items: center;
   justify-content: center;
   margin-left: 20px;
+`;
+
+export const SocialLinksWrapper = styled.div`
+  margin-bottom: 100px;
+
+  ${SocialLinksConteiner} {
+    justify-content: flex-start;
+  }
 `;
