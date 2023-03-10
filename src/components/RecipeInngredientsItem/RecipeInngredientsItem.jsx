@@ -9,7 +9,7 @@ const RecipeInngredientsItem = ({image, name, desription, weight, checked }) => 
       </ImageWrapper>
         <p>{name}</p>
         <Label>
-          <RealCheckbox type="checkbox" checked={true}/>
+          <RealCheckbox type="checkbox" checked={false}/>
           <CustomCheckbox>
           <svg>
             <use href={sprite + `#icon-pick`} />
