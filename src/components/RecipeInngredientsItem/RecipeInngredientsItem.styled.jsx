@@ -69,7 +69,6 @@ export const CustomCheckbox = styled.span`
     transform: translate(-50%, -50%) scale(0);
 
     @media screen and (min-width: 768px) {
-      border: 2px solid rgba(126, 126, 126, 0.5);
       width: 18px;
       height: 18px;
     }
@@ -79,6 +78,7 @@ export const CustomCheckbox = styled.span`
   }
 
   @media screen and (min-width: 768px) {
+    border: 2px solid rgba(126, 126, 126, 0.5);
     width: 35px;
     height: 35px;
     margin-left: 78px;
@@ -144,7 +144,7 @@ export const IngName = styled.title`
   font-weight: ${p => p.theme.fontWeights[1]};
   font-size: 12px;
   line-height: 1.17;
-  letter-spacing: ${p => p.theme.subheader.subheader};
+  letter-spacing: ${p => p.theme.letterSpacings.subheader};
   color: ${li => li.theme.colors.secondaryDark};
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -157,7 +157,7 @@ export const IngDescr = styled.p`
   font-weight: ${p => p.theme.fontWeights[0]};
   font-size: 8px;
   line-height: 1.38;
-  letter-spacing: ${p => p.theme.subheader.subheader};
+  letter-spacing: ${p => p.theme.letterSpacings.subheader};
   color: ${p => p.theme.colors.mainGrey};
 
   @media screen and (min-width: 768px) {
