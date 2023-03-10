@@ -184,6 +184,10 @@ export const RecipeTitle = styled.p`
   font-size: 16px;
   line-height: ${({ theme }) => theme.lineHeights.description};
   letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
 `;
 
 export const RecipeText = styled.p`

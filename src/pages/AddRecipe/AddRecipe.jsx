@@ -78,6 +78,9 @@ const AddRecipe = () => {
   const isDesktop = useMediaQuery({
     query: '(min-width: 1440px)',
   });
+  const isTablet = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
   const [inputs, setInputs] = useState({
     recipe: '',
     file: null,
@@ -318,23 +321,24 @@ const AddRecipe = () => {
           <SubTitle text="Popular recipe" />
 
           {/* <PupularList>{popularList}</PupularList> */}
+          {isTablet && (
+            <Swiper
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              centeredSlides={false}
+              slidesPerView={2}
+              spaceBetween={32}
+              freeMode={true}
+              modules={[FreeMode, Autoplay]}
+              style={{ padding: '20px 0' }}
+            >
+              {swiperList}
+            </Swiper>
+          )}
         </PopularRecipe>
       </PopularSection>
-
-      <Swiper
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        centeredSlides={false}
-        slidesPerView={2}
-        spaceBetween={32}
-        freeMode={true}
-        modules={[FreeMode, Autoplay]}
-        style={{ padding: '20px 0' }}
-      >
-        {swiperList}
-      </Swiper>
     </Container>
   );
 };
