@@ -1,18 +1,16 @@
-import { Title } from "components/Title/Title";
 import NoImage from '../../images/default.jpg';
-import { BtnCategories, CardTitle, CardWrapper, TitlePrew } from "./PreviewCategories.styled";
-import { Card } from "@mui/material";
+import { BtnCategories, CardDishes, CardTitle, CardWrapper, TitlePrew } from "./PreviewCategories.styled";
+
 
 export const PreviewCategories = () => {
   return ( 
     <CardWrapper>
     <TitlePrew>Breakfast</TitlePrew>
-   <Card> 
-  
-   <img src={NoImage} alt={"any"}/>
+   <CardDishes> 
+     <img src={NoImage} alt={"any"}/>
        <CardTitle>Banana Pancakes</CardTitle>
       
-      </Card>
+      </CardDishes>
 <BtnCategories>See all</BtnCategories>
 
     </CardWrapper>

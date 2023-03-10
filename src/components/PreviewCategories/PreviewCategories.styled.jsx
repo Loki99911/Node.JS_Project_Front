@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const Card = styled.div`
+export const CardDishes = styled.div`
 width: 343px;
 height: 323px;
 border-radius: 8px;
