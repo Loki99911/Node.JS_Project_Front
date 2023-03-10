@@ -8,20 +8,14 @@ import 'swiper/css/pagination';
 import { TextField } from '@mui/material';
 import { Counter } from 'components/Counter/Counter';
 import { SubTitle } from 'components/SubTitle/SubTitle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Select from 'react-select';
 import icons from '../../images/sprite.svg';
 
-import img1 from './img/1.jpg';
-import img2 from './img/2.jpg';
-import img3 from './img/3.jpg';
-import img4 from './img/4.jpg';
-import iconFile from './img/icon_file.svg';
 import {
   AddRecepiSection,
   ButtonRemoveItem,
-  Icon,
   IngredientsItem,
   IngredientsList,
   IngredientsSection,
@@ -29,42 +23,24 @@ import {
   InputsWithSelectWrapper,
   PopularItem,
   PopularSection,
-  PupularList,
   RecepieSection,
   RecipeWrap,
   InputsWrapper,
+  SocialLinksWrapper,
+  RecepiImg,
+  RecipeText,
+  PopularRecipe,
+  RecipeTitle,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { Container } from 'components/Container/Container';
+import { SocialLinks } from 'components/FooterComp/SocialLinks/SocialLinks';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPopular } from 'redux/outerRecipes/outerRecipesSelectors';
+import { getPopularRecipes } from 'redux/outerRecipes/outerRecipesOperations';
 
-const popular = [
-  {
-    id: nanoid(),
-    img: img1,
-    title: 'Banana Pancakes',
-    text: 'In a bowl, mash the banana with a fork until it resembles a thick purée...',
-  },
-  {
-    id: nanoid(),
-    img: img2,
-    title: 'Squash linguine',
-    text: 'Pasta is a type of food typically made from an unleavened dough of wheat flour...',
-  },
-  {
-    id: nanoid(),
-    img: img3,
-    title: 'Baked salmon',
-    text: 'Cook in boiling salted water for 10 mins...',
-  },
-  {
-    id: nanoid(),
-    img: img4,
-    title: 'Sugar Pie',
-    text: 'Sugar pie is a dessert in northern French and  Belgiancuisine, where it is called tarte...',
-  },
-];
 const optionsIngredients = [
   {
     value: 'chocolate',
@@ -115,6 +91,12 @@ const AddRecipe = () => {
   const [counter, setCounter] = useState(0);
   const [ingredients, setIngredients] = useState([]);
   const [path, setPath] = useState('');
+  const dispatch = useDispatch();
+  const popularRecepis = useSelector(getPopular);
+
+  useEffect(() => {
+    dispatch(getPopularRecipes());
+  }, [dispatch]);
 
   const handleDecrement = () => {
     if (counter <= 0) return;
@@ -196,27 +178,30 @@ const AddRecipe = () => {
       </IngredientsItem>
     );
   });
-
-  const popularList = popular.map(({ id, title, text, img }) => (
-    <PopularItem key={id}>
-      <img src={img} alt={title} />
-      <div>
-        <p>{title}</p>
-        <p>{text}</p>
-      </div>
-    </PopularItem>
-  ));
-  const swiperList = popular.map(({ id, title, text, img }) => (
-    <SwiperSlide key={id}>
-      <PopularItem>
-        <img src={img} alt={title} />
+  const popularList = popularRecepis.map(
+    ({ idMeal, strMealThumb, strInstructions, strMeal }) => (
+      <PopularItem key={idMeal}>
+        <RecepiImg src={strMealThumb} alt={strMeal} />
         <div>
-          <p>{title}</p>
-          <p>{text}</p>
+          <p>{strMeal}</p>
+          <RecipeText>{strInstructions}</RecipeText>
         </div>
       </PopularItem>
-    </SwiperSlide>
-  ));
+    )
+  );
+  const swiperList = popularRecepis.map(
+    ({ idMeal, strMealThumb, strInstructions, strMeal }) => (
+      <SwiperSlide key={idMeal}>
+        <PopularItem as="div">
+          <RecepiImg src={strMealThumb} alt={strMeal} />
+          <div>
+            <RecipeTitle>{strMeal}</RecipeTitle>
+            <RecipeText>{strInstructions}</RecipeText>
+          </div>
+        </PopularItem>
+      </SwiperSlide>
+    )
+  );
 
   return (
     <Container>
@@ -229,7 +214,9 @@ const AddRecipe = () => {
               {inputs.file?.name ? (
                 <img src={path} alt="user_picture" />
               ) : (
-                <Icon src={iconFile} alt="ico" />
+                <svg width="50" height="50">
+                  <use href={icons + '#icon-img'} alt="ico"></use>
+                </svg>
               )}
             </label>
             <input type="file" id="file" name="file" onChange={handleFile} />
@@ -265,6 +252,7 @@ const AddRecipe = () => {
                 name="category"
                 value={inputs.category}
                 readOnly
+                autoComplete="off"
               />
               <Select
                 options={optionsCategories}
@@ -284,6 +272,7 @@ const AddRecipe = () => {
                 name="time"
                 value={inputs.time}
                 readOnly
+                autoComplete="off"
               />
               <Select
                 options={optionsTime}
@@ -320,26 +309,21 @@ const AddRecipe = () => {
 
       <PopularSection>
         {isDesktop && (
-          <div>
+          <SocialLinksWrapper>
             <SubTitle text="Follow us" />
-            <div
-              style={{
-                width: '165px',
-                height: '50px',
-                backgroundColor: 'red',
-              }}
-            ></div>
-          </div>
+            <SocialLinks />
+          </SocialLinksWrapper>
         )}
-        <div>
+        <PopularRecipe>
           <SubTitle text="Popular recipe" />
-          <PupularList>{popularList}</PupularList>
-        </div>
+
+          {/* <PupularList>{popularList}</PupularList> */}
+        </PopularRecipe>
       </PopularSection>
 
       <Swiper
         autoplay={{
-          delay: 3500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         centeredSlides={false}

@@ -1,3 +1,4 @@
+import { SocialLinksConteiner } from 'components/FooterComp/SocialLinks/SocialLinks.styled';
 import styled from 'styled-components';
 
 export const RecipeWrap = styled.form`
@@ -85,6 +86,10 @@ export const InputsWithSelectWrapper = styled.div`
     top: 10%;
     right: 0;
   }
+
+  input {
+    caret-color: transparent;
+  }
 `;
 
 export const IngredientsSection = styled.div`
@@ -140,6 +145,8 @@ export const PopularSection = styled.div`
   max-width: 320px;
 `;
 
+export const PopularRecipe = styled.div``;
+
 export const IngredientsItem = styled.li`
   display: flex;
   align-items: center;
@@ -161,6 +168,7 @@ export const PopularItem = styled.li`
   display: flex;
   padding: 15px 0;
   border-bottom: 1px solid #707070;
+  width: 320px;
 
   p:nth-child(1) {
     font-weight: 500;
@@ -171,9 +179,34 @@ export const PopularItem = styled.li`
   }
 `;
 
-export const Icon = styled.img`
-  width: 50px;
+export const RecipeTitle = styled.p`
+  font-weight: ${({ theme }) => theme.fontWeights[1]};
+  font-size: 16px;
+  line-height: ${({ theme }) => theme.lineHeights.description};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+`;
+
+export const RecipeText = styled.p`
+  margin-top: 3px;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
   height: 50px;
+  color: ${({ theme }) => theme.colors.mainGrey};
+  font-weight: ${({ theme }) => theme.fontWeights[0]};
+  font-size: 12px;
+  line-height: ${({ theme }) => theme.lineHeights.content};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+`;
+
+export const RecepiImg = styled.img`
+  border-radius: 8px;
+  height: 85px;
+  width: 100px;
 `;
 
 export const ButtonRemoveItem = styled.button`
@@ -181,4 +214,12 @@ export const ButtonRemoveItem = styled.button`
   align-items: center;
   justify-content: center;
   margin-left: 20px;
+`;
+
+export const SocialLinksWrapper = styled.div`
+  margin-bottom: 100px;
+
+  ${SocialLinksConteiner} {
+    justify-content: flex-start;
+  }
 `;
