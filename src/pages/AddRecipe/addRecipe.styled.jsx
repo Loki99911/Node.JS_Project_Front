@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RecipeWrap = styled.div`
+export const RecipeWrap = styled.form`
   width: 100%;
 `;
 
