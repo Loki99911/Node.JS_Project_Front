@@ -1,11 +1,28 @@
-import { FooterConteiner, FooterBg, FooterSm } from './FooterComp.styled';
-import { Container } from 'components/Container/Container';
+import {
+  FooterConteiner,
+  FooterBg,
+  FooterSm,
+  Wrap,
+  WrapDesk,
+} from './FooterComp.styled';
+import { TextFooter } from './TextFooter/TextFooter';
+import { NavFooter } from './NavFooter/NavFooter';
+import { FormFooter } from './FormFooter/FormFooter';
+import { SocialLinks } from './SocialLinks/SocialLinks';
 
 export const FooterComp = () => {
   return (
     <FooterConteiner>
       <FooterBg>
-        <Container></Container>
+        <WrapDesk>
+          <Wrap>
+            <TextFooter />
+            <NavFooter />
+          </Wrap>
+          <FormFooter />
+        
+        </WrapDesk>
+          <SocialLinks />
       </FooterBg>
       <FooterSm>
         <p>
