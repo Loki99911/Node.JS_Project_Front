@@ -15,11 +15,17 @@ export const ChooseBlock = styled.div`
     @media (min-width: 768px) {
         font-size: 14px;
         padding: 12px;
+        line-height: 20px;
+        letter-spacing: -0.24px;
+        width: 261px;
+        height: 100px;
     }
 
     @media (min-width: 1440px) {
         line-height: 20px;
         padding: 16px;
+        width: 298px;
+        height: 114px;
     }
 `;
 
@@ -34,6 +40,7 @@ export const ChooseText = styled.p`
     color: ${theme.colors.secondaryDark};
         @media (min-width: 768px) {
         font-size: 14px;
+        line-height: 18px;
     }
 
     @media (min-width: 1440px) {
@@ -68,18 +75,21 @@ export const ChooseLink = styled.a`
     line-height: 12px;
     letter-spacing: ${theme.letterSpacings.content};
     color: ${theme.colors.secondaryDark};
-   justify-content: flex-end;
+    
     margin-top: 4px;
+
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     @media (min-width: 768px) {
         font-size: 14px;
+        margin-top: 30px;
     }
 
     @media (min-width: 1440px) {
         line-height: 20px;
-        margin-top: 7px;
+        margin-top: 35px;
     }
 `;
 
@@ -88,5 +98,8 @@ export const RightArrow = styled.svg`
     height: 18px;
     margin-left: 4px;
     display: flex;
+        &:hover{
+       transform: scale(1.2) ;
+    }
    `
 

@@ -31,14 +31,16 @@ transition: ${theme.transitions.main};
 `
 
 export const ButtonOthCtgWrap = styled.div`
-margin: 40px 74px 100px;
+margin: 40px 0px 100px;
+display: flex;
+justify-content: center;
 
 @media (min-width: 768px) {
-        margin: 40px 232px 100px;
+        margin: 40px 0px 100px;
         }
 
     @media (min-width: 1440px) {
-        margin: 14px 500px 118px;
+        margin: 14px 0px 118px;
     }
 
 

@@ -8,7 +8,6 @@ export const MainPageH1 = styled.h1`
        
     margin: 132px 12px 0px 12px;
     color: ${theme.colors.btnHoverBg};
-    background-color: ${theme.colors.mainLight};
     font-family: ${theme.fonts.main};
     font-style: normal;
     font-weight: 400;
@@ -18,19 +17,15 @@ export const MainPageH1 = styled.h1`
     text-align: center;
     letter-spacing: -0.005em;
 
-
     @media (min-width: 768px) {
-        width: 369px;
-        height: 59px;
-        font-size: 16px;
-        line-height: 24px;
+       
+        font-size: 72px;
+        line-height: 72px;
     }
 
     @media (min-width: 1440px) {
-        width: 510px;
-        height: 71px;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 100px;
+        line-height: 100px;
     }
 `
 
@@ -48,13 +43,22 @@ export const SpanGr = styled.h1`
         line-height: 60px;
         text-align: center;
         letter-spacing: -0.005em;
+        @media (min-width: 768px) {
+       
+        font-size: 72px;
+        line-height: 72px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 100px;
+        line-height: 100px;
+    }
 `
 
 
 export const MainPageText = styled.p`      
     margin: 14px 40px 157px 40px;
     color: ${theme.colors.mainDark};
-    background-color: ${theme.colors.mainLight};
     font-family: ${theme.fonts.main};
     font-style: normal;
     font-weight: 400;
@@ -65,10 +69,10 @@ export const MainPageText = styled.p`
 
 
     @media (min-width: 768px) {
-        width: 369px;
-        height: 59px;
-        font-size: 16px;
-        line-height: 24px;
+        /* width: 369px;
+        height: 59px; */
+        font-size: 14px;
+        line-height: 18px;
     }
 
     @media (min-width: 1440px) {
