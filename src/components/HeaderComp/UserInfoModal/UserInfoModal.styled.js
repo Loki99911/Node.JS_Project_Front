@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PlusIcon from '../../../images/plus.svg';
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -16,28 +17,121 @@ export const ModalOverlay = styled.div`
 export const ModalWindow = styled.div`
   position: relative;
   height: fit-content;
-  width: fit-content;
-  max-height: 70vh;
-  padding: 60px 16px;
-  background-color: ${p => p.theme.colors.mainLight};
+  width: 330px;
+  padding: 32px 24px 60px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  background-color: ${p => p.theme.colors.btnTextLight};
+  border-radius: ${p => p.theme.radii.modal};
   opacity: 1;
   z-index: 20000;
   overflow-y: scroll;
-
   overflow-x: hidden;
 
-  ::-webkit-scrollbar {
-    width: 7px;
+  @media screen and (min-width: 768px) {
+    padding: 50px 40px 62px 40px;
+    width: 480px;
   }
-  ::-webkit-scrollbar-thumb {
+
+  @media screen and (min-width: 1440px) {
+    padding: 60px 50px 80px 50px;
+    width: 500px;
+  }
+`;
+
+export const UserEditForm = styled.form`
+  input[type='file'] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    padding: 0;
+  }
+
+  & img {
+    width: 88px;
+    height: 88px;
+    border-radius: ${p => p.theme.radii.circle};
+
+    @media screen and (min-width: 768px) {
+      width: 103px;
+      height: 103px;
+    }
+  }
+`;
+
+export const UserSvgWrapper = styled.div`
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: ${p => p.theme.radii.circle};
+  background-color: ${p => p.theme.colors.mainGreyBg};
+
+  & svg {
+    width: 40px;
+    height: 40px;
+    stroke: ${p => p.theme.colors.secondaryGreyBg};
+  }
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -5%;
+    transform: translateX(-50%);
+    content: url(${PlusIcon});
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     background-color: ${p => p.theme.colors.mainAccent};
-    border-radius: 2px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: ${p => p.theme.colors.mainDark};
+    border-radius: ${p => p.theme.radii.circle};
   }
 
   @media screen and (min-width: 768px) {
-    /* padding: 60px; */
+    width: 103px;
+    height: 103px;
+
+    & svg {
+      width: 47px;
+      height: 47px;
+    }
+  }
+`;
+
+export const UserAvatarWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 56px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 49px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 52px;
+  }
+`;
+
+export const InputsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media screen and (min-width: 768px) {
+    gap: 33px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 32px;
   }
 `;
