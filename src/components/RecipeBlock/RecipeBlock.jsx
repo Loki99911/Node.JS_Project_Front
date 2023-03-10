@@ -1,7 +1,7 @@
 import { DeleteBtn } from 'components/DeleteBtn/DeleteBtn';
 import { SubTitle } from 'components/SubTitle/SubTitle';
 import { useMediaQuery } from 'hooks/useMedia';
-import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
+
 import {
   DataWrapper,
   DescrWrapper,
@@ -11,12 +11,11 @@ import {
   TimeWrapper,
   TitleWrapper,
 } from './RecipeBlock.styled';
+import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 
 export const RecipeBlock = ({ location, id, text, title, img, time }) => {
   const isRowBased = useMediaQuery('(min-width: 768px)');
-  const handleRecipeBtnClick = () => {
-    console.log(id);
-  };
+
   return (
     <RecipeBlockWrapper key={id} location={location}>
       <ImageWrapper location={location}>
@@ -34,11 +33,10 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
         <TimeWrapper>
           <Time>{time}</Time>
           {!isRowBased && location === 'recipes' && (
-            <ButtonSkew
+            <NavLinkSkew
+              navigate={`/recipe/:${id}`}
               location={location}
-              type="button"
               text="See recipe"
-              fn={handleRecipeBtnClick}
               styled="olive"
             />
           )}
@@ -46,11 +44,10 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
             <DeleteBtn location={location} />
           )}
           {isRowBased && (
-            <ButtonSkew
+            <NavLinkSkew
+              navigate={`/recipe/:${id}`}
               location={location}
-              type="button"
               text="See recipe"
-              fn={handleRecipeBtnClick}
               styled={location === 'favorite' ? 'black' : 'olive'}
             />
           )}

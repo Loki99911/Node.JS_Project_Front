@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
-import bigMob1 from '../../images/bg_big_mobile_1x.png';
-import bigMob2 from '../../images/bg_big_mobile_2x.png';
-import smallMob1 from '../../images/bg_small_mob_1x.png';
-import smallMob2 from '../../images/bg_small_mob_2x.png';
-import bigTab1 from '../../images/bg_big_tablet_1x.png';
-import bigTab2 from '../../images/bg_big_tablet_2x.png';
-import smallTab1 from '../../images/bg_small_tablet_1x.png';
-import smallTab2 from '../../images/bg_small_tablet_2x.png';
-import bigDesk1 from '../../images/bg_big_desktop_1x.png';
-import bigDesk2 from '../../images/bg_big_desktop_2x.png';
-import smallDesk1 from '../../images/bg_small_desktop_1x.png';
-import smallDesk2 from '../../images/bg_small_desktop_2x.png';
+import bigMob1 from '../../images/bg/bg_big_mobile_1x.png';
+import bigMob2 from '../../images/bg/bg_big_mobile_2x.png';
+import smallMob1 from '../../images/bg/bg_small_mob_1x.png';
+import smallMob2 from '../../images/bg/bg_small_mob_2x.png';
+import bigTab1 from '../../images/bg/bg_big_tablet_1x.png';
+import bigTab2 from '../../images/bg/bg_big_tablet_2x.png';
+import smallTab1 from '../../images/bg/bg_small_tablet_1x.png';
+import smallTab2 from '../../images/bg/bg_small_tablet_2x.png';
+import bigDesk1 from '../../images/bg/bg_big_desktop_1x.png';
+import bigDesk2 from '../../images/bg/bg_big_desktop_2x.png';
+import smallDesk1 from '../../images/bg/bg_small_desktop_1x.png';
+import smallDesk2 from '../../images/bg/bg_small_desktop_2x.png';
 
 export const SharedLayoutConteiner = styled.div`
   margin: 0 auto;
