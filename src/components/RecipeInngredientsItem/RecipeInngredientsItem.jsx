@@ -1,5 +1,5 @@
-import { RecipeItem, ImageWrapper, Label } from "./RecipeInngredientsItem.styled";
-
+import { RecipeItem, ImageWrapper, Label, RealCheckbox, CustomCheckbox } from "./RecipeInngredientsItem.styled";
+import sprite from '../../images/sprite.svg';
 const RecipeInngredientsItem = ({image, name, desription, weight, checked }) => {
   return (
     <>
@@ -9,7 +9,12 @@ const RecipeInngredientsItem = ({image, name, desription, weight, checked }) => 
       </ImageWrapper>
         <p>{name}</p>
         <Label>
-          <input type="checkbox" />
+          <RealCheckbox type="checkbox" checked={true}/>
+          <CustomCheckbox>
+          <svg>
+            <use href={sprite + `#icon-pick`} />
+          </svg>      
+          </CustomCheckbox>      
         </Label>
       </RecipeItem>
     </>

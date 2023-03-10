@@ -54,4 +54,32 @@ export const ImageWrapper = styled.div`
 
 export const Label = styled.label`
     margin-left: auto;
+    
+`
+
+
+export const CustomCheckbox = styled.span`
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: 1px solid rgba(126, 126, 126, 0.5);
+  border-radius: 4px;
+      & svg {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    fill: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+`
+
+export const RealCheckbox = styled.input`
+  &:checked + svg {
+    transform: translate(-50%, -50%) scale(1);
+  }
 `
