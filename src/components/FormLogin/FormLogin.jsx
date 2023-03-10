@@ -74,9 +74,7 @@ const FormLogin = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}#${
-                          (props.errors.email && 'red') || 'green'
-                        }`}
+                        href={`${SVG}${getColor(props.errors.email, props.values.email)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -100,15 +98,13 @@ const FormLogin = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}#${
-                          (props.errors.password && 'red') || 'green'
-                        }`}
+                        href={`${SVG}${getColor(props.errors.password, props.values.password)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
                 )}
                 <InputForAuth
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
