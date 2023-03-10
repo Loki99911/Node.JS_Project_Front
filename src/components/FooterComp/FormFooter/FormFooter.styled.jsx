@@ -7,25 +7,24 @@ export const FooterForma = styled.form`
   gap: 8px;
   flex-direction: column;
   width: 204px;
-  height: 84px;
 
   .icon {
     position: absolute;
     top: 13px;
     left: 14px;
-    stroke: ${p => p.theme.colors.mainLight};
+    width: 16px;
+    height: 12px;
+    fill: ${({ color }) => color};
 
     @media screen and (min-width: 768px) {
       width: 20px;
       height: 16px;
-      top: 17px;
+      top: 16px;
       left: 120px;
     }
 
     @media screen and (min-width: 1440px) {
-      width: 20px;
-      height: 16px;
-      top: 128px;
+      top: 126px;
       left: 20px;
     }
   }
@@ -48,19 +47,23 @@ export const FooterForma = styled.form`
 `;
 
 export const FooterFormaBtn = styled.button`
+  width: 204px;
+  height: 38px;
   background-color: ${p => p.theme.colors.mainAccent};
-  height: 84px;
   color: ${p => p.theme.colors.btnTextLight};
   border-radius: 6px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+  cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
 
   @media screen and (min-width: 768px) {
     width: 171px;
     height: 50px;
   }
+
   @media screen and (min-width: 1440px) {
     margin-top: 16px;
     width: 100%;
@@ -69,41 +72,70 @@ export const FooterFormaBtn = styled.button`
     line-height: 18px;
   }
 
-  :hover {
+  :hover,
+  :focus {
     color: ${p => p.theme.colors.btnHoverBg};
   }
 `;
 
+export const FlagForInput = styled.div`
+  position: absolute;
+  top: 11px;
+  right: 12px;
+
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  @media screen and (min-width: 768px) {
+    top: 15px;
+    right: 302px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 126px;
+    right: 12px;
+  }
+`;
+
 export const FooterFormaInput = styled.input`
-  height: 84px;
+  width: 204px;
+  height: 38px;
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;
   letter-spacing: -0.02em;
-
   color: ${p => p.theme.colors.mainLight};
   background-color: transparent;
   border-radius: 6px;
   padding-left: 42px;
-  border: 1px solid #45474b;
+  border: 1px solid ${({ borderColor }) => borderColor};
   outline: transparent;
+  transition: ${p => p.theme.transitions.main};
 
   @media screen and (min-width: 768px) {
-    width: 204px;
-    height: 46px;
+    width: 259px;
+    height: 50px;
     padding-left: 51px;
     font-size: 14px;
     line-height: 21px;
   }
+
   @media screen and (min-width: 1440px) {
-    width: 285px;
+    width: 338px;
     padding-left: 51px;
-    height: 57px;
+    height: 59px;
   }
 
   :hover,
   :focus {
-    border: 1px solid ${p => p.theme.colors.mainLight};
+    border: 1px solid ${({ color }) => color};
+    &::placeholder {
+      opacity: 1;
+    }
   }
 
   ::placeholder {
@@ -112,6 +144,7 @@ export const FooterFormaInput = styled.input`
     line-height: 15px;
     letter-spacing: -0.02em;
     color: ${p => p.theme.colors.mainLight};
+    opacity: 0.8;
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -122,10 +155,15 @@ export const FooterFormaInput = styled.input`
   :-webkit-autofill {
     transition: background-color 250s linear, color 250s linear;
   }
+
+  &:hover ~ svg.icon use {
+    opacity: 1;
+  }
 `;
 
 export const FooterFormaText = styled.div`
   margin-bottom: 28px;
+  
   h4 {
     font-style: normal;
     font-weight: 700;
