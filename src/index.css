@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  position: relative;
   background-color: #ececec;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
@@ -43,4 +44,3 @@ img {
   height: auto;
   display: block;
 }
-
