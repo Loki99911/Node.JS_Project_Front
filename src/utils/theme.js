@@ -31,6 +31,8 @@ export const theme = {
     btnText: '1.12',
     description: '1.25',
     time: '1.43',
+    headerLinks: '1.6',
+    userLink: '1.7',
   },
   letterSpacings: {
     subheader: '-0.24px',

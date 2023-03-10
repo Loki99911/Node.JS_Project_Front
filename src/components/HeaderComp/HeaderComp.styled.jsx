@@ -48,6 +48,9 @@ export const NavLinkStyled = styled(NavLink)`
 `;
 
 export const BurgerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
   & svg {
     width: 28px;
     height: 28px;
@@ -192,15 +195,4 @@ export const CloseBtn = styled.button`
 
 export const MobileMenuThemeTogglerWrapper = styled.div`
   display: flex;
-`;
-
-export const UserTogglerWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-
-  @media screen and (min-width: 768px) {
-    gap: 50px;
-  }
 `;
