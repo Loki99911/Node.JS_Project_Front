@@ -1,10 +1,19 @@
-import RecipeInngredientsItem from "components/RecipeInngredientsItem/RecipeInngredientsItem";
+import RecipeInngredientsItem from 'components/RecipeInngredientsItem/RecipeInngredientsItem';
+import { InngredientsWrapper } from './RecipeInngredientsList.styled';
 
-const RecipeInngredientsList = ({ingredients}) => {
+const RecipeInngredientsList = ({ ingredients }) => {
   return (
-    <ul>
-      {ingredients.map(inngredient => <RecipeInngredientsItem/>)}
-    </ul>
+    <InngredientsWrapper>
+      {ingredients.map(inngredient => (
+        <RecipeInngredientsItem
+          image={inngredient.image}
+          name={inngredient.name}
+          key={inngredient.id}
+          weight={inngredient.weight}
+          description={inngredient.descr}
+        />
+      ))}
+    </InngredientsWrapper>
   );
 };
 
