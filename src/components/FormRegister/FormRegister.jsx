@@ -35,12 +35,12 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(4, 'Your password is short')
     .max(25, 'Enter a valid Password*')
-    .matches(/[A-Z]/, 'Your password is little secure')
+    .matches(/[A-Z]/, 'Your password is little secure. Add uppercase letter!')
     .required('Enter a valid Password*'),
 });
 
   export const getColor = (errors, values) => {
-    if (errors === 'Your password is little secure') {
+    if (errors === 'Your password is little secure. Add uppercase letter!') {
       return '#F6C23E'
     }
     return values ? (errors && '#E74A3B') || '#3CBC81' : 'rgba(255, 255, 255, 0.8)';
@@ -86,9 +86,7 @@ const FormRegister = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}#${
-                          (props.errors.name && 'red') || 'green'
-                        }`}
+                        href={`${SVG}${getColor(props.errors.name, props.values.name)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -112,9 +110,7 @@ const FormRegister = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}#${
-                          (props.errors.email && 'red') || 'green'
-                        }`}
+                        href={`${SVG}${getColor(props.errors.email, props.values.email)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -138,19 +134,13 @@ const FormRegister = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}#${
-                          (props.errors.password ===
-                            'Your password is little secure' &&
-                            'orange') ||
-                          (props.errors.password && 'red') ||
-                          'green'
-                        }`}
+                        href={`${SVG}${getColor(props.errors.password, props.values.password)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
                 )}
                 <InputForAuth
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
