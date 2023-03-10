@@ -13,7 +13,7 @@ const recipeArray = [
     name: 'Morkwa',
     weight: '300 g',
     descr:
-      'A lime is a citrus fruit, which is typically round, green in color, 3-6 centimetres in diametr and contains acidic juice ',
+      'A lime is  a citrus fruit, which is typically round,  green in color, 3–6 centimetres in diametr and contains acidic juice vesicles.',
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const recipeArray = [
     name: 'Cebula',
     weight: '4 tbs',
     descr:
-      'The avocado is a medium-sized, evergreen tree in the laurel family. It is native to the Americans and was first domesticated',
+      'The avocado is a medium-sized, evergreen tree in the laurel family. It is native to the Americas and was first domesticated by Mesoamerican tribes more than 5,000 years ago.',
   },
 ];
 

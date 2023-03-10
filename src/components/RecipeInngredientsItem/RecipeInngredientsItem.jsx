@@ -7,13 +7,14 @@ import {
   IngNumber,
   TextContainer,
   IngName,
+  IngDescr,
 } from './RecipeInngredientsItem.styled';
 import sprite from '../../images/sprite.svg';
 
 const RecipeInngredientsItem = ({
   image,
   name,
-  desription,
+  description,
   weight,
   checked,
 }) => {
@@ -26,6 +27,7 @@ const RecipeInngredientsItem = ({
           </ImageWrapper>
           <TextContainer>
             <IngName>{name}</IngName>
+            <IngDescr>{description}</IngDescr>
           </TextContainer>
           <IngNumber>{weight}</IngNumber>
           <RealCheckbox type="checkbox" />

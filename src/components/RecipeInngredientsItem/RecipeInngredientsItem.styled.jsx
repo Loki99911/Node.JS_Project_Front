@@ -125,6 +125,21 @@ export const IngNumber = styled.p`
 export const TextContainer = styled.div`
   width: 114px;
   height: 54px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+  @media screen and (min-width: 768px) {
+    width: 208px;
+    height: 114px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 547px;
+    height: 104px;
+  }
 `;
 
 export const IngName = styled.title`
@@ -136,5 +151,24 @@ export const IngName = styled.title`
   letter-spacing: -0.24px;
   color: #3e4462;
   @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+`;
+
+export const IngDescr = styled.p`
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.38;
+  letter-spacing: -0.24px;
+  color: #7e7e7e;
+
+  @media screen and (min-width: 768px) {
+    overflow-y: clip;
+    font-size: 24px;
+    line-height: 1;
+    font-size: 12px;
+    line-height: 1.67;
   }
 `;

@@ -10,6 +10,7 @@ const RecipeInngredientsList = ({ ingredients }) => {
           name={inngredient.name}
           key={inngredient.id}
           weight={inngredient.weight}
+          description={inngredient.descr}
         />
       ))}
     </InngredientsWrapper>
