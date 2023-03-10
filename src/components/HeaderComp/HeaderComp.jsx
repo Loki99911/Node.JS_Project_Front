@@ -40,6 +40,7 @@ export const HeaderComp = () => {
               </LogoWrapper>
               <HeaderNav />
               <HeaderUser />
+              <ThemeToggler />
             </HeaderWrapper>
           </Container>
         </Header>

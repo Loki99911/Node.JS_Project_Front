@@ -32,20 +32,6 @@ export const Label = styled.label`
   box-shadow: inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);
   border-radius: ${props => props.theme.radii.switch};
   cursor: pointer;
-
-  /* & svg {
-    width: 16px;
-    height: 16px;
-    fill: ${p => p.theme.colors.PrimaryBlack};
-  }
-
-  & svg:first-of-type {
-    margin-left: 3px;
-  }
-
-  & svg:last-of-type {
-    margin-right: 3px;
-  } */
 `;
 
 export const Ball = styled.span`
