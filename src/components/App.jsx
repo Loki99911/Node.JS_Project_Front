@@ -8,13 +8,14 @@ import Register from 'pages/Register/Register';
 import SearchIngredients from 'pages/SearchIngredients/SearchIngredients';
 import ShopingList from 'pages/ShoppingList/ShoppingList';
 import Signin from 'pages/Signin/Signin';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { PrivateRoute, PublicRoute } from 'service/routes';
 import { getIsLoggedIn } from '../redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import CategoriesByName from 'pages/CategoriesByName/CategoriesByName';
 import MainPage from 'pages/MainPage/MainPage';
+import Error from 'pages/Error/Error';
 
 export const App = () => {
   const isUserLogin = useSelector(getIsLoggedIn);
@@ -47,6 +48,7 @@ export const App = () => {
               </PublicRoute>
             }
           />
+          <Route path="*" element={<Error />} />
         </>
       ) : (
         <Route
@@ -67,9 +69,10 @@ export const App = () => {
           <Route path="/shopping-list" element={<ShopingList />} />
           <Route path="/search" element={<SearchIngredients />} />
           <Route path="/recipe/:recipeId" element={<Recipe />} />
+          <Route path="*" element={<Error />} />
         </Route>
       )}
-      <Route path="*" element={<Navigate to="/" />} />
+      {/* <Route path="*" element={<Navigate to='/' />} /> */}
     </Routes>
   );
 };
