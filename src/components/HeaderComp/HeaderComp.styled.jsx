@@ -132,6 +132,7 @@ export const MobileMenuWrapper = styled.div`
   padding: 18px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: space-between;
   background-color: ${p => p.theme.colors.secondaryAccent};
   background-image: url(${BgMobile1x});
@@ -176,4 +177,8 @@ export const CloseBtn = styled.button`
     height: 32px;
     stroke: ${p => p.theme.colors.mainDark};
   }
+`;
+
+export const MobileMenuThemeTogglerWrapper = styled.div`
+  display: flex;
 `;

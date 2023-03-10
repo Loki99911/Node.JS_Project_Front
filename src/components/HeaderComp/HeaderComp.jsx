@@ -6,6 +6,7 @@ import {
   HeaderWrapper,
   LogoWrapper,
   MobileMenuHeaderContainer,
+  MobileMenuThemeTogglerWrapper,
   MobileMenuWrapper,
   NavLinkStyled,
 } from './HeaderComp.styled';
@@ -16,6 +17,7 @@ import { Container } from 'components/Container/Container';
 import { useMediaQuery } from 'hooks/useMedia';
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
+import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 
 export const HeaderComp = () => {
   const isRowBased = useMediaQuery('(min-width: 1440px)');
@@ -75,6 +77,10 @@ export const HeaderComp = () => {
                   </svg>
                 </CloseBtn>
               </MobileMenuHeaderContainer>
+              <HeaderNav />
+              <MobileMenuThemeTogglerWrapper>
+                <ThemeToggler />
+              </MobileMenuThemeTogglerWrapper>
             </MobileMenuWrapper>
           )}
         </>
