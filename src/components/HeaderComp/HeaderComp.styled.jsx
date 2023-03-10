@@ -7,7 +7,7 @@ import BgTablet1x from '../../images/bg/mobile-menu-bg-tab-1x-min.png';
 import BgTablet2x from '../../images/bg/mobile-menu-bg-tab-2x-min.png';
 
 export const Header = styled.header`
-  /* position: absolute; */
+  position: absolute;
 `;
 
 export const HeaderWrapper = styled.div`
