@@ -31,6 +31,7 @@ import {
   RecipeText,
   PopularRecipe,
   RecipeTitle,
+  MainWrapper,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
@@ -205,136 +206,142 @@ const AddRecipe = () => {
   return (
     <Container>
       <Title>Add recipe</Title>
-
-      <RecipeWrap>
-        <AddRecepiSection>
-          <div>
-            <label htmlFor="file" id="labelFile">
-              {inputs.file?.name ? (
-                <img src={path} alt="user_picture" />
-              ) : (
-                <svg width="50" height="50">
-                  <use href={icons + '#icon-img'} alt="ico"></use>
-                </svg>
-              )}
-            </label>
-            <input type="file" id="file" name="file" onChange={handleFile} />
-          </div>
-          <InputsWrapper>
-            <TextField
-              hiddenLabel
-              fullWidth
-              size="normal"
-              variant="standard"
-              placeholder="Enter item title"
-              name="title"
-              value={inputs.title}
-              onChange={handleChange}
-            />
-            <TextField
-              hiddenLabel
-              fullWidth
-              size="normal"
-              variant="standard"
-              placeholder="Enter about recipe"
-              name="about"
-              value={inputs.about}
-              onChange={handleChange}
-            />
-            <InputsWithSelectWrapper>
+      <MainWrapper isDesktop={isDesktop}>
+        <RecipeWrap>
+          <AddRecepiSection isDesktop={isDesktop}>
+            <div>
+              <label htmlFor="file" id="labelFile">
+                {inputs.file?.name ? (
+                  <img src={path} alt="user_picture" />
+                ) : (
+                  <svg width="50" height="50">
+                    <use href={icons + '#icon-img'} alt="ico"></use>
+                  </svg>
+                )}
+              </label>
+              <input type="file" id="file" name="file" onChange={handleFile} />
+            </div>
+            <InputsWrapper>
               <TextField
                 hiddenLabel
                 fullWidth
                 size="normal"
                 variant="standard"
-                placeholder="Category"
-                name="category"
-                value={inputs.category}
-                readOnly
-                autoComplete="off"
+                placeholder="Enter item title"
+                name="title"
+                value={inputs.title}
+                onChange={handleChange}
               />
-              <Select
-                options={optionsCategories}
-                defaultValue={optionsCategories[2]}
-                placeholder=" "
-                onChange={handleSelect}
-                name="category"
-              />
-            </InputsWithSelectWrapper>
-            <InputsWithSelectWrapper>
               <TextField
                 hiddenLabel
                 fullWidth
                 size="normal"
                 variant="standard"
-                placeholder="Time"
-                name="time"
-                value={inputs.time}
-                readOnly
-                autoComplete="off"
+                placeholder="Enter about recipe"
+                name="about"
+                value={inputs.about}
+                onChange={handleChange}
               />
-              <Select
-                options={optionsTime}
-                defaultValue={optionsTime[2]}
-                placeholder=" "
-                onChange={handleSelect}
-                name="time"
+              <InputsWithSelectWrapper>
+                <TextField
+                  hiddenLabel
+                  fullWidth
+                  size="normal"
+                  variant="standard"
+                  placeholder="Category"
+                  name="category"
+                  value={inputs.category}
+                  readOnly
+                  autoComplete="off"
+                />
+                <Select
+                  options={optionsCategories}
+                  defaultValue={optionsCategories[2]}
+                  placeholder=" "
+                  onChange={handleSelect}
+                  name="category"
+                />
+              </InputsWithSelectWrapper>
+              <InputsWithSelectWrapper>
+                <TextField
+                  hiddenLabel
+                  fullWidth
+                  size="normal"
+                  variant="standard"
+                  placeholder="Time"
+                  name="time"
+                  value={inputs.time}
+                  readOnly
+                  autoComplete="off"
+                />
+                <Select
+                  options={optionsTime}
+                  defaultValue={optionsTime[2]}
+                  placeholder=" "
+                  onChange={handleSelect}
+                  name="time"
+                />
+              </InputsWithSelectWrapper>
+            </InputsWrapper>
+          </AddRecepiSection>
+          <IngredientsSection>
+            <IngredientsTitle>
+              <SubTitle text="Ingredients" />
+              <Counter
+                counter={counter}
+                handleDecrement={handleDecrement}
+                handleIncrement={handleIncrement}
               />
-            </InputsWithSelectWrapper>
-          </InputsWrapper>
-        </AddRecepiSection>
-        <IngredientsSection>
-          <IngredientsTitle>
-            <SubTitle text="Ingredients" />
-            <Counter
-              counter={counter}
-              handleDecrement={handleDecrement}
-              handleIncrement={handleIncrement}
+            </IngredientsTitle>
+            <IngredientsList>{ingredientsList}</IngredientsList>
+          </IngredientsSection>
+          <RecepieSection>
+            <SubTitle text="Recipe Preparation" />
+            <textarea
+              name="recipe"
+              value={inputs.recipe}
+              placeholder="Enter recipe"
+              onChange={handleChange}
+            ></textarea>
+            <ButtonSkew
+              type="submit"
+              text="Add"
+              fn={handleAdd}
+              styled="black"
             />
-          </IngredientsTitle>
-          <IngredientsList>{ingredientsList}</IngredientsList>
-        </IngredientsSection>
-        <RecepieSection>
-          <SubTitle text="Recipe Preparation" />
-          <textarea
-            name="recipe"
-            value={inputs.recipe}
-            placeholder="Enter recipe"
-            onChange={handleChange}
-          ></textarea>
-          <ButtonSkew type="submit" text="Add" fn={handleAdd} styled="black" />
-        </RecepieSection>
-      </RecipeWrap>
+          </RecepieSection>
+        </RecipeWrap>
 
-      <PopularSection>
-        {isDesktop && (
-          <SocialLinksWrapper>
-            <SubTitle text="Follow us" />
-            <SocialLinks />
-          </SocialLinksWrapper>
-        )}
-        <PopularRecipe>
-          <SubTitle text="Popular recipe" />
-
-          {/* <PupularList>{popularList}</PupularList> */}
-          {isTablet && (
-            <Swiper
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              centeredSlides={false}
-              slidesPerView={2}
-              spaceBetween={32}
-              freeMode={true}
-              modules={[FreeMode, Autoplay]}
-              style={{ padding: '20px 0' }}
-            >
-              {swiperList}
-            </Swiper>
+        <PopularSection>
+          {isDesktop && (
+            <SocialLinksWrapper>
+              <SubTitle text="Follow us" />
+              <SocialLinks />
+            </SocialLinksWrapper>
           )}
-        </PopularRecipe>
-      </PopularSection>
+          <PopularRecipe>
+            <SubTitle text="Popular recipe" />
+
+            {/* <PupularList>{popularList}</PupularList> */}
+            {isTablet && (
+              <Swiper
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+                centeredSlides={false}
+                slidesPerView={2}
+                spaceBetween={32}
+                freeMode={true}
+                modules={[FreeMode, Autoplay]}
+                style={{ padding: '20px 0' }}
+              >
+                {swiperList}
+              </Swiper>
+            )}
+          </PopularRecipe>
+        </PopularSection>
+      </MainWrapper>
     </Container>
   );
 };

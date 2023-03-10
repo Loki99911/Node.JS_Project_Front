@@ -1,6 +1,12 @@
 import { SocialLinksConteiner } from 'components/FooterComp/SocialLinks/SocialLinks.styled';
 import styled from 'styled-components';
 
+export const MainWrapper = styled.div`
+  display: ${({ isDesktop }) => (isDesktop ? 'flex' : 'unset')};
+  gap: 100px;
+  padding-bottom: 200px;
+`;
+
 export const RecipeWrap = styled.form`
   width: 100%;
 `;
@@ -26,8 +32,8 @@ export const AddRecepiSection = styled.div`
   }
 
   label[id='labelFile'] {
-    width: 280px;
-    height: 270px;
+    width: ${({ isDesktop }) => (isDesktop ? '360px' : '280px')};
+    height: ${({ isDesktop }) => (isDesktop ? '345px' : '270px')};
     background-color: #8baa36;
     border-radius: 8px;
     display: flex;
@@ -142,8 +148,7 @@ export const RecepieSection = styled.div`
 
 export const PopularSection = styled.div`
   margin-top: 72px;
-  /* max-width: 320px; */
-  width: 100%;
+  width: 320px;
 `;
 
 export const PopularRecipe = styled.div`
@@ -172,14 +177,7 @@ export const PopularItem = styled.li`
   padding: 15px 0;
   border-bottom: 1px solid #707070;
   width: 320px;
-
-  p:nth-child(1) {
-    font-weight: 500;
-  }
-
-  img {
-    margin-right: 12px;
-  }
+  justify-content: space-between;
 `;
 
 export const RecipeTitle = styled.p`
