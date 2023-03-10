@@ -22,6 +22,7 @@ export const Link = styled(NavLink)`
   img {
     width: 32px;
     height: 32px;
+
     @media screen and (min-width: 768px) {
       width: 44px;
       height: 44px;
@@ -35,7 +36,6 @@ export const ContentFooter = styled.ul`
   margin: 0;
   margin-top: 24px;
   padding-left: 30px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -47,6 +47,7 @@ export const ContentFooter = styled.ul`
   li {
     :not(:last-child) {
       margin-bottom: 10px;
+      
       @media screen and (min-width: 1440px) {
         margin-bottom: 12px;
       }

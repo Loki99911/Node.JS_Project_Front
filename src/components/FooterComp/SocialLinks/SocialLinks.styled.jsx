@@ -9,6 +9,8 @@ export const SocialLinksConteiner = styled.div`
 
   svg {
     fill: ${p => p.theme.colors.mainAccent};
+    transition: ${p => p.theme.transitions.main};
+    
     :hover {
       fill: ${p => p.theme.colors.mainLight};
     }
@@ -16,5 +18,6 @@ export const SocialLinksConteiner = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-top: 38px;
+    gap: 18px;
   }
 `;
