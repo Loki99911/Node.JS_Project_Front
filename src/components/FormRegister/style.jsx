@@ -35,6 +35,12 @@ export const BoxForInput = styled.div`
   flex-direction: column;
   position: relative;
   isolation: isolate;
+  opacity: 0.8;
+  transition: ${theme.transitions.main};
+    &:hover {
+      opacity: 1;
+  }
+
 `;
 export const IconForInput = styled.div`
   left: 18px;
@@ -72,20 +78,10 @@ export const InputForAuth = styled(Field)`
   border-radius: 10px;
   border: 1px solid ${({ color }) => color};
   padding-left: 50px;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${theme.colors.mainLight};
   transition: ${theme.transitions.main};
    :-webkit-autofill {
     transition: background-color 250s linear, color 250s linear;
-  }
-  &:hover {
-    border: 1px solid ${theme.colors.mainLight};
-    color: ${theme.colors.mainLight};
-    &::placeholder {
-      opacity: 1;
-    }
-  }
-  :placeholder-shown {
-    border: 1px solid rgba(255, 255, 255, 0.8);
   }
   &::placeholder {
     font-family: 'Poppins';
@@ -95,7 +91,6 @@ export const InputForAuth = styled(Field)`
     line-height: calc(27 / 18);
     letter-spacing: -0.02em;
     color: ${theme.colors.mainLight};
-    opacity: 0.8;
   }
   &:focus {
     border: 1px solid ${({ color }) => color};
