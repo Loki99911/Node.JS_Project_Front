@@ -9,6 +9,7 @@ import {
   MobileMenuThemeTogglerWrapper,
   MobileMenuWrapper,
   NavLinkStyled,
+  UserTogglerWrapper,
 } from './HeaderComp.styled';
 import logo from '../../images/svg-before sprite/logo_desc.svg';
 import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
@@ -39,8 +40,10 @@ export const HeaderComp = () => {
                 </NavLinkStyled>
               </LogoWrapper>
               <HeaderNav />
-              <HeaderUser />
-              <ThemeToggler />
+              <UserTogglerWrapper>
+                <HeaderUser />
+                <ThemeToggler />
+              </UserTogglerWrapper>
             </HeaderWrapper>
           </Container>
         </Header>
