@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import {
+  InputsWrapper,
   ModalOverlay,
   ModalWindow,
+  NameInput,
+  NameLabel,
   UserAvatarWrapper,
   UserEditForm,
   UserSvgWrapper,
@@ -10,14 +13,12 @@ import {
 
 import sprite from '../../../images/sprite.svg';
 
-// import defaultAvatar from '../../../images/default.jpg';
-
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = ({ closeModal, name }) => {
   const [path, setPath] = useState('');
   const [inputs, setInputs] = useState({
-    name: '',
+    name: name,
     file: null,
   });
   useEffect(() => {
@@ -56,6 +57,15 @@ export const UserInfoModal = ({ closeModal, name }) => {
     setPath(window.URL.createObjectURL(file));
   };
 
+  const handleChange = ({ currentTarget }) => {
+    const { name, value } = currentTarget;
+    console.log('name', name, 'value', value);
+    setInputs(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = () => {
     console.log();
   };
@@ -73,12 +83,25 @@ export const UserInfoModal = ({ closeModal, name }) => {
                   <svg>
                     <use href={sprite + `#user`} />
                   </svg>
-                  {/* <img src={defaultAvatar} alt="user_picture" /> */}
                 </UserSvgWrapper>
               )}
             </label>
             <input type="file" id="file" name="file" onChange={handleFile} />
           </UserAvatarWrapper>
+          <InputsWrapper>
+            <NameLabel htmlFor="name" id="labelName">
+              <svg>
+                <use href={sprite + `#user`} />
+              </svg>
+              <NameInput
+                type="text"
+                name="name"
+                id="name"
+                value={inputs.name}
+                onChange={handleChange}
+              />
+            </NameLabel>
+          </InputsWrapper>
         </UserEditForm>
       </ModalWindow>
     </ModalOverlay>,

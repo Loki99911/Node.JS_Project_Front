@@ -135,3 +135,31 @@ export const InputsWrapper = styled.div`
     gap: 32px;
   }
 `;
+
+export const NameInput = styled.input`
+  width: 100%;
+  padding: 14px;
+  padding-left: 63px;
+  border-radius: ${p => p.theme.radii.btnStandart};
+  font-family: ${p => p.theme.fonts.main};
+  font-size: 14px;
+  font-weight: ${p => p.theme.fontWeights[0]};
+  letter-spacing: ${p => p.theme.letterSpacings.content};
+  line-height: ${p => p.theme.lineHeights.subheader};
+  color: ${p => p.theme.colors.mainDark};
+`;
+
+export const NameLabel = styled.label`
+  width: 100%;
+  position: relative;
+
+  & svg {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    top: 50%;
+    left: 16.5px;
+    transform: translateY(-50%);
+  }
+`;
