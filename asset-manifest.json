@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Node.JS_Project_Front/static/css/main.74c49bc9.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.63fc3b65.js",
+    "main.css": "/Node.JS_Project_Front/static/css/main.e6d21500.css",
+    "main.js": "/Node.JS_Project_Front/static/js/main.e7b609b4.js",
     "static/media/mainDes.png": "/Node.JS_Project_Front/static/media/mainDes.3acda1baf59e52f3b907.png",
     "static/media/bg_big_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_2x.088180e00dd0b716a522.png",
     "static/media/bg_big_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_2x.315208ec35d471abc100.png",
@@ -11,32 +11,35 @@
     "static/media/bg_big_tablet_1x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_1x.df22f7cad53eb74831f8.png",
     "static/media/bg_small_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_small_tablet_2x.d0755725e0e15adf9ea0.png",
     "static/media/recipeHero_desktop_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_desktop_2x.924484b464f126e26139.jpg",
+    "static/media/mobile-menu-bg-tab-2x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-tab-2x-min.a7f59d34bb6f73793435.png",
     "static/media/bg_small_desktop_1x.png": "/Node.JS_Project_Front/static/media/bg_small_desktop_1x.62aeca015d405cb3d721.png",
     "static/media/bg_big_mobile_1x.png": "/Node.JS_Project_Front/static/media/bg_big_mobile_1x.ab9dc927e6e3af42cae1.png",
     "static/media/recipeHero_tab_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_tab_2x.aa991d8fde13c9d1d35f.jpg",
     "static/media/bg_small_mob_2x.png": "/Node.JS_Project_Front/static/media/bg_small_mob_2x.b2d8cebd8d8139202231.png",
+    "static/media/mobile-menu-bg-mob-2x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-mob-2x-min.68d247441edc70fd5c0b.png",
     "static/media/recipeHero_desktop_1x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_desktop_1x.77f181a0d904350a0307.jpg",
     "static/media/bg_small_tablet_1x.png": "/Node.JS_Project_Front/static/media/bg_small_tablet_1x.cd965a444181b88f1cfd.png",
     "static/media/AuthPanaDes.png": "/Node.JS_Project_Front/static/media/AuthPanaDes.e08f7e490c1af69bde3b.png",
+    "static/media/mobile-menu-bg-tab-1x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-tab-1x-min.94ab13c1f302b6f94cb9.png",
     "static/media/recipeHero_mob_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_mob_2x.04772b35d4bcde8116a5.jpg",
     "static/media/2.jpg": "/Node.JS_Project_Front/static/media/2.f01d18e37f2a25fba7c6.jpg",
     "static/media/3.jpg": "/Node.JS_Project_Front/static/media/3.bf5dca5105b3d630325e.jpg",
     "static/media/4.jpg": "/Node.JS_Project_Front/static/media/4.af88d01ee85fe1e899f3.jpg",
     "static/media/bg_small_mob_1x.png": "/Node.JS_Project_Front/static/media/bg_small_mob_1x.22078318d1abb582886d.png",
     "static/media/recipeHero_tab_1x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_tab_1x.9eca7de25584899934cd.jpg",
-    "static/media/sprite.svg": "/Node.JS_Project_Front/static/media/sprite.1aca57a5e8f6992f3c544b9b5dd4d498.svg",
+    "static/media/mobile-menu-bg-mob-1x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-mob-1x-min.b236250f3373e3cd26b8.png",
+    "static/media/sprite.svg": "/Node.JS_Project_Front/static/media/sprite.406d2f5b3671a0fada24e1efdffd2ed0.svg",
     "static/media/1.jpg": "/Node.JS_Project_Front/static/media/1.621904d9570b2cf34ff5.jpg",
     "static/media/icon_file.svg": "/Node.JS_Project_Front/static/media/icon_file.9ef7621b39d058098ee8a37774afedb8.svg",
     "index.html": "/Node.JS_Project_Front/index.html",
     "static/media/logo_desc.svg": "/Node.JS_Project_Front/static/media/logo_desc.3326a095578a5f612526f7ab93edd379.svg",
     "static/media/mail.mob.svg": "/Node.JS_Project_Front/static/media/mail.mob.102c1aa9b0671bc68af3de34431aba99.svg",
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
-    "static/media/search.svg": "/Node.JS_Project_Front/static/media/search.d4b2fa3a3c050142ab2b3735272b0144.svg",
-    "main.74c49bc9.css.map": "/Node.JS_Project_Front/static/css/main.74c49bc9.css.map",
-    "main.63fc3b65.js.map": "/Node.JS_Project_Front/static/js/main.63fc3b65.js.map"
+    "main.e6d21500.css.map": "/Node.JS_Project_Front/static/css/main.e6d21500.css.map",
+    "main.e7b609b4.js.map": "/Node.JS_Project_Front/static/js/main.e7b609b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.74c49bc9.css",
-    "static/js/main.63fc3b65.js"
+    "static/css/main.e6d21500.css",
+    "static/js/main.e7b609b4.js"
   ]
 }
