@@ -70,6 +70,12 @@ export const ButtonSkewStyle = styled.button`
     return theme.transitions.main;
   }};
 
+  & svg {
+    width: 18px;
+    height: 18px;
+    stroke: ${p => p.theme.colors.btnTextLight};
+  }
+
   &:hover {
     color: ${({ styled, theme }) => {
       switch (styled) {
@@ -104,12 +110,6 @@ export const ButtonSkewStyle = styled.button`
         ? `1px solid ${theme.colors.mainAccent}`
         : '1px solid transparent';
     }};
-  }
-
-  & svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
   }
 
   @media screen and (min-width: 768px) {

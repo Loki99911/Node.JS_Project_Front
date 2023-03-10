@@ -196,9 +196,3 @@ export const CloseBtn = styled.button`
 export const MobileMenuThemeTogglerWrapper = styled.div`
   display: flex;
 `;
-
-export const UserTogglerWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;

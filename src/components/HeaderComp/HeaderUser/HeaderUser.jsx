@@ -1,12 +1,11 @@
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import userAvatar from '../../../images/default.jpg';
 import { logOut } from 'redux/auth/authOperations';
 import {
   HeaderUserButton,
   HeaderUserWrapper,
   UserMenu,
-  Overlay,
   EditBtn,
 } from './HeaderUser.styled';
 import sprite from '../../../images/sprite.svg';
@@ -16,7 +15,6 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
   const dispatch = useDispatch();
 
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const userMenuBox = useRef(null);
 
   const toggleUserEditMenu = e => {
     setShowUserMenu(!showUserMenu);
@@ -40,33 +38,18 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (userMenuBox.current && showUserMenu) {
-  //     const onBackdropClick = event => {
-  //       console.log('click', event.target);
-  //       if (event.target !== userMenuBox.current) {
-  //         setShowUserMenu(!showUserMenu);
-  //       }
-  //     };
-
-  //     window.addEventListener('click', onBackdropClick);
-
-  //     return () => {
-  //       window.removeEventListener('click', onBackdropClick);
-  //     };
-  //   }
-  // }, [showUserMenu]);
-
-  console.log(userMenuBox.current);
-
   return (
     <HeaderUserWrapper>
-      <HeaderUserButton type="button" onClick={toggleUserEditMenu}>
+      <HeaderUserButton
+        type="button"
+        onClick={toggleUserEditMenu}
+        onBlur={toggleUserEditMenu}
+      >
         <img src={avatarUrl} alt={name} />
         <p>{name}</p>
       </HeaderUserButton>
       {showUserMenu && (
-        <UserMenu ref={userMenuBox}>
+        <UserMenu>
           <EditBtn>
             <span>Edit</span>
             <svg>

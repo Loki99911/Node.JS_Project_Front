@@ -15,7 +15,7 @@ import {
   BoxForForm,
   SvgAuth,
   ErrorMessage,
-} from '../FormRegister/style';
+} from '../FormRegister/style.jsx';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -64,9 +64,7 @@ const FormLogin = props => {
             <BoxForForm>
               <BoxForInput>
                 <IconForInput>
-                  <svg
-                    fill={getColor(props.errors.email, props.values.email)}
-                  >
+                  <svg fill={getColor(props.errors.email, props.values.email)}>
                     <use href={`${SVG}#email`}></use>
                   </svg>
                 </IconForInput>
@@ -74,7 +72,10 @@ const FormLogin = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(props.errors.email, props.values.email)}`}
+                        href={`${SVG}${getColor(
+                          props.errors.email,
+                          props.values.email
+                        )}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -89,7 +90,10 @@ const FormLogin = props => {
               <BoxForInput>
                 <IconForInput>
                   <SvgAuth
-                    color={getColor(props.errors.password, props.values.password)}
+                    color={getColor(
+                      props.errors.password,
+                      props.values.password
+                    )}
                   >
                     <use href={`${SVG}#password`}></use>
                   </SvgAuth>
@@ -98,7 +102,10 @@ const FormLogin = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(props.errors.password, props.values.password)}`}
+                        href={`${SVG}${getColor(
+                          props.errors.password,
+                          props.values.password
+                        )}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -112,7 +119,10 @@ const FormLogin = props => {
                 {props.values.password && (
                   <ErrorMessage
                     id="feedback"
-                    color={getColor(props.errors.password, props.values.password)}
+                    color={getColor(
+                      props.errors.password,
+                      props.values.password
+                    )}
                   >
                     {props.errors.password || 'Password is secure'}
                   </ErrorMessage>
