@@ -39,10 +39,6 @@ export const ImageWrapper = styled.div`
 export const Label = styled.label`
   display: flex;
   align-items: center;
-  /* padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 12px;
-    padding-right: 29px; */
   padding: 14px 29px 14px 14px;
 
   @media screen and (min-width: 768px) {
@@ -62,18 +58,18 @@ export const CustomCheckbox = styled.span`
   height: 18px;
   background: transparent;
   border: 1px solid rgba(126, 126, 126, 0.5);
-  border-radius: 4px;
+  border-radius: ${p => p.theme.radii.btnIcon};
   & svg {
     display: inline-block;
     width: 9px;
     height: 9px;
-    fill: black;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0);
 
     @media screen and (min-width: 768px) {
+      border: 2px solid rgba(126, 126, 126, 0.5);
       width: 18px;
       height: 18px;
     }
@@ -107,18 +103,18 @@ export const IngNumber = styled.p`
   margin-left: auto;
   width: 37px;
   height: 23px;
-  border-radius: 4px;
-  background: #8baa36;
-  font-weight: 600;
+  border-radius: ${p => p.theme.radii.btnIcon};
+  background: ${p => p.theme.colors.mainAccent};
+  font-weight: ${p => p.theme.fontWeights[2]};
   font-size: 10px;
-  line-height: 15px;
-  color: #ffffff;
+  line-height: 1.5;
+  color: ${p => p.theme.colors.mainLight};
 
   @media screen and (min-width: 768px) {
     width: 68px;
     height: 35px;
     font-size: 18px;
-    line-height: 27px;
+    line-height: 1.5;
   }
 `;
 
@@ -145,29 +141,29 @@ export const TextContainer = styled.div`
 export const IngName = styled.title`
   display: block;
   margin-bottom: 4px;
-  font-weight: 500;
+  font-weight: ${p => p.theme.fontWeights[1]};
   font-size: 12px;
   line-height: 1.17;
-  letter-spacing: -0.24px;
-  color: #3e4462;
+  letter-spacing: ${p => p.theme.subheader.subheader};
+  color: ${li => li.theme.colors.secondaryDark};
   @media screen and (min-width: 768px) {
     font-size: 24px;
-    line-height: 1;
+    line-height: ${p => p.theme.lineHeights.subheader};
     margin-bottom: 18px;
   }
 `;
 
 export const IngDescr = styled.p`
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights[0]};
   font-size: 8px;
   line-height: 1.38;
-  letter-spacing: -0.24px;
-  color: #7e7e7e;
+  letter-spacing: ${p => p.theme.subheader.subheader};
+  color: ${p => p.theme.colors.mainGrey};
 
   @media screen and (min-width: 768px) {
     overflow-y: clip;
     font-size: 24px;
-    line-height: 1;
+    line-height: ${p => p.theme.lineHeights.subheader};
     font-size: 12px;
     line-height: 1.67;
   }
