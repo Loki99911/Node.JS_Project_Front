@@ -28,7 +28,13 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
 
   const onEditBtnClick = () => {
     setShowModal(!showModal);
-    setShowUserMenu(!showUserMenu);
+    setShowUserMenu(false);
+  };
+
+  const handleBlur = () => {
+    setTimeout(() => {
+      setShowUserMenu(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -51,7 +57,7 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
         <HeaderUserButton
           type="button"
           onClick={toggleUserEditMenu}
-          // onBlur={toggleUserEditMenu}
+          onBlur={handleBlur}
         >
           <img src={avatarUrl} alt={name} />
           <p>{name}</p>

@@ -5,6 +5,7 @@ export const ButtonSkewStyle = styled.button`
   align-items: center;
   width: fit-content;
   white-space: nowrap;
+  box-sizing: border-box;
   font-family: ${p => p.theme.fonts.main};
   font-weight: ${p => p.theme.fontWeights[0]};
   line-height: ${p => p.theme.lineHeights.subheader};
