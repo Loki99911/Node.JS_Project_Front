@@ -19,8 +19,6 @@ color: ${theme.colors.sectionHeaderDark};
 margin-bottom: 32px;
 `;
 
-
-
 export const CardTitle = styled.p`
 font-family: ${theme.fonts.main};
 font-style: normal;
@@ -57,8 +55,9 @@ background-color: ${theme.colors.mainAccent};
 cursor: pointer;
 margin-left: auto;
 justify-content: center;
-transition: ${theme.transitions.main}
-&:hover{
+transition: ${theme.transitions.main};
+
+&:hover {
     color: ${theme.colors.secondaryDark};
     }
 `
