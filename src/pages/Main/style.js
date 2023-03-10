@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { theme } from 'utils/theme';
 import bgrImageDes from '../../images/desktop/mainDes.png';
-import bgrImageTab from '../../images/tablet/mainTab.png';
-import bgrImageMob from '../../images/mobile/mainMob.png';
+import bgrImageTab from '../../images/tablet/mainTab-min.png';
+import bgrImageMob from '../../images/mobile/mainMob-min.png';
 
 export const BoxForMain = styled.div`
   margin: 0 auto;

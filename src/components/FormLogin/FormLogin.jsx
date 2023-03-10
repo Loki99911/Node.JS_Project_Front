@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
 import SVG from 'images/sprite.svg';
-import { getColor } from 'components/FormRegister/FormRegister';
+import { getColor, getColorBorder } from 'components/FormRegister/FormRegister';
 
 import {
   BoxForInput,
@@ -84,6 +84,7 @@ const FormLogin = props => {
                   name="email"
                   placeholder="Email"
                   color={getColor(props.errors.email, props.values.email)}
+                  borderColor={getColorBorder(props.errors.email, props.values.email)}
                 />
               </BoxForInput>
               <BoxForInput>
@@ -108,6 +109,7 @@ const FormLogin = props => {
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
+                  borderColor={getColorBorder(props.errors.password, props.values.password)}
                 />
                 {props.values.password && (
                   <ErrorMessage

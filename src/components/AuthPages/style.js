@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import bgrImageDes from 'images/desktop/FormAuthDes.png';
-import bgrImageTab from 'images/tablet/FormAuthTab.png';
-import bgrImageMob from 'images/mobile/FormAuthMob.png';
+import bgrImageTab from 'images/tablet/FormAuthTab-min.png';
+import bgrImageMob from 'images/mobile/FormAuthMob-min.png';
 
 export const BoxForAuth = styled.div`
   margin: 0 auto;
