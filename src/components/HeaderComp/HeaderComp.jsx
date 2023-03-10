@@ -1,20 +1,84 @@
-import { Link } from "react-router-dom";
-import { Header} from "./HeaderComp.styled";
+import {
+  BurgerButton,
+  BurgerWrapper,
+  CloseBtn,
+  Header,
+  HeaderWrapper,
+  LogoWrapper,
+  MobileMenuHeaderContainer,
+  MobileMenuWrapper,
+  NavLinkStyled,
+} from './HeaderComp.styled';
 import logo from '../../images/svg-before sprite/logo_desc.svg';
-import { HeaderNav } from "components/HeaderComp/HeaderNav/HeaderNav";
-import { HeaderUser } from "components/HeaderComp/HeaderUser/HeaderUser";
-import { Container } from "components/Container/Container";
+import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
+import { HeaderUser } from 'components/HeaderComp/HeaderUser/HeaderUser';
+import { Container } from 'components/Container/Container';
+import { useMediaQuery } from 'hooks/useMedia';
+import sprite from '../../images/sprite.svg';
+import { useState } from 'react';
 
 export const HeaderComp = () => {
+  const isRowBased = useMediaQuery('(min-width: 1440px)');
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMobileMenu = e => {
+    console.log(e.target);
+    setShowMenu(!showMenu);
+  };
   return (
-    <Container>
-      <Header>
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-        <HeaderNav />
-        <HeaderUser />
-      </Header>
-    </Container>
+    <>
+      {isRowBased ? (
+        <Header>
+          <Container>
+            <HeaderWrapper>
+              <LogoWrapper>
+                <NavLinkStyled to="/">
+                  <img src={logo} alt="logo" />
+                </NavLinkStyled>
+              </LogoWrapper>
+              <HeaderNav />
+              <HeaderUser />
+            </HeaderWrapper>
+          </Container>
+        </Header>
+      ) : (
+        <>
+          <Header>
+            <Container>
+              <HeaderWrapper>
+                <LogoWrapper>
+                  <NavLinkStyled to="/">
+                    <img src={logo} alt="logo" />
+                  </NavLinkStyled>
+                </LogoWrapper>
+                <BurgerWrapper>
+                  <BurgerButton type="button" onClick={toggleMobileMenu}>
+                    <svg>
+                      <use href={sprite + `#menu`} />
+                    </svg>
+                  </BurgerButton>
+                </BurgerWrapper>
+              </HeaderWrapper>
+            </Container>
+          </Header>
+          {showMenu && (
+            <MobileMenuWrapper>
+              <MobileMenuHeaderContainer>
+                <LogoWrapper>
+                  <NavLinkStyled to="/">
+                    <img src={logo} alt="logo" />
+                  </NavLinkStyled>
+                </LogoWrapper>
+                <CloseBtn type="button" onClick={toggleMobileMenu}>
+                  <svg>
+                    <use href={sprite + `#icon-cross`} />
+                  </svg>
+                </CloseBtn>
+              </MobileMenuHeaderContainer>
+            </MobileMenuWrapper>
+          )}
+        </>
+      )}
+    </>
   );
 };
