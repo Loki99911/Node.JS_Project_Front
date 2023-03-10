@@ -56,7 +56,6 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
               <use href={sprite + `#edit`} />
             </svg>
           </EditBtn>
-
           <ButtonSkew
             type="button"
             fn={onLogOutBtnClick}

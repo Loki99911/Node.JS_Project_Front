@@ -15,7 +15,7 @@ export const Checkbox = styled.input`
   top: 0;
 
   &:checked + label > span {
-    transform: translateX(40px);
+    transform: translateX(30px);
   }
 `;
 
