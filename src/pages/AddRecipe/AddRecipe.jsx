@@ -75,12 +75,8 @@ const optionsTime = [
 ];
 
 const AddRecipe = () => {
-  const isDesktop = useMediaQuery({
-    query: '(min-width: 1440px)',
-  });
-  const isTablet = useMediaQuery({
-    query: '(min-width: 768px)',
-  });
+  const isDesktop = useMediaQuery({ minWidth: 1440 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1399 });
   const [inputs, setInputs] = useState({
     recipe: '',
     file: null,

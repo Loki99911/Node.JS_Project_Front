@@ -142,10 +142,13 @@ export const RecepieSection = styled.div`
 
 export const PopularSection = styled.div`
   margin-top: 72px;
-  max-width: 320px;
+  /* max-width: 320px; */
+  width: 100%;
 `;
 
-export const PopularRecipe = styled.div``;
+export const PopularRecipe = styled.div`
+  width: 100%;
+`;
 
 export const IngredientsItem = styled.li`
   display: flex;
