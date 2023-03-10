@@ -14,7 +14,7 @@ const RecipePreparation = ({ image, instructions }) => {
         <InstructionText>{instructions}</InstructionText>
       </InstructionWrapper>
       <ImageWrapper>
-        <img src={image} />
+        <img src={image} alt="ImgText"/>
       </ImageWrapper>
     </PreparationWrapper>
   );
