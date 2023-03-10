@@ -7,7 +7,7 @@ export const MainWrapper = styled.div`
   padding-bottom: 200px;
 `;
 
-export const RecipeWrap = styled.form`
+export const RecipeForm = styled.form`
   width: 100%;
 `;
 
@@ -148,7 +148,8 @@ export const RecepieSection = styled.div`
 
 export const PopularSection = styled.div`
   margin-top: 72px;
-  width: 320px;
+  width: ${({ isDesktop }) => (isDesktop ? '320px' : '100%')};
+  padding-bottom: 100px;
 `;
 
 export const PopularRecipe = styled.div`
@@ -176,8 +177,6 @@ export const PopularItem = styled.li`
   display: flex;
   padding: 15px 0;
   border-bottom: 1px solid #707070;
-  width: 320px;
-  justify-content: space-between;
 `;
 
 export const RecipeTitle = styled.p`
@@ -199,7 +198,7 @@ export const RecipeText = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 200px;
+  /* width: 200px; */
   height: 50px;
   color: ${({ theme }) => theme.colors.mainGrey};
   font-weight: ${({ theme }) => theme.fontWeights[0]};
@@ -212,6 +211,7 @@ export const RecepiImg = styled.img`
   border-radius: 8px;
   height: 85px;
   width: 100px;
+  margin-right: 12px;
 `;
 
 export const ButtonRemoveItem = styled.button`

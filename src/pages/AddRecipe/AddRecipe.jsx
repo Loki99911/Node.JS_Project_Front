@@ -24,7 +24,7 @@ import {
   PopularItem,
   PopularSection,
   RecepieSection,
-  RecipeWrap,
+  RecipeForm,
   InputsWrapper,
   SocialLinksWrapper,
   RecepiImg,
@@ -32,6 +32,7 @@ import {
   PopularRecipe,
   RecipeTitle,
   MainWrapper,
+  PupularList,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
@@ -141,7 +142,7 @@ const AddRecipe = () => {
     setPath(window.URL.createObjectURL(file));
   };
 
-  const handleAdd = e => {
+  const handleSubmit = e => {
     console.log(e);
     e.preventDefault();
   };
@@ -178,21 +179,11 @@ const AddRecipe = () => {
       </IngredientsItem>
     );
   });
-  const popularList = popularRecepis.map(
-    ({ idMeal, strMealThumb, strInstructions, strMeal }) => (
-      <PopularItem key={idMeal}>
-        <RecepiImg src={strMealThumb} alt={strMeal} />
-        <div>
-          <p>{strMeal}</p>
-          <RecipeText>{strInstructions}</RecipeText>
-        </div>
-      </PopularItem>
-    )
-  );
-  const swiperList = popularRecepis.map(
-    ({ idMeal, strMealThumb, strInstructions, strMeal }) => (
+
+  const popularList = tag =>
+    popularRecepis.map(({ idMeal, strMealThumb, strInstructions, strMeal }) => (
       <SwiperSlide key={idMeal}>
-        <PopularItem as="div">
+        <PopularItem as={tag}>
           <RecepiImg src={strMealThumb} alt={strMeal} />
           <div>
             <RecipeTitle>{strMeal}</RecipeTitle>
@@ -200,14 +191,13 @@ const AddRecipe = () => {
           </div>
         </PopularItem>
       </SwiperSlide>
-    )
-  );
+    ));
 
   return (
     <Container>
       <Title>Add recipe</Title>
       <MainWrapper isDesktop={isDesktop}>
-        <RecipeWrap>
+        <RecipeForm onSubmit={handleSubmit}>
           <AddRecepiSection isDesktop={isDesktop}>
             <div>
               <label htmlFor="file" id="labelFile">
@@ -303,16 +293,11 @@ const AddRecipe = () => {
               placeholder="Enter recipe"
               onChange={handleChange}
             ></textarea>
-            <ButtonSkew
-              type="submit"
-              text="Add"
-              fn={handleAdd}
-              styled="black"
-            />
+            <ButtonSkew type="submit" text="Add" styled="black" />
           </RecepieSection>
-        </RecipeWrap>
+        </RecipeForm>
 
-        <PopularSection>
+        <PopularSection isDesktop={isDesktop}>
           {isDesktop && (
             <SocialLinksWrapper>
               <SubTitle text="Follow us" />
@@ -322,7 +307,6 @@ const AddRecipe = () => {
           <PopularRecipe>
             <SubTitle text="Popular recipe" />
 
-            {/* <PupularList>{popularList}</PupularList> */}
             {isTablet && (
               <Swiper
                 autoplay={{
@@ -336,8 +320,12 @@ const AddRecipe = () => {
                 modules={[FreeMode, Autoplay]}
                 style={{ padding: '20px 0' }}
               >
-                {swiperList}
+                {popularList('div')}
               </Swiper>
+            )}
+
+            {!isTablet && (
+              <PupularList>{popularList('li').slice(0, 4)}</PupularList>
             )}
           </PopularRecipe>
         </PopularSection>
