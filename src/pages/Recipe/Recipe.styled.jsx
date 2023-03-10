@@ -13,13 +13,13 @@ export const ReportsTable = styled.div`
 
     @media screen and (min-width: 768px) {
     height: 58px;    
-    padding: 0 20px;
+    padding: 0 32px;
     margin-bottom: 32px;
     }
 
     @media screen and (min-width: 1440px) {
     height: 60px;
-    padding: 0 32px;
+    padding: 0 40px;
     margin-bottom: 50px;
     }
 
