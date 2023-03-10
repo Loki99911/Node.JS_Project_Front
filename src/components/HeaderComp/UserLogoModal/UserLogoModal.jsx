@@ -6,17 +6,17 @@ import css from './Modal.module.css';
 // import { useDispatch } from 'react-redux';
 
 export default function UserLogoModal({ title, modalChange }) {
-//   const dispatch = useDispatch();
+  //   const dispatch = useDispatch();
 
-//   useEffect(() => {
-//     window.addEventListener('keydown', event => {
-//       if (event.code === 'Escape') {
-//         modalChange(false);
-//       }
-//     });
+  //   useEffect(() => {
+  //     window.addEventListener('keydown', event => {
+  //       if (event.code === 'Escape') {
+  //         modalChange(false);
+  //       }
+  //     });
 
-//     return window.removeEventListener('keydown', event => {});
-//   }, [modalChange]);
+  //     return window.removeEventListener('keydown', event => {});
+  //   }, [modalChange]);
 
   const handleOverlay = event => {
     if (event.currentTarget === event.target) {

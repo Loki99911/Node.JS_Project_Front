@@ -48,6 +48,9 @@ export const NavLinkStyled = styled(NavLink)`
 `;
 
 export const BurgerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
   & svg {
     width: 28px;
     height: 28px;

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const ButtonSkewStyle = styled.button`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  white-space: nowrap;
   font-family: ${p => p.theme.fonts.main};
   font-weight: ${p => p.theme.fontWeights[0]};
   line-height: ${p => p.theme.lineHeights.subheader};
@@ -48,7 +52,6 @@ export const ButtonSkewStyle = styled.button`
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 30px;
 
-  min-width: 130px;
   text-align: center;
 
   border: ${({ styled, theme }) => {
@@ -103,11 +106,18 @@ export const ButtonSkewStyle = styled.button`
     }};
   }
 
+  & svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+  }
+
   @media screen and (min-width: 768px) {
     padding: ${p =>
       p.location === 'favorite' || p.location === 'recipes'
         ? '12px 32px'
-        : '16px 40px'};
+        : '16px 32px'};
+    min-width: 130px;
   }
 
   @media screen and (min-width: 1440px) {

@@ -55,6 +55,7 @@ export const HeaderComp = () => {
                   </NavLinkStyled>
                 </LogoWrapper>
                 <BurgerWrapper>
+                  <HeaderUser />
                   <BurgerButton type="button" onClick={toggleMobileMenu}>
                     <svg>
                       <use href={sprite + `#menu`} />
