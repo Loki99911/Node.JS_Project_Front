@@ -4,8 +4,8 @@ import { theme } from 'utils/theme';
 import styled from 'styled-components';
 
 export const ChooseBlock = styled.div`
-    width: 209px;
-    height: 76px;
+    width: 225px;
+    height: 92px;
     background-color: ${theme.colors.mainLight};
     border-radius: 8px;
     padding: 8px;
@@ -20,8 +20,8 @@ export const ChooseBlock = styled.div`
         width: 261px;
         height: 100px;
         position: absolute;
-        bottom: 140px;
-        right: 55px;
+        right: 25px;
+        top: 370px;
     }
 
     @media (min-width: 1440px) {
@@ -29,6 +29,9 @@ export const ChooseBlock = styled.div`
         padding: 16px;
         width: 298px;
         height: 114px;
+        position: absolute;
+        right: 120px;
+        top: 425px;
     }
 `;
 
@@ -87,12 +90,12 @@ export const ChooseLink = styled.a`
 
     @media (min-width: 768px) {
         font-size: 14px;
-        margin-top: 30px;
+    
     }
 
     @media (min-width: 1440px) {
         line-height: 20px;
-        margin-top: 35px;
+    
     }
 `;
 

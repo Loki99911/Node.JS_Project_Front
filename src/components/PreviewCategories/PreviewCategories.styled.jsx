@@ -33,7 +33,7 @@ background-color: ${theme.colors.mainLight};
 position: absolute;
 margin: -84px 16px;
 border-radius: 8px;
-width: 275px;
+width: 307px;
 `
 
 export const BtnCategories = styled.a`

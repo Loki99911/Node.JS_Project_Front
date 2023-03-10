@@ -75,10 +75,10 @@ export const MainPageText = styled.p`
     }
 
     @media (min-width: 1440px) {
-        /* width: 510px;
-        height: 71px; */
-        font-size: 16px;
+margin: 14px 55px 50px 24px;
+        font-size: 18px;
         line-height: 24px;
+        text-align: left;
     }
 `
 
@@ -110,6 +110,6 @@ export const MainPageDiv = styled.div`
     }
 
     @media (min-width: 1440px) {
-      margin-right: 568px;
+      margin-right: 830px;
     }
 `
