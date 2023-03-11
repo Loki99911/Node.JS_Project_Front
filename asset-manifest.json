@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/Node.JS_Project_Front/static/css/main.acccbc6f.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.7873500d.js",
+    "main.css": "/Node.JS_Project_Front/static/css/main.d7cad968.css",
+    "main.js": "/Node.JS_Project_Front/static/js/main.58c0973b.js",
     "static/media/bg_big_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_2x.088180e00dd0b716a522.png",
+    "static/media/mainpage1x_desk.png": "/Node.JS_Project_Front/static/media/mainpage1x_desk.7c9ba1d121fa87c3fbc3.png",
     "static/media/mainDes.png": "/Node.JS_Project_Front/static/media/mainDes.d13214dc4a08569781ae.png",
     "static/media/bg_big_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_2x.315208ec35d471abc100.png",
     "static/media/mainTab-min.png": "/Node.JS_Project_Front/static/media/mainTab-min.0b3a2e47751bdfde27fc.png",
+    "static/media/mainpage1x_tab.png": "/Node.JS_Project_Front/static/media/mainpage1x_tab.a72e2a0525816c730bc6.png",
     "static/media/bg_small_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_small_desktop_2x.0832559b62dc82041efa.png",
     "static/media/bg_big_desktop_1x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_1x.8c0030c464bcdef435ea.png",
+    "static/media/mainpage1x_mob.png": "/Node.JS_Project_Front/static/media/mainpage1x_mob.ff0d188f49209c895b2b.png",
     "static/media/bg_big_mobile_2x.png": "/Node.JS_Project_Front/static/media/bg_big_mobile_2x.e6bddf98431a062a2c9a.png",
     "static/media/mainMob-min.png": "/Node.JS_Project_Front/static/media/mainMob-min.80644ea7b24a2a58d8eb.png",
     "static/media/bg_big_tablet_1x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_1x.df22f7cad53eb74831f8.png",
@@ -42,11 +45,11 @@
     "static/media/logo_desc.svg": "/Node.JS_Project_Front/static/media/logo_desc.3326a095578a5f612526f7ab93edd379.svg",
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
-    "main.acccbc6f.css.map": "/Node.JS_Project_Front/static/css/main.acccbc6f.css.map",
-    "main.7873500d.js.map": "/Node.JS_Project_Front/static/js/main.7873500d.js.map"
+    "main.d7cad968.css.map": "/Node.JS_Project_Front/static/css/main.d7cad968.css.map",
+    "main.58c0973b.js.map": "/Node.JS_Project_Front/static/js/main.58c0973b.js.map"
   },
   "entrypoints": [
-    "static/css/main.acccbc6f.css",
-    "static/js/main.7873500d.js"
+    "static/css/main.d7cad968.css",
+    "static/js/main.58c0973b.js"
   ]
 }
