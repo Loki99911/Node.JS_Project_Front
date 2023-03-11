@@ -12,6 +12,7 @@ export const FormForAuth = styled(Form)`
   background-color: #2a2c36;
   color: ${theme.colors.btnTextLight};
   margin-top: -35px;
+  padding: 20px 10px;
 
   @media screen and (min-width: 376px) and (max-width: 768px) {
     width: 350px;
@@ -107,7 +108,7 @@ export const InputForAuth = styled(Field)`
   font-size: 18px;
   background-color: transparent;
   border-radius: 10px;
-  border: 1px solid ${({ color }) => color};
+  border: 1px solid ${({ borderColor }) => borderColor};
   padding-left: 40px;
   color: ${theme.colors.mainLight};
   transition: ${theme.transitions.main};
@@ -134,7 +135,8 @@ export const InputForAuth = styled(Field)`
       font-size: 18px;
     }
   }
-  &:focus {
+  &:focus,
+  :hover {
     border: 1px solid ${({ color }) => color};
     outline: none;
     color: ${theme.colors.mainLight};
@@ -171,7 +173,7 @@ export const ErrorMessage = styled.p`
   @media screen and (min-width: 769px) {
     top: 70px;
     left: 10px;
-    font-size: 18px;
+    font-size: 14px;
   }
 `;
 
