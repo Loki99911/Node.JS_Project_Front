@@ -1,11 +1,20 @@
-import { RecipeHeroConteiner, HeroTitle } from "./RecipePageHero.styled";
-import { ButtonSkew } from "components/ButtonSkew/ButtonSkew";
+import { RecipeHeroConteiner, HeroTitle } from './RecipePageHero.styled';
+import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
+import { useEffect, useState } from 'react';
 
-const RecipePageHero = ({meal}) => {
+const RecipePageHero = ({ meal }) => {
+  const [Meal, setMeal] = useState({});
+
+  useEffect(() => {
+    if (meal) {
+      setMeal(meal);
+    }
+  }, [meal]);
+
   return (
     <>
       <RecipeHeroConteiner>
-        <HeroTitle>{meal}</HeroTitle>
+        <HeroTitle>{Meal}</HeroTitle>
         <ButtonSkew
           type="button"
           text="Add to favorite recipes"

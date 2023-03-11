@@ -4,11 +4,12 @@ import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 import { Container } from 'components/Container/Container';
 import { ReportsTable } from './Recipe.styled';
 
-const MainPaigeTitle = 'Salmon Avocado Salad';
-const strInstructions =
-  'Season the salmon, then rub with oil. Mix the dressing ingredients together. Halve, stone, peel and slice the avocados. Halve and quarter the cucumber lengthways, then cut into slices. Divide salad, avocado and cucumber between four plates, then drizzle with half the dressing.\r\n\r\nHeat a non-stick pan. Add the salmon and fry for 3-4 mins on each side until crisp but still moist inside. Put a salmon fillet on top of each salad and drizzle over the remaining dressing. Serve warm.';
-const mealImage =
-  'https://www.themealdb.com//images//media//meals//1549542994.jpg';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getSingleRecipe } from 'redux/outerRecipes/outerRecipesSelectors';
+import { getOneRecipeById } from 'redux/outerRecipes/outerRecipesOperations';
+import { useDispatch, useSelector } from 'react-redux';
+
 const recipeArray = [
   {
     id: 1,
@@ -40,20 +41,38 @@ const recipeArray = [
 ];
 
 const Recipe = () => {
+  const { recipeId } = useParams();
+  const dispatcher = useDispatch();
+  const recipe = useSelector(getSingleRecipe);
+
+  useEffect(() => {
+    dispatcher(getOneRecipeById(recipeId));
+  }, [recipeId, dispatcher]);
+
+  console.log(recipe);
+
+  // if (recipe !== null) {
+  //   console.log(recipe.strMeal);
+  // }
   return (
-    <>
-      <RecipePageHero meal={MainPaigeTitle} />
-      <Container>
-        <ReportsTable>
-          <p>Ingredients</p>
-          <p>
-            Number <span>Add to list</span>
-          </p>
-        </ReportsTable>
-        <RecipeInngredientsList ingredients={recipeArray} />
-        <RecipePreparation image={mealImage} instructions={strInstructions} />
-      </Container>
-    </>
+    recipe && (
+      <>
+        <RecipePageHero meal={recipe.strMeal} />
+        <Container>
+          <ReportsTable>
+            <p>Ingredients</p>
+            <p>
+              Number <span>Add to list</span>
+            </p>
+          </ReportsTable>
+          <RecipeInngredientsList ingredients={recipeArray} />
+          <RecipePreparation
+            image={recipe.strMealThumb}
+            instructions={recipe.strInstructions}
+          />
+        </Container>
+      </>
+    )
   );
 };
 
