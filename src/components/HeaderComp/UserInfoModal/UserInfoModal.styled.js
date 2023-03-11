@@ -130,6 +130,7 @@ export const InputsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     gap: 33px;
@@ -199,6 +200,24 @@ export const SubmitBtn = styled.button`
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.btnHoverBg};
+  }
+`;
+
+export const ResetBtn = styled.button`
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  & svg {
+    stroke: currentColor;
+    width: 18px;
+    height: 18px;
   }
 `;
 

@@ -20,6 +20,7 @@ import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
 import { UserIcon } from './UserInfoModal.styled';
 import { ErrorMessage } from './UserInfoModal.styled';
+import { ResetBtn } from './UserInfoModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -73,7 +74,7 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
       <ModalWindow>
         <Formik
           initialValues={{
-            picture: avatarUrl,
+            picture: '',
             name: name,
           }}
           validationSchema={EditNameSchema}
@@ -133,7 +134,7 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
                   }}
                 />
               </UserAvatarWrapper>
-              {props.errors.picture ? (
+              {props.errors.picture && props.touched.picture ? (
                 <ErrorMessage>{props.errors.picture}</ErrorMessage>
               ) : null}
 
@@ -148,7 +149,12 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
                         name: true,
                       });
                     }}
-                    onChange={props.handleChange}
+                    onChange={event => {
+                      props.setTouched({
+                        name: true,
+                      });
+                      props.setFieldValue('name', event.target.value);
+                    }}
                     color={getColor(
                       props.errors.name,
                       props.values.name,
@@ -164,7 +170,7 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
                   >
                     <use href={sprite + `#user`} />
                   </UserIcon>
-                  {props.touched.name && (
+                  {props.touched.name && props.values.name ? (
                     <FlagForInput>
                       <use
                         href={`${sprite}${getColor(
@@ -173,11 +179,32 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
                         )}`}
                       ></use>
                     </FlagForInput>
+                  ) : (
+                    props.values.name && (
+                      <ResetBtn
+                        type="button"
+                        onClick={() => props.setFieldValue('name', '')}
+                      >
+                        <svg>
+                          <use href={sprite + `#edit`} />
+                        </svg>
+                      </ResetBtn>
+                    )
                   )}
                 </NameLabel>
+                {/* {props.errors.name && props.touched.name ? (
+                  <ErrorMessage>{props.errors.name}</ErrorMessage>
+                ) : null} */}
                 <SubmitBtn
                   type="submit"
-                  disabled={!(props.touched.name || props.touched.picture)}
+                  disabled={
+                    !(
+                      (props.touched.name && props.values.name) ||
+                      (props.touched.picture && props.values.picture)
+                    ) ||
+                    props.errors.name ||
+                    props.errors.picture
+                  }
                 >
                   Save changes
                 </SubmitBtn>
