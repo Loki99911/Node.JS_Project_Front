@@ -1,29 +1,15 @@
-import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { useEffect, useState } from 'react';
 import userAvatar from '../../../images/default.jpg';
-import { logOut } from 'redux/auth/authOperations';
-import {
-  HeaderUserButton,
-  HeaderUserWrapper,
-  UserMenu,
-  EditBtn,
-} from './HeaderUser.styled';
-import sprite from '../../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { HeaderUserButton, HeaderUserWrapper } from './HeaderUserLogo.styled';
 import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
+import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 
 export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
-  const dispatch = useDispatch();
-
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const toggleUserEditMenu = e => {
     setShowUserMenu(!showUserMenu);
-  };
-
-  const onLogOutBtnClick = () => {
-    dispatch(logOut());
   };
 
   const onEditBtnClick = () => {
@@ -62,29 +48,7 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
           <img src={avatarUrl} alt={name} />
           <p>{name}</p>
         </HeaderUserButton>
-        {showUserMenu && (
-          <UserMenu>
-            <EditBtn type="button" onClick={onEditBtnClick}>
-              <span>Edit</span>
-              <svg>
-                <use href={sprite + `#edit`} />
-              </svg>
-            </EditBtn>
-            <ButtonSkew
-              type="button"
-              fn={onLogOutBtnClick}
-              text={
-                <>
-                  <span>Log Out</span>
-                  <svg>
-                    <use href={sprite + `#arrow-right`} />
-                  </svg>
-                </>
-              }
-              styled="olive"
-            />
-          </UserMenu>
-        )}
+        {showUserMenu && <UserLogoModal onEditBtnClick={onEditBtnClick} />}
       </HeaderUserWrapper>
       {showModal && <UserInfoModal name={name} closeModal={onEditBtnClick} />}
     </>

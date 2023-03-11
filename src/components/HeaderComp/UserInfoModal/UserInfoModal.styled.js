@@ -147,6 +147,9 @@ export const NameInput = styled.input`
   letter-spacing: ${p => p.theme.letterSpacings.content};
   line-height: ${p => p.theme.lineHeights.subheader};
   color: ${p => p.theme.colors.mainDark};
+  /* outline: 1px solid #8baa36; */
+  border: 2px solid #c4c4c4;
+  background-color: transparent;
 `;
 
 export const NameLabel = styled.label`
