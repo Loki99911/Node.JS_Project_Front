@@ -44,6 +44,8 @@ export const ModalWindow = styled.div`
 `;
 
 export const UserEditForm = styled(Form)`
+  /* position: relative; */
+
   input[type='file'] {
     width: 0;
     height: 0;
@@ -184,6 +186,11 @@ export const SubmitBtn = styled.button`
   cursor: pointer;
   transition: ${p => p.theme.transitions.main};
 
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: ${p => p.theme.lineHeights.btnText};
@@ -211,13 +218,18 @@ export const FlagForInput = styled.svg`
 
 export const ErrorMessage = styled.p`
   position: absolute;
-  color: ${({ color }) => color};
-  top: 55px;
-  left: 10px;
+  color: red;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-150%);
   font-size: 11px;
-  @media screen and (min-width: 769px) {
-    top: 70px;
-    left: 10px;
-    font-size: 18px;
+
+  @media screen and (min-width: 768px) {
+    left: 40px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 50px;
   }
 `;

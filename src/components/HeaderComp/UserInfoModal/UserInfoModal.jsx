@@ -19,6 +19,7 @@ import {
 import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
 import { UserIcon } from './UserInfoModal.styled';
+import { ErrorMessage } from './UserInfoModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -76,7 +77,6 @@ export const UserInfoModal = ({ closeModal, name }) => {
             name: name,
           }}
           validationSchema={EditNameSchema}
-          validateOnBlur={true}
           onSubmit={(values, actions) => {
             console.log(values);
             //   dispatch(
@@ -107,15 +107,16 @@ export const UserInfoModal = ({ closeModal, name }) => {
                   type="file"
                   id="picture"
                   name="picture"
-                  onChange={event => {
+                  onBlur={() => {
                     props.setTouched({
-                      image: true,
+                      picture: true,
                     });
+                  }}
+                  onChange={event => {
                     if (event.target.files[0]) {
                       if (
                         SUPPORTED_FORMATS.includes(event.target.files[0].type)
                       ) {
-                        console.log('true');
                         setInputs(prev => ({
                           ...prev,
                           picture: event.target.files[0],
@@ -130,8 +131,8 @@ export const UserInfoModal = ({ closeModal, name }) => {
                   }}
                 />
               </UserAvatarWrapper>
-              {props.touched.picture && props.errors.picture ? (
-                <p>{props.errors.picture}</p>
+              {props.errors.picture ? (
+                <ErrorMessage>{props.errors.picture}</ErrorMessage>
               ) : null}
 
               <InputsWrapper>
@@ -140,8 +141,11 @@ export const UserInfoModal = ({ closeModal, name }) => {
                     type="text"
                     name="name"
                     id="name"
-                    // value={inputs.name}
-                    // onChange={handleChange}
+                    onBlur={() => {
+                      props.setTouched({
+                        name: true,
+                      });
+                    }}
                     onChange={props.handleChange}
                     color={getColor(
                       props.errors.name,
@@ -169,7 +173,12 @@ export const UserInfoModal = ({ closeModal, name }) => {
                     </FlagForInput>
                   )}
                 </NameLabel>
-                <SubmitBtn type="submit">Save changes</SubmitBtn>
+                <SubmitBtn
+                  type="submit"
+                  disabled={!(props.touched.name || props.touched.picture)}
+                >
+                  Save changes
+                </SubmitBtn>
               </InputsWrapper>
             </UserEditForm>
           )}
