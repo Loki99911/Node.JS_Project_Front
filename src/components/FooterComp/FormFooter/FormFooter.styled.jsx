@@ -44,6 +44,29 @@ export const FooterForma = styled.form`
     flex-direction: column;
     width: 339px;
   }
+
+  .error {
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 21px;
+    color: #e74a3b;
+
+    top: -20px;
+    left: 0;
+
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+      top: -23px;
+      left: 103px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      top: 82px;
+      left: 0;
+    }
+  }
 `;
 
 export const FooterFormaBtn = styled.button`
@@ -72,9 +95,14 @@ export const FooterFormaBtn = styled.button`
     line-height: 18px;
   }
 
-  :hover,
-  :focus {
+  :hover:not([disabled]),
+  :focus:not([disabled]) {
     color: ${p => p.theme.colors.btnHoverBg};
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+    /* cursor: not-allowed; */
   }
 `;
 
@@ -112,6 +140,7 @@ export const FooterFormaInput = styled.input`
   background-color: transparent;
   border-radius: 6px;
   padding-left: 42px;
+  padding-right: 38px;
   border: 1px solid ${({ borderColor }) => borderColor};
   outline: transparent;
   transition: ${p => p.theme.transitions.main};
@@ -163,7 +192,7 @@ export const FooterFormaInput = styled.input`
 
 export const FooterFormaText = styled.div`
   margin-bottom: 28px;
-  
+
   h4 {
     font-style: normal;
     font-weight: 700;
