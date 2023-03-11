@@ -8,7 +8,7 @@ import Register from 'pages/Register/Register';
 import SearchIngredients from 'pages/SearchIngredients/SearchIngredients';
 import ShopingList from 'pages/ShoppingList/ShoppingList';
 import Signin from 'pages/Signin/Signin';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { PrivateRoute, PublicRoute } from 'service/routes';
 import { getIsLoggedIn } from '../redux/auth/authSelectors';
@@ -59,7 +59,7 @@ export const App = () => {
               </PublicRoute>
             }
           />
-          <Route path="*" element={<Error />} />
+          {/* <Route path="*" element={<Error />} /> */}
         </>
       ) : (
         <Route
@@ -80,10 +80,10 @@ export const App = () => {
           <Route path="/shopping-list" element={<ShopingList />} />
           <Route path="/search" element={<SearchIngredients />} />
           <Route path="/recipe/:recipeId" element={<Recipe />} />
-          <Route path="*" element={<Error />} />
+          {/* <Route path="*" element={<Error />} /> */}
         </Route>
       )}
-      {/* <Route path="*" element={<Navigate to='/' />} /> */}
+      <Route path="*" element={<Navigate to='/' />} />
     </Routes>
   );
 };

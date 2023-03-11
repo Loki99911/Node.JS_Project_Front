@@ -33,7 +33,7 @@ export const HeaderComp = () => {
           <Container>
             <HeaderWrapper>
               <LogoWrapper>
-                <NavLinkStyled to="/">
+                <NavLinkStyled to="/main">
                   <img src={logo} alt="logo" />
                 </NavLinkStyled>
               </LogoWrapper>
