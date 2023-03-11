@@ -73,7 +73,12 @@ export const HeaderComp = () => {
           <MobileMenuWrapper isShown={showMenu}>
             <MobileMenuHeaderContainer>
               <LogoWrapper>
-                <NavLinkStyled to="/main">
+                <NavLinkStyled
+                  to="/main"
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                >
                   <img src={logo} alt="logo" />
                 </NavLinkStyled>
               </LogoWrapper>
@@ -83,7 +88,7 @@ export const HeaderComp = () => {
                 </svg>
               </CloseBtn>
             </MobileMenuHeaderContainer>
-            <HeaderNav />
+            <HeaderNav setShowMenu={setShowMenu} />
             <MobileMenuThemeTogglerWrapper>
               <ThemeToggler />
             </MobileMenuThemeTogglerWrapper>
