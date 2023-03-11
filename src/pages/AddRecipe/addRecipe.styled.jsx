@@ -23,6 +23,7 @@ export const RecipeForm = styled.form`
 export const IngredientsTitle = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const AddRecepiSection = styled.div`
@@ -180,7 +181,7 @@ export const InputUnitValue = styled.input`
   display: block;
   height: 38px;
   padding: 0 8px;
-  margin-left: 30px;
+  margin-left: ${({ isMobile }) => (isMobile ? '14px' : '32px')};
   outline: none;
   max-width: 130px;
 

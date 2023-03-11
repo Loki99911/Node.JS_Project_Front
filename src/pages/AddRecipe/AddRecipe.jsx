@@ -60,6 +60,8 @@ const AddRecipe = () => {
   const dispatch = useDispatch();
   const isDesktop = useMediaQuery({ minWidth: 1440 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1399 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const [inputs, setInputs] = useState({
     recipe: '',
     file: null,
@@ -67,16 +69,9 @@ const AddRecipe = () => {
     about: '',
     category: '',
     time: '',
+    unitValue: '',
   });
-  // const [isValid, setIsValid] = useState({
-  //   recipe: false,
-  //   title: false,
-  //   about: false,
-  //   category: false,
-  //   time: false,
-  //   ingredient: false,
-  //   unit: false,
-  // });
+
   const [counter, setCounter] = useState(0);
   const [userIngredients, setUserIngredients] = useState([]);
   const [path, setPath] = useState('');
@@ -99,7 +94,10 @@ const AddRecipe = () => {
 
   const handleIncrement = () => {
     setCounter(prev => prev + 1);
-    setUserIngredients(prev => [...prev, { id: nanoid() }]);
+    setUserIngredients(prev => [
+      ...prev,
+      { id: nanoid(), ingredient: 'Beef', unitValue: 100, qty: 'g' },
+    ]);
   };
 
   const handleRemove = ({ currentTarget }) => {
@@ -114,7 +112,7 @@ const AddRecipe = () => {
       ...prev,
       [name]: value,
     }));
-    setIsValid(prev => ({ ...prev, [name]: true }));
+    // setIsValid(prev => ({ ...prev, [name]: true }));
   };
 
   const handleFile = ({ currentTarget }) => {
@@ -148,12 +146,15 @@ const AddRecipe = () => {
     formData.append('img', file);
     formData.append(
       'ingredients',
-      userIngredients.map(({ id, ...items }) => items)
+      userIngredients.map(({ unitValue, ingredient, qty: unit }) => ({
+        ingredient,
+        qty: `${unitValue} ${unit}`,
+      }))
     );
 
     const obj = {};
     formData.forEach((val, key) => (obj[key] = val));
-    // console.log(userIngredients);
+    console.log(userIngredients);
   };
 
   const handleSelect = (...arg) => {
@@ -176,34 +177,51 @@ const AddRecipe = () => {
     });
   };
 
-  const userIngredientsList = userIngredients.map(el => {
+  const handleUnitValue = ({ currentTarget }) => {
+    const { id, value, name } = currentTarget;
+    setInputs(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+    setUserIngredients(prev => {
+      const idx = prev.findIndex(el => el.id === id);
+      const [item] = prev.filter(el => el.id === id);
+      item[name] = value;
+      prev[idx] = item;
+      return [...prev];
+    });
+  };
+
+  const userIngredientsList = userIngredients.map(({ id, unitValue }) => {
     return (
-      <IngredientsItem key={el.id}>
+      <IngredientsItem key={id}>
         <Select
           options={ingredientsOptionsList(optionsIngredients)}
           defaultValue={ingredientsOptionsList(optionsIngredients)[2]}
           placeholder=" "
           onChange={handleUserIngredient}
-          name={`ingredient ${el.id}`}
+          name={`ingredient ${id}`}
         />
         <ValueInputWrapper>
           <InputUnitValue
+            isMobile={isMobile}
             type="number"
             name="unitValue"
-            onChange={handleUserIngredient}
-            value={inputs.unitValue}
+            onChange={handleUnitValue}
+            defaultValue={unitValue}
             autoComplete="off"
+            id={id}
           />
           <Select
             options={unitsOptionsList}
-            defaultValue={unitsOptionsList[2]}
+            defaultValue={unitsOptionsList[3]}
             placeholder=" "
             onChange={handleUserIngredient}
             isSearchable={false}
-            name={`qty ${el.id}`}
+            name={`qty ${id}`}
           />
         </ValueInputWrapper>
-        <ButtonRemoveItem type="click" id={el.id} onClick={handleRemove}>
+        <ButtonRemoveItem type="click" id={id} onClick={handleRemove}>
           <svg width="25" height="25">
             <use href={icons + '#icon-cross'} width="25" height="25"></use>
           </svg>

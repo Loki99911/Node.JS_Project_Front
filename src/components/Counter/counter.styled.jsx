@@ -8,6 +8,9 @@ export const CounterButton = styled.button`
   margin: 0;
   padding: 0;
   font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const CounterWrapper = styled.p`
