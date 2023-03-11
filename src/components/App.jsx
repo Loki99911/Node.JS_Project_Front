@@ -11,7 +11,7 @@ import Signin from 'pages/Signin/Signin';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { PrivateRoute, PublicRoute } from 'service/routes';
-import { getIsLoggedIn } from '../redux/auth/authSelectors';
+// import { getIsLoggedIn } from '../redux/auth/authSelectors';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import CategoriesByName from 'pages/CategoriesByName/CategoriesByName';
@@ -21,7 +21,7 @@ import { useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 
 export const App = () => {
-  const isUserLogin = useSelector(getIsLoggedIn);
+  // const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
   const dispatcher = useDispatch();
   // const isUserLogin = true;
@@ -33,7 +33,7 @@ export const App = () => {
 
   return (
     <Routes>
-      {!isUserLogin ? (
+      {/* {!isUserLogin ? ( */}
         <>
           <Route
             path="/"
@@ -59,9 +59,9 @@ export const App = () => {
               </PublicRoute>
             }
           />
-          <Route path="*" element={<Error />} />
+          {/* <Route path="*" element={<Error />} /> */}
         </>
-      ) : (
+      {/* ) : ( */}
         <Route
           path="/"
           element={
@@ -82,8 +82,8 @@ export const App = () => {
           <Route path="/recipe/:recipeId" element={<Recipe />} />
           <Route path="*" element={<Error />} />
         </Route>
-      )}
-      {/* <Route path="*" element={<Navigate to='/' />} /> */}
+      {/* )} */}
+      {/* <Route path="*" element={<Navigate to='/main' />} /> */}
     </Routes>
   );
 };

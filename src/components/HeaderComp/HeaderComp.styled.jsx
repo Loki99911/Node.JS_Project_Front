@@ -81,60 +81,6 @@ export const UserInfo = styled.div`
   justify-content: space-between;
 `;
 
-export const UserIcon = styled.span`
-  font-weight: 700;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #f5f6fa;
-  margin-right: 12px;
-`;
-
-export const UserText = styled.p`
-  margin: 0;
-`;
-
-export const UserTextWrap = styled.div`
-  position: relative;
-  margin-right: 40px;
-  &:after {
-    content: '';
-    position: absolute;
-    width: 36px;
-    height: 0px;
-    border: 1px solid #e0e5eb;
-    bottom: 43%;
-    right: -40px;
-    transform: translateY(-50%) rotate(90deg);
-  }
-`;
-
-export const LogoutBtn = styled.button`
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
-export const LogoutBtnText = styled.span`
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  border-bottom: 1px solid black;
-  transition: color 250ms linear, border-bottom 250ms linear;
-  &:hover {
-    color: #ff751d;
-    border-bottom: 1px solid #ff751d;
-  }
-`;
-
 export const MobileMenuWrapper = styled.div`
   position: fixed;
   box-sizing: border-box;
@@ -145,6 +91,9 @@ export const MobileMenuWrapper = styled.div`
   height: 100vh;
   padding: 18px;
   display: flex;
+  transform: ${p =>
+    p.isShown ? 'translate3d(0, 0vh, 0)' : 'translate3d(0, -100vh, 0)'};
+  transition: transform 1s cubic-bezier(0, 0.52, 0, 1);
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
