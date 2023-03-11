@@ -60,9 +60,9 @@ export const deleteOwnRecipe = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const id = await deleteOwnRecipeAPI(id);
-      console.log('own recipe successfully deleted', id);
-      return id;
+      const data = await deleteOwnRecipeAPI(id);
+      console.log('own recipe successfully deleted', data);
+      return data;
     } catch (error) {
       console.log(error.message);
       return rejectWithValue(error.response.status);
