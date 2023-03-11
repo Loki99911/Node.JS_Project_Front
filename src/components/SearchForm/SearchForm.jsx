@@ -1,6 +1,6 @@
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import React, { useState } from 'react';
-import { SearchBlock, SearchIn, SearchInput, SearhButton } from './SearchForm.styled';
+import { SearchBlock, SearchIn, SearchInput } from './SearchForm.styled';
 export const SearchForm = (props) => {
   const [searchValue, setInputValue] = useState('');
 
@@ -21,19 +21,6 @@ export const SearchForm = (props) => {
       <ButtonSkew type="submit" text="Search" styled="black"></ButtonSkew>
     </SearchIn>
 </SearchBlock>
-
-
-    // {/* <SearchIn onSubmit={handleSubmit}>
-    //   <form
-    //     type="text"
-    //     value={inputValue}
-    //     onChange={handleChange}
-    //     placeholder="Beef |"
-        
-    //   />
-    //   <SearhButton type="submit">Search</SearhButton>
-    // </SearchIn>
-    // </SearchBlock> */}
     );
 };
 

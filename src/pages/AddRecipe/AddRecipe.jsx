@@ -68,15 +68,15 @@ const AddRecipe = () => {
     category: '',
     time: '',
   });
-  const [isValid, setIsValid] = useState({
-    recipe: false,
-    title: false,
-    about: false,
-    category: false,
-    time: false,
-    ingredient: false,
-    unit: false,
-  });
+//   const [isValid, setIsValid] = useState({
+//     recipe: false,
+//     title: false,
+//     about: false,
+//     category: false,
+//     time: false,
+//     ingredient: false,
+//     unit: false,
+//   });
   const [counter, setCounter] = useState(0);
   const [userIngredients, setUserIngredients] = useState([]);
   const [path, setPath] = useState('');
@@ -112,7 +112,7 @@ const AddRecipe = () => {
       ...prev,
       [name]: value,
     }));
-    setIsValid(prev => ({ ...prev, [name]: true }));
+    // setIsValid(prev => ({ ...prev, [name]: true }));
   };
 
   const handleFile = ({ currentTarget }) => {
