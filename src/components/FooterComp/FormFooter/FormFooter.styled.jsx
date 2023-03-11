@@ -191,6 +191,7 @@ export const FooterFormaInput = styled.input`
 `;
 
 export const FooterFormaText = styled.div`
+
   margin-bottom: 28px;
 
   h4 {
