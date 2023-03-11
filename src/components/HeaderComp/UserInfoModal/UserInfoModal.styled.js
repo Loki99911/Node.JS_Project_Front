@@ -239,16 +239,17 @@ export const ErrorMessage = styled.p`
   position: absolute;
   color: red;
   top: 50%;
-  left: 24px;
-  transform: translateY(-150%);
+  left: ${p => (p.location === 'file' ? '24px' : '0')};
+  transform: ${p =>
+    p.location === 'file' ? 'translateY(-150%)' : 'translateY(-50%)'};
   font-size: 11px;
 
   @media screen and (min-width: 768px) {
-    left: 40px;
-    font-size: 16px;
+    left: ${p => (p.location === 'file' ? '40px' : '0')};
+    font-size: 14px;
   }
 
   @media screen and (min-width: 1440px) {
-    left: 50px;
+    left: ${p => (p.location === 'file' ? '50px' : '0')};
   }
 `;

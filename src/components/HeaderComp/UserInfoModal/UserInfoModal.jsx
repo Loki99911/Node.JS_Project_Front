@@ -135,7 +135,9 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
                 />
               </UserAvatarWrapper>
               {props.errors.picture && props.touched.picture ? (
-                <ErrorMessage>{props.errors.picture}</ErrorMessage>
+                <ErrorMessage location="file">
+                  {props.errors.picture}
+                </ErrorMessage>
               ) : null}
 
               <InputsWrapper>
@@ -192,18 +194,20 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
                     )
                   )}
                 </NameLabel>
-                {/* {props.errors.name && props.touched.name ? (
+                {props.errors.name && props.touched.name ? (
                   <ErrorMessage>{props.errors.name}</ErrorMessage>
-                ) : null} */}
+                ) : null}
                 <SubmitBtn
                   type="submit"
                   disabled={
                     !(
-                      (props.touched.name && props.values.name) ||
-                      (props.touched.picture && props.values.picture)
-                    ) ||
-                    props.errors.name ||
-                    props.errors.picture
+                      (props.touched.name &&
+                        props.values.name &&
+                        !props.errors.name) ||
+                      (props.touched.picture &&
+                        props.values.picture &&
+                        !props.errors.picture)
+                    )
                   }
                 >
                   Save changes
