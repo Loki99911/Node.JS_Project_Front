@@ -69,26 +69,25 @@ export const HeaderComp = () => {
               </HeaderWrapper>
             </Container>
           </Header>
-          {showMenu && (
-            <MobileMenuWrapper>
-              <MobileMenuHeaderContainer>
-                <LogoWrapper>
-                  <NavLinkStyled to="/main">
-                    <img src={logo} alt="logo" />
-                  </NavLinkStyled>
-                </LogoWrapper>
-                <CloseBtn type="button" onClick={toggleMobileMenu}>
-                  <svg>
-                    <use href={sprite + `#icon-cross`} />
-                  </svg>
-                </CloseBtn>
-              </MobileMenuHeaderContainer>
-              <HeaderNav />
-              <MobileMenuThemeTogglerWrapper>
-                <ThemeToggler />
-              </MobileMenuThemeTogglerWrapper>
-            </MobileMenuWrapper>
-          )}
+
+          <MobileMenuWrapper isShown={showMenu}>
+            <MobileMenuHeaderContainer>
+              <LogoWrapper>
+                <NavLinkStyled to="/main">
+                  <img src={logo} alt="logo" />
+                </NavLinkStyled>
+              </LogoWrapper>
+              <CloseBtn type="button" onClick={toggleMobileMenu}>
+                <svg>
+                  <use href={sprite + `#icon-cross`} />
+                </svg>
+              </CloseBtn>
+            </MobileMenuHeaderContainer>
+            <HeaderNav />
+            <MobileMenuThemeTogglerWrapper>
+              <ThemeToggler />
+            </MobileMenuThemeTogglerWrapper>
+          </MobileMenuWrapper>
         </>
       )}
     </>
