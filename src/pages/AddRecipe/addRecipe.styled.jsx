@@ -109,29 +109,6 @@ export const InputsWithSelectWrapper = styled.div`
 
 export const IngredientsSection = styled.div`
   margin-top: 72px;
-
-  .css-1hb7zxy-IndicatorsContainer {
-    svg {
-      fill: ${({ theme }) => theme.colors.mainAccent};
-    }
-
-    .css-1u9des2-indicatorSeparator {
-      opacity: 0;
-    }
-  }
-
-  .css-13cymwt-control {
-    border-style: unset;
-    background-color: #d9d9d9;
-    border-radius: 6px;
-  }
-  .css-b62m3t-container {
-    width: 194px;
-    &:nth-child(2) {
-      width: 85px;
-      margin-left: 14px;
-    }
-  }
 `;
 
 export const RecepieSection = styled.div`
@@ -174,6 +151,59 @@ export const IngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  .css-1hb7zxy-IndicatorsContainer {
+    svg {
+      fill: ${({ theme }) => theme.colors.mainAccent};
+    }
+
+    .css-1u9des2-indicatorSeparator {
+      opacity: 0;
+    }
+  }
+
+  .css-13cymwt-control {
+    border-style: unset;
+    background-color: #d9d9d9;
+    border-radius: 6px;
+  }
+
+  .css-b62m3t-container {
+    width: 400px;
+  }
+`;
+
+export const InputUnitValue = styled.input`
+  border-style: unset;
+  background-color: rgb(217, 217, 217);
+  border-radius: 6px;
+  display: block;
+  height: 38px;
+  padding: 0 8px;
+  margin-left: 30px;
+  outline: none;
+  max-width: 130px;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.mainAccent};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.mainAccent};
+  }
+`;
+
+export const ValueInputWrapper = styled.div`
+  display: flex;
+  position: relative;
+
+  .css-b62m3t-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 90px;
+    .css-1fdsijx-ValueContainer {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
 `;
 
 export const PupularList = styled.ul`
@@ -227,7 +257,7 @@ export const ButtonRemoveItem = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  margin-left: auto;
 `;
 
 export const SocialLinksWrapper = styled.div`

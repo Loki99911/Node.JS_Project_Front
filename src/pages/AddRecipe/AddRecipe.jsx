@@ -32,6 +32,8 @@ import {
   RecipeTitle,
   MainWrapper,
   PupularList,
+  InputUnitValue,
+  ValueInputWrapper,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
@@ -39,22 +41,20 @@ import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { Container } from 'components/Container/Container';
 import { SocialLinks } from 'components/FooterComp/SocialLinks/SocialLinks';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopular } from 'redux/outerRecipes/outerRecipesSelectors';
-import { getPopularRecipes } from 'redux/outerRecipes/outerRecipesOperations';
+import {
+  getFullCategoryList,
+  getPopular,
+} from 'redux/outerRecipes/outerRecipesSelectors';
+import {
+  getCategoryList,
+  getPopularRecipes,
+} from 'redux/outerRecipes/outerRecipesOperations';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { timeOptionsList } from 'utils/timeOptionsList';
 import { ingredientsOptionsList } from 'utils/ingredientsOptionsList';
 import { unitsOptionsList } from 'utils/unitsOptionsList';
-
-const optionsCategories = [
-  {
-    value: 'meet',
-    label: 'Meet',
-  },
-  { value: 'salads', label: 'Salads' },
-  { value: 'soups', label: 'Soups' },
-];
+import { categoriesOptionsList } from 'utils/categoriesOptionList';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
@@ -68,25 +68,27 @@ const AddRecipe = () => {
     category: '',
     time: '',
   });
-  const [isValid, setIsValid] = useState({
-    recipe: false,
-    title: false,
-    about: false,
-    category: false,
-    time: false,
-    ingredient: false,
-    unit: false,
-  });
+  // const [isValid, setIsValid] = useState({
+  //   recipe: false,
+  //   title: false,
+  //   about: false,
+  //   category: false,
+  //   time: false,
+  //   ingredient: false,
+  //   unit: false,
+  // });
   const [counter, setCounter] = useState(0);
   const [userIngredients, setUserIngredients] = useState([]);
   const [path, setPath] = useState('');
 
   const popularRecepis = useSelector(getPopular);
   const optionsIngredients = useSelector(getIngredients);
+  const optionsCategoris = useSelector(getFullCategoryList);
 
   useEffect(() => {
     dispatch(getPopularRecipes());
     dispatch(getAllIngredients());
+    dispatch(getCategoryList());
   }, [dispatch]);
 
   const handleDecrement = () => {
@@ -184,13 +186,23 @@ const AddRecipe = () => {
           onChange={handleUserIngredient}
           name={`ingredient ${el.id}`}
         />
-        <Select
-          options={unitsOptionsList}
-          defaultValue={unitsOptionsList[2]}
-          placeholder=" "
-          onChange={handleUserIngredient}
-          name={`qty ${el.id}`}
-        />
+        <ValueInputWrapper>
+          <InputUnitValue
+            type="number"
+            name="unitValue"
+            onChange={handleUserIngredient}
+            value={inputs.unitValue}
+            autoComplete="off"
+          />
+          <Select
+            options={unitsOptionsList}
+            defaultValue={unitsOptionsList[2]}
+            placeholder=" "
+            onChange={handleUserIngredient}
+            isSearchable={false}
+            name={`qty ${el.id}`}
+          />
+        </ValueInputWrapper>
         <ButtonRemoveItem type="click" id={el.id} onClick={handleRemove}>
           <svg width="25" height="25">
             <use href={icons + '#icon-cross'} width="25" height="25"></use>
@@ -265,8 +277,8 @@ const AddRecipe = () => {
                   autoComplete="off"
                 />
                 <Select
-                  options={optionsCategories}
-                  defaultValue={optionsCategories[2]}
+                  options={categoriesOptionsList(optionsCategoris)}
+                  defaultValue={categoriesOptionsList(optionsCategoris)[2]}
                   placeholder=" "
                   onChange={handleSelect}
                   name="category"
