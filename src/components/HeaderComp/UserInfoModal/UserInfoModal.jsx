@@ -36,9 +36,12 @@ const EditNameSchema = Yup.object().shape({
   ),
 
   name: Yup.string()
-    .min(2)
-    .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/)
-    .required(),
+    .min(2, 'Name must contain at least 2 letters')
+    .matches(
+      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+      'Name must contain only letters'
+    )
+    .required('Name is required'),
 });
 
 export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
