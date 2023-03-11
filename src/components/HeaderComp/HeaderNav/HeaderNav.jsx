@@ -1,15 +1,55 @@
 import { Navi, StyledLink } from './HeaderNav.styled';
 import sprite from '../../../images/sprite.svg';
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ setShowMenu }) => {
   return (
     <Navi>
-      <StyledLink to="/categories">Categories</StyledLink>
-      <StyledLink to="/add">Add recipes</StyledLink>
-      <StyledLink to="/my">My recipes</StyledLink>
-      <StyledLink to="/favorite">Favorites</StyledLink>
-      <StyledLink to="/shopping-list">Shopping list</StyledLink>
-      <StyledLink to="/search">
+      <StyledLink
+        onClick={() => {
+          setShowMenu(false);
+        }}
+        to="/categories"
+      >
+        Categories
+      </StyledLink>
+      <StyledLink
+        onClick={() => {
+          setShowMenu(false);
+        }}
+        to="/add"
+      >
+        Add recipes
+      </StyledLink>
+      <StyledLink
+        onClick={() => {
+          setShowMenu(false);
+        }}
+        to="/my"
+      >
+        My recipes
+      </StyledLink>
+      <StyledLink
+        onClick={() => {
+          setShowMenu(false);
+        }}
+        to="/favorite"
+      >
+        Favorites
+      </StyledLink>
+      <StyledLink
+        onClick={() => {
+          setShowMenu(false);
+        }}
+        to="/shopping-list"
+      >
+        Shopping list
+      </StyledLink>
+      <StyledLink
+        onClick={() => {
+          setShowMenu(false);
+        }}
+        to="/search"
+      >
         <svg>
           <use href={sprite + `#search`} />
         </svg>
