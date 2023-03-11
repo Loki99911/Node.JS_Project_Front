@@ -2,6 +2,7 @@ import { theme } from 'utils/theme';
 
 
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const ChooseBlock = styled.div`
     width: 225px;
@@ -72,7 +73,7 @@ export const ChooseSpan = styled.span`
         line-height: 20px;
     }
 `
-export const ChooseLink = styled.a`
+export const ChooseLink = styled(NavLink)`
 
     font-family: ${theme.fonts.main};
     font-style: normal;

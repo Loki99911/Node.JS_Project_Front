@@ -12,6 +12,16 @@ line-height: 28px;
 letter-spacing: ${theme.letterSpacings.content};
 color: ${theme.colors.sectionHeaderDark};
 margin-bottom: 32px;
+text-transform: capitalize;
+  @media (min-width: 768px) {
+    font-size: 44px;
+    line-height: 44px;
+  } 
+  @media (min-width: 1440px) {
+    font-size: 44px;
+    line-height: 44px;
+  }
+
 `;
 
 export const BtnCategories = styled(NavLink)`
@@ -51,7 +61,7 @@ width: 343px;
 height: 323px;
 border-radius: 8px;
 position: relative;
-overflow: hidden;
+/* overflow: hidden; */
   @media (min-width: 768px) {
     width: calc((100% - 32px)/2);
   } 
@@ -89,7 +99,7 @@ export const CardImg = styled.img`
 height: 323px;
 width: 100%;
 object-fit: cover;
-
+border-radius: 8px;
 `
 export const CategoryList = styled.ul`
 display: flex;

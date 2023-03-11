@@ -1,4 +1,7 @@
+import { click } from "@testing-library/user-event/dist/click";
 import { ButtonOthCtg } from "components/ButtonOthCtg/ButtonOthCtg";
+import { ButtonOthCtgWrap } from "components/ButtonOthCtg/ButtonOthCtg.styled";
+import { ButtonSkew } from "components/ButtonSkew/ButtonSkew";
 import { Container } from "components/Container/Container";
 import { PreviewCategories } from "components/PreviewCategories/PreviewCategories";
 import { SearchForm } from "components/SearchForm/SearchForm";
@@ -6,36 +9,19 @@ import { СhooseYourBreakfast } from "components/СhooseYourBreakfast/СhooseYou
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { getMainCategories } from "redux/outerRecipes/outerRecipesOperations";
 import { getContentForMain } from "redux/outerRecipes/outerRecipesSelectors";
 import { ColorWrap, MainPageBg, MainPageDiv, MainPageH1, MainPageText, SpanGr } from "./MainPage.styled";
 
 const MainPage = () => {
-    // const mainCategories = useSelector(getContentForMain);
-    // const dispatcher = useDispatch();
-    // const [numCards, setNumCards] = useState(2);
-    // const isDesktop = useMediaQuery({ minWidth: 1440 })
-    // const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 })
-    // const isMobile = useMediaQuery({ minWidth: 375, maxWidth: 767 })
+const navigate = useNavigate()
+const onClick = (e) => {
+    
+    navigate ('/categories')
+}
 
 
-    // useEffect(() => {
-    //     if (mainCategories !== null) return;
-    //     dispatcher(getMainCategories());
-
-    //     const handleResize = () => {
-    //         if (isDesktop) {
-    //             setNumCards(4);
-    //         } else if (isTablet) {
-    //             setNumCards(2);
-    //         } else {
-    //             setNumCards(1);
-    //         }
-    //     };
-    //     handleResize();
-
-    // }, [dispatcher, mainCategories, isDesktop, isTablet]);
-    // const { breakfast, desserts, miscellaneous, vegan } = mainCategories;
     return (<>
         
             <MainPageBg>
@@ -50,8 +36,12 @@ const MainPage = () => {
             </MainPageBg>
           <Container>
                 <PreviewCategories />
+          {/* <ButtonOthCtg /> */}
+          <ButtonOthCtgWrap>
+<ButtonSkew type={'click'} fn={onClick} styled={'other'} text={'Other categories'}/>
+          </ButtonOthCtgWrap>
           
-            <ButtonOthCtg />
+            
         </Container>
     </>)
 
