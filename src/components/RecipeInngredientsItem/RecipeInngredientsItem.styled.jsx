@@ -120,7 +120,7 @@ export const IngNumber = styled.p`
 
 export const TextContainer = styled.div`
   width: 114px;
-  height: 54px;
+  height: 52px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
