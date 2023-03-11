@@ -101,7 +101,7 @@ export const IngNumber = styled.p`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  width: 37px;
+  min-width: 37px;
   height: 23px;
   border-radius: ${p => p.theme.radii.btnIcon};
   background: ${p => p.theme.colors.mainAccent};
@@ -111,7 +111,7 @@ export const IngNumber = styled.p`
   color: ${p => p.theme.colors.mainLight};
 
   @media screen and (min-width: 768px) {
-    width: 68px;
+    min-width: 68px;
     height: 35px;
     font-size: 18px;
     line-height: 1.5;
@@ -120,7 +120,7 @@ export const IngNumber = styled.p`
 
 export const TextContainer = styled.div`
   width: 114px;
-  height: 54px;
+  height: 52px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
