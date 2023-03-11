@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Field, Form } from 'formik';
+
 import PlusIcon from '../../../images/plus.svg';
 
 export const ModalOverlay = styled.div`
@@ -41,7 +43,7 @@ export const ModalWindow = styled.div`
   }
 `;
 
-export const UserEditForm = styled.form`
+export const UserEditForm = styled(Form)`
   input[type='file'] {
     width: 0;
     height: 0;
@@ -136,7 +138,7 @@ export const InputsWrapper = styled.div`
   }
 `;
 
-export const NameInput = styled.input`
+export const NameInput = styled(Field)`
   width: 100%;
   padding: 14px;
   padding-left: 63px;
@@ -147,8 +149,9 @@ export const NameInput = styled.input`
   letter-spacing: ${p => p.theme.letterSpacings.content};
   line-height: ${p => p.theme.lineHeights.subheader};
   color: ${p => p.theme.colors.mainDark};
-  /* outline: 1px solid #8baa36; */
-  border: 2px solid #c4c4c4;
+  outline: none;
+  /* border: 2px solid #c4c4c4; */
+  border: 2px solid ${({ color }) => color};
   background-color: transparent;
 `;
 
@@ -160,9 +163,57 @@ export const NameLabel = styled.label`
     position: absolute;
     width: 18px;
     height: 18px;
-    stroke: currentColor;
+    stroke: ${({ color }) => color};
     top: 50%;
     left: 16.5px;
     transform: translateY(-50%);
+  }
+`;
+
+export const SubmitBtn = styled.button`
+  width: 100%;
+  padding: 14px;
+  background-color: ${p => p.theme.colors.mainAccent};
+  border-radius: ${p => p.theme.radii.main};
+  font-family: ${p => p.theme.fonts.btnStandart};
+  font-weight: ${p => p.theme.fontWeights[0]};
+  line-height: ${p => p.theme.lineHeights.extraContent};
+  font-size: 14px;
+  white-space: nowrap;
+  color: ${p => p.theme.colors.btnTextLight};
+  cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: ${p => p.theme.lineHeights.btnText};
+  }
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.btnHoverBg};
+  }
+`;
+
+export const FlagForInput = styled.div`
+  position: absolute;
+  top: 11px;
+  right: 12px;
+
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  @media screen and (min-width: 768px) {
+    top: 15px;
+    right: 302px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 126px;
+    right: 12px;
   }
 `;

@@ -1,7 +1,6 @@
-import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
-import { EditBtn, UserMenu } from './UserLogoModal.styled';
+import { EditBtn, LogOutBtn, UserMenu } from './UserLogoModal.styled';
 import sprite from '../../../images/sprite.svg';
 
 export const UserLogoModal = ({ onEditBtnClick }) => {
@@ -19,19 +18,12 @@ export const UserLogoModal = ({ onEditBtnClick }) => {
           <use href={sprite + `#edit`} />
         </svg>
       </EditBtn>
-      <ButtonSkew
-        type="button"
-        fn={onLogOutBtnClick}
-        text={
-          <>
-            <span>Log Out</span>
-            <svg>
-              <use href={sprite + `#arrow-right`} />
-            </svg>
-          </>
-        }
-        styled="olive"
-      />
+      <LogOutBtn type="button" onClick={onLogOutBtnClick}>
+        <span>Log Out</span>
+        <svg>
+          <use href={sprite + `#arrow-right`} />
+        </svg>
+      </LogOutBtn>
     </UserMenu>
   );
 };

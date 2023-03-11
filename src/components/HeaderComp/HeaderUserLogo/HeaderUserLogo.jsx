@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import userAvatar from '../../../images/default.jpg';
 import { HeaderUserButton, HeaderUserWrapper } from './HeaderUserLogo.styled';
 import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
-import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
+import { UserLogoModal } from '../HeaderLogoModal/UserLogoModal';
 
 export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);

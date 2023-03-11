@@ -6,7 +6,6 @@ export const ButtonSkewStyle = styled.button`
   width: fit-content;
   white-space: nowrap;
   box-sizing: border-box;
-
   font-family: ${p => p.theme.fonts.main};
   font-weight: ${p => p.theme.fontWeights[0]};
   line-height: ${p => p.theme.lineHeights.subheader};
@@ -71,12 +70,6 @@ export const ButtonSkewStyle = styled.button`
   transition: ${({ theme }) => {
     return theme.transitions.main;
   }};
-
-  & svg {
-    width: 18px;
-    height: 18px;
-    stroke: ${p => p.theme.colors.btnTextLight};
-  }
 
   &:hover {
     color: ${({ styled, theme }) => {
