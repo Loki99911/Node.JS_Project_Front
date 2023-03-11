@@ -5,33 +5,23 @@ import {
   FooterFormaText,
   FlagForInput,
 } from './FormFooter.styled';
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 // import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import sprite from '../../../images/sprite.svg';
-
 import { getColor } from 'utils/formikColors';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email().required(),
 });
 
-// const getColor = (errors, values) => {
-//   return values
-//     ? (errors && '#E74A3B') || '#3CBC81'
-//     : 'rgba(255, 255, 255, 0.8)';
-// };
-
-// const getColorBorder = (errors, values) => {
-//   return values
-//     ? (errors && '#E74A3B') || '#3CBC81'
-//     : 'rgba(255, 255, 255, 0.3)';
-// };
-
 export const FormFooter = () => {
   const { isDesktop } = useMediaRules();
-  // const dispatch = useDispatch();
+
+  const getDisabledBtn = (errors, value) => {
+    return !value|| errors ? true : false;
+  };
 
   return (
     <>
@@ -44,6 +34,7 @@ export const FormFooter = () => {
           //      email: values.email,
           //    })
           //  );
+
           console.log(values.email);
           actions.setSubmitting(false);
           actions.resetForm();
@@ -63,8 +54,8 @@ export const FormFooter = () => {
             <FooterFormaInput
               type="email"
               placeholder="Enter your email address"
-              onChange={props.handleChange}
               onBlur={props.handleBlur}
+              onChange={props.handleChange}
               value={props.values.email}
               name="email"
               color={getColor(
@@ -101,7 +92,13 @@ export const FormFooter = () => {
                 </svg>
               </FlagForInput>
             )}
-            <FooterFormaBtn type="submit">Subcribe</FooterFormaBtn>
+            <ErrorMessage className="error" name="email" component="div" />
+            <FooterFormaBtn
+              type="submit"
+              disabled={getDisabledBtn(props.errors.email, props.values.email)}
+            >
+              Subcribe
+            </FooterFormaBtn>
           </FooterForma>
         )}
       </Formik>
