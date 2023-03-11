@@ -71,12 +71,20 @@ const AddRecipe = () => {
     about: '',
     category: '',
     time: '',
-    ingredient: '',
-    unit: '',
+  });
+  const [isValid, setIsValid] = useState({
+    recipe: false,
+    title: false,
+    about: false,
+    category: false,
+    time: false,
+    ingredient: false,
+    unit: false,
   });
   const [counter, setCounter] = useState(0);
-  const [ingredients, setIngredients] = useState([]);
+  const [userIngredients, setUserIngredients] = useState([]);
   const [path, setPath] = useState('');
+
   const popularRecepis = useSelector(getPopular);
   const optionsIngredients = useSelector(getIngredients);
 
@@ -88,27 +96,27 @@ const AddRecipe = () => {
   const handleDecrement = () => {
     if (counter <= 0) return;
     setCounter(prev => prev - 1);
-    setIngredients(prev => [...prev.slice(0, prev.length - 1)]);
+    setUserIngredients(prev => [...prev.slice(0, prev.length - 1)]);
   };
 
   const handleIncrement = () => {
     setCounter(prev => prev + 1);
-    setIngredients(prev => [...prev, { id: nanoid() }]);
+    setUserIngredients(prev => [...prev, { id: nanoid() }]);
   };
 
   const handleRemove = ({ currentTarget }) => {
-    const newList = ingredients.filter(el => el.id !== currentTarget.id);
-    setIngredients(newList);
+    const newList = userIngredients.filter(el => el.id !== currentTarget.id);
+    setUserIngredients(newList);
     setCounter(prev => prev - 1);
   };
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
-    console.log('name', name, 'value', value);
     setInputs(prev => ({
       ...prev,
       [name]: value,
     }));
+    setIsValid(prev => ({ ...prev, [name]: true }));
   };
 
   const handleFile = ({ currentTarget }) => {
@@ -129,8 +137,25 @@ const AddRecipe = () => {
   };
 
   const handleSubmit = e => {
-    console.log(e);
     e.preventDefault();
+    const formData = new FormData();
+
+    const { recipe, time, category, about, title, file } = inputs;
+
+    formData.append('description', recipe);
+    formData.append('coockingTime', time);
+    formData.append('category', category);
+    formData.append('about', about);
+    formData.append('title', title);
+    formData.append('img', file);
+    formData.append(
+      'ingredients',
+      userIngredients.map(({ id, ...items }) => items)
+    );
+
+    const obj = {};
+    formData.forEach((val, key) => (obj[key] = val));
+    // console.log(userIngredients);
   };
 
   const handleSelect = (...arg) => {
@@ -140,22 +165,35 @@ const AddRecipe = () => {
     setInputs(prev => ({ ...prev, [name]: value }));
   };
 
-  const userIngredientsList = ingredients.map(el => {
+  const handleUserIngredient = (...args) => {
+    const [{ value }, { name: dirtyName }] = args;
+    const [name, id] = dirtyName.split(' ');
+
+    setUserIngredients(prev => {
+      const idx = prev.findIndex(el => el.id === id);
+      const [item] = prev.filter(el => el.id === id);
+      item[name] = value;
+      prev[idx] = item;
+      return [...prev];
+    });
+  };
+
+  const userIngredientsList = userIngredients.map(el => {
     return (
       <IngredientsItem key={el.id}>
         <Select
           options={ingredientsOptionsList(optionsIngredients)}
           defaultValue={ingredientsOptionsList(optionsIngredients)[2]}
           placeholder=" "
-          onChange={handleSelect}
-          name="ingredienst"
+          onChange={handleUserIngredient}
+          name={`ingredient ${el.id}`}
         />
         <Select
           options={optionsUnits}
           defaultValue={optionsUnits[2]}
           placeholder=" "
-          onChange={handleSelect}
-          name="unit"
+          onChange={handleUserIngredient}
+          name={`qty ${el.id}`}
         />
         <ButtonRemoveItem type="click" id={el.id} onClick={handleRemove}>
           <svg width="25" height="25">
