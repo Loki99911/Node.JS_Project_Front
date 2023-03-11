@@ -3,8 +3,10 @@ import { InngredientsWrapper } from './RecipeInngredientsList.styled';
 
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector } from 'react-redux';
+// import { useState } from 'react';
 
 const RecipeInngredientsList = ({ ingredients }) => {
+  // const [ingID, setIngID] = useState(false);
   const allOfIngredients = useSelector(getIngredients);
 
   function getIngDescription(ingName) {
@@ -13,11 +15,23 @@ const RecipeInngredientsList = ({ ingredients }) => {
         ing.strIngredient ===
         ingName.replace(ingName[0], ingName[0].toUpperCase())
     );
-    // if (ing && ing.strDescription !== null) {
-    //   ing.strDescription === "";
-    //   return ing;
-    // }
     return ing;
+  }
+
+  function getDescr(name) {
+    const descr = getIngDescription(name);
+    if (!descr) {
+      return '';
+    }
+    return descr.strDescription;
+  }
+
+  function getID(name) {
+    const descr = getIngDescription(name);
+    if (!descr) {
+      return '';
+    }
+    return descr.idIngredient;
   }
 
   return (
@@ -28,11 +42,11 @@ const RecipeInngredientsList = ({ ingredients }) => {
             image={
               'https://i.pinimg.com/564x/e9/2b/df/e92bdfc88c52c9600a9f545fbc443d4d.jpg'
             }
-            idIngredient={getIngDescription(inngredient.name).idIngredient}
             strIngredient={inngredient.name}
             key={inngredient.id}
             weight={inngredient.number}
-            strDescription={getIngDescription(inngredient.name).strDescription}
+            strDescription={getDescr(inngredient.name)}
+            idIngredient={getID(inngredient.name)}
           />
         ))}
       </InngredientsWrapper>
