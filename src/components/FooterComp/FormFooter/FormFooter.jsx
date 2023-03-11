@@ -11,21 +11,23 @@ import * as Yup from 'yup';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import sprite from '../../../images/sprite.svg';
 
+import { getColor } from 'utils/formikColors';
+
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email().required(),
 });
 
-const getColor = (errors, values) => {
-  return values
-    ? (errors && '#E74A3B') || '#3CBC81'
-    : 'rgba(255, 255, 255, 0.8)';
-};
+// const getColor = (errors, values) => {
+//   return values
+//     ? (errors && '#E74A3B') || '#3CBC81'
+//     : 'rgba(255, 255, 255, 0.8)';
+// };
 
-const getColorBorder = (errors, values) => {
-  return values
-    ? (errors && '#E74A3B') || '#3CBC81'
-    : 'rgba(255, 255, 255, 0.3)';
-};
+// const getColorBorder = (errors, values) => {
+//   return values
+//     ? (errors && '#E74A3B') || '#3CBC81'
+//     : 'rgba(255, 255, 255, 0.3)';
+// };
 
 export const FormFooter = () => {
   const { isDesktop } = useMediaRules();
@@ -65,15 +67,24 @@ export const FormFooter = () => {
               onBlur={props.handleBlur}
               value={props.values.email}
               name="email"
-              color={getColor(props.errors.email, props.values.email)}
-              borderColor={getColorBorder(
+              color={getColor(
                 props.errors.email,
-                props.values.email
+                props.values.email,
+                'rgba(255, 255, 255, 0.8)'
+              )}
+              borderColor={getColor(
+                props.errors.email,
+                props.values.email,
+                'rgba(255, 255, 255, 0.3)'
               )}
             />
             <svg
               className="icon"
-              fill={getColor(props.errors.email, props.values.email)}
+              fill={getColor(
+                props.errors.email,
+                props.values.email,
+                'rgba(255, 255, 255, 0.8)'
+              )}
             >
               <use href={sprite + '#email'}></use>
             </svg>
@@ -83,7 +94,8 @@ export const FormFooter = () => {
                   <use
                     href={`${sprite}${getColor(
                       props.errors.email,
-                      props.values.email
+                      props.values.email,
+                      'rgba(255, 255, 255, 0.8)'
                     )}`}
                   ></use>
                 </svg>
