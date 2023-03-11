@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.acccbc6f.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.7904f5dd.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.def03bc0.js",
     "static/media/mainDes.png": "/Node.JS_Project_Front/static/media/mainDes.3acda1baf59e52f3b907.png",
     "static/media/mainTab.png": "/Node.JS_Project_Front/static/media/mainTab.574399fd53879a6c11df.png",
     "static/media/bg_big_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_2x.088180e00dd0b716a522.png",
@@ -39,10 +39,10 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.acccbc6f.css.map": "/Node.JS_Project_Front/static/css/main.acccbc6f.css.map",
-    "main.7904f5dd.js.map": "/Node.JS_Project_Front/static/js/main.7904f5dd.js.map"
+    "main.def03bc0.js.map": "/Node.JS_Project_Front/static/js/main.def03bc0.js.map"
   },
   "entrypoints": [
     "static/css/main.acccbc6f.css",
-    "static/js/main.7904f5dd.js"
+    "static/js/main.def03bc0.js"
   ]
 }
