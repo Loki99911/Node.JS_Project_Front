@@ -21,6 +21,7 @@ export const InstructionWrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 469px;
+    margin-bottom: 0;
   }
 `;
 

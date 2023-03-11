@@ -27,11 +27,11 @@ const RecipeInngredientsItem = obj => {
       <RecipeItem>
         <Label>
           <ImageWrapper>
-            <img src={obj.image} alt={obj.name} />
+            <img src={obj.image} alt={obj.strIngredient} />
           </ImageWrapper>
           <TextContainer>
-            <IngName>{obj.name}</IngName>
-            <IngDescr>{obj.description}</IngDescr>
+            <IngName>{obj.strIngredient}</IngName>
+            <IngDescr>{obj.strDescription}</IngDescr>
           </TextContainer>
           <IngNumber>{obj.weight}</IngNumber>
           <RealCheckbox

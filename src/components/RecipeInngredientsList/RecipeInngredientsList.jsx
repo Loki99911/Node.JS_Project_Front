@@ -13,7 +13,6 @@ const RecipeInngredientsList = ({ ingredients }) => {
         ing.strIngredient ===
         ingName.replace(ingName[0], ingName[0].toUpperCase())
     );
-    // console.log(ing.idIngredient);
     // if (ing && ing.strDescription !== null) {
     //   ing.strDescription === "";
     //   return ing;
@@ -29,11 +28,11 @@ const RecipeInngredientsList = ({ ingredients }) => {
             image={
               'https://i.pinimg.com/564x/e9/2b/df/e92bdfc88c52c9600a9f545fbc443d4d.jpg'
             }
-            id={getIngDescription(inngredient.name).idIngredient}
-            name={inngredient.name}
+            idIngredient={getIngDescription(inngredient.name).idIngredient}
+            strIngredient={inngredient.name}
             key={inngredient.id}
             weight={inngredient.number}
-            description={getIngDescription(inngredient.name).strDescription}
+            strDescription={getIngDescription(inngredient.name).strDescription}
           />
         ))}
       </InngredientsWrapper>
