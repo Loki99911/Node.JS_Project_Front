@@ -16,7 +16,7 @@ import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import CategoriesByName from 'pages/CategoriesByName/CategoriesByName';
 import MainPage from 'pages/MainPage/MainPage';
-import Error from 'pages/Error/Error';
+// import Error from 'pages/Error/Error';
 import { useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 
