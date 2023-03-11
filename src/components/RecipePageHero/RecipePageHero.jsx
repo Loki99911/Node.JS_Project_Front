@@ -3,7 +3,7 @@ import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { useEffect, useState } from 'react';
 
 const RecipePageHero = ({ meal }) => {
-  const [Meal, setMeal] = useState({});
+  const [Meal, setMeal] = useState();
 
   useEffect(() => {
     if (meal) {
