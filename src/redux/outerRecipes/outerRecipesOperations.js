@@ -6,6 +6,7 @@ import {
   getLimitedRecipesByCategoryAPI,
   getOneRecipeByIdAPI,
   getPopularRecipesAPI,
+  getRecipesByQueryAPI,
 } from 'service/API/TheMealAPI';
 
 import { token } from 'redux/auth/authOperations';
@@ -141,6 +142,26 @@ export const getPopularRecipes = createAsyncThunk(
     try {
       const data = await getPopularRecipesAPI();
       console.log('popular', data.meals);
+      return data.meals;
+    } catch (error) {
+      console.log(error.message);
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const getRecipesByQuery = createAsyncThunk(
+  'outerRecipes/recipesByQuery',
+  async (query, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
+    try {
+      const data = await getRecipesByQueryAPI(query);
+      console.log('recipes by search query', data.meals);
       return data.meals;
     } catch (error) {
       console.log(error.message);

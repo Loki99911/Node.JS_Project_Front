@@ -81,9 +81,10 @@ export const FormFooter = () => {
               <FlagForInput>
                 <svg>
                   <use
-                    href={`${sprite}#${
-                      (props.errors.email && 'red') || 'green'
-                    }`}
+                    href={`${sprite}${getColor(
+                      props.errors.email,
+                      props.values.email
+                    )}`}
                   ></use>
                 </svg>
               </FlagForInput>
