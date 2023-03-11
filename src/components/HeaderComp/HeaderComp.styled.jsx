@@ -91,6 +91,9 @@ export const MobileMenuWrapper = styled.div`
   height: 100vh;
   padding: 18px;
   display: flex;
+  transform: ${p =>
+    p.isShown ? 'translate3d(0, 0vh, 0)' : 'translate3d(0, -100vh, 0)'};
+  transition: transform 1s cubic-bezier(0, 0.52, 0, 1);
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
