@@ -40,12 +40,12 @@ const EditNameSchema = Yup.object().shape({
     .required(),
 });
 
-export const UserInfoModal = ({ closeModal, name }) => {
+export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
   //  const dispatch = useDispatch();
   const [path, setPath] = useState('');
   const [inputs, setInputs] = useState({
     name: name,
-    picture: '',
+    picture: avatarUrl,
   });
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export const UserInfoModal = ({ closeModal, name }) => {
       <ModalWindow>
         <Formik
           initialValues={{
-            picture: '',
+            picture: avatarUrl,
             name: name,
           }}
           validationSchema={EditNameSchema}
@@ -94,7 +94,9 @@ export const UserInfoModal = ({ closeModal, name }) => {
               <UserAvatarWrapper>
                 <label htmlFor="picture" id="labelFile">
                   {inputs.picture?.name ? (
-                    <img src={path} alt="user_picture" />
+                    <UserSvgWrapper>
+                      <img src={path} alt="user_picture" />
+                    </UserSvgWrapper>
                   ) : (
                     <UserSvgWrapper>
                       <svg>
