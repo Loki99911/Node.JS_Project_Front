@@ -16,6 +16,7 @@ import {
   SvgAuth,
 } from './style.jsx';
 import SVG from 'images/sprite.svg';
+import { getColor } from 'utils/formikColors.js';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -36,18 +37,6 @@ const SignupSchema = Yup.object().shape({
     .matches(/[A-Z]/, 'Your password is little secure. Add uppercase letter!')
     .required('Enter a valid Password*'),
 });
-
-  export const getColor = (errors, values) => {
-    if (errors === 'Your password is little secure. Add uppercase letter!') {
-      return '#F6C23E'
-    }
-    return values ? (errors && '#E74A3B') || '#3CBC81' : 'rgba(255, 255, 255, 0.8)';
-}
- export const getColorBorder = (errors, values) => {
-  return values
-    ? (errors && '#E74A3B') || '#3CBC81'
-    : 'rgba(255, 255, 255, 0.3)';
-};
 
 const FormRegister = props => {
   const dispatch = useDispatch();
@@ -102,7 +91,11 @@ const FormRegister = props => {
                   name="name"
                   placeholder="Name"
                   color={getColor(props.errors.name, props.values.name)}
-                  borderColor={getColorBorder(props.errors.name, props.values.name)}
+                  borderColor={getColor(
+                    props.errors.name,
+                    props.values.name,
+                    'rgba(255, 255, 255, 0.3)'
+                  )}
                 />
               </BoxForInput>
               <BoxForInput>
@@ -128,7 +121,11 @@ const FormRegister = props => {
                   name="email"
                   placeholder="Email"
                   color={getColor(props.errors.email, props.values.email)}
-                  borderColor={getColorBorder(props.errors.email, props.values.email)}
+                  borderColor={getColor(
+                    props.errors.email,
+                    props.values.email,
+                    'rgba(255, 255, 255, 0.3)'
+                  )}
                 />
               </BoxForInput>
               <BoxForInput>
@@ -159,7 +156,11 @@ const FormRegister = props => {
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
-                  borderColor={getColorBorder(props.errors.password, props.values.password)}
+                  borderColor={getColor(
+                    props.errors.password,
+                    props.values.password,
+                    'rgba(255, 255, 255, 0.3)'
+                  )}
                 />
                 {props.values.password && (
                   <ErrorMessage

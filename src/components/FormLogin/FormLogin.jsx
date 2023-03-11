@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
 import SVG from 'images/sprite.svg';
-import { getColor, getColorBorder } from 'components/FormRegister/FormRegister';
+import { getColor } from 'utils/formikColors.js';
 
 import {
   BoxForInput,
@@ -20,15 +20,13 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 const LoginSchema = Yup.object().shape({
-  email: Yup.string().email().required(),
-
-  //   Yup.mixed().test({
-  //   name: 'email',
-  //   params: { a: 'test', b: 'qwe' },
-  //   test: value => {
-  //     return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
-  //   },
-  // }),
+  email: Yup.mixed().test({
+    name: 'email',
+    params: { a: 'test', b: 'qwe' },
+    test: value => {
+      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+    },
+  }),
   password: Yup.string()
     .min(4, 'Your password is short')
     .max(25, 'Enter a valid Password*')
@@ -85,7 +83,11 @@ const FormLogin = props => {
                   name="email"
                   placeholder="Email"
                   color={getColor(props.errors.email, props.values.email)}
-                  borderColor={getColorBorder(props.errors.email, props.values.email)}
+                  borderColor={getColor(
+                    props.errors.email,
+                    props.values.email,
+                    'rgba(255, 255, 255, 0.3)'
+                  )}
                 />
               </BoxForInput>
               <BoxForInput>
@@ -116,7 +118,11 @@ const FormLogin = props => {
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
-                  borderColor={getColorBorder(props.errors.password, props.values.password)}
+                  borderColor={getColor(
+                    props.errors.password,
+                    props.values.password,
+                    'rgba(255, 255, 255, 0.3)'
+                  )}
                 />
                 {props.values.password && (
                   <ErrorMessage

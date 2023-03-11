@@ -47,6 +47,6 @@ export const BoxForImage = styled.div`
   }
 `;
 
-export const AuthImage = styled.img`
+export const AuthImage = styled.picture`
   width: 100%;
 `;
