@@ -27,9 +27,25 @@ export const getOneRecipeByIdAPI = id => {
 };
 
 export const getPopularRecipesAPI = () => {
-  return axios.get('/popular-recipe').then(({ data }) => {
+  return axios.get('/recipes/popular').then(({ data }) => {
     return data;
   });
 };
 
-export const getAllIngredientsAPI = () => {};
+export const getRecipesByQueryAPI = query => {
+  return axios.get(`/recipes/search/${query}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getAllIngredientsAPI = () => {
+  return axios.get('/ingredients/list').then(({ data }) => {
+    return data;
+  });
+};
+
+export const getRecipesByIngredientAPI = ingredient => {
+  return axios.get(`/ingredients/${ingredient}`).then(({ data }) => {
+    return data;
+  });
+};

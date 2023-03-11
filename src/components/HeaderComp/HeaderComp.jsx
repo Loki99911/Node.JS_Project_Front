@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useMediaQuery } from 'hooks/useMedia';
+import sprite from '../../images/sprite.svg';
 import {
   BurgerButton,
   BurgerWrapper,
@@ -9,15 +12,11 @@ import {
   MobileMenuThemeTogglerWrapper,
   MobileMenuWrapper,
   NavLinkStyled,
-  UserTogglerWrapper,
 } from './HeaderComp.styled';
 import logo from '../../images/svg-before sprite/logo_desc.svg';
 import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
-import { HeaderUser } from 'components/HeaderComp/HeaderUser/HeaderUser';
+import { HeaderUser } from 'components/HeaderComp/HeaderUserLogo/HeaderUserLogo';
 import { Container } from 'components/Container/Container';
-import { useMediaQuery } from 'hooks/useMedia';
-import sprite from '../../images/sprite.svg';
-import { useState } from 'react';
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 
 export const HeaderComp = () => {
@@ -25,7 +24,6 @@ export const HeaderComp = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMobileMenu = e => {
-    console.log(e.target);
     setShowMenu(!showMenu);
   };
   return (
@@ -35,15 +33,14 @@ export const HeaderComp = () => {
           <Container>
             <HeaderWrapper>
               <LogoWrapper>
-                <NavLinkStyled to="/">
+                <NavLinkStyled to="/main">
                   <img src={logo} alt="logo" />
                 </NavLinkStyled>
               </LogoWrapper>
               <HeaderNav />
-              <UserTogglerWrapper>
-                <HeaderUser />
-                <ThemeToggler />
-              </UserTogglerWrapper>
+
+              <HeaderUser />
+              <ThemeToggler />
             </HeaderWrapper>
           </Container>
         </Header>
@@ -53,11 +50,12 @@ export const HeaderComp = () => {
             <Container>
               <HeaderWrapper>
                 <LogoWrapper>
-                  <NavLinkStyled to="/">
+                  <NavLinkStyled to="/main">
                     <img src={logo} alt="logo" />
                   </NavLinkStyled>
                 </LogoWrapper>
                 <BurgerWrapper>
+                  <HeaderUser />
                   <BurgerButton type="button" onClick={toggleMobileMenu}>
                     <svg>
                       <use href={sprite + `#menu`} />
@@ -71,7 +69,7 @@ export const HeaderComp = () => {
             <MobileMenuWrapper>
               <MobileMenuHeaderContainer>
                 <LogoWrapper>
-                  <NavLinkStyled to="/">
+                  <NavLinkStyled to="/main">
                     <img src={logo} alt="logo" />
                   </NavLinkStyled>
                 </LogoWrapper>

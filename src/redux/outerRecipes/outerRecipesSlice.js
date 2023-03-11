@@ -6,7 +6,10 @@ import {
   getOneRecipeById,
   getPopularRecipes,
   getMainCategories,
+  getRecipesByQuery,
 } from './outerRecipesOperations';
+
+import { logOut } from 'redux/auth/authOperations';
 
 const pending = state => {
   state.isCategoryFetching = true;
@@ -23,6 +26,7 @@ const initialState = {
   allRecipesByCategory: [],
   singleRecipe: null,
   popularRecipes: [],
+  recipesByQuery: [],
 };
 
 export const outerRecipesSlice = createSlice({
@@ -54,18 +58,25 @@ export const outerRecipesSlice = createSlice({
         state.popularRecipes = payload;
         state.isCategoryFetching = false;
       })
+      .addCase(getRecipesByQuery.fulfilled, (state, { payload }) => {
+        state.recipesByQuery = payload;
+        state.isCategoryFetching = false;
+      })
+      .addCase(logOut.fulfilled, () => ({ ...initialState }))
 
       .addCase(getMainCategories.pending, pending)
       .addCase(getLimitedRecipesByCategory.pending, pending)
       .addCase(getAllRecipesByCategory.pending, pending)
       .addCase(getOneRecipeById.pending, pending)
       .addCase(getPopularRecipes.pending, pending)
+      .addCase(getRecipesByQuery.pending, pending)
 
       .addCase(getMainCategories.rejected, rejected)
       .addCase(getLimitedRecipesByCategory.rejected, rejected)
       .addCase(getAllRecipesByCategory.rejected, rejected)
       .addCase(getOneRecipeById.rejected, rejected)
-      .addCase(getPopularRecipes.rejected, rejected),
+      .addCase(getPopularRecipes.rejected, rejected)
+      .addCase(getRecipesByQuery.rejected, rejected),
 });
 
 export default outerRecipesSlice.reducer;

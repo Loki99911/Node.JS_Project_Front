@@ -14,7 +14,7 @@ import {
   BoxForForm,
   LinkAuth,
   SvgAuth,
-} from './style';
+} from './style.jsx';
 import SVG from 'images/sprite.svg';
 
 const SignupSchema = Yup.object().shape({
@@ -23,15 +23,13 @@ const SignupSchema = Yup.object().shape({
     .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/)
     .required(),
 
-  email: Yup.string().email().required(),
-
-  //   Yup.mixed().test({
-  //   name: 'email',
-  //   params: { a: 'test', b: 'qwe' },
-  //   test: value => {
-  //     return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
-  //   },
-  // }),
+  email: Yup.mixed().test({
+    name: 'email',
+    params: { a: 'test', b: 'qwe' },
+    test: value => {
+      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+    },
+  }),
   password: Yup.string()
     .min(4, 'Your password is short')
     .max(25, 'Enter a valid Password*')
@@ -53,7 +51,7 @@ const SignupSchema = Yup.object().shape({
 
 const FormRegister = props => {
   const dispatch = useDispatch();
-  
+
   return (
     <div>
       <Formik
@@ -91,7 +89,10 @@ const FormRegister = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(props.errors.name, props.values.name)}`}
+                        href={`${SVG}${getColor(
+                          props.errors.name,
+                          props.values.name
+                        )}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -106,9 +107,7 @@ const FormRegister = props => {
               </BoxForInput>
               <BoxForInput>
                 <IconForInput>
-                  <svg
-                    fill={getColor(props.errors.email, props.values.email)}
-                  >
+                  <svg fill={getColor(props.errors.email, props.values.email)}>
                     <use href={`${SVG}#email`}></use>
                   </svg>
                 </IconForInput>
@@ -116,7 +115,10 @@ const FormRegister = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(props.errors.email, props.values.email)}`}
+                        href={`${SVG}${getColor(
+                          props.errors.email,
+                          props.values.email
+                        )}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -132,7 +134,10 @@ const FormRegister = props => {
               <BoxForInput>
                 <IconForInput>
                   <SvgAuth
-                    color={getColor(props.errors.password, props.values.password)}
+                    color={getColor(
+                      props.errors.password,
+                      props.values.password
+                    )}
                   >
                     <use href={`${SVG}#password`}></use>
                   </SvgAuth>
@@ -141,7 +146,10 @@ const FormRegister = props => {
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(props.errors.password, props.values.password)}`}
+                        href={`${SVG}${getColor(
+                          props.errors.password,
+                          props.values.password
+                        )}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -156,7 +164,10 @@ const FormRegister = props => {
                 {props.values.password && (
                   <ErrorMessage
                     id="feedback"
-                    color={getColor(props.errors.password, props.values.password)}
+                    color={getColor(
+                      props.errors.password,
+                      props.values.password
+                    )}
                   >
                     {props.errors.password || 'Password is secure'}
                   </ErrorMessage>

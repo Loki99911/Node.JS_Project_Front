@@ -1,8 +1,22 @@
-const RecipePreparation = () => {
+import {
+  ImageWrapper,
+  PreparationWrapper,
+  InstructionWrapper,
+  InstructionTitle,
+  InstructionText,
+} from './RecipePreparation.styled';
+
+const RecipePreparation = ({ image, instructions }) => {
   return (
-    <>
-      <div>RecipePreparation</div>
-    </>
+    <PreparationWrapper>
+      <InstructionWrapper>
+        <InstructionTitle>Recipe Preparation</InstructionTitle>
+        <InstructionText>{instructions}</InstructionText>
+      </InstructionWrapper>
+      <ImageWrapper>
+        <img src={image} alt="ImgText"/>
+      </ImageWrapper>
+    </PreparationWrapper>
   );
 };
 

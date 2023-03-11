@@ -16,6 +16,7 @@ export const theme = {
     sectionHeaderDark: '#001833',
 
     mainGreyBg: '#D9D9D9',
+    secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
     iconHover: ' #1E1F28',
     switchBg: '#EFEFEF',
@@ -31,6 +32,8 @@ export const theme = {
     btnText: '1.12',
     description: '1.25',
     time: '1.43',
+    headerLinks: '1.6',
+    userLink: '1.7',
   },
   letterSpacings: {
     subheader: '-0.24px',
@@ -48,6 +51,7 @@ export const theme = {
     image: '8px',
     switch: '50px',
     pagination: '26px',
+    modal: '24px',
     circle: '50%',
   },
   transitions: {
