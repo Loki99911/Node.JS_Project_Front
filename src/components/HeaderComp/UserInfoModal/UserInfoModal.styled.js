@@ -158,16 +158,16 @@ export const NameInput = styled(Field)`
 export const NameLabel = styled.label`
   width: 100%;
   position: relative;
+`;
 
-  & svg {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    stroke: ${({ color }) => color};
-    top: 50%;
-    left: 16.5px;
-    transform: translateY(-50%);
-  }
+export const UserIcon = styled.svg`
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  stroke: ${({ color }) => color};
+  top: 50%;
+  left: 16.5px;
+  transform: translateY(-50%);
 `;
 
 export const SubmitBtn = styled.button`
@@ -195,25 +195,29 @@ export const SubmitBtn = styled.button`
   }
 `;
 
-export const FlagForInput = styled.div`
+export const FlagForInput = styled.svg`
   position: absolute;
-  top: 11px;
-  right: 12px;
-
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+`;
 
-  @media screen and (min-width: 768px) {
-    top: 15px;
-    right: 302px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    top: 126px;
-    right: 12px;
+export const ErrorMessage = styled.p`
+  position: absolute;
+  color: ${({ color }) => color};
+  top: 55px;
+  left: 10px;
+  font-size: 11px;
+  @media screen and (min-width: 769px) {
+    top: 70px;
+    left: 10px;
+    font-size: 18px;
   }
 `;

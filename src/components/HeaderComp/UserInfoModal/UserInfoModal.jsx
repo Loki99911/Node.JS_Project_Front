@@ -18,26 +18,20 @@ import {
 
 import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
+import { UserIcon } from './UserInfoModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const validFileExtensions = {
-  image: ['jpg', 'png', 'jpeg'],
-};
-
-function isValidFileType(fileName, fileType) {
-  return (
-    fileName &&
-    validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1
-  );
-}
+const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
 const EditNameSchema = Yup.object().shape({
-  picture: Yup.mixed()
-    .required('Required')
-    .test('is-valid-type', 'Not a valid image type', value =>
-      isValidFileType(value && value.name.toLowerCase(), 'image')
-    ),
+  picture: Yup.mixed().test(
+    'type',
+    'Only PNG, JPEG and JPG formats are supported',
+    value => {
+      return !value || (value && SUPPORTED_FORMATS.includes(value?.type));
+    }
+  ),
 
   name: Yup.string()
     .min(2)
@@ -73,39 +67,6 @@ export const UserInfoModal = ({ closeModal, name }) => {
     }
   };
 
-  const handleFile = ({ currentTarget }) => {
-    const { files } = currentTarget;
-    const [file] = files;
-    if (!file?.type.includes('image')) {
-      return;
-    }
-    setInputs(prev => ({
-      ...prev,
-      picture: file,
-    }));
-    setPath(window.URL.createObjectURL(file));
-  };
-
-  //   const handleChange = ({ currentTarget }) => {
-  //     const { name, value } = currentTarget;
-  //     // console.log('name', name, 'value', value);
-  //     setInputs(prev => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }));
-  //   };
-
-  const handleSubmit = (e, values) => {
-    e.preventDefault();
-    console.log(inputs);
-    //   dispatch(
-    //     edit({
-    //       name: values.name.trim(),
-    //       picture: values.picture,
-    //     })
-    //   );
-  };
-
   return createPortal(
     <ModalOverlay onClick={onBackdropClick}>
       <ModalWindow>
@@ -115,7 +76,9 @@ export const UserInfoModal = ({ closeModal, name }) => {
             name: name,
           }}
           validationSchema={EditNameSchema}
+          validateOnBlur={true}
           onSubmit={(values, actions) => {
+            console.log(values);
             //   dispatch(
             //     edit({
             //       name: values.name.trim(),
@@ -127,7 +90,7 @@ export const UserInfoModal = ({ closeModal, name }) => {
           }}
         >
           {props => (
-            <UserEditForm onSubmit={handleSubmit}>
+            <UserEditForm onSubmit={props.handleSubmit}>
               <UserAvatarWrapper>
                 <label htmlFor="picture" id="labelFile">
                   {inputs.picture?.name ? (
@@ -144,9 +107,32 @@ export const UserInfoModal = ({ closeModal, name }) => {
                   type="file"
                   id="picture"
                   name="picture"
-                  onChange={handleFile}
+                  onChange={event => {
+                    props.setTouched({
+                      image: true,
+                    });
+                    if (event.target.files[0]) {
+                      if (
+                        SUPPORTED_FORMATS.includes(event.target.files[0].type)
+                      ) {
+                        console.log('true');
+                        setInputs(prev => ({
+                          ...prev,
+                          picture: event.target.files[0],
+                        }));
+                        setPath(
+                          window.URL.createObjectURL(event.target.files[0])
+                        );
+                        props.setFieldValue('picture', event.target.files[0]);
+                      }
+                      props.setFieldValue('picture', event.target.files[0]);
+                    }
+                  }}
                 />
               </UserAvatarWrapper>
+              {props.touched.picture && props.errors.picture ? (
+                <p>{props.errors.picture}</p>
+              ) : null}
 
               <InputsWrapper>
                 <NameLabel htmlFor="name" id="labelName">
@@ -156,13 +142,14 @@ export const UserInfoModal = ({ closeModal, name }) => {
                     id="name"
                     // value={inputs.name}
                     // onChange={handleChange}
+                    onChange={props.handleChange}
                     color={getColor(
                       props.errors.name,
                       props.values.name,
                       '#C4C4C4'
                     )}
                   />
-                  <svg
+                  <UserIcon
                     stroke={getColor(
                       props.errors.name,
                       props.values.name,
@@ -170,16 +157,15 @@ export const UserInfoModal = ({ closeModal, name }) => {
                     )}
                   >
                     <use href={sprite + `#user`} />
-                  </svg>
-                  {props.values.name && (
+                  </UserIcon>
+                  {props.touched.name && (
                     <FlagForInput>
-                      <svg>
-                        <use
-                          href={`${sprite}#${
-                            (props.errors.name && 'red') || 'green'
-                          }`}
-                        ></use>
-                      </svg>
+                      <use
+                        href={`${sprite}${getColor(
+                          props.errors.name,
+                          props.values.name
+                        )}`}
+                      ></use>
                     </FlagForInput>
                   )}
                 </NameLabel>
