@@ -5,6 +5,15 @@ export const MainWrapper = styled.div`
   display: ${({ isDesktop }) => (isDesktop ? 'flex' : 'unset')};
   gap: 100px;
   padding-bottom: 200px;
+
+  .css-l4u8b9-MuiInputBase-root-MuiInput-root:after {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.mainAccent};
+  }
+
+  .css-t3ipsp-control {
+    border-color: ${({ theme }) => theme.colors.mainAccent};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.mainAccent};
+  }
 `;
 
 export const RecipeForm = styled.form`

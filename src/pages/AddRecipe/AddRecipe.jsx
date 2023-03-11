@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper';
 import 'swiper/css';
-
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
@@ -42,26 +41,12 @@ import { SocialLinks } from 'components/FooterComp/SocialLinks/SocialLinks';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPopular } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getPopularRecipes } from 'redux/outerRecipes/outerRecipesOperations';
+import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
+import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
+import { timeOptionsList } from 'utils/timeOptionsList';
+import { ingredientsOptionsList } from 'utils/ingredientsOptionsList';
+import { unitsOptionsList } from 'utils/unitsOptionsList';
 
-const optionsIngredients = [
-  {
-    value: 'chocolate',
-    label: 'Chocolate',
-  },
-  {
-    value: 'strawberry',
-    label: 'Strawberry',
-  },
-  {
-    value: 'vanilla',
-    label: 'Vanilla',
-  },
-];
-const optionsUnits = [
-  { value: 'gr', label: 'gr' },
-  { value: 'kg', label: 'kg' },
-  { value: 'mg', label: 'mg' },
-];
 const optionsCategories = [
   {
     value: 'meet',
@@ -70,13 +55,9 @@ const optionsCategories = [
   { value: 'salads', label: 'Salads' },
   { value: 'soups', label: 'Soups' },
 ];
-const optionsTime = [
-  { label: 45, value: 45 },
-  { label: 60, value: 60 },
-  { label: 90, value: 90 },
-];
 
 const AddRecipe = () => {
+  const dispatch = useDispatch();
   const isDesktop = useMediaQuery({ minWidth: 1440 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1399 });
   const [inputs, setInputs] = useState({
@@ -86,43 +67,52 @@ const AddRecipe = () => {
     about: '',
     category: '',
     time: '',
-    ingredient: '',
-    unit: '',
+  });
+  const [isValid, setIsValid] = useState({
+    recipe: false,
+    title: false,
+    about: false,
+    category: false,
+    time: false,
+    ingredient: false,
+    unit: false,
   });
   const [counter, setCounter] = useState(0);
-  const [ingredients, setIngredients] = useState([]);
+  const [userIngredients, setUserIngredients] = useState([]);
   const [path, setPath] = useState('');
-  const dispatch = useDispatch();
+
   const popularRecepis = useSelector(getPopular);
+  const optionsIngredients = useSelector(getIngredients);
 
   useEffect(() => {
     dispatch(getPopularRecipes());
+    dispatch(getAllIngredients());
   }, [dispatch]);
 
   const handleDecrement = () => {
     if (counter <= 0) return;
     setCounter(prev => prev - 1);
-    setIngredients(prev => [...prev.slice(0, prev.length - 1)]);
+    setUserIngredients(prev => [...prev.slice(0, prev.length - 1)]);
   };
 
   const handleIncrement = () => {
     setCounter(prev => prev + 1);
-    setIngredients(prev => [...prev, { id: nanoid() }]);
+    setUserIngredients(prev => [...prev, { id: nanoid() }]);
   };
 
   const handleRemove = ({ currentTarget }) => {
-    const newList = ingredients.filter(el => el.id !== currentTarget.id);
-    setIngredients(newList);
+    const newList = userIngredients.filter(el => el.id !== currentTarget.id);
+    setUserIngredients(newList);
     setCounter(prev => prev - 1);
   };
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
-    console.log('name', name, 'value', value);
     setInputs(prev => ({
       ...prev,
       [name]: value,
     }));
+    setIsValid(prev => ({ ...prev, [name]: true }));
   };
 
   const handleFile = ({ currentTarget }) => {
@@ -143,8 +133,25 @@ const AddRecipe = () => {
   };
 
   const handleSubmit = e => {
-    console.log(e);
     e.preventDefault();
+    const formData = new FormData();
+
+    const { recipe, time, category, about, title, file } = inputs;
+
+    formData.append('description', recipe);
+    formData.append('coockingTime', time);
+    formData.append('category', category);
+    formData.append('about', about);
+    formData.append('title', title);
+    formData.append('img', file);
+    formData.append(
+      'ingredients',
+      userIngredients.map(({ id, ...items }) => items)
+    );
+
+    const obj = {};
+    formData.forEach((val, key) => (obj[key] = val));
+    // console.log(userIngredients);
   };
 
   const handleSelect = (...arg) => {
@@ -154,22 +161,35 @@ const AddRecipe = () => {
     setInputs(prev => ({ ...prev, [name]: value }));
   };
 
-  const ingredientsList = ingredients.map(el => {
+  const handleUserIngredient = (...args) => {
+    const [{ value }, { name: dirtyName }] = args;
+    const [name, id] = dirtyName.split(' ');
+
+    setUserIngredients(prev => {
+      const idx = prev.findIndex(el => el.id === id);
+      const [item] = prev.filter(el => el.id === id);
+      item[name] = value;
+      prev[idx] = item;
+      return [...prev];
+    });
+  };
+
+  const userIngredientsList = userIngredients.map(el => {
     return (
       <IngredientsItem key={el.id}>
         <Select
-          options={optionsIngredients}
-          defaultValue={optionsIngredients[2]}
+          options={ingredientsOptionsList(optionsIngredients)}
+          defaultValue={ingredientsOptionsList(optionsIngredients)[2]}
           placeholder=" "
-          onChange={handleSelect}
-          name="ingredienst"
+          onChange={handleUserIngredient}
+          name={`ingredient ${el.id}`}
         />
         <Select
-          options={optionsUnits}
-          defaultValue={optionsUnits[2]}
+          options={unitsOptionsList}
+          defaultValue={unitsOptionsList[2]}
           placeholder=" "
-          onChange={handleSelect}
-          name="unit"
+          onChange={handleUserIngredient}
+          name={`qty ${el.id}`}
         />
         <ButtonRemoveItem type="click" id={el.id} onClick={handleRemove}>
           <svg width="25" height="25">
@@ -265,8 +285,8 @@ const AddRecipe = () => {
                   autoComplete="off"
                 />
                 <Select
-                  options={optionsTime}
-                  defaultValue={optionsTime[2]}
+                  options={timeOptionsList()}
+                  defaultValue={timeOptionsList()[2]}
                   placeholder=" "
                   onChange={handleSelect}
                   name="time"
@@ -283,7 +303,7 @@ const AddRecipe = () => {
                 handleIncrement={handleIncrement}
               />
             </IngredientsTitle>
-            <IngredientsList>{ingredientsList}</IngredientsList>
+            <IngredientsList>{userIngredientsList}</IngredientsList>
           </IngredientsSection>
           <RecepieSection>
             <SubTitle text="Recipe Preparation" />
