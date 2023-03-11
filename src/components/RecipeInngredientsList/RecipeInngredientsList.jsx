@@ -13,27 +13,31 @@ const RecipeInngredientsList = ({ ingredients }) => {
         ing.strIngredient ===
         ingName.replace(ingName[0], ingName[0].toUpperCase())
     );
-    console.log(ing);
-    if (ing && ing.strDescription !== null) {
-      return ing.strDescription;
-    }
-    return '';
+    // console.log(ing.idIngredient);
+    // if (ing && ing.strDescription !== null) {
+    //   ing.strDescription === "";
+    //   return ing;
+    // }
+    return ing;
   }
 
   return (
-    <InngredientsWrapper>
-      {ingredients.map(inngredient => (
-        <RecipeInngredientsItem
-          image={
-            'https://us.123rf.com/450wm/cepn/cepn2009/cepn200900012/155940259-fresh-watermelon-isolated-organic-water-melon-slice-on-white-background.jpg?ver=6'
-          }
-          name={inngredient.name}
-          key={inngredient.id}
-          weight={inngredient.number}
-          description={getIngDescription(inngredient.name)}
-        />
-      ))}
-    </InngredientsWrapper>
+    allOfIngredients && (
+      <InngredientsWrapper>
+        {ingredients.map(inngredient => (
+          <RecipeInngredientsItem
+            image={
+              'https://i.pinimg.com/564x/e9/2b/df/e92bdfc88c52c9600a9f545fbc443d4d.jpg'
+            }
+            id={getIngDescription(inngredient.name).idIngredient}
+            name={inngredient.name}
+            key={inngredient.id}
+            weight={inngredient.number}
+            description={getIngDescription(inngredient.name).strDescription}
+          />
+        ))}
+      </InngredientsWrapper>
+    )
   );
 };
 
