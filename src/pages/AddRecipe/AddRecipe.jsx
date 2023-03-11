@@ -45,12 +45,8 @@ import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { timeOptionsList } from 'utils/timeOptionsList';
 import { ingredientsOptionsList } from 'utils/ingredientsOptionsList';
+import { unitsOptionsList } from 'utils/unitsOptionsList';
 
-const optionsUnits = [
-  { value: 'gr', label: 'gr' },
-  { value: 'kg', label: 'kg' },
-  { value: 'mg', label: 'mg' },
-];
 const optionsCategories = [
   {
     value: 'meet',
@@ -189,8 +185,8 @@ const AddRecipe = () => {
           name={`ingredient ${el.id}`}
         />
         <Select
-          options={optionsUnits}
-          defaultValue={optionsUnits[2]}
+          options={unitsOptionsList}
+          defaultValue={unitsOptionsList[2]}
           placeholder=" "
           onChange={handleUserIngredient}
           name={`qty ${el.id}`}
