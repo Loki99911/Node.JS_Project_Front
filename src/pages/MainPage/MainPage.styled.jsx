@@ -29,12 +29,12 @@ export const MainPageH1 = styled.h1`
     }
 `
 
-export const ColorWrap = styled.h1`
+export const ColorWrap = styled.div`
         background-color: ${theme.colors.btnTextLight};
 
 `
 
-export const SpanGr = styled.h1`
+export const SpanGr = styled.span`
         color: ${theme.colors.mainAccent};
         font-family: ${theme.fonts.main};
         font-style: normal;
@@ -82,7 +82,7 @@ margin: 14px 55px 50px 24px;
     }
 `
 
-export const MainPageBg = styled.p`      
+export const MainPageBg = styled.div`      
     background-image: url(${bgrImageMob});
     background-repeat: no-repeat;
     background-position: center;

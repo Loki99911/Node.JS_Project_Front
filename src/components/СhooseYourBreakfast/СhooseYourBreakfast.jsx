@@ -7,7 +7,7 @@ export const СhooseYourBreakfast = () => {
     way to enjoy a variety of fresh ingredients in one satisfying meal</ChooseText>
    <ChooseLink href="/categories">See recipes
    <RightArrow width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.5 6H13.5M13.5 6L9 1.5M13.5 6L9 10.5" stroke="#3E4462" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1.5 6H13.5M13.5 6L9 1.5M13.5 6L9 10.5" stroke="#3E4462" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 </RightArrow>
    </ChooseLink>
    </ChooseBlock>
