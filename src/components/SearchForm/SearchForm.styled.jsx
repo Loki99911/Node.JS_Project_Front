@@ -92,6 +92,7 @@ export const SearchIn = styled.form`
 `
 
 export const SearchInput = styled.input`
+    width: 100%;
     border-radius: 20px 40px;
     border: none;
    background-color: transparent;
@@ -100,7 +101,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 18px;
-
+padding-left: 32px;
 &:hover {
     border: none;
     outline: none;
