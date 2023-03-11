@@ -15,7 +15,7 @@ import {
 } from './HeaderComp.styled';
 import logo from '../../images/svg-before sprite/logo_desc.svg';
 import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
-import { HeaderUser } from 'components/HeaderComp/HeaderUser/HeaderUser';
+import { HeaderUser } from 'components/HeaderComp/HeaderUserLogo/HeaderUserLogo';
 import { Container } from 'components/Container/Container';
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 
