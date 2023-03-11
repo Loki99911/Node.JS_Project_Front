@@ -44,6 +44,8 @@ export const ModalWindow = styled.div`
 `;
 
 export const UserEditForm = styled(Form)`
+  /* position: relative; */
+
   input[type='file'] {
     width: 0;
     height: 0;
@@ -128,6 +130,7 @@ export const InputsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     gap: 33px;
@@ -158,16 +161,16 @@ export const NameInput = styled(Field)`
 export const NameLabel = styled.label`
   width: 100%;
   position: relative;
+`;
 
-  & svg {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    stroke: ${({ color }) => color};
-    top: 50%;
-    left: 16.5px;
-    transform: translateY(-50%);
-  }
+export const UserIcon = styled.svg`
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  stroke: ${({ color }) => color};
+  top: 50%;
+  left: 16.5px;
+  transform: translateY(-50%);
 `;
 
 export const SubmitBtn = styled.button`
@@ -184,6 +187,11 @@ export const SubmitBtn = styled.button`
   cursor: pointer;
   transition: ${p => p.theme.transitions.main};
 
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: ${p => p.theme.lineHeights.btnText};
@@ -195,25 +203,53 @@ export const SubmitBtn = styled.button`
   }
 `;
 
-export const FlagForInput = styled.div`
+export const ResetBtn = styled.button`
   position: absolute;
-  top: 11px;
-  right: 12px;
+  box-sizing: border-box;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
-  width: 20px;
-  height: 20px;
+  & svg {
+    stroke: currentColor;
+    width: 18px;
+    height: 18px;
+  }
+`;
+
+export const FlagForInput = styled.svg`
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+`;
+
+export const ErrorMessage = styled.p`
+  position: absolute;
+  color: red;
+  top: 50%;
+  left: ${p => (p.location === 'file' ? '24px' : '0')};
+  transform: ${p =>
+    p.location === 'file' ? 'translateY(-150%)' : 'translateY(-50%)'};
+  font-size: 11px;
 
   @media screen and (min-width: 768px) {
-    top: 15px;
-    right: 302px;
+    left: ${p => (p.location === 'file' ? '40px' : '0')};
+    font-size: 14px;
   }
 
   @media screen and (min-width: 1440px) {
-    top: 126px;
-    right: 12px;
+    left: ${p => (p.location === 'file' ? '50px' : '0')};
   }
 `;
