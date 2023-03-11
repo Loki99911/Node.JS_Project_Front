@@ -50,7 +50,13 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
         </HeaderUserButton>
         {showUserMenu && <UserLogoModal onEditBtnClick={onEditBtnClick} />}
       </HeaderUserWrapper>
-      {showModal && <UserInfoModal name={name} closeModal={onEditBtnClick} />}
+      {showModal && (
+        <UserInfoModal
+          name={name}
+          avatarUrl={avatarUrl}
+          closeModal={onEditBtnClick}
+        />
+      )}
     </>
   );
 };

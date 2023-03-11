@@ -18,10 +18,15 @@ import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
 import { HeaderUser } from 'components/HeaderComp/HeaderUserLogo/HeaderUserLogo';
 import { Container } from 'components/Container/Container';
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
+import { useSelector } from 'react-redux';
+import { getName, getAvatar } from 'redux/auth/authSelectors';
 
 export const HeaderComp = () => {
   const isRowBased = useMediaQuery('(min-width: 1440px)');
   const [showMenu, setShowMenu] = useState(false);
+
+  const userName = useSelector(getName);
+  const userAvatar = useSelector(getAvatar);
 
   const toggleMobileMenu = e => {
     setShowMenu(!showMenu);
@@ -38,8 +43,7 @@ export const HeaderComp = () => {
                 </NavLinkStyled>
               </LogoWrapper>
               <HeaderNav />
-
-              <HeaderUser />
+              <HeaderUser name={userName} avatarUrl={userAvatar} />
               <ThemeToggler />
             </HeaderWrapper>
           </Container>
@@ -55,7 +59,7 @@ export const HeaderComp = () => {
                   </NavLinkStyled>
                 </LogoWrapper>
                 <BurgerWrapper>
-                  <HeaderUser />
+                  <HeaderUser name={userName} avatarUrl={userAvatar} />
                   <BurgerButton type="button" onClick={toggleMobileMenu}>
                     <svg>
                       <use href={sprite + `#menu`} />
@@ -65,26 +69,25 @@ export const HeaderComp = () => {
               </HeaderWrapper>
             </Container>
           </Header>
-          {showMenu && (
-            <MobileMenuWrapper>
-              <MobileMenuHeaderContainer>
-                <LogoWrapper>
-                  <NavLinkStyled to="/main">
-                    <img src={logo} alt="logo" />
-                  </NavLinkStyled>
-                </LogoWrapper>
-                <CloseBtn type="button" onClick={toggleMobileMenu}>
-                  <svg>
-                    <use href={sprite + `#icon-cross`} />
-                  </svg>
-                </CloseBtn>
-              </MobileMenuHeaderContainer>
-              <HeaderNav />
-              <MobileMenuThemeTogglerWrapper>
-                <ThemeToggler />
-              </MobileMenuThemeTogglerWrapper>
-            </MobileMenuWrapper>
-          )}
+
+          <MobileMenuWrapper isShown={showMenu}>
+            <MobileMenuHeaderContainer>
+              <LogoWrapper>
+                <NavLinkStyled to="/main">
+                  <img src={logo} alt="logo" />
+                </NavLinkStyled>
+              </LogoWrapper>
+              <CloseBtn type="button" onClick={toggleMobileMenu}>
+                <svg>
+                  <use href={sprite + `#icon-cross`} />
+                </svg>
+              </CloseBtn>
+            </MobileMenuHeaderContainer>
+            <HeaderNav />
+            <MobileMenuThemeTogglerWrapper>
+              <ThemeToggler />
+            </MobileMenuThemeTogglerWrapper>
+          </MobileMenuWrapper>
         </>
       )}
     </>
