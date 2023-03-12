@@ -228,7 +228,7 @@ const AddRecipe = () => {
               name={`qty ${id}`}
             />
           </ValueInputWrapper>
-          <ButtonRemoveItem type="click" id={id} onClick={handleRemove}>
+          <ButtonRemoveItem type="button" id={id} onClick={handleRemove}>
             <svg width="25" height="25">
               <use href={icons + '#icon-cross'} width="25" height="25"></use>
             </svg>
