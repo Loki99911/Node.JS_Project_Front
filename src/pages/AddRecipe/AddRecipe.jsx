@@ -55,6 +55,7 @@ import { timeOptionsList } from 'utils/timeOptionsList';
 import { ingredientsOptionsList } from 'utils/ingredientsOptionsList';
 import { unitsOptionsList } from 'utils/unitsOptionsList';
 import { categoriesOptionsList } from 'utils/categoriesOptionList';
+import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
@@ -138,23 +139,28 @@ const AddRecipe = () => {
 
     const { recipe, time, category, about, title, file } = inputs;
 
+    const ingredientsList = userIngredients.map(
+      ({ unitValue, ingredient, qty: unit }) => ({
+        ingredient,
+        qty: `${unitValue} ${unit}`,
+      })
+    );
+
     formData.append('description', recipe);
-    formData.append('coockingTime', time);
+    formData.append('cookingTime', time);
     formData.append('category', category);
     formData.append('about', about);
     formData.append('title', title);
     formData.append('img', file);
-    formData.append(
-      'ingredients',
-      userIngredients.map(({ unitValue, ingredient, qty: unit }) => ({
-        ingredient,
-        qty: `${unitValue} ${unit}`,
-      }))
-    );
+    formData.append('ingredients', JSON.stringify(ingredientsList));
+
+    console.log(JSON.stringify(ingredientsList));
+
+    dispatch(addOwnRecipe(formData));
 
     const obj = {};
     formData.forEach((val, key) => (obj[key] = val));
-    console.log(userIngredients);
+    console.log(obj);
   };
 
   const handleSelect = (...arg) => {
