@@ -67,7 +67,7 @@ export const theme = {
 export const darkTheme = {
   breakpoints: ['375px', '768px', '1440px'],
   colors: {
-    mainDark: '#23262A',
+    mainDark: '#FAFAFA',
     secondaryDark: '#3E4462',
     mainBlack: '#000000',
     mainGrey: '##7E7E7E',
