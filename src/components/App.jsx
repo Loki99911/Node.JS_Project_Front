@@ -19,6 +19,9 @@ import MainPage from 'pages/MainPage/MainPage';
 import Error from 'pages/Error/Error';
 import { useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
+import { GlobalStyle } from './App.styled';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'utils/theme';
 
 export const App = () => {
   // const isUserLogin = useSelector(getIsLoggedIn);
@@ -32,8 +35,10 @@ export const App = () => {
   }, [ingredients.length, dispatcher]);
 
   return (
-    <Routes>
-      {/* {!isUserLogin ? ( */}
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Routes>
+        {/* {!isUserLogin ? ( */}
         <>
           <Route
             path="/"
@@ -61,7 +66,7 @@ export const App = () => {
           />
           {/* <Route path="*" element={<Error />} /> */}
         </>
-      {/* ) : ( */}
+        {/* ) : ( */}
         <Route
           path="/"
           element={
@@ -82,8 +87,9 @@ export const App = () => {
           <Route path="/recipe/:recipeId" element={<Recipe />} />
           <Route path="*" element={<Error />} />
         </Route>
-      {/* )} */}
-      {/* <Route path="*" element={<Navigate to='/main' />} /> */}
-    </Routes>
+        {/* )} */}
+        {/* <Route path="*" element={<Navigate to='/main' />} /> */}
+      </Routes>
+    </ThemeProvider>
   );
 };
