@@ -43,6 +43,12 @@ export const ModalWindow = styled.div`
   }
 `;
 
+export const CloseBtnWrapper = styled.div`
+  position: absolute;
+  top: 29px;
+  right: 29px;
+`;
+
 export const UserEditForm = styled(Form)`
   /* position: relative; */
 

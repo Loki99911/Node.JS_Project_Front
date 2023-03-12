@@ -21,6 +21,8 @@ import { getColor } from 'utils/formikColors';
 import { UserIcon } from './UserInfoModal.styled';
 import { ErrorMessage } from './UserInfoModal.styled';
 import { ResetBtn } from './UserInfoModal.styled';
+import { CloseBtnWrapper } from './UserInfoModal.styled';
+import { CloseBtnComp } from 'components/CloseButton/CloseBtn';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -75,6 +77,9 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
   return createPortal(
     <ModalOverlay onClick={onBackdropClick}>
       <ModalWindow>
+        <CloseBtnWrapper>
+          <CloseBtnComp location="modal" onClick={closeModal} />
+        </CloseBtnWrapper>
         <Formik
           initialValues={{
             picture: '',

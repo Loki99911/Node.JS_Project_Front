@@ -127,21 +127,6 @@ export const MobileMenuHeaderContainer = styled.div`
   align-items: center;
 `;
 
-export const CloseBtn = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  border: none;
-  background-color: transparent;
-
-  & svg {
-    width: 32px;
-    height: 32px;
-    stroke: ${p => p.theme.colors.mainDark};
-  }
-`;
-
 export const MobileMenuThemeTogglerWrapper = styled.div`
   display: flex;
 `;
