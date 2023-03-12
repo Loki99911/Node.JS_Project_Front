@@ -22,7 +22,7 @@ export const getCategoryList = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await getCategoryListAPI();
-      console.log('categories list', data.meals);
+      // console.log('categories list', data.meals);
       return data.meals;
     } catch (error) {
       console.log(error.message);
@@ -141,7 +141,7 @@ export const getPopularRecipes = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await getPopularRecipesAPI();
-      console.log('popular', data.meals);
+      // console.log('popular', data.meals);
       return data.meals;
     } catch (error) {
       console.log(error.message);

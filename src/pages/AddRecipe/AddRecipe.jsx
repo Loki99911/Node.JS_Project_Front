@@ -152,7 +152,7 @@ const AddRecipe = () => {
     formData.append('about', about);
     formData.append('title', title);
     formData.append('img', file);
-    formData.append('ingredients', JSON.stringify(ingredientsList));
+    formData.append('ingredients', ingredientsList);
 
     console.log(JSON.stringify(ingredientsList));
 
@@ -198,43 +198,45 @@ const AddRecipe = () => {
     });
   };
 
-  const userIngredientsList = userIngredients.map(({ id, unitValue }) => {
-    return (
-      <IngredientsItem key={id}>
-        <Select
-          options={ingredientsOptionsList(optionsIngredients)}
-          defaultValue={ingredientsOptionsList(optionsIngredients)[2]}
-          placeholder=" "
-          onChange={handleUserIngredient}
-          name={`ingredient ${id}`}
-        />
-        <ValueInputWrapper>
-          <InputUnitValue
-            isMobile={isMobile}
-            type="number"
-            name="unitValue"
-            onChange={handleUnitValue}
-            defaultValue={unitValue}
-            autoComplete="off"
-            id={id}
-          />
+  const userIngredientsList = userIngredients.map(
+    ({ id, unitValue, ingredient, qty }) => {
+      return (
+        <IngredientsItem key={id}>
           <Select
-            options={unitsOptionsList}
-            defaultValue={unitsOptionsList[3]}
+            options={ingredientsOptionsList(optionsIngredients)}
+            defaultValue={ingredient}
             placeholder=" "
             onChange={handleUserIngredient}
-            isSearchable={false}
-            name={`qty ${id}`}
+            name={`ingredient ${id}`}
           />
-        </ValueInputWrapper>
-        <ButtonRemoveItem type="click" id={id} onClick={handleRemove}>
-          <svg width="25" height="25">
-            <use href={icons + '#icon-cross'} width="25" height="25"></use>
-          </svg>
-        </ButtonRemoveItem>
-      </IngredientsItem>
-    );
-  });
+          <ValueInputWrapper>
+            <InputUnitValue
+              isMobile={isMobile}
+              type="number"
+              name="unitValue"
+              onChange={handleUnitValue}
+              defaultValue={unitValue}
+              autoComplete="off"
+              id={id}
+            />
+            <Select
+              options={unitsOptionsList}
+              defaultValue={qty}
+              placeholder=" "
+              onChange={handleUserIngredient}
+              isSearchable={false}
+              name={`qty ${id}`}
+            />
+          </ValueInputWrapper>
+          <ButtonRemoveItem type="click" id={id} onClick={handleRemove}>
+            <svg width="25" height="25">
+              <use href={icons + '#icon-cross'} width="25" height="25"></use>
+            </svg>
+          </ButtonRemoveItem>
+        </IngredientsItem>
+      );
+    }
+  );
 
   const popularList = tag =>
     popularRecepis.map(({ idMeal, strMealThumb, strInstructions, strMeal }) => (
