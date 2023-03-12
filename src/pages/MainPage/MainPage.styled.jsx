@@ -3,6 +3,9 @@ import { theme } from 'utils/theme';
 import bgrImageMob from '../../images/mobile/mainpage1x_mob.png';
 import bgrImageTab from '../../images/tablet/mainpage1x_tab.png';
 import bgrImageDesk from '../../images/desktop/mainpage1x_desk.png';
+import bgrImageMob2 from '../../images/mobile/mainpage2x_mob.png';
+import bgrImageTab2 from '../../images/tablet/mainpage2x_tab.png';
+import bgrImageDesk2 from '../../images/desktop/mainpage2x_desk.png';
 
 export const MainPageH1 = styled.h1`
   margin: 132px 12px 0px 12px;
@@ -82,7 +85,7 @@ export const MainPageBg = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: ${p => p.theme.colors.bodyBg};
+  background-color: ${theme.colors.btnTextLight};
   display: flex;
 
   @media (min-width: 768px) {
