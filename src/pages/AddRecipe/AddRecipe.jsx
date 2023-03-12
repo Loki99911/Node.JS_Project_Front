@@ -152,15 +152,15 @@ const AddRecipe = () => {
     formData.append('about', about);
     formData.append('title', title);
     formData.append('img', file);
-    formData.append('ingredients', ingredientsList);
+    formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    console.log(JSON.stringify(ingredientsList));
+    // console.log(JSON.stringify(ingredientsList));
 
     dispatch(addOwnRecipe(formData));
 
     const obj = {};
     formData.forEach((val, key) => (obj[key] = val));
-    console.log(obj);
+    // console.log(obj);
   };
 
   const handleSelect = (...arg) => {
@@ -204,7 +204,7 @@ const AddRecipe = () => {
         <IngredientsItem key={id}>
           <Select
             options={ingredientsOptionsList(optionsIngredients)}
-            defaultValue={ingredient}
+            defaultValue={{ label: ingredient, value: ingredient }}
             placeholder=" "
             onChange={handleUserIngredient}
             name={`ingredient ${id}`}
@@ -221,7 +221,7 @@ const AddRecipe = () => {
             />
             <Select
               options={unitsOptionsList}
-              defaultValue={qty}
+              defaultValue={{ label: qty, value: qty }}
               placeholder=" "
               onChange={handleUserIngredient}
               isSearchable={false}
