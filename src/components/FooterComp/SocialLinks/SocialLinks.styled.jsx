@@ -8,9 +8,9 @@ export const SocialLinksConteiner = styled.div`
   justify-content: center;
 
   svg {
-    fill: ${p => p.theme.colors.mainAccent};
+    fill: ${p => p.theme.colors.footerSMlinks};
     transition: ${p => p.theme.transitions.main};
-    
+
     :hover {
       fill: ${p => p.theme.colors.mainLight};
     }

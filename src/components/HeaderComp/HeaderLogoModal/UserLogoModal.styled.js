@@ -9,7 +9,7 @@ export const UserMenu = styled.div`
   flex-direction: column;
   padding: 18px;
   gap: 28px;
-  background-color: ${p => p.theme.colors.mainLight};
+  background-color: ${p => p.theme.colors.bodyBg};
   border: 1px solid #8baa36;
   border-radius: ${p => p.theme.radii.image};
 

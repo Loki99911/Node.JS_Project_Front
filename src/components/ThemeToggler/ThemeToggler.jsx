@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Ball, Checkbox, Label, Switcher } from './ThemeToggler.styled';
-// import { setTheme } from 'redux/theme/themeSlice';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from 'redux/theme/themeSlice';
+import { getMode } from 'redux/theme/themeSelector';
 
 export const ThemeToggler = () => {
+  const selectedMode = useSelector(getMode);
   const dispatch = useDispatch();
-  const [mode, setMode] = useState('light');
+  const [mode, setMode] = useState(selectedMode.mode);
 
-  const toggleTheme = () => {
+  const changeTheme = () => {
     const newTheme = mode === 'light' ? 'dark' : 'light';
     setMode(newTheme);
   };
 
   useEffect(() => {
-    // dispatch(setTheme({ mode }));
+    dispatch(setTheme({ mode }));
+    window.localStorage.setItem('theme', mode);
   }, [dispatch, mode]);
 
   return (
@@ -22,9 +25,9 @@ export const ThemeToggler = () => {
         type="checkbox"
         checked={mode === 'dark'}
         id="theme-switcher"
-        onChange={toggleTheme}
+        onChange={changeTheme}
       />
-      <Label htmlFor="theme-switcher">
+      <Label mode={mode} htmlFor="theme-switcher">
         <Ball />
       </Label>
     </Switcher>

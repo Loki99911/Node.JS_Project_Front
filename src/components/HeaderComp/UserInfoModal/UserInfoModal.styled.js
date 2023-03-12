@@ -22,7 +22,7 @@ export const ModalWindow = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
-  background-color: ${p => p.theme.colors.btnTextLight};
+  background-color: ${p => p.theme.colors.bodyBg};
   border-radius: ${p => p.theme.radii.modal};
   opacity: 1;
   z-index: 20000;

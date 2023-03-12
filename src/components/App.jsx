@@ -21,9 +21,13 @@ import { useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { GlobalStyle } from './App.styled';
 import { ThemeProvider } from 'styled-components';
-import { theme } from 'utils/theme';
+import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
+import { getMode } from 'redux/theme/themeSelector';
 
 export const App = () => {
+  const selectedMode = useSelector(getMode);
+  const themeMode = selectedMode.mode === 'light' ? lightMode : darkMode;
+
   // const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
   const dispatcher = useDispatch();
@@ -35,7 +39,7 @@ export const App = () => {
   }, [ingredients.length, dispatcher]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Routes>
         {/* {!isUserLogin ? ( */}

@@ -23,7 +23,7 @@ export const DeleteBtnWrapper = styled.button`
 
   &:hover svg,
   &:focus svg {
-    stroke: ${p => p.theme.colors.mainLight};
+    stroke: ${p => p.theme.colors.deleteBtnIcon};
   }
 
   @media screen and (min-width: 768px) {
@@ -41,7 +41,7 @@ export const DeleteBtnWrapper = styled.button`
   & svg {
     stroke: ${p =>
       p.location === 'recipes'
-        ? p.theme.colors.mainLight
+        ? p.theme.colors.deleteBtnIcon
         : p.theme.colors.mainDark};
     width: 14px;
     height: 14px;

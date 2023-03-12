@@ -4,8 +4,6 @@ import { Field, Form } from 'formik';
 import PlusIcon from '../../../images/plus.svg';
 
 export const UserEditForm = styled(Form)`
-
-
   input[type='file'] {
     width: 0;
     height: 0;
@@ -175,7 +173,7 @@ export const ResetBtn = styled.button`
   cursor: pointer;
 
   & svg {
-    stroke: currentColor;
+    stroke: ${p => p.theme.colors.mainDark};
     width: 18px;
     height: 18px;
   }
