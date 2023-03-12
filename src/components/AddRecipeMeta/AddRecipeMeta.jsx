@@ -70,7 +70,7 @@ export const AddRecipeMeta = ({
           />
           <Select
             options={categoriesOptionsList(optionsCategoris)}
-            defaultValue={categoriesOptionsList(optionsCategoris)[2]}
+            defaultValue={{ label: 'Breakfast', value: 'Breakfast' }}
             placeholder=" "
             onChange={handleSelect}
             name="category"

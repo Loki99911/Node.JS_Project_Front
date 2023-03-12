@@ -118,19 +118,29 @@ const AddRecipe = () => {
     );
 
     formData.append('description', recipe);
-    formData.append('cookingTime', time);
+    formData.append('cookingTime', time.toString());
     formData.append('category', category);
     formData.append('about', about);
     formData.append('title', title);
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    // console.log(JSON.stringify(ingredientsList));
+    // console.log('ingredients', JSON.stringify(ingredientsList));
+
+    // const test = {
+    //   description: recipe,
+    //   cookingTime: time.toString(),
+    //   category,
+    //   about,
+    //   title,
+    //   picture: file,
+    //   ingredients: ingredientsList,
+    // };
 
     dispatch(addOwnRecipe(formData));
 
-    const obj = {};
-    formData.forEach((val, key) => (obj[key] = val));
+    // const obj = {};
+    // formData.forEach((val, key) => (obj[key] = val));
     // console.log(obj);
   };
 
