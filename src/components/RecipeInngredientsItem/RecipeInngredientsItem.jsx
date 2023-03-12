@@ -11,26 +11,34 @@ import {
 } from './RecipeInngredientsItem.styled';
 import sprite from '../../images/sprite.svg';
 
-const RecipeInngredientsItem = ({
-  image,
-  name,
-  description,
-  weight,
-  checked,
-}) => {
+import { useState } from 'react';
+
+const RecipeInngredientsItem = obj => {
+  const [toShoppingList, setToShoppingList] = useState(false);
+
+  const addToShoppingList = () => {
+    setToShoppingList(true);
+    console.log(obj);
+    return;
+  };
+
   return (
     <>
       <RecipeItem>
         <Label>
           <ImageWrapper>
-            <img src={image} alt={name} />
+            <img src={obj.image} alt={obj.strIngredient} />
           </ImageWrapper>
           <TextContainer>
-            <IngName>{name}</IngName>
-            <IngDescr>{description}</IngDescr>
+            <IngName>{obj.strIngredient}</IngName>
+            <IngDescr>{obj.strDescription}</IngDescr>
           </TextContainer>
-          <IngNumber>{weight}</IngNumber>
-          <RealCheckbox type="checkbox" />
+          <IngNumber>{obj.weight}</IngNumber>
+          <RealCheckbox
+            type="checkbox"
+            onChange={addToShoppingList}
+            disabled={toShoppingList}
+          />
           <CustomCheckbox>
             <svg>
               <use href={sprite + `#icon-pick`} />
