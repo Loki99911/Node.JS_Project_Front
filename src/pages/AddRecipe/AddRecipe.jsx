@@ -151,7 +151,7 @@ const AddRecipe = () => {
     formData.append('category', category);
     formData.append('about', about);
     formData.append('title', title);
-    formData.append('img', file);
+    formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
     // console.log(JSON.stringify(ingredientsList));
