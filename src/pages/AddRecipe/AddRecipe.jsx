@@ -4,6 +4,7 @@ import 'swiper/css/pagination';
 
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import store from 'store';
 
 import { RecipeForm, MainWrapper } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
@@ -21,6 +22,16 @@ import { AddRecipeMeta } from 'components/AddRecipeMeta/AddRecipeMeta';
 import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeIngredients';
 import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 
+const init = {
+  recipe: '',
+  file: null,
+  title: '',
+  about: '',
+  category: '',
+  time: '',
+  unitValue: '',
+};
+
 const AddRecipe = () => {
   const dispatch = useDispatch();
 
@@ -28,19 +39,22 @@ const AddRecipe = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1399 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  const [inputs, setInputs] = useState({
-    recipe: '',
-    file: null,
-    title: '',
-    about: '',
-    category: '',
-    time: '',
-    unitValue: '',
+  const [inputs, setInputs] = useState(() => {
+    const inputs = store.get('userInputs');
+    return inputs ? inputs : init;
   });
 
-  const [counter, setCounter] = useState(0);
-  const [userIngredients, setUserIngredients] = useState([]);
+  const [userIngredients, setUserIngredients] = useState(() => {
+    const ingredients = store.get('userIngredients');
+    return ingredients ? ingredients : [];
+  });
+
   const [path, setPath] = useState('');
+
+  useEffect(() => {
+    store.set('userInputs', inputs);
+    store.set('userIngredients', userIngredients);
+  }, [inputs, userIngredients]);
 
   useEffect(() => {
     dispatch(getPopularRecipes());
@@ -49,13 +63,11 @@ const AddRecipe = () => {
   }, [dispatch]);
 
   const handleDecrement = () => {
-    if (counter <= 0) return;
-    setCounter(prev => prev - 1);
+    if (userIngredients.length <= 0) return;
     setUserIngredients(prev => [...prev.slice(0, prev.length - 1)]);
   };
 
   const handleIncrement = () => {
-    setCounter(prev => prev + 1);
     setUserIngredients(prev => [
       ...prev,
       { id: nanoid(), ingredient: 'Beef', unitValue: 100, qty: 'g' },
@@ -65,7 +77,6 @@ const AddRecipe = () => {
   const handleRemove = ({ currentTarget }) => {
     const newList = userIngredients.filter(el => el.id !== currentTarget.id);
     setUserIngredients(newList);
-    setCounter(prev => prev - 1);
   };
 
   const handleChange = ({ currentTarget }) => {
@@ -74,7 +85,6 @@ const AddRecipe = () => {
       ...prev,
       [name]: value,
     }));
-    // setIsValid(prev => ({ ...prev, [name]: true }));
   };
 
   const handleFile = ({ currentTarget }) => {
@@ -173,7 +183,7 @@ const AddRecipe = () => {
             handleSelect={handleSelect}
           />
           <AddRecipeIngredients
-            counter={counter}
+            counter={userIngredients.length}
             userIngredients={userIngredients}
             isMobile={isMobile}
             handleDecrement={handleDecrement}
