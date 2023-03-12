@@ -14,7 +14,7 @@ export const TableHeaded = styled.li`
   justify-content: start;
   gap: 140px;
   border-bottom: 1px solid rgb(224, 224, 224);
-  &:first-child {
+  &:first-of-type {
     height: 60px;
     padding: 0 40px;
     background-color: ${theme.colors.mainAccent};
