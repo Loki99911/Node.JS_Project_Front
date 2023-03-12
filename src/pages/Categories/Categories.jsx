@@ -1,3 +1,4 @@
+import { CategoryList } from 'components/CategoryList/CategoryList';
 import { Loader } from 'components/Loader/Loader';
 import { Title } from 'components/Title/Title';
 import { Suspense } from 'react';
@@ -7,7 +8,7 @@ const Categories = () => {
   return (
     <div>
       <Title>Category</Title>
-      <div>Category list - NavLink</div>
+      <CategoryList />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
