@@ -26,7 +26,7 @@ export const NavLinkSkewStyled = styled(NavLink)`
 
   background-color: ${p =>
     p.styled === 'black'
-      ? p.theme.colors.btnHoverBg
+      ? p.theme.colors.recipeBlockBtnBg
       : p.styled === 'olive'
       ? p.theme.colors.mainAccent
       : p.styled === 'transparent'

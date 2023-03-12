@@ -10,7 +10,7 @@ export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${p => p.theme.colors.mainLight};
+  background-color: ${p => p.theme.colors.recipeBlockBg};
   box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
   border-radius: ${p => p.theme.radii.pagination};
 
@@ -26,8 +26,9 @@ export const PaginationWrapper = styled.div`
   }
 
   & .MuiPaginationItem-page.Mui-selected {
-    background-color: ${p => p.theme.colors.secondaryAccent};
+    background-color: ${p => p.theme.colors.paginationBg};
     transition: ${p => p.theme.transitions.main};
+    color: ${p => p.theme.colors.mainDark};
 
     &:hover,
     &:focus {
