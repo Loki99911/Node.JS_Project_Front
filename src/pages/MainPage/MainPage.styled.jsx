@@ -3,6 +3,9 @@ import { theme } from 'utils/theme';
 import bgrImageMob from '../../images/mobile/mainpage1x_mob.png';
 import bgrImageTab from '../../images/tablet/mainpage1x_tab.png';
 import bgrImageDesk from '../../images/desktop/mainpage1x_desk.png';
+import bgrImageMob2 from '../../images/mobile/mainpage2x_mob.png';
+import bgrImageTab2 from '../../images/tablet/mainpage2x_tab.png';
+import bgrImageDesk2 from '../../images/desktop/mainpage2x_desk.png';
 
 export const MainPageH1 = styled.h1`
        
@@ -89,14 +92,39 @@ export const MainPageBg = styled.div`
     background-size: cover;
     background-color: ${theme.colors.btnTextLight};
     display: flex;
+    height: 777px;
+    margin-bottom: 65px;
+@media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(${bgrImageMob2});
+    }
+
 
     @media (min-width: 768px) {
     background-image: url(${bgrImageTab});
-    
+    height: 640px;
+    margin-bottom: 20px;
+@media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(${bgrImageTab2});
+    }
+
     }
 
     @media (min-width: 1440px) {
-    background-image: url(${bgrImageDesk});    
+    background-image: url(${bgrImageDesk});  
+    margin-bottom: 100px;
+    height: 800px;
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(${bgrImageDesk2});
+    }
     }
 `
 export const MainPageDiv = styled.div`      
