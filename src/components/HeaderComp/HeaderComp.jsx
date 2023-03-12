@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'hooks/useMedia';
+import { getName, getAvatar } from 'redux/auth/authSelectors';
 import sprite from '../../images/sprite.svg';
 import {
   BurgerButton,
   BurgerWrapper,
-  CloseBtn,
   Header,
   HeaderWrapper,
   LogoWrapper,
@@ -18,8 +19,7 @@ import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
 import { HeaderUser } from 'components/HeaderComp/HeaderUserLogo/HeaderUserLogo';
 import { Container } from 'components/Container/Container';
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
-import { useSelector } from 'react-redux';
-import { getName, getAvatar } from 'redux/auth/authSelectors';
+import { CloseBtnComp } from 'components/CloseButton/CloseBtn';
 
 export const HeaderComp = () => {
   const isRowBased = useMediaQuery('(min-width: 1440px)');
@@ -69,7 +69,6 @@ export const HeaderComp = () => {
               </HeaderWrapper>
             </Container>
           </Header>
-
           <MobileMenuWrapper isShown={showMenu}>
             <MobileMenuHeaderContainer>
               <LogoWrapper>
@@ -82,11 +81,7 @@ export const HeaderComp = () => {
                   <img src={logo} alt="logo" />
                 </NavLinkStyled>
               </LogoWrapper>
-              <CloseBtn type="button" onClick={toggleMobileMenu}>
-                <svg>
-                  <use href={sprite + `#icon-cross`} />
-                </svg>
-              </CloseBtn>
+              <CloseBtnComp onClick={toggleMobileMenu} />
             </MobileMenuHeaderContainer>
             <HeaderNav setShowMenu={setShowMenu} />
             <MobileMenuThemeTogglerWrapper>
