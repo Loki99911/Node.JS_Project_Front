@@ -91,7 +91,7 @@ const FormRegister = props => {
                   name="name"
                   placeholder="Name"
                   color={getColor(props.errors.name, props.values.name)}
-                  borderColor={getColor(
+                  bordercolor={getColor(
                     props.errors.name,
                     props.values.name,
                     'rgba(255, 255, 255, 0.3)'
@@ -121,7 +121,7 @@ const FormRegister = props => {
                   name="email"
                   placeholder="Email"
                   color={getColor(props.errors.email, props.values.email)}
-                  borderColor={getColor(
+                  bordercolor={getColor(
                     props.errors.email,
                     props.values.email,
                     'rgba(255, 255, 255, 0.3)'
@@ -156,7 +156,7 @@ const FormRegister = props => {
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
-                  borderColor={getColor(
+                  bordercolor={getColor(
                     props.errors.password,
                     props.values.password,
                     'rgba(255, 255, 255, 0.3)'

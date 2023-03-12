@@ -59,6 +59,7 @@ export const BoxForSVG = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${theme.colors.mainAccent};
+  border-radius: 15px;
 
   @media screen and (min-width: 769px) {
     width: 70px;
