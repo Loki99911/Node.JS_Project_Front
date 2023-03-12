@@ -21,12 +21,14 @@ import { useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { GlobalStyle } from './App.styled';
 import { ThemeProvider } from 'styled-components';
+// es-disable-next-line - ПОТОМ УДАЛИТЬ!!!!!!!!!!!
+// eslint-disable-next-line
 import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
-import { getMode } from 'redux/theme/themeSelector';
+// import { getMode } from 'redux/theme/themeSelector';
 
 export const App = () => {
-  const selectedMode = useSelector(getMode);
-  const themeMode = selectedMode.mode === 'light' ? lightMode : darkMode;
+  // const selectedMode = useSelector(getMode);
+  const themeMode = lightMode; //selectedMode.mode === 'light' ? lightMode : darkMode
 
   // const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
