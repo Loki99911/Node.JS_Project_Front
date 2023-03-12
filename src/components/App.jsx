@@ -5,7 +5,7 @@ import Main from 'pages/Main/Main';
 import MyRecipes from 'pages/MyRecipes/MyRecipes';
 import Recipe from 'pages/Recipe/Recipe';
 import Register from 'pages/Register/Register';
-import SearchIngredients from 'pages/SearchIngredients/SearchIngredients';
+import SearchPage from 'pages/SearchPage/SearchPage';
 import ShopingList from 'pages/ShoppingList/ShoppingList';
 import Signin from 'pages/Signin/Signin';
 import { Route, Routes } from 'react-router-dom';
@@ -89,7 +89,7 @@ export const App = () => {
           <Route path="/my" element={<MyRecipes />} />
           <Route path="/favorite" element={<Favorites />} />
           <Route path="/shopping-list" element={<ShopingList />} />
-          <Route path="/search" element={<SearchIngredients />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/recipe/:recipeId" element={<Recipe />} />
           <Route path="*" element={<Error />} />
         </Route>

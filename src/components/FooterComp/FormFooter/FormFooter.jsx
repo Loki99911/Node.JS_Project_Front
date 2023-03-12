@@ -13,7 +13,13 @@ import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
 
 const LoginSchema = Yup.object().shape({
-  email: Yup.string().email().required(),
+  email: Yup.mixed().test({
+    name: 'email',
+    params: { a: 'test', b: 'qwe' },
+    test: value => {
+      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+    },
+  }),
 });
 
 export const FormFooter = () => {
