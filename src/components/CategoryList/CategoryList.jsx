@@ -48,7 +48,7 @@ export const CategoryList = () => {
   };
 
   const items = mapArray.map((e, index) => (
-    <Tab label={e.toLowerCase()} key={index} />
+      <Tab style={{textTransform:"capitalize"}} label={e.toLowerCase()} key={index} />
   ));
 
   return (
