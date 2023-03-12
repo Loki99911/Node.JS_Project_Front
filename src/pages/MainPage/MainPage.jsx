@@ -33,7 +33,7 @@ const MainPage = () => {
               future.
             </MainPageText>
             <СhooseYourBreakfast />
-            <SearchForm />
+            <SearchForm styled={'black'}/>
           </MainPageDiv>
         </Container>
       </MainPageBg>
@@ -42,7 +42,7 @@ const MainPage = () => {
         {/* <ButtonOthCtg /> */}
         <ButtonOthCtgWrap>
           <ButtonSkew
-            type={'click'}
+            type={'button'}
             fn={onClick}
             styled={'other'}
             text={'Other categories'}
