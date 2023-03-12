@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
+import  {theme} from 'utils/theme.js'
 
 export const Table = styled.ul`
   width: 100%;
+  font-family: ${theme.fonts.main};
+  margin: -25px 0 195px 0;
 `;
 
 export const TableHeaded = styled.li`
@@ -14,13 +17,12 @@ export const TableHeaded = styled.li`
   &:first-child {
     height: 60px;
     padding: 0 40px;
-    background-color: green;
-    font-family: 'Poppins';
+    background-color: ${theme.colors.mainAccent};
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
     letter-spacing: 0.03em;
-    color: #ffffff;
+    color: ${theme.colors.mainLight};
     align-items: center;
     border-radius: 10px;
   }
@@ -67,7 +69,6 @@ export const TableHeaderTitle = styled.div`
 `;
 
 export const ItemName = styled.p`
-  font-family: 'Poppins';
   font-weight: 500;
   font-size: 16px;
   line-height: calc(24 / 16);
@@ -87,15 +88,13 @@ export const ItemName = styled.p`
 
 export const BoxForItemNumber = styled.p`
   min-width: 70px;
-  background-color: green;
+  background-color: ${theme.colors.mainAccent};
   border-radius: 10px;
   padding: 4px 4px;
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 27px;
-  color: #ffffff;
+  line-height: calc(27/18);
+  color: ${theme.colors.mainLight};
   text-align: center;
   @media screen and (min-width: 376px) and (max-width: 768px) {
     width: 95px;
