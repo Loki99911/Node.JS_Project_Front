@@ -5,7 +5,7 @@ export const RecipeBlockWrapper = styled.li`
   display: flex;
   gap: ${p => (p.location === 'favorite' ? '14px' : '4px')};
   background-color: ${p =>
-    p.location === 'favorite' ? p.theme.colors.mainLight : 'transparent'};
+    p.location === 'favorite' ? p.theme.colors.recipeBlockBg : 'transparent'};
   padding: ${p => (p.location === 'favorite' ? '14px' : '0px')};
   border-radius: ${p => p.theme.radii.image};
 

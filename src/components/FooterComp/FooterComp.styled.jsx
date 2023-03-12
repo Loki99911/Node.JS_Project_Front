@@ -27,7 +27,7 @@ export const Wrap = styled.div`
 
 export const FooterBg = styled.div`
   height: auto;
-  background-color: ${p => p.theme.colors.btnHoverBg};
+  background-color: ${p => p.theme.colors.footerBg};
   padding-top: 28px;
   padding-bottom: 18px;
   display: flex;
@@ -76,7 +76,7 @@ export const FooterSm = styled.div`
     font-style: normal;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: ${p => p.theme.colors.btnHoverBg};
+    color: ${p => p.theme.colors.footerSMlinks};
     opacity: 0.5;
 
     @media screen and (min-width: 768px) {

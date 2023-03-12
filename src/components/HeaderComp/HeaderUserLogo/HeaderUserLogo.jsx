@@ -7,13 +7,15 @@ import { UserLogoModal } from '../HeaderLogoModal/UserLogoModal';
 export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [statusModal, setStatusModal] = useState('');
 
   const toggleUserEditMenu = e => {
     setShowUserMenu(!showUserMenu);
   };
 
-  const onEditBtnClick = () => {
+  const toggleUserModal = status => {
     setShowModal(!showModal);
+    setStatusModal(status);
     setShowUserMenu(false);
   };
 
@@ -48,13 +50,21 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
           <img src={avatarUrl} alt={name} />
           <p>{name}</p>
         </HeaderUserButton>
-        {showUserMenu && <UserLogoModal onEditBtnClick={onEditBtnClick} />}
+
+        {showUserMenu && (
+          <UserLogoModal
+            setShowUserMenu={() => setShowUserMenu}
+            toggleModal={toggleUserModal}
+          />
+        )}
       </HeaderUserWrapper>
+
       {showModal && (
         <UserInfoModal
           name={name}
           avatarUrl={avatarUrl}
-          closeModal={onEditBtnClick}
+          closeModal={toggleUserModal}
+          status={statusModal}
         />
       )}
     </>
