@@ -137,7 +137,7 @@ export const SubmitBtn = styled.button`
   width: 100%;
   padding: 14px;
   background-color: ${p => p.theme.colors.mainAccent};
-  border-radius: ${p => p.theme.radii.main};
+  border-radius: ${p => p.theme.radii.btnStandart};
   font-family: ${p => p.theme.fonts.btnStandart};
   font-weight: ${p => p.theme.fontWeights[0]};
   line-height: ${p => p.theme.lineHeights.extraContent};

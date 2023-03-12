@@ -9,6 +9,7 @@ import {
 
 import { CloseBtnComp } from 'components/CloseButton/CloseBtn';
 import { UserEditFormComp } from './UserEditForm.jsx';
+import { LogoutConfirmationComp } from './LogoutConfirm.jsx';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -47,7 +48,9 @@ export const UserInfoModal = ({ status, closeModal, name, avatarUrl }) => {
             closeModal={closeModal}
           />
         )}
-        {status === 'logout' && <></>}
+        {status === 'logout' && (
+          <LogoutConfirmationComp closeModal={closeModal} />
+        )}
       </ModalWindow>
     </ModalOverlay>,
     modalRoot
