@@ -27,7 +27,7 @@ export const ThemeToggler = () => {
         id="theme-switcher"
         onChange={changeTheme}
       />
-      <Label htmlFor="theme-switcher">
+      <Label mode={mode} htmlFor="theme-switcher">
         <Ball />
       </Label>
     </Switcher>

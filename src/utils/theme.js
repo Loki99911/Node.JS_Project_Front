@@ -12,13 +12,17 @@ export const theme = {
     secondaryAccent: '#EBF3D4',
 
     bodyBg: '#FAFAFA',
+    footerBg: '#22252A',
+    footerSMlinks: '#8BAA36',
+    footerBtnBg: '#8BAA36',
     mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
-    sectionHeaderDark: '#001833',
+    sectionHeader: '#001833',
 
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
+    btnHoverText: '#22252A',
     iconHover: ' #1E1F28',
     switchBg: '#EFEFEF',
   },
@@ -74,13 +78,20 @@ export const darkTheme = {
     secondaryAccent: '#EBF3D4',
 
     bodyBg: '#23262A',
+    footerBg: '#8BAA36',
+    footerSMlinks: '#FAFAFA',
+    footerBtnBg: '#23262A',
+
     mainBg: '#ECECEC',
+
     btnTextLight: '#FAFAFA',
-    sectionHeaderDark: '#001833',
+
+    sectionHeader: '#FAFAFA',
 
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
+    btnHoverText: '#8BAA36',
     iconHover: ' #1E1F28',
     switchBg: '#EFEFEF',
   },

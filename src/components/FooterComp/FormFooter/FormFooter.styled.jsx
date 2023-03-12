@@ -72,7 +72,7 @@ export const FooterForma = styled.form`
 export const FooterFormaBtn = styled.button`
   width: 204px;
   height: 38px;
-  background-color: ${p => p.theme.colors.mainAccent};
+  background-color: ${p => p.theme.colors.footerBtnBg};
   color: ${p => p.theme.colors.btnTextLight};
   border-radius: 6px;
   font-style: normal;
@@ -97,7 +97,7 @@ export const FooterFormaBtn = styled.button`
 
   :hover:not([disabled]),
   :focus:not([disabled]) {
-    color: ${p => p.theme.colors.btnHoverBg};
+    color: ${p => p.theme.colors.btnHoverText};
   }
 
   &[disabled] {
@@ -110,7 +110,6 @@ export const FlagForInput = styled.div`
   position: absolute;
   top: 11px;
   right: 12px;
-
   width: 20px;
   height: 20px;
   display: flex;
@@ -191,7 +190,6 @@ export const FooterFormaInput = styled.input`
 `;
 
 export const FooterFormaText = styled.div`
-
   margin-bottom: 28px;
 
   h4 {
