@@ -14,11 +14,11 @@ const AuthPages = ({ children }) => {
           <AuthImage alt="pana">
             <source
               media="(min-width: 1440px)"
-              srcset={`${authPanaDes}, ${authPanaDesRet} 2x`}
+              srcSet={`${authPanaDes}, ${authPanaDesRet} 2x`}
             />
             <source
               media="(min-width: 768px)"
-              srcset={`${authPanaTab},
+              srcSet={`${authPanaTab},
                         ${authPanaTabRet} 2x`}
             />
             <img

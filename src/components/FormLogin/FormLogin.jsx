@@ -83,7 +83,7 @@ const FormLogin = props => {
                   name="email"
                   placeholder="Email"
                   color={getColor(props.errors.email, props.values.email)}
-                  borderColor={getColor(
+                  bordercolor={getColor(
                     props.errors.email,
                     props.values.email,
                     'rgba(255, 255, 255, 0.3)'
@@ -118,7 +118,7 @@ const FormLogin = props => {
                   name="password"
                   placeholder="Password"
                   color={getColor(props.errors.password, props.values.password)}
-                  borderColor={getColor(
+                  bordercolor={getColor(
                     props.errors.password,
                     props.values.password,
                     'rgba(255, 255, 255, 0.3)'
