@@ -46,7 +46,7 @@ const EditNameSchema = Yup.object().shape({
     .required('Name is required'),
 });
 
-export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
+export const UserInfoModal = ({ status, closeModal, name, avatarUrl }) => {
   //  const dispatch = useDispatch();
   const [path, setPath] = useState('');
   const [inputs, setInputs] = useState({
@@ -80,150 +80,154 @@ export const UserInfoModal = ({ closeModal, name, avatarUrl }) => {
         <CloseBtnWrapper>
           <CloseBtnComp location="modal" onClick={closeModal} />
         </CloseBtnWrapper>
-        <Formik
-          initialValues={{
-            picture: '',
-            name: name,
-          }}
-          validationSchema={EditNameSchema}
-          onSubmit={(values, actions) => {
-            console.log(values);
-            //   dispatch(
-            //     edit({
-            //       name: values.name.trim(),
-            //       picture: values.picture,
-            //     })
-            //   );
-            actions.setSubmitting(false);
-            actions.resetForm();
-          }}
-        >
-          {props => (
-            <UserEditForm onSubmit={props.handleSubmit}>
-              <UserAvatarWrapper>
-                <label htmlFor="picture" id="labelFile">
-                  {inputs.picture?.name ? (
-                    <UserSvgWrapper>
-                      <img src={path} alt="user_picture" />
-                    </UserSvgWrapper>
-                  ) : (
-                    <UserSvgWrapper>
-                      <svg>
-                        <use href={sprite + `#user`} />
-                      </svg>
-                    </UserSvgWrapper>
-                  )}
-                </label>
-                <input
-                  type="file"
-                  id="picture"
-                  name="picture"
-                  onBlur={() => {
-                    props.setTouched({
-                      picture: true,
-                    });
-                  }}
-                  onChange={event => {
-                    if (event.target.files[0]) {
-                      if (
-                        SUPPORTED_FORMATS.includes(event.target.files[0].type)
-                      ) {
-                        setInputs(prev => ({
-                          ...prev,
-                          picture: event.target.files[0],
-                        }));
-                        setPath(
-                          window.URL.createObjectURL(event.target.files[0])
-                        );
-                        props.setFieldValue('picture', event.target.files[0]);
-                      }
-                      props.setFieldValue('picture', event.target.files[0]);
-                    }
-                  }}
-                />
-              </UserAvatarWrapper>
-              {props.errors.picture && props.touched.picture ? (
-                <ErrorMessage location="file">
-                  {props.errors.picture}
-                </ErrorMessage>
-              ) : null}
 
-              <InputsWrapper>
-                <NameLabel htmlFor="name" id="labelName">
-                  <NameInput
-                    type="text"
-                    name="name"
-                    id="name"
+        {status === 'edit' && (
+          <Formik
+            initialValues={{
+              picture: '',
+              name: name,
+            }}
+            validationSchema={EditNameSchema}
+            onSubmit={(values, actions) => {
+              console.log(values);
+              //   dispatch(
+              //     edit({
+              //       name: values.name.trim(),
+              //       picture: values.picture,
+              //     })
+              //   );
+              actions.setSubmitting(false);
+              actions.resetForm();
+            }}
+          >
+            {props => (
+              <UserEditForm onSubmit={props.handleSubmit}>
+                <UserAvatarWrapper>
+                  <label htmlFor="picture" id="labelFile">
+                    {inputs.picture?.name ? (
+                      <UserSvgWrapper>
+                        <img src={path} alt="user_picture" />
+                      </UserSvgWrapper>
+                    ) : (
+                      <UserSvgWrapper>
+                        <svg>
+                          <use href={sprite + `#user`} />
+                        </svg>
+                      </UserSvgWrapper>
+                    )}
+                  </label>
+                  <input
+                    type="file"
+                    id="picture"
+                    name="picture"
                     onBlur={() => {
                       props.setTouched({
-                        name: true,
+                        picture: true,
                       });
                     }}
                     onChange={event => {
-                      props.setTouched({
-                        name: true,
-                      });
-                      props.setFieldValue('name', event.target.value);
+                      if (event.target.files[0]) {
+                        if (
+                          SUPPORTED_FORMATS.includes(event.target.files[0].type)
+                        ) {
+                          setInputs(prev => ({
+                            ...prev,
+                            picture: event.target.files[0],
+                          }));
+                          setPath(
+                            window.URL.createObjectURL(event.target.files[0])
+                          );
+                          props.setFieldValue('picture', event.target.files[0]);
+                        }
+                        props.setFieldValue('picture', event.target.files[0]);
+                      }
                     }}
-                    color={getColor(
-                      props.errors.name,
-                      props.values.name,
-                      '#C4C4C4'
-                    )}
                   />
-                  <UserIcon
-                    stroke={getColor(
-                      props.errors.name,
-                      props.values.name,
-                      '#C4C4C4'
-                    )}
-                  >
-                    <use href={sprite + `#user`} />
-                  </UserIcon>
-                  {props.touched.name && props.values.name ? (
-                    <FlagForInput>
-                      <use
-                        href={`${sprite}${getColor(
-                          props.errors.name,
-                          props.values.name
-                        )}`}
-                      ></use>
-                    </FlagForInput>
-                  ) : (
-                    props.values.name && (
-                      <ResetBtn
-                        type="button"
-                        onClick={() => props.setFieldValue('name', '')}
-                      >
-                        <svg>
-                          <use href={sprite + `#edit`} />
-                        </svg>
-                      </ResetBtn>
-                    )
-                  )}
-                </NameLabel>
-                {props.errors.name && props.touched.name ? (
-                  <ErrorMessage>{props.errors.name}</ErrorMessage>
+                </UserAvatarWrapper>
+                {props.errors.picture && props.touched.picture ? (
+                  <ErrorMessage location="file">
+                    {props.errors.picture}
+                  </ErrorMessage>
                 ) : null}
-                <SubmitBtn
-                  type="submit"
-                  disabled={
-                    !(
-                      (props.touched.name &&
-                        props.values.name &&
-                        !props.errors.name) ||
-                      (props.touched.picture &&
-                        props.values.picture &&
-                        !props.errors.picture)
-                    )
-                  }
-                >
-                  Save changes
-                </SubmitBtn>
-              </InputsWrapper>
-            </UserEditForm>
-          )}
-        </Formik>
+
+                <InputsWrapper>
+                  <NameLabel htmlFor="name" id="labelName">
+                    <NameInput
+                      type="text"
+                      name="name"
+                      id="name"
+                      onBlur={() => {
+                        props.setTouched({
+                          name: true,
+                        });
+                      }}
+                      onChange={event => {
+                        props.setTouched({
+                          name: true,
+                        });
+                        props.setFieldValue('name', event.target.value);
+                      }}
+                      color={getColor(
+                        props.errors.name,
+                        props.values.name,
+                        '#C4C4C4'
+                      )}
+                    />
+                    <UserIcon
+                      stroke={getColor(
+                        props.errors.name,
+                        props.values.name,
+                        '#C4C4C4'
+                      )}
+                    >
+                      <use href={sprite + `#user`} />
+                    </UserIcon>
+                    {props.touched.name && props.values.name ? (
+                      <FlagForInput>
+                        <use
+                          href={`${sprite}${getColor(
+                            props.errors.name,
+                            props.values.name
+                          )}`}
+                        ></use>
+                      </FlagForInput>
+                    ) : (
+                      props.values.name && (
+                        <ResetBtn
+                          type="button"
+                          onClick={() => props.setFieldValue('name', '')}
+                        >
+                          <svg>
+                            <use href={sprite + `#edit`} />
+                          </svg>
+                        </ResetBtn>
+                      )
+                    )}
+                  </NameLabel>
+                  {props.errors.name && props.touched.name ? (
+                    <ErrorMessage>{props.errors.name}</ErrorMessage>
+                  ) : null}
+                  <SubmitBtn
+                    type="submit"
+                    disabled={
+                      !(
+                        (props.touched.name &&
+                          props.values.name &&
+                          !props.errors.name) ||
+                        (props.touched.picture &&
+                          props.values.picture &&
+                          !props.errors.picture)
+                      )
+                    }
+                  >
+                    Save changes
+                  </SubmitBtn>
+                </InputsWrapper>
+              </UserEditForm>
+            )}
+          </Formik>
+        )}
+        {status === 'logout' && <></>}
       </ModalWindow>
     </ModalOverlay>,
     modalRoot
