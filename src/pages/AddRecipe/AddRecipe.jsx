@@ -253,7 +253,7 @@ const AddRecipe = () => {
     <Container>
       <Title>Add recipe</Title>
       <MainWrapper isDesktop={isDesktop}>
-        <RecipeForm onSubmit={handleSubmit}>
+        <RecipeForm onSubmit={handleSubmit} enctype="multipart/form-data">
           <AddRecepiSection isDesktop={isDesktop}>
             <div>
               <label htmlFor="file" id="labelFile">
