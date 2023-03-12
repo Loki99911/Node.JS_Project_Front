@@ -12,7 +12,7 @@ import icons from '../../images/sprite.svg';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
-const list = [{ _id: '22222' }, { _id: '4544' }];
+const list = [{ _id: '22222', prod:"25" }, { _id: '4544', prod:"255" }];
 
 const ShopingTabl = () => {
 //    const dispatcher = useDispatch()
@@ -34,11 +34,13 @@ const ShopingTabl = () => {
           return (
             <TableHeaded key={elem._id}>
               <TableHeaderNameTitle>
-                <BoxForItemImage />
-                <ItemName>{(elem.prod = 'hhhh')}</ItemName>
+                <BoxForItemImage>
+            <img src={elem.prod} alt="product"/>
+                </BoxForItemImage>
+                <ItemName>{elem.prod}</ItemName>
               </TableHeaderNameTitle>
               <TableHeaderTitle>
-                <BoxForItemNumber>elem</BoxForItemNumber>
+                <BoxForItemNumber>{elem.prod}</BoxForItemNumber>
               </TableHeaderTitle>
               <TableHeaderTitle>
                 <BoxForItemRemove onClick={()=>"jjj"}>
