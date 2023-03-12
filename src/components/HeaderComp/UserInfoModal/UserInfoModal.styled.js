@@ -17,7 +17,7 @@ export const ModalWindow = styled.div`
   position: relative;
   height: fit-content;
   width: 330px;
-  padding: 32px 24px 60px 24px;
+  padding: ${p => (p.status === 'logout' ? '44px 24px' : '32px 24px')};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,12 +30,12 @@ export const ModalWindow = styled.div`
   overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
-    padding: 50px 40px 62px 40px;
+    padding: 50px 40px;
     width: 480px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 60px 50px 80px 50px;
+    padding: ${p => (p.status === 'logout' ? '50px' : '60px 50px')};
     width: 500px;
   }
 `;

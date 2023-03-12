@@ -36,7 +36,7 @@ export const UserInfoModal = ({ status, closeModal, name, avatarUrl }) => {
 
   return createPortal(
     <ModalOverlay onClick={onBackdropClick}>
-      <ModalWindow>
+      <ModalWindow status={status}>
         <CloseBtnWrapper>
           <CloseBtnComp location="modal" onClick={closeModal} />
         </CloseBtnWrapper>
