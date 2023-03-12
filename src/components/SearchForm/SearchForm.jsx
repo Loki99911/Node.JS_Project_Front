@@ -17,7 +17,7 @@ export const SearchForm = (props) => {
         <SearchBlock>
             <SearchIn onSubmit={handleSubmit}>
                 <SearchInput type="text" value={searchValue} placeholder="Beef |" onChange={handleInputChange} />
-                <ButtonSkew type="submit" text="Search" styled="black"></ButtonSkew>
+                <ButtonSkew type="submit" text="Search" styled={props.styled}></ButtonSkew>
             </SearchIn>
         </SearchBlock>
     );
