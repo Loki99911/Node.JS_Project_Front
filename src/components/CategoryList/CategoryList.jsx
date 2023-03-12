@@ -8,52 +8,54 @@ import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-
 export const CategoryList = () => {
-    const {categoryName:init} = useParams();
-    const [categoryName] = useState (init);
-     const dispatcher = useDispatch();
-    const [value, setValue] = useState(1);
+  const { categoryName } = useParams();
+  const dispatcher = useDispatch();
+  const [value, setValue] = useState(1);
+  const [mapArray, setMapArray] = useState([]);
+  const navigate = useNavigate();
 
-    const fullCategoryList = useSelector(getFullCategoryList);
-    // console.log(init, fullCategoryList);
-    
-    
-   
-    useEffect(() => {
-        dispatcher(getCategoryList());
-    }, [dispatcher]);
+  const fullCategoryList = useSelector(getFullCategoryList);
 
-useEffect (() => {
-         if (fullCategoryList.length === 0) return;
-         console.log(fullCategoryList);
-         const newArray = fullCategoryList.map((e, index) => {if (index === 3){return "desserts"} return e});  
-    const idx = newArray.findIndex(e =>{
-            return e.toLowerCase() === categoryName});
-        // console.log(idx);
-        setValue(idx);
-    }, [fullCategoryList, categoryName]);
+  useEffect(() => {
+    dispatcher(getCategoryList());
+  }, [dispatcher]);
 
-  
-    
-    const navigate = useNavigate();
-    const handleChange = (event, newValue) => {
-        // console.log(event);
-        setValue(newValue);
-        navigate(`/categories/${event.target.textContent}`)
-    };
+  useEffect(() => {
+    if (fullCategoryList.length === 0) return;
 
-   
+    const newArray = fullCategoryList.map((e, index) => {
+      if (index === 3) {
+        return 'desserts';
+      }
+      return e;
+    });
 
-    // console.log(event);
-    const items = fullCategoryList.map(e => <Tab label={e.toLowerCase()} key={e} />)
-    return (
+    setMapArray(prev => [...prev, ...newArray]);
 
-        <Box sx={{ maxWidth: '100%', bgcolor: 'background.paper' }}>
-            <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-                {items}
+    const idx = newArray.findIndex(e => {
+      return e.toLowerCase() === categoryName;
+    });
 
-            </Tabs>
-        </Box>
-    );
-}
+    if (idx !== -1) {
+      setValue(idx);
+    }
+  }, [fullCategoryList, categoryName]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    navigate(`/categories/${event.target.textContent}`);
+  };
+
+  const items = mapArray.map((e, index) => (
+    <Tab label={e.toLowerCase()} key={index} />
+  ));
+
+  return (
+    <Box sx={{ maxWidth: '100%', bgcolor: 'background.paper' }}>
+      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
+        {items}
+      </Tabs>
+    </Box>
+  );
+};
