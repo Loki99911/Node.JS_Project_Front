@@ -1,8 +1,5 @@
 import {
   BtnCategories,
-  CardDish,
-  CardImg,
-  CardTitle,
   CardWrapper,
   CategoryItem,
   CategoryList,
@@ -10,13 +7,12 @@ import {
 } from './PreviewCategories.styled';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import NoImage from '../../images/default.jpg';
 import { getContentForMain } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getMainCategories } from 'redux/outerRecipes/outerRecipesOperations';
 import { useMediaQuery } from 'react-responsive';
-import { Link } from 'react-router-dom';
 import 'react-tooltip/dist/react-tooltip.css';
-import { Tooltip } from 'react-tooltip';
+import { CardMeal } from 'components/CardMeal/CardMeal';
+
 
 export const PreviewCategories = () => {
   const mainCategories = useSelector(getContentForMain);
@@ -46,27 +42,7 @@ export const PreviewCategories = () => {
             <TitlePrew>{category}</TitlePrew>
             <CardWrapper>
               {meals.slice(0, numCard).map(meal => (
-                <CardDish key={meal.idMeal}>
-                  <Link to={`/recipe/${meal.idMeal}`}>
-                    <CardImg
-                      src={meal.strMealThumb ? meal.strMealThumb : { NoImage }}
-                      alt={meal.strMeal}
-                    />
-
-                    <CardTitle data-tooltip-id={meal.idMeal}>
-                      {meal.strMeal}
-                    </CardTitle>
-                    {meal.strMeal.length > 30 && (
-                      <Tooltip
-                        id={meal.idMeal}
-                        content={meal.strMeal}
-                        place="bottom"
-                        noArrow="false"
-                        
-                      />
-                    )}
-                  </Link>
-                </CardDish>
+                <CardMeal meal={meal} key={meal.idMeal}/>
               ))}
             </CardWrapper>
 
