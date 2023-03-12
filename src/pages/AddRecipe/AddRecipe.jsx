@@ -32,6 +32,8 @@ import {
   RecipeTitle,
   MainWrapper,
   PupularList,
+  InputUnitValue,
+  ValueInputWrapper,
 } from './addRecipe.styled';
 import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
@@ -39,27 +41,28 @@ import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { Container } from 'components/Container/Container';
 import { SocialLinks } from 'components/FooterComp/SocialLinks/SocialLinks';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopular } from 'redux/outerRecipes/outerRecipesSelectors';
-import { getPopularRecipes } from 'redux/outerRecipes/outerRecipesOperations';
+import {
+  getFullCategoryList,
+  getPopular,
+} from 'redux/outerRecipes/outerRecipesSelectors';
+import {
+  getCategoryList,
+  getPopularRecipes,
+} from 'redux/outerRecipes/outerRecipesOperations';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { timeOptionsList } from 'utils/timeOptionsList';
 import { ingredientsOptionsList } from 'utils/ingredientsOptionsList';
 import { unitsOptionsList } from 'utils/unitsOptionsList';
-
-const optionsCategories = [
-  {
-    value: 'meet',
-    label: 'Meet',
-  },
-  { value: 'salads', label: 'Salads' },
-  { value: 'soups', label: 'Soups' },
-];
+import { categoriesOptionsList } from 'utils/categoriesOptionList';
+import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
   const isDesktop = useMediaQuery({ minWidth: 1440 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1399 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const [inputs, setInputs] = useState({
     recipe: '',
     file: null,
@@ -67,26 +70,21 @@ const AddRecipe = () => {
     about: '',
     category: '',
     time: '',
+    unitValue: '',
   });
-//   const [isValid, setIsValid] = useState({
-//     recipe: false,
-//     title: false,
-//     about: false,
-//     category: false,
-//     time: false,
-//     ingredient: false,
-//     unit: false,
-//   });
+
   const [counter, setCounter] = useState(0);
   const [userIngredients, setUserIngredients] = useState([]);
   const [path, setPath] = useState('');
 
   const popularRecepis = useSelector(getPopular);
   const optionsIngredients = useSelector(getIngredients);
+  const optionsCategoris = useSelector(getFullCategoryList);
 
   useEffect(() => {
     dispatch(getPopularRecipes());
     dispatch(getAllIngredients());
+    dispatch(getCategoryList());
   }, [dispatch]);
 
   const handleDecrement = () => {
@@ -97,7 +95,10 @@ const AddRecipe = () => {
 
   const handleIncrement = () => {
     setCounter(prev => prev + 1);
-    setUserIngredients(prev => [...prev, { id: nanoid() }]);
+    setUserIngredients(prev => [
+      ...prev,
+      { id: nanoid(), ingredient: 'Beef', unitValue: 100, qty: 'g' },
+    ]);
   };
 
   const handleRemove = ({ currentTarget }) => {
@@ -138,20 +139,28 @@ const AddRecipe = () => {
 
     const { recipe, time, category, about, title, file } = inputs;
 
+    const ingredientsList = userIngredients.map(
+      ({ unitValue, ingredient, qty: unit }) => ({
+        ingredient,
+        qty: `${unitValue} ${unit}`,
+      })
+    );
+
     formData.append('description', recipe);
-    formData.append('coockingTime', time);
+    formData.append('cookingTime', time);
     formData.append('category', category);
     formData.append('about', about);
     formData.append('title', title);
     formData.append('img', file);
-    formData.append(
-      'ingredients',
-      userIngredients.map(({ id, ...items }) => items)
-    );
+    formData.append('ingredients', JSON.stringify(ingredientsList));
+
+    // console.log(JSON.stringify(ingredientsList));
+
+    dispatch(addOwnRecipe(formData));
 
     const obj = {};
     formData.forEach((val, key) => (obj[key] = val));
-    // console.log(userIngredients);
+    // console.log(obj);
   };
 
   const handleSelect = (...arg) => {
@@ -174,31 +183,60 @@ const AddRecipe = () => {
     });
   };
 
-  const userIngredientsList = userIngredients.map(el => {
-    return (
-      <IngredientsItem key={el.id}>
-        <Select
-          options={ingredientsOptionsList(optionsIngredients)}
-          defaultValue={ingredientsOptionsList(optionsIngredients)[2]}
-          placeholder=" "
-          onChange={handleUserIngredient}
-          name={`ingredient ${el.id}`}
-        />
-        <Select
-          options={unitsOptionsList}
-          defaultValue={unitsOptionsList[2]}
-          placeholder=" "
-          onChange={handleUserIngredient}
-          name={`qty ${el.id}`}
-        />
-        <ButtonRemoveItem type="click" id={el.id} onClick={handleRemove}>
-          <svg width="25" height="25">
-            <use href={icons + '#icon-cross'} width="25" height="25"></use>
-          </svg>
-        </ButtonRemoveItem>
-      </IngredientsItem>
-    );
-  });
+  const handleUnitValue = ({ currentTarget }) => {
+    const { id, value, name } = currentTarget;
+    setInputs(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+    setUserIngredients(prev => {
+      const idx = prev.findIndex(el => el.id === id);
+      const [item] = prev.filter(el => el.id === id);
+      item[name] = value;
+      prev[idx] = item;
+      return [...prev];
+    });
+  };
+
+  const userIngredientsList = userIngredients.map(
+    ({ id, unitValue, ingredient, qty }) => {
+      return (
+        <IngredientsItem key={id}>
+          <Select
+            options={ingredientsOptionsList(optionsIngredients)}
+            defaultValue={{ label: ingredient, value: ingredient }}
+            placeholder=" "
+            onChange={handleUserIngredient}
+            name={`ingredient ${id}`}
+          />
+          <ValueInputWrapper>
+            <InputUnitValue
+              isMobile={isMobile}
+              type="number"
+              name="unitValue"
+              onChange={handleUnitValue}
+              defaultValue={unitValue}
+              autoComplete="off"
+              id={id}
+            />
+            <Select
+              options={unitsOptionsList}
+              defaultValue={{ label: qty, value: qty }}
+              placeholder=" "
+              onChange={handleUserIngredient}
+              isSearchable={false}
+              name={`qty ${id}`}
+            />
+          </ValueInputWrapper>
+          <ButtonRemoveItem type="button" id={id} onClick={handleRemove}>
+            <svg width="25" height="25">
+              <use href={icons + '#icon-cross'} width="25" height="25"></use>
+            </svg>
+          </ButtonRemoveItem>
+        </IngredientsItem>
+      );
+    }
+  );
 
   const popularList = tag =>
     popularRecepis.map(({ idMeal, strMealThumb, strInstructions, strMeal }) => (
@@ -217,7 +255,7 @@ const AddRecipe = () => {
     <Container>
       <Title>Add recipe</Title>
       <MainWrapper isDesktop={isDesktop}>
-        <RecipeForm onSubmit={handleSubmit}>
+        <RecipeForm onSubmit={handleSubmit} enctype="multipart/form-data">
           <AddRecepiSection isDesktop={isDesktop}>
             <div>
               <label htmlFor="file" id="labelFile">
@@ -265,8 +303,8 @@ const AddRecipe = () => {
                   autoComplete="off"
                 />
                 <Select
-                  options={optionsCategories}
-                  defaultValue={optionsCategories[2]}
+                  options={categoriesOptionsList(optionsCategoris)}
+                  defaultValue={categoriesOptionsList(optionsCategoris)[2]}
                   placeholder=" "
                   onChange={handleSelect}
                   name="category"
