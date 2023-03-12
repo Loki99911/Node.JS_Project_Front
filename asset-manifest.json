@@ -1,8 +1,11 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.5f7eb1b2.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.2fdf1b7c.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.c6332a3c.js",
+    "static/media/mainpage2x_desk.png": "/Node.JS_Project_Front/static/media/mainpage2x_desk.906cdb4f2d00194ec785.png",
+    "static/media/mainpage2x_tab.png": "/Node.JS_Project_Front/static/media/mainpage2x_tab.1e3f8e77edef9f06bd13.png",
     "static/media/bg_big_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_2x.088180e00dd0b716a522.png",
+    "static/media/mainpage2x_mob.png": "/Node.JS_Project_Front/static/media/mainpage2x_mob.26c402b722e464e8b520.png",
     "static/media/mainpage1x_desk.png": "/Node.JS_Project_Front/static/media/mainpage1x_desk.7c9ba1d121fa87c3fbc3.png",
     "static/media/mainDes.png": "/Node.JS_Project_Front/static/media/mainDes.d13214dc4a08569781ae.png",
     "static/media/bg_big_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_2x.315208ec35d471abc100.png",
@@ -46,10 +49,10 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.5f7eb1b2.css.map": "/Node.JS_Project_Front/static/css/main.5f7eb1b2.css.map",
-    "main.2fdf1b7c.js.map": "/Node.JS_Project_Front/static/js/main.2fdf1b7c.js.map"
+    "main.c6332a3c.js.map": "/Node.JS_Project_Front/static/js/main.c6332a3c.js.map"
   },
   "entrypoints": [
     "static/css/main.5f7eb1b2.css",
-    "static/js/main.2fdf1b7c.js"
+    "static/js/main.c6332a3c.js"
   ]
 }
