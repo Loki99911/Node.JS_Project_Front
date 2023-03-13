@@ -34,6 +34,7 @@ export const theme = {
     iconHover: ' #1E1F28',
     switchBg: '#EFEFEF',
   },
+
   fonts: {
     main: 'Poppins, sans-serif',
   },

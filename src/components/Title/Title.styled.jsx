@@ -3,6 +3,8 @@ import sq_black_6 from '../../images/sq_black_6.png';
 import sq_black_12 from '../../images/sq_black_12.png';
 import sq_green_8 from '../../images/sq_green_8.png';
 import sq_green_14 from '../../images/sq_green_14.png';
+import circle_white from '../../images/white-circle.png';
+import sq_white from '../../images/white-rectangle.png';
 
 export const TitleConteiner = styled.div`
   height: 192px;
@@ -11,7 +13,10 @@ export const TitleConteiner = styled.div`
   width: 100%;
   padding-top: 114px;
 
-  background-image: url(${sq_green_8}), url(${sq_black_6}), url(${sq_green_8});
+  background-image: ${p =>
+    p.mode === 'light'
+      ? `url(${sq_green_8}), url(${sq_black_6}), url(${sq_green_8})`
+      : `url(${sq_green_8}), url(${circle_white}), url(${sq_green_8})`};
   background-repeat: no-repeat;
   background-size: 10px 10px, 7px 7px, 10px 10px;
   background-position: top 80px left 104px, top 145px left 231px,
@@ -26,8 +31,12 @@ export const TitleConteiner = styled.div`
     height: 240px;
     padding-top: 136px;
 
-    background-image: url(${sq_green_14}), url(${sq_black_12}),
-      url(${sq_green_14});
+    background-image: ${p =>
+      p.mode === 'light'
+        ? `url(${sq_green_14}), url(${sq_black_12}),
+      url(${sq_green_14})`
+        : `url(${sq_green_14}), url(${sq_white}),
+      url(${sq_green_14})`};
     background-repeat: no-repeat;
     background-size: 18px 18px, 15px 15px, 18px 18px;
     background-position: top 91px left 187px, top 160px left 405px,
