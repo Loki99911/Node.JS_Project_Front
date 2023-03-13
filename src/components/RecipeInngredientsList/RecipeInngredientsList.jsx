@@ -39,9 +39,7 @@ const RecipeInngredientsList = ({ ingredients }) => {
       <InngredientsWrapper>
         {ingredients.map(inngredient => (
           <RecipeInngredientsItem
-            image={
-              'https://i.pinimg.com/564x/e9/2b/df/e92bdfc88c52c9600a9f545fbc443d4d.jpg'
-            }
+            image={inngredient.img}
             strIngredient={inngredient.name}
             key={inngredient.id}
             weight={inngredient.number}

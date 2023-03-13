@@ -24,14 +24,17 @@ const Recipe = () => {
     for (let i = 1; i <= 20; i++) {
       const strIngredient = `strIngredient${i}`;
       const strMeasure = `strMeasure${i}`;
+      const strIngredientImg = `strIngredientImg${i}`;
       if (obj[strIngredient] !== null && obj[strIngredient] !== '') {
         array.push({
           name: obj[strIngredient],
+          img: obj[strIngredientImg],
           number: obj[strMeasure],
           id: i,
         });
       }
     }
+    console.log(array);
     return array;
   }
 
