@@ -8,18 +8,19 @@ import {
   addFavorite,
   deleteFavorite,
 } from 'redux/ownRecipes/ownRecipesOperations';
-const RecipePageHero = ({ meal, RecipeId }) => {
+const RecipePageHero = ({ meal, idMeal }) => {
   // const [btnText, setBtnText] = useState(false);
   const dispatcher = useDispatch();
   const array = useSelector(getFavoriteRecipes);
 
   function deleteFromFav() {
-    dispatcher(deleteFavorite(RecipeId));
+    console.log(idMeal);
+    dispatcher(deleteFavorite(idMeal));
   }
 
   function addtoFavorite() {
-    console.log(RecipeId);
-    dispatcher(addFavorite(RecipeId));
+    console.log(idMeal);
+    dispatcher(addFavorite(idMeal));
     return;
   }
 
@@ -54,7 +55,7 @@ const RecipePageHero = ({ meal, RecipeId }) => {
             text="delete from favorite recipes"
             styled="other"
             location="recipes"
-            onclick={deleteFromFav}
+            fn={deleteFromFav}
           />
         ) : (
           <ButtonSkew

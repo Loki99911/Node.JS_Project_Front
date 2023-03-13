@@ -56,7 +56,7 @@ const Recipe = () => {
   return (
     myRecipe() && (
       <>
-        <RecipePageHero meal={myRecipe().strMeal} id={myRecipe().idMeal} />
+        <RecipePageHero meal={myRecipe().strMeal} idMeal={myRecipe().idMeal} />
         <Container>
           <ReportsTable>
             <p>Ingredients</p>
