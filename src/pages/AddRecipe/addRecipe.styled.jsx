@@ -5,15 +5,6 @@ export const MainWrapper = styled.div`
   display: ${({ isDesktop }) => (isDesktop ? 'flex' : 'unset')};
   gap: 100px;
   padding-bottom: 200px;
-
-  .css-l4u8b9-MuiInputBase-root-MuiInput-root:after {
-    border-bottom: 2px solid ${({ theme }) => theme.colors.mainAccent};
-  }
-
-  .css-t3ipsp-control {
-    border-color: ${({ theme }) => theme.colors.mainAccent};
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.mainAccent};
-  }
 `;
 
 export const RecipeForm = styled.form`
@@ -52,6 +43,8 @@ export const AddRecepiSection = styled.div`
     cursor: pointer;
     color: white;
     overflow: hidden;
+    background-image: url(${({ path }) => path});
+    background-size: cover;
   }
 
   input[type='file'] {
@@ -73,35 +66,7 @@ export const InputsWrapper = styled.div`
 
 export const InputsWithSelectWrapper = styled.div`
   display: flex;
-  align-items: center;
-  position: relative;
-
-  .css-1hb7zxy-IndicatorsContainer {
-    svg {
-      fill: ${({ theme }) => theme.colors.mainAccent};
-    }
-
-    .css-1u9des2-indicatorSeparator {
-      opacity: 0;
-    }
-  }
-  .css-1fdsijx-ValueContainer {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
-  .css-13cymwt-control {
-    border-style: unset;
-    background-color: transparent;
-    border-radius: 6px;
-  }
-
-  .css-b62m3t-container {
-    width: 150px;
-    position: absolute;
-    top: 10%;
-    right: 0;
-  }
+  align-items: flex-end;
 
   input {
     caret-color: transparent;
@@ -152,59 +117,25 @@ export const IngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
-
-  .css-1hb7zxy-IndicatorsContainer {
-    svg {
-      fill: ${({ theme }) => theme.colors.mainAccent};
-    }
-
-    .css-1u9des2-indicatorSeparator {
-      opacity: 0;
-    }
-  }
-
-  .css-13cymwt-control {
-    border-style: unset;
-    background-color: #d9d9d9;
-    border-radius: 6px;
-  }
-
-  .css-b62m3t-container {
-    width: 400px;
-  }
-`;
-
-export const InputUnitValue = styled.input`
-  border-style: unset;
-  background-color: rgb(217, 217, 217);
-  border-radius: 6px;
-  display: block;
-  height: 38px;
-  padding: 0 8px;
-  margin-left: ${({ isMobile }) => (isMobile ? '14px' : '32px')};
-  outline: none;
-  max-width: 130px;
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.mainAccent};
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.mainAccent};
-  }
 `;
 
 export const ValueInputWrapper = styled.div`
   display: flex;
-  position: relative;
+  justify-content: flex-start;
+  background-color: rgb(217, 217, 217);
+  border-radius: 6px;
+  /* width: 150px; */
+  margin-left: ${({ isMobile }) => (isMobile ? '14px' : '32px')};
+`;
 
-  .css-b62m3t-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    max-width: 90px;
-    .css-1fdsijx-ValueContainer {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
+export const InputUnitValue = styled.input`
+  border-style: unset;
+  background-color: transparent;
+  display: block;
+  height: 50px;
+  padding: 0 8px;
+  outline: none;
+  width: 50px;
 `;
 
 export const PupularList = styled.ul`
@@ -214,9 +145,12 @@ export const PupularList = styled.ul`
 `;
 
 export const PopularItem = styled.li`
-  display: flex;
-  padding: 15px 0;
-  border-bottom: 1px solid #707070;
+  a {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #707070;
+    color: inherit;
+  }
 `;
 
 export const RecipeTitle = styled.p`
@@ -238,7 +172,6 @@ export const RecipeText = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* width: 200px; */
   height: 50px;
   color: ${({ theme }) => theme.colors.mainGrey};
   font-weight: ${({ theme }) => theme.fontWeights[0]};

@@ -10,6 +10,7 @@ import { categoriesOptionsList } from 'utils/categoriesOptionList';
 import { timeOptionsList } from 'utils/timeOptionsList';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import icons from '../../images/sprite.svg';
+import { stylesMeta } from 'pages/AddRecipe/selectStyles';
 
 export const AddRecipeMeta = ({
   inputs,
@@ -18,19 +19,20 @@ export const AddRecipeMeta = ({
   handleChange,
   handleSelect,
   path,
+  file,
 }) => {
   const optionsCategoris = useSelector(getFullCategoryList);
 
   return (
-    <AddRecepiSection isDesktop={isDesktop}>
+    <AddRecepiSection isDesktop={isDesktop} path={path}>
       <div>
         <label htmlFor="file" id="labelFile">
-          {inputs.file?.name ? (
-            <img src={path} alt="user_picture" />
-          ) : (
+          {!file ? (
             <svg width="50" height="50">
               <use href={icons + '#icon-img'} alt="ico"></use>
             </svg>
+          ) : (
+            ''
           )}
         </label>
         <input type="file" id="file" name="file" onChange={handleFile} />
@@ -69,6 +71,7 @@ export const AddRecipeMeta = ({
             autoComplete="off"
           />
           <Select
+            styles={stylesMeta}
             options={categoriesOptionsList(optionsCategoris)}
             defaultValue={{ label: 'Breakfast', value: 'Breakfast' }}
             placeholder=" "
@@ -89,6 +92,7 @@ export const AddRecipeMeta = ({
             autoComplete="off"
           />
           <Select
+            styles={stylesMeta}
             options={timeOptionsList()}
             defaultValue={timeOptionsList()[2]}
             placeholder=" "

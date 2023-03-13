@@ -24,7 +24,6 @@ import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 
 const init = {
   recipe: '',
-  file: null,
   title: '',
   about: '',
   category: '',
@@ -43,6 +42,8 @@ const AddRecipe = () => {
     const inputs = store.get('userInputs');
     return inputs ? inputs : init;
   });
+
+  const [file, setFile] = useState(null);
 
   const [userIngredients, setUserIngredients] = useState(() => {
     const ingredients = store.get('userIngredients');
@@ -90,26 +91,20 @@ const AddRecipe = () => {
   const handleFile = ({ currentTarget }) => {
     const { files } = currentTarget;
     const [file] = files;
-    if (!file?.type.includes('image')) {
-      setInputs(prev => ({
-        ...prev,
-        file: null,
-      }));
+
+    if (!file || !file.type.includes('image')) {
+      setFile(null);
+      setPath('');
       return;
     }
-    setInputs(prev => ({
-      ...prev,
-      file,
-    }));
-    setPath(window.URL.createObjectURL(file));
+    setFile(file);
+    setPath(URL.createObjectURL(file));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
-
-    const { recipe, time, category, about, title, file } = inputs;
-
+    const { recipe, time, category, about, title } = inputs;
     const ingredientsList = userIngredients.map(
       ({ unitValue, ingredient, qty: unit }) => ({
         ingredient,
@@ -117,31 +112,24 @@ const AddRecipe = () => {
       })
     );
 
+    if (!recipe || !time || !category || !about || !title) {
+      console.log('INVALID FORM DATA');
+      return;
+    }
+
     formData.append('description', recipe);
-    formData.append('cookingTime', time.toString());
+    formData.append('cookingTime', time);
     formData.append('category', category);
     formData.append('about', about);
     formData.append('title', title);
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    // console.log('ingredients', JSON.stringify(ingredientsList));
+    const res = recipe.split('\n');
 
-    // const test = {
-    //   description: recipe,
-    //   cookingTime: time.toString(),
-    //   category,
-    //   about,
-    //   title,
-    //   picture: file,
-    //   ingredients: ingredientsList,
-    // };
+    console.log(res);
 
     dispatch(addOwnRecipe(formData));
-
-    // const obj = {};
-    // formData.forEach((val, key) => (obj[key] = val));
-    // console.log(obj);
   };
 
   const handleSelect = (...arg) => {
@@ -187,6 +175,7 @@ const AddRecipe = () => {
           <AddRecipeMeta
             path={path}
             inputs={inputs}
+            file={file}
             isDesktop={isDesktop}
             handleFile={handleFile}
             handleChange={handleChange}
