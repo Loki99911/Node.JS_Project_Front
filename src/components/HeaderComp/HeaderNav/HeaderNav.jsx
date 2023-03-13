@@ -48,7 +48,7 @@ export const HeaderNav = ({ setShowMenu }) => {
         onClick={() => {
           setShowMenu(false);
         }}
-        to="/search"
+        to="/search?query=&type=title"
       >
         <svg>
           <use href={sprite + `#search`} />
