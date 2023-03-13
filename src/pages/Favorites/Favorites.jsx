@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
 import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
@@ -11,12 +12,11 @@ import { PaginationComp } from 'components/PaginationComp/Pagination';
 import img from '../../images/default.jpg';
 
 import { ContentWrapper, Wrapper } from './Favorites.styled';
-import { NavLink } from 'react-router-dom';
 
 const Favorites = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(getFavoriteRecipes);
-  console.log(favorites);
+  // console.log(favorites);
 
   useEffect(() => {
     dispatch(getFavorite());
@@ -41,7 +41,7 @@ const Favorites = () => {
                       text={
                         <span>{item.strInstructions ?? 'No description'}</span>
                       }
-                      time={item.cookingTime ?? '?? min'}
+                      time={item.cookingTime ?? '__ min'}
                     />
                   </NavLink>
                 </li>

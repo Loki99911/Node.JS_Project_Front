@@ -26,7 +26,7 @@ export const ModalWindow = styled.div`
   border-radius: ${p => p.theme.radii.modal};
   opacity: 1;
   z-index: 20000;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
