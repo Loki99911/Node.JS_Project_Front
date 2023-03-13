@@ -18,7 +18,7 @@ import logo from '../../images/svg-before sprite/logo_desc.svg';
 import { HeaderNav } from 'components/HeaderComp/HeaderNav/HeaderNav';
 import { HeaderUser } from 'components/HeaderComp/HeaderUserLogo/HeaderUserLogo';
 import { Container } from 'components/Container/Container';
-// import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
+import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 import { CloseBtnComp } from 'components/CloseButton/CloseBtn';
 
 export const HeaderComp = () => {
@@ -44,7 +44,7 @@ export const HeaderComp = () => {
               </LogoWrapper>
               <HeaderNav />
               <HeaderUser name={userName} avatarUrl={userAvatar} />
-              {/* <ThemeToggler /> */}
+              <ThemeToggler />
             </HeaderWrapper>
           </Container>
         </Header>
@@ -85,7 +85,7 @@ export const HeaderComp = () => {
             </MobileMenuHeaderContainer>
             <HeaderNav setShowMenu={setShowMenu} />
             <MobileMenuThemeTogglerWrapper>
-              {/* <ThemeToggler /> */}
+              <ThemeToggler />
             </MobileMenuThemeTogglerWrapper>
           </MobileMenuWrapper>
         </>

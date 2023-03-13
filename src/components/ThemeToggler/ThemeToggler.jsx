@@ -7,7 +7,7 @@ import { getMode } from 'redux/theme/themeSelector';
 export const ThemeToggler = () => {
   const selectedMode = useSelector(getMode);
   const dispatch = useDispatch();
-  const [mode, setMode] = useState(selectedMode.mode);
+  const [mode, setMode] = useState(selectedMode.mode ?? 'light');
 
   const changeTheme = () => {
     const newTheme = mode === 'light' ? 'dark' : 'light';
