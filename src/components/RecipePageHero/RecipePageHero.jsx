@@ -4,25 +4,38 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
 import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
-
-const RecipePageHero = ({ meal }) => {
+import {
+  addFavorite,
+  deleteFavorite,
+} from 'redux/ownRecipes/ownRecipesOperations';
+const RecipePageHero = ({ meal, RecipeId }) => {
   // const [btnText, setBtnText] = useState(false);
   const dispatcher = useDispatch();
   const array = useSelector(getFavoriteRecipes);
 
-  function getIngDescription(ingName) {
-    const ing = array.some(
-      ing =>
-        ing.strMeal === ingName.replace(ingName[0], ingName[0].toUpperCase())
+  function deleteFromFav() {
+    dispatcher(deleteFavorite(RecipeId));
+  }
+
+  function addtoFavorite() {
+    console.log(RecipeId);
+    dispatcher(addFavorite(RecipeId));
+    return;
+  }
+
+  function getIngDescription(recipeName) {
+    const recipe = array.some(
+      recipe =>
+        recipe.strMeal ===
+        recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
     );
-    console.log(ing);
-    return ing;
+    console.log(recipe);
+    return recipe;
   }
 
   useEffect(() => {
     dispatcher(getFavorite());
   }, [dispatcher]);
-  console.log(array);
   // const [Meal, setMeal] = useState();
 
   // useEffect(() => {
@@ -41,6 +54,7 @@ const RecipePageHero = ({ meal }) => {
             text="delete from favorite recipes"
             styled="other"
             location="recipes"
+            onclick={deleteFromFav}
           />
         ) : (
           <ButtonSkew
@@ -48,6 +62,7 @@ const RecipePageHero = ({ meal }) => {
             text="add to favorite recipes"
             styled="other"
             location="recipes"
+            fn={addtoFavorite}
           />
         )}
       </RecipeHeroConteiner>

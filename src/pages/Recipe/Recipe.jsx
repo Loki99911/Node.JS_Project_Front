@@ -5,18 +5,33 @@ import { Container } from 'components/Container/Container';
 import { ReportsTable } from './Recipe.styled';
 
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getSingleRecipe } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getOneRecipeById } from 'redux/outerRecipes/outerRecipesOperations';
+import { getOwnRecipeByID } from 'redux/ownRecipes/ownRecipesOperations';
+import { getSingleOwnRecipe } from 'redux/ownRecipes/ownRecipesSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Recipe = () => {
+  const [recipeObj, setRecipeObj] = useState(null);
   const { recipeId } = useParams();
   const dispatcher = useDispatch();
   const recipe = useSelector(getSingleRecipe);
+  const ownRecipe = useSelector(getSingleOwnRecipe);
+
+  const myRecipe = () => {
+    return recipeObj ? recipe : ownRecipe;
+  };
+  ownRecipe && console.log(Object.keys(ownRecipe).length);
 
   useEffect(() => {
-    dispatcher(getOneRecipeById(recipeId));
+    if (('' + recipeId).length < 10) {
+      dispatcher(getOneRecipeById(recipeId));
+      setRecipeObj(true);
+    } else {
+      dispatcher(getOwnRecipeByID(recipeId));
+      setRecipeObj(false);
+    }
   }, [recipeId, dispatcher]);
 
   function ObjectConvertor(obj) {
@@ -39,9 +54,9 @@ const Recipe = () => {
   }
 
   return (
-    recipe && (
+    myRecipe() && (
       <>
-        <RecipePageHero meal={recipe.strMeal} />
+        <RecipePageHero meal={myRecipe().strMeal} id={myRecipe().idMeal} />
         <Container>
           <ReportsTable>
             <p>Ingredients</p>
@@ -49,10 +64,10 @@ const Recipe = () => {
               Number <span>Add to list</span>
             </p>
           </ReportsTable>
-          <RecipeInngredientsList ingredients={ObjectConvertor(recipe)} />
+          <RecipeInngredientsList ingredients={ObjectConvertor(myRecipe())} />
           <RecipePreparation
-            image={recipe.strMealThumb}
-            instructions={recipe.strInstructions}
+            image={myRecipe().strMealThumb}
+            instructions={myRecipe().strInstructions}
           />
         </Container>
       </>
