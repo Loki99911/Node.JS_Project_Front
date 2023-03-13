@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.5f7eb1b2.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.4bd49d05.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.6758eaf2.js",
     "static/media/bg_big_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_big_desktop_2x.088180e00dd0b716a522.png",
     "static/media/mainpage1x_desk.png": "/Node.JS_Project_Front/static/media/mainpage1x_desk.7c9ba1d121fa87c3fbc3.png",
     "static/media/mainDes.png": "/Node.JS_Project_Front/static/media/mainDes.d13214dc4a08569781ae.png",
@@ -46,10 +46,10 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.5f7eb1b2.css.map": "/Node.JS_Project_Front/static/css/main.5f7eb1b2.css.map",
-    "main.4bd49d05.js.map": "/Node.JS_Project_Front/static/js/main.4bd49d05.js.map"
+    "main.6758eaf2.js.map": "/Node.JS_Project_Front/static/js/main.6758eaf2.js.map"
   },
   "entrypoints": [
     "static/css/main.5f7eb1b2.css",
-    "static/js/main.4bd49d05.js"
+    "static/js/main.6758eaf2.js"
   ]
 }
