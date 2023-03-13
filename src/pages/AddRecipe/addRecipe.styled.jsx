@@ -145,9 +145,12 @@ export const PupularList = styled.ul`
 `;
 
 export const PopularItem = styled.li`
-  display: flex;
-  padding: 15px 0;
-  border-bottom: 1px solid #707070;
+  a {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #707070;
+    color: inherit;
+  }
 `;
 
 export const RecipeTitle = styled.p`
