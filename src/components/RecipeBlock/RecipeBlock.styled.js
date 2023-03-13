@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RecipeBlockWrapper = styled.li`
+export const RecipeBlockWrapper = styled.div`
   height: 152px;
   display: flex;
   gap: ${p => (p.location === 'favorite' ? '14px' : '4px')};

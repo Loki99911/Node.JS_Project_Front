@@ -1,34 +1,54 @@
+import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
+import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
+
 import { Container } from 'components/Container/Container';
 import { Title } from 'components/Title/Title';
-import { ContentWrapper, Wrapper } from './Favorites.styled';
-import img from '../../images/default.jpg';
 import { RecipeBlock } from 'components/RecipeBlock/RecipeBlock';
 import { PaginationComp } from 'components/PaginationComp/Pagination';
 
+import img from '../../images/default.jpg';
+
+import { ContentWrapper, Wrapper } from './Favorites.styled';
+
 const Favorites = () => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(getFavoriteRecipes);
+  // console.log(favorites);
+
+  useEffect(() => {
+    dispatch(getFavorite());
+  }, [dispatch]);
+
   return (
     <Wrapper>
       <Container>
         <Title>Favorites</Title>
         <ContentWrapper>
-          <RecipeBlock
-            location="favorite"
-            img={img}
-            title="Salmon Eggs Benedict"
-            text={
-              <span>
-                Salmon eggs are rich in essential nutrients, low in calories,
-                and recommended as part of a healthy diet. Including salmon in a
-                balanced diet can help decrease the chances of heart disease,
-                ease inflammation, and more. <br />
-                Studies have shown a number of potential health benefits to
-                seafood rich in omega-3 fatty acids, which include salmon eggs.
-              </span>
-            }
-            time="20 min"
-          />
+          {favorites &&
+            favorites.length > 0 &&
+            favorites.map(item => {
+              return (
+                <li key={item.idMeal}>
+                  <NavLink to={`/recipe/${item.idMeal}`}>
+                    <RecipeBlock
+                      location="favorite"
+                      id={item.idMeal}
+                      img={item.strMealThumb ?? img}
+                      title={item.strMeal ?? 'No name'}
+                      text={
+                        <span>{item.strInstructions ?? 'No description'}</span>
+                      }
+                      time={item.cookingTime ?? '__ min'}
+                    />
+                  </NavLink>
+                </li>
+              );
+            })}
         </ContentWrapper>
-        <PaginationComp />
+        {favorites && favorites.length > 0 && <PaginationComp />}
       </Container>
     </Wrapper>
   );
