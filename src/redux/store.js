@@ -19,7 +19,7 @@ const ingredientsPersistConfig = {
 const outerRecipesPersistConfig = {
   key: 'outerRecipes',
   storage,
-  whitelist: ['mainCategories'],
+  whitelist: ['mainCategories', 'categoryList'],
 };
 
 const themePersistConfig = {
