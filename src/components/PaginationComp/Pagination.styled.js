@@ -11,7 +11,7 @@ export const PaginationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${p => p.theme.colors.recipeBlockBg};
-  box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
+  box-shadow: ${p => p.theme.colors.paginationShadow};
   border-radius: ${p => p.theme.radii.pagination};
 
   @media screen and (min-width: 768px) {
