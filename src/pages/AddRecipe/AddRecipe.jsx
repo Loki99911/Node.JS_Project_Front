@@ -125,6 +125,10 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
+    const res = recipe.split('\n');
+
+    console.log(res);
+
     dispatch(addOwnRecipe(formData));
   };
 

@@ -18,13 +18,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const AddRecipePopular = ({ isDesktop, isTablet }) => {
   const popularRecepis = useSelector(getPopular);
-  console.log(popularRecepis);
 
   const popularList = tag =>
     popularRecepis.map(({ idMeal, strMealThumb, strInstructions, strMeal }) => (
       <SwiperSlide key={idMeal}>
         <PopularItem as={tag}>
-          <Link to={`/categories/${idMeal}`}>
+          <Link to={`/recipe/${idMeal}`}>
             <RecepiImg src={strMealThumb} alt={strMeal} />
             <div>
               <RecipeTitle>{strMeal}</RecipeTitle>

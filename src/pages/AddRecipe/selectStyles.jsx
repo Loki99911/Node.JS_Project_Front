@@ -30,6 +30,7 @@ export const stylesMeta = {
     lineHeight: '1.5',
     textAlign: 'right',
     letterSpacing: '-0.02em',
+    maxHeight: '230px',
 
     '@media (min-width: 768px)': {
       fontSize: '16px',
@@ -90,6 +91,7 @@ export const stylesIngredient = {
     lineHeight: '1.5',
     textAlign: 'left',
     letterSpacing: '-0.02em',
+    maxHeight: '230px',
 
     '@media (min-width: 768px)': {
       fontSize: '16px',
@@ -140,6 +142,7 @@ export const stylesUnit = {
     '@media (min-width: 768px)': {
       fontSize: '16px',
       lineHeight: '1.3',
+      width: '85px',
     },
   }),
   menuList: (baseStyles, state) => ({
