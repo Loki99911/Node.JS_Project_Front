@@ -1,9 +1,9 @@
 import {
-  BtnCategories,
-  CardWrapper,
-  CategoryItem,
-  CategoryList,
-  TitlePrew,
+    BtnCategories,
+    CardWrapper,
+    CategoryItem,
+    CategoryList,
+    TitlePrew,
 } from './PreviewCategories.styled';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,70 +14,45 @@ import 'react-tooltip/dist/react-tooltip.css';
 import { CardMeal } from 'components/CardMeal/CardMeal';
 
 
+
 export const PreviewCategories = () => {
-  const mainCategories = useSelector(getContentForMain);
-  const dispatcher = useDispatch();
-  const isDesktop = useMediaQuery({ minWidth: 1440 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+    const mainCategories = useSelector(getContentForMain);
+    const dispatcher = useDispatch();
+    const isDesktop = useMediaQuery({ minWidth: 1440 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
 
-  useEffect(() => {
-    if (mainCategories !== null) return;
-    dispatcher(getMainCategories());
-  }, [dispatcher, mainCategories]);
+    useEffect(() => {
+        if (mainCategories !== null) return;
+        dispatcher(getMainCategories());
+    }, [dispatcher, mainCategories]);
 
-  let numCard;
-  if (isDesktop) {
-    numCard = 4; // Десктоп
-  } else if (isTablet) {
-    numCard = 2; // Планшет
-  } else {
-    numCard = 1; // Мобильный
-  }
+    let numCard;
+    if (isDesktop) {
+        numCard = 4; // Десктоп
+    } else if (isTablet) {
+        numCard = 2; // Планшет
+    } else {
+        numCard = 1; // Мобильный
+    }
 
-  return (
-    <CategoryList>
-      {mainCategories &&
-        Object.entries(mainCategories).map(([category, meals]) => (
-          <CategoryItem key={category}>
-            <TitlePrew>{category}</TitlePrew>
-            <CardWrapper>
-              {meals.slice(0, numCard).map(meal => (
-                <CardMeal meal={meal} key={meal.idMeal}/>
-              ))}
-            </CardWrapper>
-
-            <BtnCategories to={`/categories/${category}`}>See all</BtnCategories>
-          </CategoryItem>
-        ))}
-    </CategoryList>
-  );
+    return (
+      <CategoryList>
+        {mainCategories &&
+          Object.entries(mainCategories).map(([category, meals]) => (
+            <CategoryItem key={category}>
+              <TitlePrew>{category}</TitlePrew>
+              <CardWrapper>
+                {meals.slice(0, numCard).map(meal => (
+                //   <CardDish key={meal.idMeal}>
+                    <CardMeal key={meal.idMeal} meal={meal} />
+                //   </CardDish>
+                ))}
+              </CardWrapper>
+              <BtnCategories to={`/categories/${category}`}>
+                See all
+              </BtnCategories>
+            </CategoryItem>
+          ))}
+      </CategoryList>
+    );
 };
-
-//   return (
-//     <div>
-
-// {mainCategories &&
-//         Object.entries(mainCategories).map(([category, meals]) => (
-//          <CardWrapper>
-//           <div key={category}>
-//             <h2>{category}</h2>
-//             <div style={{ display: 'flex', gap: '20px' }}>
-//               {meals.slice(0, numCards).map((meal) => (
-//                {/* {list.map((meal) => { */}
-//                 {/* <TitlePrew>{meal}</TitlePrew> */}
-
-//                 return  (
-//                 <CardDish key={meal.idMeal}>
-//                   <CardImg
-//                     src={meal.strMealThumb ? meal.strMealThumb : {NoImage}}
-//                     alt={meal.strMeal}
-//                   />
-//                   <CardTitle>{meal.strMeal}</CardTitle>
-//                 </CardDish>
-//               )})}
-//               <BtnCategories>See all</BtnCategories>
-
-//     </div>
-//    </CardWrapper>
-//   )
-// };
