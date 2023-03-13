@@ -20,8 +20,9 @@ import { getColor } from 'utils/formikColors.js';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2)
-    .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/)
+    .min(1)
+    .max(16)
+    .matches(/^[a-zA-Zа-яА-Я1-9]+(([' -][a-zA-Zа-яА-Я1-9 ])?[a-zA-Zа-яА-Я1-9]*)*$/)
     .required(),
 
   email: Yup.mixed().test({
@@ -32,9 +33,10 @@ const SignupSchema = Yup.object().shape({
     },
   }),
   password: Yup.string()
-    .min(4, 'Your password is short')
-    .max(25, 'Enter a valid Password*')
-    .matches(/[A-Z]/, 'Your password is little secure. Add uppercase letter!')
+    .min(6, 'Your password is short')
+    .max(16, 'Enter a valid Password*')
+    .matches(/^[a-zа-я1-9]/, 'Enter a valid Password*')
+    .matches(/[A-ZА-Я]/, 'Your password is little secure. Add uppercase letter!')
     .required('Enter a valid Password*'),
 });
 

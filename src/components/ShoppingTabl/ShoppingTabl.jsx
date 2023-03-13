@@ -8,7 +8,7 @@ import {
   BoxForItemNumber,
   BoxForItemRemove,
 } from './style';
-import icons from '../../images/sprite.svg';
+import icons from 'images/sprite.svg';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
