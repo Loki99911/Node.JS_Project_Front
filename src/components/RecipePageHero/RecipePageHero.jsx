@@ -1,28 +1,60 @@
 import { RecipeHeroConteiner, HeroTitle } from './RecipePageHero.styled';
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
 import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
+import {
+  addFavorite,
+  deleteFavorite,
+} from 'redux/ownRecipes/ownRecipesOperations';
+const RecipePageHero = ({ meal, idMeal }) => {
+  const [btnText, setBtnText] = useState(false);
 
-const RecipePageHero = ({ meal }) => {
-  // const [btnText, setBtnText] = useState(false);
   const dispatcher = useDispatch();
   const array = useSelector(getFavoriteRecipes);
 
-  function getIngDescription(ingName) {
-    const ing = array.some(
-      ing =>
-        ing.strMeal === ingName.replace(ingName[0], ingName[0].toUpperCase())
+  function deleteFromFav() {
+    dispatcher(deleteFavorite(idMeal));
+    setBtnText(false);
+    // console.log(btnText);
+    return;
+  }
+
+  // function toFavorite() {
+  //   console.log(btnText);
+
+  //   if (btnText) {
+  //     dispatcher(deleteFavorite(idMeal));
+  //     setBtnText(false);
+  //     console.log(btnText);
+  //     return;
+  //   }
+
+  //   dispatcher(addFavorite(idMeal));
+  //   setBtnText(true);
+  //   return;
+  // }
+
+  function addtoFavorite() {
+    dispatcher(addFavorite(idMeal));
+    setBtnText(true);
+    // console.log(btnText);
+    return;
+  }
+
+  function getIngDescription(recipeName) {
+    const recipe = array.some(
+      recipe =>
+        recipe.strMeal ===
+        recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
     );
-    console.log(ing);
-    return ing;
+    return recipe;
   }
 
   useEffect(() => {
     dispatcher(getFavorite());
-  }, [dispatcher]);
-  console.log(array);
+  }, [dispatcher, btnText]);
   // const [Meal, setMeal] = useState();
 
   // useEffect(() => {
@@ -35,12 +67,14 @@ const RecipePageHero = ({ meal }) => {
     <>
       <RecipeHeroConteiner>
         <HeroTitle>{meal}</HeroTitle>
+        {console.log(btnText)}
         {getIngDescription(meal) ? (
           <ButtonSkew
             type="button"
-            text="delete from favorite recipes"
+            text={'delete from favorite recipes'}
             styled="other"
             location="recipes"
+            fn={deleteFromFav}
           />
         ) : (
           <ButtonSkew
@@ -48,6 +82,7 @@ const RecipePageHero = ({ meal }) => {
             text="add to favorite recipes"
             styled="other"
             location="recipes"
+            fn={addtoFavorite}
           />
         )}
       </RecipeHeroConteiner>
