@@ -17,7 +17,7 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
   const isRowBased = useMediaQuery('(min-width: 768px)');
 
   return (
-    <RecipeBlockWrapper key={id} location={location}>
+    <RecipeBlockWrapper location={location}>
       <ImageWrapper location={location}>
         <img src={img} alt={title} />
       </ImageWrapper>
@@ -25,7 +25,7 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
         <TitleWrapper>
           <SubTitle text={title} />
           {isRowBased && location === 'favorite' && (
-            <DeleteBtn location={location} />
+            <DeleteBtn location={location} id={id} />
           )}
           {location === 'recipes' && <DeleteBtn location={location} />}
         </TitleWrapper>
@@ -34,18 +34,18 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
           <Time>{time}</Time>
           {!isRowBased && location === 'recipes' && (
             <NavLinkSkew
-              navigate={`/recipe/:${id}`}
+              navigate={`/recipe/${id}`}
               location={location}
               text="See recipe"
               styled="olive"
             />
           )}
           {!isRowBased && location === 'favorite' && (
-            <DeleteBtn location={location} />
+            <DeleteBtn location={location} id={id} />
           )}
           {isRowBased && (
             <NavLinkSkew
-              navigate={`/recipe/:${id}`}
+              navigate={`/recipe/${id}`}
               location={location}
               text="See recipe"
               styled={location === 'favorite' ? 'black' : 'olive'}
