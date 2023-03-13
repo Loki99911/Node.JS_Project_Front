@@ -23,7 +23,7 @@ export const theme = {
     deleteBtnBg: '#8BAA36',
     deleteBtnIcon: '#FFFFFF',
     recipeBlockBtnBg: '#22252A',
-    recipeBlockBg: '#FAFAFA',
+    recipeBlockBg: '#FFFFFF',
     paginationBg: '#EBF3D4',
 
     mainGreyBg: '#D9D9D9',
