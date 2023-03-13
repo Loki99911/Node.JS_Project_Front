@@ -23,8 +23,9 @@ export const theme = {
     deleteBtnBg: '#8BAA36',
     deleteBtnIcon: '#FFFFFF',
     recipeBlockBtnBg: '#22252A',
-    recipeBlockBg: '#FAFAFA',
+    recipeBlockBg: '#FFFFFF',
     paginationBg: '#EBF3D4',
+    paginationShadow: '0px 4px 4px rgba(135, 135, 135, 0.2)',
 
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
@@ -95,6 +96,7 @@ export const darkTheme = {
     recipeBlockBtnBg: '#8BAA36',
     recipeBlockBg: '#2A2C36',
     paginationBg: '#8BAA36',
+    paginationShadow: '0px 4px 4px rgba(31, 30, 30, 0.2)',
 
     mainBg: '#ECECEC',
 

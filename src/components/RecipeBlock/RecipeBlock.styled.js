@@ -53,7 +53,7 @@ export const DataWrapper = styled.div`
   border-radius: ${p =>
     p.location === 'recipes' ? p.theme.radii.image : 'none'};
   background-color: ${p =>
-    p.location === 'recipes' ? p.theme.colors.mainLight : 'transparent'};
+    p.location === 'recipes' ? p.theme.colors.recipeBlockBg : 'transparent'};
   padding: ${p => (p.location === 'recipes' ? '14px' : '0px')};
 
   @media screen and (min-width: 768px) {
