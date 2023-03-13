@@ -48,7 +48,7 @@ const Favorites = () => {
               );
             })}
         </ContentWrapper>
-        <PaginationComp />
+        {favorites && favorites.length > 0 && <PaginationComp />}
       </Container>
     </Wrapper>
   );
