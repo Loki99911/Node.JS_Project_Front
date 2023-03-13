@@ -14,7 +14,9 @@ const dispatch = useDispatch();
 // console.log();
     useEffect(() => {
         const params = { category: categoryName, limit: 12 };
-        dispatch(getLimitedRecipesByCategory(params));
+        if (categoryName === 'desserts') {dispatch(getLimitedRecipesByCategory({ category: 'dessert', limit: 12 }))}
+        else {dispatch(getLimitedRecipesByCategory(params))};
+       
     }, [dispatch, categoryName] );
 
     return (

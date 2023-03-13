@@ -1,3 +1,4 @@
+
 import { CategoryList } from 'components/CategoryList/CategoryList';
 import { Container } from 'components/Container/Container';
 import { Loader } from 'components/Loader/Loader';
@@ -10,7 +11,10 @@ const Categories = () => {
     <div>
     <Container>
       <Title>Category</Title>
+      
       <CategoryList />
+  
+      
         <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
