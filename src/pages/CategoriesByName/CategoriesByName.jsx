@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getLimitedRecipesByCategory } from "redux/outerRecipes/outerRecipesOperations";
 import { getLimitedRecipes } from "redux/outerRecipes/outerRecipesSelectors";
-import { CardTableWrap, RowTable } from "./CategoriesByName.styled";
+import {  RowTable } from "./CategoriesByName.styled";
 
 
 const CategoriesByName = () => {
@@ -20,13 +20,13 @@ const dispatch = useDispatch();
     }, [dispatch, categoryName] );
 
     return (
-        <RowTable>
-            {limitedRecipes.slice(0, 8).map(meal => (
-                <CardTableWrap key={meal.idMeal}>
-                    <CardMeal meal={meal}  />
-                </CardTableWrap>
-            ))}
-        </RowTable>
+      <RowTable>
+        {limitedRecipes.slice(0, 8).map(meal => (
+        //   <CardTableWrap key={meal.idMeal}>
+            <CardMeal meal={meal} key={meal.idMeal} />
+        //   </CardTableWrap>
+        ))}
+      </RowTable>
     );
   
 };

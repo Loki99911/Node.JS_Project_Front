@@ -27,7 +27,7 @@ export const SearchCont = styled.div`
       gap: 32px;
       margin-top: 40px;
     }
-    
+
     @media (min-width: 1440px) {
       gap: 14px;
       row-gap: 100px;
