@@ -22,6 +22,12 @@ export const deleteOwnRecipeAPI = id => {
   });
 };
 
+export const getOwnRecipeByIdAPI = id => {
+  return axios.get(`/own-recipes/${id}`).then(({ data }) => {
+    return data;
+  });
+};
+
 // ------------- FAVORITE -------------
 
 export const addFavoriteAPI = body => {
@@ -36,7 +42,11 @@ export const getFavoriteAPI = () => {
   });
 };
 
-export const removeFavoriteAPI = id => {};
+export const removeFavoriteAPI = id => {
+  return axios.delete('/favorite', id).then(({ data }) => {
+    return data;
+  });
+};
 
 // ------------- SHOPPING_LIST -------------
 

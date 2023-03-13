@@ -11,7 +11,7 @@ import Signin from 'pages/Signin/Signin';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { PrivateRoute, PublicRoute } from 'service/routes';
-// import { getIsLoggedIn } from '../redux/auth/authSelectors';
+import { getIsLoggedIn } from '../redux/auth/authSelectors';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import CategoriesByName from 'pages/CategoriesByName/CategoriesByName';
@@ -25,20 +25,26 @@ import { ThemeProvider } from 'styled-components';
 // eslint-disable-next-line
 import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
 // import { getMode } from 'redux/theme/themeSelector';
+import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
+import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 
 export const App = () => {
   // const selectedMode = useSelector(getMode);
   const themeMode = lightMode; //selectedMode.mode === 'light' ? lightMode : darkMode
 
-  // const isUserLogin = useSelector(getIsLoggedIn);
+  const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
+  const categories = useSelector(getFullCategoryList);
   const dispatcher = useDispatch();
-  // const isUserLogin = true;
 
   useEffect(() => {
-    if (ingredients.length !== 0) return;
-    dispatcher(getAllIngredients());
-  }, [ingredients.length, dispatcher]);
+    if (isUserLogin === true && ingredients.length === 0) {
+      dispatcher(getAllIngredients());
+    }
+    if (isUserLogin === true && categories.length === 0) {
+      dispatcher(getCategoryList());
+    }
+  });
 
   return (
     <ThemeProvider theme={themeMode}>
