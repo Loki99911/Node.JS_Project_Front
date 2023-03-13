@@ -116,6 +116,7 @@ export const BoxForItemRemove = styled.div`
   width: 54px;
   height: 14px;
   padding: 0 20px;
+  stroke: ${theme.colors.secondaryDark};
   @media screen and (min-width: 769px) {
   width: 80px;
   height: 20px;

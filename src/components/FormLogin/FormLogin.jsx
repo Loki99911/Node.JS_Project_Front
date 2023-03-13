@@ -28,8 +28,8 @@ const LoginSchema = Yup.object().shape({
     },
   }),
   password: Yup.string()
-    .min(4, 'Your password is short')
-    .max(25, 'Enter a valid Password*')
+    .min(6, 'Your password is short')
+    .max(16, 'Enter a valid Password*')
     .matches(/[A-Z]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
