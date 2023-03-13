@@ -1,20 +1,7 @@
 import styled from "styled-components";
 import { theme } from "utils/theme";
 
-export const CardDish = styled.li`
-  width: 343px;
-  height: 323px;
-  border-radius: 8px;
-  position: relative;
-  /* overflow: hidden; */
-  @media (min-width: 768px) {
-    width: calc((100% - 32px) / 2);
-  }
 
-  @media (min-width: 1440px) {
-    width: calc((100% - 42px) / 4);
-  }
-`;
 
 export const CardTitle = styled.p`
   font-family: ${theme.fonts.main};

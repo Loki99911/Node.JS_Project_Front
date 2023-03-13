@@ -8,6 +8,7 @@ import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
+
 export const CategoryList = () => {
   const { categoryName } = useParams();
   const dispatcher = useDispatch();
@@ -48,11 +49,12 @@ export const CategoryList = () => {
   };
 
   const items = mapArray.map((e, index) => (
-      <Tab style={{textTransform:"capitalize"}} label={e.toLowerCase()} key={index} />
+      <Tab style={{textTransform:"capitalize", fontSize: '18px', color: '#8BAA36', fontFamily: "Poppins", fontWeight: "400",lineHeight: "18px",
+letterSpacing: '0em'}} label={e.toLowerCase()} key={index} />
   ));
 
   return (
-    <Box sx={{ maxWidth: '100%', bgcolor: 'background.paper' }}>
+    <Box sx={{ maxWidth: '100%', bgcolor: 'transparent'}}>
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
         {items}
       </Tabs>
