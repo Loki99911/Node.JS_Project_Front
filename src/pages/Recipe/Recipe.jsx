@@ -22,7 +22,7 @@ const Recipe = () => {
   const myRecipe = () => {
     return recipeObj ? recipe : ownRecipe;
   };
-  ownRecipe && console.log(Object.keys(ownRecipe).length);
+  // ownRecipe && console.log(Object.keys(ownRecipe).length);
 
   useEffect(() => {
     if (('' + recipeId).length < 10) {
@@ -49,7 +49,7 @@ const Recipe = () => {
         });
       }
     }
-    console.log(array);
+    // console.log(array);
     return array;
   }
 

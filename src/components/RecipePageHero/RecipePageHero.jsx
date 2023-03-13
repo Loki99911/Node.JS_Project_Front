@@ -1,6 +1,6 @@
 import { RecipeHeroConteiner, HeroTitle } from './RecipePageHero.styled';
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
 import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
@@ -9,18 +9,37 @@ import {
   deleteFavorite,
 } from 'redux/ownRecipes/ownRecipesOperations';
 const RecipePageHero = ({ meal, idMeal }) => {
-  // const [btnText, setBtnText] = useState(false);
+  const [btnText, setBtnText] = useState(false);
+
   const dispatcher = useDispatch();
   const array = useSelector(getFavoriteRecipes);
 
   function deleteFromFav() {
-    console.log(idMeal);
     dispatcher(deleteFavorite(idMeal));
+    setBtnText(false);
+    // console.log(btnText);
+    return;
   }
 
+  // function toFavorite() {
+  //   console.log(btnText);
+
+  //   if (btnText) {
+  //     dispatcher(deleteFavorite(idMeal));
+  //     setBtnText(false);
+  //     console.log(btnText);
+  //     return;
+  //   }
+
+  //   dispatcher(addFavorite(idMeal));
+  //   setBtnText(true);
+  //   return;
+  // }
+
   function addtoFavorite() {
-    console.log(idMeal);
     dispatcher(addFavorite(idMeal));
+    setBtnText(true);
+    // console.log(btnText);
     return;
   }
 
@@ -30,13 +49,12 @@ const RecipePageHero = ({ meal, idMeal }) => {
         recipe.strMeal ===
         recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
     );
-    console.log(recipe);
     return recipe;
   }
 
   useEffect(() => {
     dispatcher(getFavorite());
-  }, [dispatcher]);
+  }, [dispatcher, btnText]);
   // const [Meal, setMeal] = useState();
 
   // useEffect(() => {
@@ -49,10 +67,11 @@ const RecipePageHero = ({ meal, idMeal }) => {
     <>
       <RecipeHeroConteiner>
         <HeroTitle>{meal}</HeroTitle>
+        {console.log(btnText)}
         {getIngDescription(meal) ? (
           <ButtonSkew
             type="button"
-            text="delete from favorite recipes"
+            text={'delete from favorite recipes'}
             styled="other"
             location="recipes"
             fn={deleteFromFav}
