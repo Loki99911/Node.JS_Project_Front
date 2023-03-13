@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ButtonSkewStyle = styled.button`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: fit-content;
   white-space: nowrap;
   box-sizing: border-box;

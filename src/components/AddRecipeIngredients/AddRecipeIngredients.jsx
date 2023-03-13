@@ -16,6 +16,7 @@ import { ingredientsOptionsList } from 'utils/ingredientsOptionsList';
 import { useSelector } from 'react-redux';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { unitsOptionsList } from 'utils/unitsOptionsList';
+import { stylesIngredient, stylesUnit } from 'pages/AddRecipe/selectStyles';
 
 export const AddRecipeIngredients = ({
   counter,
@@ -34,16 +35,17 @@ export const AddRecipeIngredients = ({
       return (
         <IngredientsItem key={id}>
           <Select
+            styles={stylesIngredient}
             options={ingredientsOptionsList(optionsIngredients)}
             defaultValue={{ label: ingredient, value: ingredient }}
             placeholder=" "
             onChange={handleUserIngredient}
             name={`ingredient ${id}`}
           />
-          <ValueInputWrapper>
+          <ValueInputWrapper isMobile={isMobile}>
             <InputUnitValue
               isMobile={isMobile}
-              type="number"
+              type="text"
               name="unitValue"
               onChange={handleUnitValue}
               defaultValue={unitValue}
@@ -51,6 +53,7 @@ export const AddRecipeIngredients = ({
               id={id}
             />
             <Select
+              styles={stylesUnit}
               options={unitsOptionsList}
               defaultValue={{ label: qty, value: qty }}
               placeholder=" "
@@ -60,8 +63,8 @@ export const AddRecipeIngredients = ({
             />
           </ValueInputWrapper>
           <ButtonRemoveItem type="button" id={id} onClick={handleRemove}>
-            <svg width="25" height="25">
-              <use href={icons + '#icon-cross'} width="25" height="25"></use>
+            <svg width={20} height={20}>
+              <use href={icons + '#icon-cross'}></use>
             </svg>
           </ButtonRemoveItem>
         </IngredientsItem>
