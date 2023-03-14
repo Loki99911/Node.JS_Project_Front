@@ -21,12 +21,11 @@ const RecipePageHero = ({ meal, idMeal }) => {
   const [btnText, setBtnText] = useState(false);
 
   const dispatcher = useDispatch();
-  const array = useSelector(getFavoriteRecipes);
+  const obj = useSelector(getFavoriteRecipes);
 
   function deleteFromFav() {
     dispatcher(deleteFavorite(idMeal));
     setBtnText(false);
-    // console.log(btnText);
     return;
   }
 
@@ -48,37 +47,27 @@ const RecipePageHero = ({ meal, idMeal }) => {
   function addtoFavorite() {
     dispatcher(addFavorite(idMeal));
     setBtnText(true);
-    // console.log(btnText);
     return;
   }
 
   function getIngDescription(recipeName) {
-    // const recipe = array.some(
-    //   recipe =>
-    //     recipe.strMeal ===
-    //     recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
-    // );
-    return false;
+    const recipe = obj.some(
+      recipe =>
+        recipe.strMeal ===
+        recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
+    );
+    return recipe;
   }
 
   useEffect(() => {
-    dispatcher(getFavorite());
+    dispatcher(getFavorite({}));
   }, [dispatcher]);
-
-  // const [Meal, setMeal] = useState();
-
-  // useEffect(() => {
-  //   if (meal) {
-  //     setMeal(meal);
-  //   }
-  // }, [meal]);
 
   return (
     <>
       <RecipeHeroConteiner>
         <HeroTitle>{meal}</HeroTitle>
         <HeroText>{avocado}</HeroText>
-        {console.log(btnText)}
         {btnText || getIngDescription(meal) ? (
           <ButtonSkew
             type="button"

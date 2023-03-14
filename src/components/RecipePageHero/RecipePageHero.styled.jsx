@@ -80,6 +80,7 @@ export const RecipeHeroConteiner = styled.div`
 
 export const HeroTitle = styled.title`
   display: block;
+  text-align: center;
   font-weight: ${p => p.theme.fontWeights[2]};
   font-size: 24px;
   line-height: ${p => p.theme.lineHeights.subheader};
