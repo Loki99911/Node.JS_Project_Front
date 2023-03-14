@@ -43,7 +43,7 @@ export const getFavoriteAPI = () => {
 };
 
 export const removeFavoriteAPI = id => {
-  return axios.delete('/favorite', id).then(({ data }) => {
+  return axios.delete(`/favorite/${id}`).then(({ data }) => {
     return data;
   });
 };

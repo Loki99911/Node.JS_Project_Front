@@ -9,6 +9,8 @@ import {
   getRecipesByQuery,
 } from './outerRecipesOperations';
 
+import { getRecipesByIngredient } from 'redux/ingredients/ingredientsOperations';
+
 import { logOut } from 'redux/auth/authOperations';
 
 const pending = state => {
@@ -16,6 +18,11 @@ const pending = state => {
 };
 const rejected = state => {
   state.isCategoryFetching = false;
+};
+
+const rejectedFilter = state => {
+  state.isCategoryFetching = false;
+  state.isError = true;
 };
 
 const initialState = {
@@ -27,6 +34,7 @@ const initialState = {
   singleRecipe: null,
   popularRecipes: [],
   recipesByQuery: [],
+  isError: false,
 };
 
 export const outerRecipesSlice = createSlice({
@@ -76,7 +84,8 @@ export const outerRecipesSlice = createSlice({
       .addCase(getAllRecipesByCategory.rejected, rejected)
       .addCase(getOneRecipeById.rejected, rejected)
       .addCase(getPopularRecipes.rejected, rejected)
-      .addCase(getRecipesByQuery.rejected, rejected),
+      .addCase(getRecipesByQuery.rejected, rejectedFilter)
+      .addCase(getRecipesByIngredient.rejected, rejectedFilter),
 });
 
 export default outerRecipesSlice.reducer;
