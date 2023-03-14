@@ -14,7 +14,7 @@ import { token } from 'redux/auth/authOperations';
 
 export const getOwnRecipes = createAsyncThunk(
   'ownRecipes/getRecipes',
-  async (page, { rejectWithValue, getState }) => {
+  async ({ page, per_page }, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedAccessToken = state.auth.accessToken;
     if (!persistedAccessToken) {
@@ -22,9 +22,9 @@ export const getOwnRecipes = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const data = await getOwnRecipesAPI(page);
+      const data = await getOwnRecipesAPI(page ?? null, per_page ?? null);
       console.log('own recipes', data);
-      return data;
+      return { recipes: data.meals, total: data.totalHits };
     } catch (error) {
       console.log(error.message);
       return rejectWithValue(error.response.status);
@@ -114,7 +114,7 @@ export const addFavorite = createAsyncThunk(
 
 export const getFavorite = createAsyncThunk(
   'ownRecipes/getFavorite',
-  async (page, { rejectWithValue, getState }) => {
+  async ({ page, per_page }, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedAccessToken = state.auth.accessToken;
     if (!persistedAccessToken) {
@@ -122,9 +122,9 @@ export const getFavorite = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const { data } = await getFavoriteAPI(page);
+      const data = await getFavoriteAPI(page ?? null, per_page ?? null);
       console.log('fav recipes', data);
-      return data;
+      return { recipes: data.meals, total: data.totalHits };
     } catch (error) {
       console.log(error.message);
       return rejectWithValue(error.response.status);

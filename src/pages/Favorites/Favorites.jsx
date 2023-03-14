@@ -18,7 +18,7 @@ const Favorites = () => {
   const favorites = useSelector(getFavoriteRecipes);
 
   useEffect(() => {
-    dispatch(getFavorite());
+    dispatch(getFavorite({ page: 1, per_page: 4 }));
   }, [dispatch]);
 
   return (
