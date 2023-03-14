@@ -114,6 +114,7 @@ export const SearchInput = styled.input`
   font-size: 12px;
   line-height: 18px;
   padding-left: 32px;
+  color: ${theme.colors.disabledGrey};
   @media (min-width: 768px) {
     font-weight: 400;
     font-size: 16px;

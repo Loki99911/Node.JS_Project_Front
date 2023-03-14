@@ -86,7 +86,7 @@ export const darkTheme = {
     mainWhite: '#000000',
     mainGrey: '#7E7E7E',
     secondaryGrey: '#656565',
-    disabledGrey: '#BDBDBD',
+    disabledGrey: 'rgba(255, 255, 255, 0.5)',
     mainLight: '#FAFAFA',
     mainAccent: '#8BAA36',
     secondaryAccent: '#1E1F28',
