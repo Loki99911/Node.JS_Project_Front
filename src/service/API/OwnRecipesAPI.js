@@ -4,8 +4,8 @@ axios.defaults.baseURL = 'https://soyummy.onrender.com';
 
 //  ------------- OWN RECIPE -------------
 
-export const getOwnRecipesAPI = () => {
-  return axios.get('/own-recipes').then(({ data }) => {
+export const getOwnRecipesAPI = (page = 1) => {
+  return axios.get(`/own-recipes?page=${page}`).then(({ data }) => {
     return data;
   });
 };
@@ -36,8 +36,8 @@ export const addFavoriteAPI = body => {
   });
 };
 
-export const getFavoriteAPI = () => {
-  return axios.get('/favorite').then(({ data }) => {
+export const getFavoriteAPI = (page = 1) => {
+  return axios.get(`/favorite?page=${page}`).then(({ data }) => {
     return data;
   });
 };
