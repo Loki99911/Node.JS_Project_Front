@@ -22,6 +22,12 @@ const outerRecipesPersistConfig = {
   whitelist: ['mainCategories', 'categoryList'],
 };
 
+const ownRecipesPersistConfig = {
+  key: 'ownRecipes',
+  storage,
+  whitelist: ['ownRecipes', 'favorites'],
+};
+
 const themePersistConfig = {
   key: 'theme',
   storage,
@@ -36,6 +42,10 @@ const persistedOuterRecipesReducer = persistReducer(
   outerRecipesPersistConfig,
   outerRecipesSlice
 );
+const persistedOwnRecipesReducer = persistReducer(
+  ownRecipesPersistConfig,
+  ownRecipesSlice
+);
 
 const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
 
@@ -44,7 +54,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     ingredients: persistedIngredientsReducer,
     outerRecipes: persistedOuterRecipesReducer,
-    ownRecipes: ownRecipesSlice,
+    ownRecipes: persistedOwnRecipesReducer,
     theme: persistedThemeReducer,
   },
   middleware: getDefaultMiddleware =>
