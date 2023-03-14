@@ -12,7 +12,8 @@ export const StyledLink = styled(NavLink)`
   font-weight: ${p => p.theme.fontWeights[1]};
   letter-spacing: ${p => p.theme.letterSpacings.content};
   line-height: ${p => p.theme.lineHeights.subheader};
-  color: ${p => p.theme.colors.mainDark};
+  color: ${p =>
+    p.navcolor === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
 
   &.active {
     color: ${p => p.theme.colors.mainAccent};
@@ -50,7 +51,10 @@ export const StyledLink = styled(NavLink)`
   & svg {
     width: 20px;
     height: 20px;
-    stroke: ${p => p.theme.colors.mainDark};
+    stroke: ${p =>
+      p.navcolor === 'light'
+        ? p.theme.colors.mainDark
+        : p.theme.colors.userName};
 
     @media screen and (min-width: 768px) {
       width: 24px;

@@ -27,6 +27,7 @@ export const theme = {
     paginationBg: '#EBF3D4',
     paginationShadow: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     mainSearchInput: '#FFFFFF',
+    userName: '#22252A',
 
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
@@ -100,15 +101,12 @@ export const darkTheme = {
     paginationBg: '#8BAA36',
     mainSearchInput: 'transparent',
     paginationShadow: '0px 4px 4px rgba(31, 30, 30, 0.2)',
+    userName: '#22252A',
 
     mainBg: '#ECECEC',
-
     btnTextLight: '#FAFAFA',
-
     sectionHeader: '#FAFAFA',
-
     mainGreyBg: '#D9D9D9',
-
     secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
     btnHoverText: '#8BAA36',

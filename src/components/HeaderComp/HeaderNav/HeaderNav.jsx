@@ -1,10 +1,11 @@
 import { Navi, StyledLink } from './HeaderNav.styled';
 import sprite from '../../../images/sprite.svg';
 
-export const HeaderNav = ({ setShowMenu }) => {
+export const HeaderNav = ({ navColor = 'light', setShowMenu }) => {
   return (
     <Navi>
       <StyledLink
+        navcolor={navColor}
         onClick={() => {
           setShowMenu(false);
         }}
@@ -13,6 +14,7 @@ export const HeaderNav = ({ setShowMenu }) => {
         Categories
       </StyledLink>
       <StyledLink
+        navcolor={navColor}
         onClick={() => {
           setShowMenu(false);
         }}
@@ -21,6 +23,7 @@ export const HeaderNav = ({ setShowMenu }) => {
         Add recipes
       </StyledLink>
       <StyledLink
+        navcolor={navColor}
         onClick={() => {
           setShowMenu(false);
         }}
@@ -29,6 +32,7 @@ export const HeaderNav = ({ setShowMenu }) => {
         My recipes
       </StyledLink>
       <StyledLink
+        navcolor={navColor}
         onClick={() => {
           setShowMenu(false);
         }}
@@ -37,6 +41,7 @@ export const HeaderNav = ({ setShowMenu }) => {
         Favorites
       </StyledLink>
       <StyledLink
+        navcolor={navColor}
         onClick={() => {
           setShowMenu(false);
         }}
@@ -45,12 +50,13 @@ export const HeaderNav = ({ setShowMenu }) => {
         Shopping list
       </StyledLink>
       <StyledLink
+        navcolor={navColor}
         onClick={() => {
           setShowMenu(false);
         }}
         to="/search?query=&type=title"
       >
-        <svg>
+        <svg navcolor={navColor}>
           <use href={sprite + `#search`} />
         </svg>
         <span>Search</span>

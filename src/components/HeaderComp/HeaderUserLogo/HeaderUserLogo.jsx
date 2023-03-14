@@ -4,7 +4,11 @@ import { HeaderUserButton, HeaderUserWrapper } from './HeaderUserLogo.styled';
 import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 import { UserLogoModal } from '../HeaderLogoModal/UserLogoModal';
 
-export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
+export const HeaderUser = ({
+  color = 'light',
+  name = 'User',
+  avatarUrl = userAvatar,
+}) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [statusModal, setStatusModal] = useState('');
@@ -46,6 +50,7 @@ export const HeaderUser = ({ name = 'User', avatarUrl = userAvatar }) => {
           type="button"
           onClick={toggleUserEditMenu}
           onBlur={handleBlur}
+          color={color}
         >
           <img src={avatarUrl} alt={name} />
           <p>{name}</p>

@@ -18,7 +18,6 @@ const Recipe = () => {
   const dispatcher = useDispatch();
   const recipe = useSelector(getSingleRecipe);
   const ownRecipe = useSelector(getSingleOwnRecipe);
-
   const myRecipe = () => {
     return recipeObj ? recipe : ownRecipe;
   };
