@@ -21,6 +21,7 @@ export const RecipeHeroConteiner = styled.div`
   padding-bottom: 90px;
   ${ButtonSkewStyle} {
     margin-top: auto;
+    padding: 10px 18px;
     color: ${p => p.theme.colors.mainBlack};
 
     @media screen and (min-width: 768px) {
