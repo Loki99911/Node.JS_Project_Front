@@ -38,7 +38,7 @@ export const getSingleRecipe = state => state.outerRecipes.singleRecipe;
 export const getPopular = state => state.outerRecipes.popularRecipes;
 
 // ------------------ Recipes by Query ------------------
-// ---- returns an Array of Objects
+// ---- returns an Object with keys: meals and totalHits
 // ---- As an argument you HAVE TO send a query (String)
 // ---- Use with function "getRecipesByQuery(query)"
 export const getRecipesBySearchQuery = state =>

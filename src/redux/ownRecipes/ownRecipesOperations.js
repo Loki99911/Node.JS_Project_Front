@@ -123,7 +123,10 @@ export const getFavorite = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await getFavoriteAPI(page ?? null, per_page ?? null);
-      console.log('fav recipes', data);
+      console.log('fav recipes', {
+        recipes: data.meals,
+        total: data.totalHits,
+      });
       return { recipes: data.meals, total: data.totalHits };
     } catch (error) {
       console.log(error.message);
