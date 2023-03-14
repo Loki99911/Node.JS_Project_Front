@@ -16,7 +16,6 @@ import { ContentWrapper, Wrapper } from './Favorites.styled';
 const Favorites = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(getFavoriteRecipes);
-  // console.log(favorites);
 
   useEffect(() => {
     dispatch(getFavorite());
