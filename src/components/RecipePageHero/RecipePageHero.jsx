@@ -1,23 +1,31 @@
-import { RecipeHeroConteiner, HeroTitle } from './RecipePageHero.styled';
+import {
+  RecipeHeroConteiner,
+  HeroTitle,
+  CookingTime,
+  HeroText,
+} from './RecipePageHero.styled';
 import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
 import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
+import sprite from '../../images/sprite.svg';
 import {
   addFavorite,
   deleteFavorite,
 } from 'redux/ownRecipes/ownRecipesOperations';
+
+const avocado = `Is a healthy salad recipe that’s big on nutrients and flavor. A moist, pan seared salmon is layered on top of spinach, avocado, tomatoes, and red onions. Then drizzled with a homemade lemon vinaigrette.`;
+
 const RecipePageHero = ({ meal, idMeal }) => {
   const [btnText, setBtnText] = useState(false);
 
   const dispatcher = useDispatch();
-  const array = useSelector(getFavoriteRecipes);
+  const obj = useSelector(getFavoriteRecipes);
 
   function deleteFromFav() {
     dispatcher(deleteFavorite(idMeal));
     setBtnText(false);
-    // console.log(btnText);
     return;
   }
 
@@ -39,12 +47,11 @@ const RecipePageHero = ({ meal, idMeal }) => {
   function addtoFavorite() {
     dispatcher(addFavorite(idMeal));
     setBtnText(true);
-    // console.log(btnText);
     return;
   }
 
   function getIngDescription(recipeName) {
-    const recipe = array.some(
+    const recipe = obj.some(
       recipe =>
         recipe.strMeal ===
         recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
@@ -53,22 +60,15 @@ const RecipePageHero = ({ meal, idMeal }) => {
   }
 
   useEffect(() => {
-    dispatcher(getFavorite());
-  }, [dispatcher, btnText]);
-  // const [Meal, setMeal] = useState();
-
-  // useEffect(() => {
-  //   if (meal) {
-  //     setMeal(meal);
-  //   }
-  // }, [meal]);
+    dispatcher(getFavorite({}));
+  }, [dispatcher]);
 
   return (
     <>
       <RecipeHeroConteiner>
         <HeroTitle>{meal}</HeroTitle>
-        {console.log(btnText)}
-        {getIngDescription(meal) ? (
+        <HeroText>{avocado}</HeroText>
+        {btnText || getIngDescription(meal) ? (
           <ButtonSkew
             type="button"
             text={'delete from favorite recipes'}
@@ -85,6 +85,12 @@ const RecipePageHero = ({ meal, idMeal }) => {
             fn={addtoFavorite}
           />
         )}
+        <CookingTime>
+          <svg>
+            <use href={sprite + `#icon-clock`} />
+          </svg>
+          <span> 2-3 weeks</span>
+        </CookingTime>
       </RecipeHeroConteiner>
     </>
   );
