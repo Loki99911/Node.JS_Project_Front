@@ -7,6 +7,7 @@ export const CloseBtn = styled.button`
   padding: 4px;
   border: none;
   background-color: transparent;
+  box-sizing: border-box;
 
   & svg {
     width: ${p => (p.location === 'modal' ? '24px' : '32px')};
