@@ -12,20 +12,16 @@ export const ButtonSkewStyle = styled.button`
   line-height: ${p => p.theme.lineHeights.subheader};
   font-size: 14px;
 
-  color: ${({ styled, theme }) => {
-    switch (styled) {
-      case 'black':
-        return theme.colors.btnTextLight;
-      case 'olive':
-        return theme.colors.btnTextLight;
-      case 'other':
-        return theme.colors.btnTextLight;
-      case 'transparent':
-        return theme.colors.btnTextLight;
-      default:
-        return 'red';
-    }
-  }};
+  color: ${p =>
+    p.styled === 'black'
+      ? p.theme.colors.btnTextLight
+      : p.styled === 'olive'
+      ? p.theme.colors.btnTextLight
+      : p.styled === 'other'
+      ? p.theme.colors.mainHeaderText
+      : p.styled === 'transparent'
+      ? p.theme.colors.mainDark
+      : 'red'};
 
   padding: ${p =>
     p.location === 'favorite' || p.location === 'recipes'
@@ -35,7 +31,7 @@ export const ButtonSkewStyle = styled.button`
   background-color: ${({ styled, theme }) => {
     switch (styled) {
       case 'black':
-        return theme.colors.btnHoverBg;
+        return theme.colors.recipeBlockBtnBg;
       case 'olive':
         return theme.colors.mainAccent;
       case 'transparent':

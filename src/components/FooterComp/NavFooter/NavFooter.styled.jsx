@@ -11,12 +11,12 @@ export const Link = styled(NavLink)`
   transition: ${p => p.theme.transitions.main};
 
   &.active {
-    color: ${p => p.theme.colors.mainAccent};
+    color: ${p => p.theme.colors.footerBtnBg};
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: ${p => p.theme.colors.mainAccent};
+    color: ${p => p.theme.colors.footerBtnBg};
   }
 `;
 

@@ -85,7 +85,7 @@ export const MainPageBg = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: ${theme.colors.btnTextLight};
+  background-color: ${p => p.theme.colors.bodyBg};
   display: flex;
 
   @media (min-width: 768px) {

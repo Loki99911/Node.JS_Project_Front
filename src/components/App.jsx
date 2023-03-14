@@ -27,8 +27,8 @@ import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 
 export const App = () => {
-  const selectedMode = useSelector(getMode);
-  const themeMode = selectedMode.mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
+  const { mode } = useSelector(getMode);
+  const themeMode = mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
   const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
   const categories = useSelector(getFullCategoryList);
