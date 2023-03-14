@@ -44,8 +44,14 @@ export const getAllIngredientsAPI = () => {
   });
 };
 
-export const getRecipesByIngredientAPI = ingredient => {
-  return axios.get(`/ingredients/${ingredient}`).then(({ data }) => {
-    return data;
-  });
+export const getRecipesByIngredientAPI = (
+  ingredient,
+  page = 1,
+  per_page = 12
+) => {
+  return axios
+    .get(`/ingredients/${ingredient}?page=${page}&per_page=${per_page}`)
+    .then(({ data }) => {
+      return data;
+    });
 };

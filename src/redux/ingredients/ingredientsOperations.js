@@ -29,7 +29,7 @@ export const getAllIngredients = createAsyncThunk(
 
 export const getRecipesByIngredient = createAsyncThunk(
   'ingredients/recipes',
-  async (ingredient, { rejectWithValue, getState }) => {
+  async (params, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedAccessToken = state.auth.accessToken;
     if (!persistedAccessToken) {
@@ -37,7 +37,8 @@ export const getRecipesByIngredient = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const data = await getRecipesByIngredientAPI(ingredient);
+      const { ingredient, page, per_page } = params;
+      const data = await getRecipesByIngredientAPI(ingredient, page, per_page);
       console.log('all recipes by ingredient', data);
       return data;
     } catch (error) {
