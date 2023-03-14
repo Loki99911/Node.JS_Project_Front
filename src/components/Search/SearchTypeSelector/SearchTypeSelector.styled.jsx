@@ -35,6 +35,7 @@ export const SelectStyled = styled(Select)`
   & .react-select__control {
     background-color: ${p => p.theme.colors.searchSelectBg};
     border: ${p => p.theme.borders.searchInput};
+
     border-radius: ${p => p.theme.radii.searchSelectBg};
     width: 146px;
     height: 34px;
@@ -43,6 +44,12 @@ export const SelectStyled = styled(Select)`
     letter-spacing: ${p => p.theme.letterSpacings.content};
     color: ${p => p.theme.colors.searchSelectText};
 
+    &--is-focused,
+    &--menu-is-open {
+      outline: none;
+      border: 1px solid transparent;
+    }
+
     &:focus,
     &:active,
     &:hover,
@@ -50,11 +57,6 @@ export const SelectStyled = styled(Select)`
       outline: none;
       border-color: transparent;
       box-shadow: 0 0 0 1px transparent;
-
-      &.is-focused,
-      &.menu-is-open {
-        outline: none;
-      }
     }
 
     @media (min-width: 768px) {
@@ -80,21 +82,25 @@ export const SelectStyled = styled(Select)`
     outline: none;
     border-color: transparent;
 
-   &:focus,
+    &:focus,
     &:active,
     &:hover,
     &::selection {
       outline: none;
       border-color: transparent;
       box-shadow: 0 0 0 1px transparent;
-
+    }
   }
 
   & .react-select__menu-list {
+    background-color: ${p => p.theme.colors.searchDropDownBg};
+    border-radius: 0px 0px 6px 6px;
+
     @media (min-width: 768px) {
       font-size: 14px;
       line-height: 21px;
     }
+
     letter-spacing: -0.02em;
     text-align: left;
     color: rgba(0, 0, 0, 0.5) !important;
@@ -102,7 +108,7 @@ export const SelectStyled = styled(Select)`
 
   & .react-select__option {
     background-color: ${p => p.theme.colors.searchDropDownBg};
-    color: rgba(0, 0, 0, 0.5) !important;
+    color: rgba(0, 0, 0, 0.5);
   }
 
   & .react-select__dropdown-indicator {
@@ -119,6 +125,6 @@ export const SelectStyled = styled(Select)`
   }
 
   & .react-select__placeholder {
-    color: rgba(0, 0, 0, 0.5) !important;
+    color: rgba(0, 0, 0, 0.5);
   }
 `;
