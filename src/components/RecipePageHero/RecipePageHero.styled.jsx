@@ -18,11 +18,20 @@ export const RecipeHeroConteiner = styled.div`
   height: 455px;
   margin-bottom: 32px;
   padding-top: 144px;
-
+  padding-bottom: 90px;
   ${ButtonSkewStyle} {
-    color: black;
+    margin-top: auto;
+    color: ${p => p.theme.colors.mainBlack};
+
+    @media screen and (min-width: 768px) {
+      padding-bottom: 90px;
+      padding: 18px 44px;
+    }
+    @media screen and (min-width: 1440px) {
+    }
+
     &:hover {
-      color: white;
+      color: ${p => p.theme.colors.mainWhite};
     }
   }
 
@@ -40,6 +49,7 @@ export const RecipeHeroConteiner = styled.div`
   @media screen and (min-width: 768px) {
     margin-bottom: 50px;
     padding-top: 136px;
+    padding-bottom: 32px;
     width: 768px;
     height: 495px;
     background-image: url(${tab1});
@@ -69,9 +79,9 @@ export const RecipeHeroConteiner = styled.div`
 
 export const HeroTitle = styled.title`
   display: block;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontWeights[2]};
   font-size: 24px;
-  line-height: 100%;
+  line-height: ${p => p.theme.lineHeights.subheader};
   margin-bottom: 18px;
   letter-spacing: ${p => p.theme.letterSpacings.content};
   color: ${p => p.theme.colors.mainAccent};
@@ -81,5 +91,59 @@ export const HeroTitle = styled.title`
     margin-bottom: 24px;
   }
   @media screen and (min-width: 1440px) {
+  }
+`;
+
+export const HeroText = styled.p`
+  font-weight: ${p => p.theme.fontWeights[0]};
+  text-align: center;
+  font-size: 12px;
+  line-height: ${p => p.theme.lineHeights.description};
+  letter-spacing: ${p => p.theme.letterSpacings.content};
+  width: 303px;
+
+  @media screen and (min-width: 768px) {
+    width: 506px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 656px;
+  }
+`;
+
+export const CookingTime = styled.div`
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  color: ${p => p.theme.colors.mainBlack};
+  margin-top: 42px;
+  font-weight: ${p => p.theme.fontWeights[1]};
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: ${p => p.theme.letterSpacings.subheader};
+
+  @media screen and (min-width: 768px) {
+    margin-top: 65px;
+    font-size: 14px;
+    line-height: ${p => p.theme.lineHeights.time};
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 48px;
+  }
+
+  & svg {
+    margin-right: 5px;
+    stroke: ${p => p.theme.colors.mainBlack};
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+
+    @media screen and (min-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+    @media screen and (min-width: 1440px) {
+    }
   }
 `;
