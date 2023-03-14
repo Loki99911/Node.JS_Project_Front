@@ -54,7 +54,8 @@ export const BurgerWrapper = styled.div`
   & svg {
     width: 28px;
     height: 28px;
-    stroke: ${p => p.theme.colors.mainDark};
+    stroke: ${p =>
+      p.color === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
 
     @media screen and (min-width: 768px) {
       width: 32px;
