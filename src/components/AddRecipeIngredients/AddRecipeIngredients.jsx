@@ -27,22 +27,23 @@ export const AddRecipeIngredients = ({
   handleUserIngredient,
   handleUnitValue,
   handleRemove,
+  localTheme,
 }) => {
   const optionsIngredients = useSelector(getIngredients);
 
   const userIngredientsList = userIngredients.map(
     ({ id, unitValue, ingredient, qty }) => {
       return (
-        <IngredientsItem key={id}>
+        <IngredientsItem key={id} localTheme={localTheme}>
           <Select
-            styles={stylesIngredient}
+            styles={stylesIngredient(localTheme)}
             options={ingredientsOptionsList(optionsIngredients)}
             defaultValue={{ label: ingredient, value: ingredient }}
             placeholder=" "
             onChange={handleUserIngredient}
             name={`ingredient ${id}`}
           />
-          <ValueInputWrapper isMobile={isMobile}>
+          <ValueInputWrapper isMobile={isMobile} localTheme={localTheme}>
             <InputUnitValue
               isMobile={isMobile}
               type="text"
@@ -53,7 +54,7 @@ export const AddRecipeIngredients = ({
               id={id}
             />
             <Select
-              styles={stylesUnit}
+              styles={stylesUnit(localTheme)}
               options={unitsOptionsList}
               defaultValue={{ label: qty, value: qty }}
               placeholder=" "

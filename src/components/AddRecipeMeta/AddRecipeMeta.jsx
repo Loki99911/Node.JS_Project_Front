@@ -12,6 +12,7 @@ import { timeOptionsList } from 'utils/timeOptionsList';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import icons from '../../images/sprite.svg';
 import { stylesMeta } from 'pages/AddRecipe/selectStyles';
+import store from 'store';
 
 export const AddRecipeMeta = ({
   inputs,
@@ -21,8 +22,10 @@ export const AddRecipeMeta = ({
   handleSelect,
   path,
   file,
+  isMobile,
 }) => {
   const optionsCategoris = useSelector(getFullCategoryList);
+  const theme = store.get('theme');
 
   return (
     <AddRecepiSection isDesktop={isDesktop} path={path}>
@@ -38,7 +41,7 @@ export const AddRecipeMeta = ({
         </label>
         <input type="file" id="file" name="file" onChange={handleFile} />
       </div>
-      <InputsWrapper>
+      <InputsWrapper localTheme={theme} isMobile={isMobile}>
         <TextField
           hiddenLabel
           fullWidth
@@ -62,10 +65,10 @@ export const AddRecipeMeta = ({
           autoComplete="off"
         />
         <InputsWithSelectWrapper>
-          <SelectComp>
-            Categories
+          <SelectComp localTheme={theme}>
+            <p>Categories</p>
             <Select
-              styles={stylesMeta}
+              styles={stylesMeta(theme)}
               options={categoriesOptionsList(optionsCategoris)}
               defaultValue={{ label: 'Breakfast', value: 'Breakfast' }}
               placeholder=" "
@@ -75,20 +78,10 @@ export const AddRecipeMeta = ({
           </SelectComp>
         </InputsWithSelectWrapper>
         <InputsWithSelectWrapper>
-          <SelectComp
-            hiddenLabel
-            fullWidth
-            size="normal"
-            variant="standard"
-            placeholder="Time"
-            name="time"
-            value={inputs.time}
-            readOnly
-            autoComplete="off"
-          >
-            Cooking time
+          <SelectComp localTheme={theme}>
+            <p>Cooking time</p>
             <Select
-              styles={stylesMeta}
+              styles={stylesMeta(theme)}
               options={timeOptionsList()}
               defaultValue={timeOptionsList()[2]}
               placeholder=" "
