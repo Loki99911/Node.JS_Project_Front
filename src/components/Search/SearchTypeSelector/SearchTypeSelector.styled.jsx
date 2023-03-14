@@ -32,16 +32,29 @@ export const SelectCon = styled.div`
 `;
 
 export const SelectStyled = styled(Select)`
-  &.react-select__control {
-    background-color: #d9d9d9;
-    border-color: #d9d9d9;
-    border-radius: 6px;
+  & .react-select__control {
+    background-color: ${p => p.theme.colors.searchSelectBg};
+    border: ${p => p.theme.borders.searchInput};
+    border-radius: ${p => p.theme.radii.searchSelectBg};
     width: 146px;
     height: 34px;
-    border: unset;
-    &:focus {
+    font-size: 12px;
+    line-height: ${p => p.theme.lineHeights.subheader};
+    letter-spacing: ${p => p.theme.letterSpacings.content};
+    color: ${p => p.theme.colors.searchSelectText};
+
+    &:focus,
+    &:active,
+    &:hover,
+    &::selection {
+      outline: none;
       border-color: transparent;
       box-shadow: 0 0 0 1px transparent;
+
+      &.is-focused,
+      &.menu-is-open {
+        outline: none;
+      }
     }
 
     @media (min-width: 768px) {
@@ -51,34 +64,33 @@ export const SelectStyled = styled(Select)`
       height: 41px;
     }
   }
+
   & .react-select__single-value {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: -0.02em;
+    font-family: ${p => p.theme.fonts.main};
+    font-weight: ${p => p.theme.fontWeights[0]};
     text-align: left;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  &.react-select-contanier {
-    outline: none;
-    box-shadow: none;
-    color: rgba(0, 0, 0, 0.5) !important;
-
-    &:focus {
-      outline: grey;
-      box-shadow: 0 0 0 1px transparent;
-    }
-  }
-
-  &.react-select__menu-list {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: ${p => p.theme.lineHeights.subheader};
+    letter-spacing: ${p => p.theme.letterSpacings.content};
+    color: ${p => p.theme.colors.searchSelectText};
+  }
+
+  & .react-select-contanier {
+    box-shadow: none;
+    outline: none;
+    border-color: transparent;
+
+   &:focus,
+    &:active,
+    &:hover,
+    &::selection {
+      outline: none;
+      border-color: transparent;
+      box-shadow: 0 0 0 1px transparent;
+
+  }
+
+  & .react-select__menu-list {
     @media (min-width: 768px) {
       font-size: 14px;
       line-height: 21px;
@@ -88,21 +100,22 @@ export const SelectStyled = styled(Select)`
     color: rgba(0, 0, 0, 0.5) !important;
   }
 
-  &.react-select__option {
-    background-color: #d9d9d9;
+  & .react-select__option {
+    background-color: ${p => p.theme.colors.searchDropDownBg};
     color: rgba(0, 0, 0, 0.5) !important;
   }
 
-  &.react-select__dropdown-indicator {
-    fill: #8baa36;
+  & .react-select__dropdown-indicator {
+    color: ${p => p.theme.colors.mainAccent};
   }
 
-  &.react-select__dropdown-separator {
-    opacity: 0;
+  & .react-select__indicator-separator {
+    display: none;
   }
 
-  &.react-select__menu {
+  & .react-select__menu {
     margin: 0;
+    border-radius: 0px 0px 6px 6px;
   }
 
   & .react-select__placeholder {

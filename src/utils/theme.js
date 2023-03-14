@@ -29,6 +29,9 @@ export const theme = {
     paginationShadow: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     mainSearchInput: '#FFFFFF',
     userName: '#22252A',
+    searchSelectBg: 'rgba(217, 217, 217, 0.2)',
+    searchSelectText: 'rgba(0, 0, 0, 0.5)',
+    searchDropDownBg: '#FFFFFF',
 
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
@@ -61,6 +64,7 @@ export const theme = {
     btnStandart: '2px solid #FAFAFA',
     btnHover: '2px solid #8BAA36',
     mainSearchInput: '1px solid #F0F0F0',
+    searchInput: '1px solid #F0F0F0',
   },
   radii: {
     btnStandart: '6px',
@@ -105,6 +109,9 @@ export const darkTheme = {
     mainSearchInput: '#2A2C36',
     paginationShadow: '0px 4px 4px rgba(31, 30, 30, 0.2)',
     userName: '#22252A',
+    searchSelectBg: 'transparent',
+    searchSelectText: '#FAFAFA',
+    searchDropDownBg: '#8BAA36',
 
     mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
@@ -139,6 +146,7 @@ export const darkTheme = {
     btnStandart: '2px solid #FAFAFA',
     btnHover: '2px solid #8BAA36',
     mainSearchInput: '1px solid rgba(255, 255, 255, 0.2)',
+    searchInput: '1px solid rgba(255, 255, 255, 0.2)',
   },
   radii: {
     btnStandart: '6px',
