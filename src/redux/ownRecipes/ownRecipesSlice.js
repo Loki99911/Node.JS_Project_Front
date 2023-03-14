@@ -38,7 +38,7 @@ export const ingredientsSlice = createSlice({
       })
       .addCase(deleteOwnRecipe.fulfilled, (state, { payload }) => {
         state.ownRecipes = state.ownRecipes.filter(
-          recipe => recipe.idMeal !== payload
+          recipe => recipe.idMeal !== payload.id
         );
         state.isOwnRecipesFetching = false;
       })
@@ -52,7 +52,7 @@ export const ingredientsSlice = createSlice({
       })
       .addCase(deleteFavorite.fulfilled, (state, { payload }) => {
         state.favorites = state.favorites.filter(
-          recipe => recipe.idMeal !== payload
+          recipe => recipe.idMeal !== payload.id
         );
         state.isOwnRecipesFetching = false;
       })

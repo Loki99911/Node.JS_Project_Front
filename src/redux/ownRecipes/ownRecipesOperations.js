@@ -94,7 +94,7 @@ export const getOwnRecipeByID = createAsyncThunk(
 
 export const addFavorite = createAsyncThunk(
   'ownRecipes/addFavorite',
-  async (idMeal, { rejectWithValue, getState }) => {
+  async (id, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedAccessToken = state.auth.accessToken;
     if (!persistedAccessToken) {
@@ -102,7 +102,7 @@ export const addFavorite = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const data = await addFavoriteAPI({ idMeal });
+      const data = await addFavoriteAPI({ idMeal: id });
       console.log('fav recipe successfully added', data);
       return data;
     } catch (error) {
@@ -134,7 +134,7 @@ export const getFavorite = createAsyncThunk(
 
 export const deleteFavorite = createAsyncThunk(
   'ownRecipes/deleteFavorite',
-  async (idMeal, { rejectWithValue, getState }) => {
+  async (id, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedAccessToken = state.auth.accessToken;
     if (!persistedAccessToken) {
@@ -142,7 +142,7 @@ export const deleteFavorite = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const data = await removeFavoriteAPI({ idMeal });
+      const data = await removeFavoriteAPI(id);
       console.log('fav recipe successfully deleted', data);
       return data;
     } catch (error) {

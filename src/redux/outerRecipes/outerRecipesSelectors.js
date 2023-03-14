@@ -47,3 +47,5 @@ export const getRecipesBySearchQuery = state =>
 // ------------------ Additional ------------------
 export const getIsCategoryFetching = state =>
   state.outerRecipes.isCategoryFetching;
+
+export const getIsError = state => state.outerRecipes.isError;
