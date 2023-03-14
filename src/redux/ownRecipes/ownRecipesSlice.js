@@ -18,8 +18,8 @@ const rejected = state => {
 
 const initialState = {
   isOwnRecipesFetching: false,
-  ownRecipes: [],
-  favorites: [],
+  ownRecipes: { recipes: [], total: 0 },
+  favorites: { recipes: [], total: 0 },
   singleRecipe: null,
 };
 
@@ -29,7 +29,8 @@ export const ingredientsSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(getOwnRecipes.fulfilled, (state, { payload }) => {
-        state.ownRecipes = payload;
+        state.ownRecipes.recipes = payload.recipes;
+        state.ownRecipes.total = payload.total;
         state.isOwnRecipesFetching = false;
       })
       .addCase(addOwnRecipe.fulfilled, (state, { payload }) => {
@@ -43,7 +44,9 @@ export const ingredientsSlice = createSlice({
         state.isOwnRecipesFetching = false;
       })
       .addCase(getFavorite.fulfilled, (state, { payload }) => {
-        state.favorites = payload;
+        console.log(payload);
+        state.favorites.recipes = payload.recipes;
+        state.favorites.total = payload.total;
         state.isOwnRecipesFetching = false;
       })
       .addCase(addFavorite.fulfilled, (state, { payload }) => {

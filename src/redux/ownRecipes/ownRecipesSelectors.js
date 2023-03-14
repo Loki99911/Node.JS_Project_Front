@@ -6,7 +6,7 @@ export const getCustomRecipes = state => state.ownRecipes.ownRecipes;
 // ------------------ Favorites ------------------
 // ---- returns an Array of Objects
 // ---- Use with function "getFavorite()"
-export const getFavoriteRecipes = state => state.ownRecipes.favorites;
+export const getFavoriteRecipes = state => state.ownRecipes.favorites.recipes;
 
 // ------------------ Own Recipe by ID ------------------
 // ---- returns an Object
