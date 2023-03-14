@@ -1,6 +1,6 @@
 import { Container } from 'components/Container/Container';
 import { Title } from 'components/Title/Title';
-import { PaginationComp } from 'components/PaginationComp/Pagination';
+// import { PaginationComp } from 'components/PaginationComp/Pagination';
 import { SearchCont } from './SearchPage.styled';
 import { SearchNoFound } from 'components/Search/SearchNoFound/SearchNoFound';
 import { CardMeal } from 'components/CardMeal/CardMeal';
@@ -27,6 +27,8 @@ const SearchPage = () => {
   const [perPage, setPerPage] = useState(12);
   // console.log(query);
   // console.log(type);
+  console.log(setPage);
+  console.log(setPerPage);
 
   const recipesListByIngredient = useSelector(getRecipesListByIngredient);
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);

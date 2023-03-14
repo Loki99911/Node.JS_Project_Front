@@ -7,7 +7,7 @@ import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { hover } from '@testing-library/user-event/dist/hover';
+// import { hover } from '@testing-library/user-event/dist/hover';
 
 
 
