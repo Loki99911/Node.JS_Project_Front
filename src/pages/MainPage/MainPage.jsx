@@ -15,8 +15,13 @@ import {
 
 const MainPage = () => {
   const navigate = useNavigate();
+  
   const onClick = e => {
     navigate('/categories');
+  };
+
+  const handleOnSubmit = (query, type) => {
+    navigate(`/search?query=${query}&type=${type}`);
   };
 
   return (
@@ -33,7 +38,7 @@ const MainPage = () => {
               future.
             </MainPageText>
             <СhooseYourBreakfast />
-            <SearchForm styled={'black'} />
+            <SearchForm styled={'black'} handleOnSubmit={handleOnSubmit} />
           </MainPageDiv>
         </Container>
       </MainPageBg>

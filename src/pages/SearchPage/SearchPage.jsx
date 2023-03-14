@@ -15,6 +15,7 @@ import {
   getIsError,
   getRecipesBySearchQuery,
 } from 'redux/outerRecipes/outerRecipesSelectors';
+import { useMediaRules } from 'MediaRules/MediaRules';
 // import { useState } from 'react';
 
 const SearchPage = () => {
@@ -24,18 +25,34 @@ const SearchPage = () => {
   const type = searchParams.get('type') ?? '';
   const [request, setRequest] = useState(null);
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
-  // console.log(query);
-  // console.log(type);
+  const { isTablet, isDesktop } = useMediaRules();
+
+  let perPage;
+  if (isDesktop) {
+    perPage = 12; // Десктоп
+  } else if (isTablet) {
+    perPage = 6; // Планшет
+  } else {
+    perPage = 6; // Мобильный
+  }
+
   console.log(setPage);
-  console.log(setPerPage);
 
   const recipesListByIngredient = useSelector(getRecipesListByIngredient);
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getIsError);
 
-  console.log(recipesListByIngredient);
-  // console.log(recipesBySearchQuery);
+  const handleOnSubmit = (query1, type1) => {
+    setSearchParams(
+      new URLSearchParams({
+        query: query1,
+        type: type1,
+      })
+    );
+  };
+
+  // console.log(recipesListByIngredient);
+  console.log(recipesBySearchQuery);
 
   useEffect(() => {
     if (query === '' || type === '') return;
@@ -56,7 +73,7 @@ const SearchPage = () => {
       <Container>
         <Title>Search</Title>
         <SearchBar
-          setSearchParams={setSearchParams}
+          handleOnSubmit={handleOnSubmit}
           startType={type}
           startQuery={query}
         />
