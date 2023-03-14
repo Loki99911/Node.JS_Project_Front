@@ -93,13 +93,15 @@ export const SearhButton = styled.div`
 export const SearchIn = styled.form`
   display: flex;
   justify-content: flex-end;
+  border-radius: 30px, 80px;
 `;
 
 export const SearchInput = styled.input`
   width: 100%;
-  border-radius: 20px 40px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 80px;
   border: none;
-  background-color: transparent;
+  background-color: ${p => p.theme.colors.bodyBg};
   font-family: ${theme.fonts.main};
   font-style: normal;
   font-weight: 400;
