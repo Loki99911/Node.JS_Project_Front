@@ -101,6 +101,12 @@ const AddRecipe = () => {
     setPath(URL.createObjectURL(file));
   };
 
+  const resetForm = () => {
+    setInputs(init);
+    setUserIngredients([]);
+    setFile(null);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
@@ -125,11 +131,8 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    const res = recipe.split('\n');
-
-    console.log(res);
-
     dispatch(addOwnRecipe(formData));
+    resetForm();
   };
 
   const handleSelect = (...arg) => {
@@ -171,7 +174,11 @@ const AddRecipe = () => {
     <Container>
       <Title>Add recipe</Title>
       <MainWrapper isDesktop={isDesktop}>
-        <RecipeForm onSubmit={handleSubmit} enctype="multipart/form-data">
+        <RecipeForm
+          onSubmit={handleSubmit}
+          enctype="multipart/form-data"
+          isMobile={isMobile}
+        >
           <AddRecipeMeta
             path={path}
             inputs={inputs}

@@ -3,6 +3,7 @@ import {
   AddRecepiSection,
   InputsWithSelectWrapper,
   InputsWrapper,
+  SelectComp,
 } from 'pages/AddRecipe/addRecipe.styled';
 import { useSelector } from 'react-redux';
 import Select from 'react-select';
@@ -47,6 +48,7 @@ export const AddRecipeMeta = ({
           name="title"
           value={inputs.title}
           onChange={handleChange}
+          autoComplete="off"
         />
         <TextField
           hiddenLabel
@@ -57,30 +59,23 @@ export const AddRecipeMeta = ({
           name="about"
           value={inputs.about}
           onChange={handleChange}
+          autoComplete="off"
         />
         <InputsWithSelectWrapper>
-          <TextField
-            hiddenLabel
-            fullWidth
-            size="normal"
-            variant="standard"
-            placeholder="Category"
-            name="category"
-            value={inputs.category}
-            readOnly
-            autoComplete="off"
-          />
-          <Select
-            styles={stylesMeta}
-            options={categoriesOptionsList(optionsCategoris)}
-            defaultValue={{ label: 'Breakfast', value: 'Breakfast' }}
-            placeholder=" "
-            onChange={handleSelect}
-            name="category"
-          />
+          <SelectComp>
+            Categories
+            <Select
+              styles={stylesMeta}
+              options={categoriesOptionsList(optionsCategoris)}
+              defaultValue={{ label: 'Breakfast', value: 'Breakfast' }}
+              placeholder=" "
+              onChange={handleSelect}
+              name="category"
+            />
+          </SelectComp>
         </InputsWithSelectWrapper>
         <InputsWithSelectWrapper>
-          <TextField
+          <SelectComp
             hiddenLabel
             fullWidth
             size="normal"
@@ -90,15 +85,17 @@ export const AddRecipeMeta = ({
             value={inputs.time}
             readOnly
             autoComplete="off"
-          />
-          <Select
-            styles={stylesMeta}
-            options={timeOptionsList()}
-            defaultValue={timeOptionsList()[2]}
-            placeholder=" "
-            onChange={handleSelect}
-            name="time"
-          />
+          >
+            Cooking time
+            <Select
+              styles={stylesMeta}
+              options={timeOptionsList()}
+              defaultValue={timeOptionsList()[2]}
+              placeholder=" "
+              onChange={handleSelect}
+              name="time"
+            />
+          </SelectComp>
         </InputsWithSelectWrapper>
       </InputsWrapper>
     </AddRecepiSection>
