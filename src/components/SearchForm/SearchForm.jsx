@@ -25,7 +25,7 @@ export const SearchForm = ({ setSearchParams, type, styled }) => {
         <SearchInput
           type="text"
           value={searchValue}
-          placeholder="Beef |"
+        //   placeholder="Beef |"
           onChange={handleInputChange}
         />
         <ButtonSkew type="submit" text="Search" styled={styled}></ButtonSkew>
