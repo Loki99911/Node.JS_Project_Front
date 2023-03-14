@@ -7,7 +7,7 @@
 export const getIngredients = state => state.ingredients.ingredients;
 
 // ------------------ Recipes by Ingredient ------------------
-// ---- returns an Array of Objects
+// ---- returns an Object with keys: meals and totalHits
 // ---- As an argument you HAVE TO send an ingredient name (String)
 // ---- Example: const ingredient = 'cucumber';
 // ---- Use with function "getRecipesByIngredient(ingredient)"

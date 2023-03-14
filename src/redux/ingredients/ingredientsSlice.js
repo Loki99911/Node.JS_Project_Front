@@ -12,15 +12,14 @@ const pending = state => {
 const rejected = state => {
   state.isIngredientsFetching = false;
 };
-const rejectedIngredients = state => {
-  state.isIngredientsFetching = false;
-  state.recipesByIngredients = [];
-};
 
 const initialState = {
   isIngredientsFetching: false,
   ingredients: [],
-  recipesByIngredients: [],
+  recipesByIngredients: {
+    totalHits: 0,
+    meals: [],
+  },
 };
 
 export const ingredientsSlice = createSlice({
@@ -33,7 +32,8 @@ export const ingredientsSlice = createSlice({
         state.isIngredientsFetching = false;
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
-        state.recipesByIngredients = payload;
+        state.recipesByIngredients.meals = payload.meals;
+        state.recipesByIngredients.totalHits = payload.totalHits;
         state.isIngredientsFetching = false;
       })
       .addCase(logOut.fulfilled, () => ({ ...initialState }))
@@ -42,7 +42,11 @@ export const ingredientsSlice = createSlice({
       .addCase(getRecipesByIngredient.pending, pending)
 
       .addCase(getAllIngredients.rejected, rejected)
-      .addCase(getRecipesByIngredient.rejected, rejectedIngredients),
+      .addCase(getRecipesByIngredient.rejected, state => {
+        state.isIngredientsFetching = false;
+        state.recipesByIngredients.meals = [];
+        state.recipesByIngredients.totalHits = 0;
+      }),
 });
 
 export default ingredientsSlice.reducer;

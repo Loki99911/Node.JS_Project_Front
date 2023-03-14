@@ -20,11 +20,6 @@ const rejected = state => {
   state.isCategoryFetching = false;
 };
 
-const rejectedFilter = state => {
-  state.isCategoryFetching = false;
-  state.isError = true;
-};
-
 const initialState = {
   isCategoryFetching: false,
   categoryList: [],
@@ -33,7 +28,10 @@ const initialState = {
   allRecipesByCategory: [],
   singleRecipe: null,
   popularRecipes: [],
-  recipesByQuery: [],
+  recipesByQuery: {
+    meals: [],
+    totalHits: 0,
+  },
   isError: false,
 };
 
@@ -67,12 +65,14 @@ export const outerRecipesSlice = createSlice({
         state.isCategoryFetching = false;
       })
       .addCase(getRecipesByQuery.fulfilled, (state, { payload }) => {
-        state.recipesByQuery = payload;
+        state.recipesByQuery.meals = payload.meals;
+        state.recipesByQuery.totalHits = payload.totalHits;
+
         state.isCategoryFetching = false;
       })
       .addCase(logOut.fulfilled, () => ({ ...initialState }))
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
-          state.isError = false;
+        state.isError = false;
       })
       .addCase(getMainCategories.pending, pending)
       .addCase(getLimitedRecipesByCategory.pending, pending)
@@ -86,8 +86,16 @@ export const outerRecipesSlice = createSlice({
       .addCase(getAllRecipesByCategory.rejected, rejected)
       .addCase(getOneRecipeById.rejected, rejected)
       .addCase(getPopularRecipes.rejected, rejected)
-      .addCase(getRecipesByQuery.rejected, rejectedFilter)
-      .addCase(getRecipesByIngredient.rejected, rejectedFilter),
+      .addCase(getRecipesByQuery.rejected, state => {
+        state.isCategoryFetching = false;
+        state.isError = true;
+        state.recipesByQuery.meals = [];
+        state.recipesByQuery.totalHits = 0;
+      })
+      .addCase(getRecipesByIngredient.rejected, state => {
+        state.isCategoryFetching = false;
+        state.isError = true;
+      }),
 });
 
 export default outerRecipesSlice.reducer;

@@ -152,7 +152,7 @@ export const getPopularRecipes = createAsyncThunk(
 
 export const getRecipesByQuery = createAsyncThunk(
   'outerRecipes/recipesByQuery',
-  async (query, { rejectWithValue, getState }) => {
+  async (params, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedAccessToken = state.auth.accessToken;
     if (!persistedAccessToken) {
@@ -160,9 +160,10 @@ export const getRecipesByQuery = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const data = await getRecipesByQueryAPI(query);
-      console.log('recipes by search query', data.meals);
-      return data.meals;
+      const { query, page, per_page } = params;
+      const data = await getRecipesByQueryAPI(query, page, per_page);
+      console.log('recipes by search query', data);
+      return data;
     } catch (error) {
       console.log(error.message);
       return rejectWithValue(error.response.status);
