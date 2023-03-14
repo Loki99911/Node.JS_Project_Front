@@ -1,7 +1,5 @@
-import styled from "styled-components";
-import { theme } from "utils/theme";
-
-
+import styled from 'styled-components';
+import { theme } from 'utils/theme';
 
 export const CardTitle = styled.p`
   font-family: ${theme.fonts.main};
@@ -10,9 +8,9 @@ export const CardTitle = styled.p`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.24px;
-  color: ${theme.colors.secondaryDark};
+  color: ${p => p.theme.colors.mainHeaderText};
   padding: 16px;
-  background-color: ${theme.colors.mainLight};
+  background-color: ${p => p.theme.colors.recipeBlockBg};
   position: absolute;
   top: 245px;
   left: 18px;
@@ -30,7 +28,6 @@ export const CardImg = styled.img`
   object-fit: cover;
   border-radius: 8px;
 `;
-
 
 export const CardDish = styled.li`
   width: 343px;

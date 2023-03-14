@@ -9,7 +9,7 @@ export const TitlePrew = styled.p`
   font-size: 28px;
   line-height: 28px;
   letter-spacing: ${theme.letterSpacings.content};
-  color: ${theme.colors.sectionHeaderDark};
+  color: ${p => p.theme.colors.sectionHeader};
   margin-bottom: 32px;
   text-transform: capitalize;
   @media (min-width: 768px) {

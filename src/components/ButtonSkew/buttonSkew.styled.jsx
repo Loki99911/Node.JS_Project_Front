@@ -19,9 +19,9 @@ export const ButtonSkewStyle = styled.button`
       case 'olive':
         return theme.colors.btnTextLight;
       case 'other':
-        return theme.colors.btnTextLight;
+        return theme.colors.mainDark;
       case 'transparent':
-        return theme.colors.btnTextLight;
+        return theme.colors.mainDark;
       default:
         return 'red';
     }
@@ -35,7 +35,7 @@ export const ButtonSkewStyle = styled.button`
   background-color: ${({ styled, theme }) => {
     switch (styled) {
       case 'black':
-        return theme.colors.btnHoverBg;
+        return theme.colors.recipeBlockBtnBg;
       case 'olive':
         return theme.colors.mainAccent;
       case 'transparent':

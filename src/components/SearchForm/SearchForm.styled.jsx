@@ -5,7 +5,7 @@ import { theme } from 'utils/theme';
 export const SearchBlock = styled.div`
   width: 295px;
   height: 52px;
-  background-color: ${theme.colors.mainLight};
+  background-color: ${p => p.theme.colors.mainSearchInput};
   /* border-radius: 30px 80px ; */
 
   border-top-left-radius: 30px;
@@ -59,7 +59,7 @@ export const SearhButton = styled.div`
   /* width: 113px;
     height: 52px; */
   padding: 16px 32px;
-  background-color: ${theme.colors.mainBlack};
+  background-color: ${p => p.theme.colors.recipeBlockBtnBg};
   border-radius: 20px 40px;
 
   font-family: ${theme.fonts.main};
