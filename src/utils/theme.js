@@ -13,6 +13,7 @@ export const theme = {
     secondaryAccent: '#EBF3D4',
 
     mainHeaderText: '#22252A',
+    mainBtnText: '#22252A',
     bodyBg: '#FAFAFA',
     footerBg: '#22252A',
     footerSMlinks: '#8BAA36',
@@ -90,6 +91,7 @@ export const darkTheme = {
     secondaryAccent: '#1E1F28',
 
     mainHeaderText: '#FAFAFA',
+    mainBtnText: '#FAFAFA',
     bodyBg: '#23262A',
     footerBg: '#8BAA36',
     footerSMlinks: '#FAFAFA',

@@ -18,7 +18,7 @@ export const ButtonSkewStyle = styled.button`
       : p.styled === 'olive'
       ? p.theme.colors.btnTextLight
       : p.styled === 'other'
-      ? p.theme.colors.mainHeaderText
+      ? p.theme.colors.mainBtnText
       : p.styled === 'transparent'
       ? p.theme.colors.mainDark
       : 'red'};
