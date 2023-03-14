@@ -1,6 +1,6 @@
 import { Container } from 'components/Container/Container';
 import { Title } from 'components/Title/Title';
-// import { PaginationComp } from 'components/PaginationComp/Pagination';
+import { PaginationComp } from 'components/PaginationComp/Pagination';
 import { SearchCont } from './SearchPage.styled';
 import { SearchNoFound } from 'components/Search/SearchNoFound/SearchNoFound';
 import { CardMeal } from 'components/CardMeal/CardMeal';
@@ -25,6 +25,7 @@ const SearchPage = () => {
   const type = searchParams.get('type') ?? '';
   const [request, setRequest] = useState(null);
   const [page, setPage] = useState(1);
+  // const [totalPages, setTotalPages] = useState(0);
   const { isTablet, isDesktop } = useMediaRules();
 
   let perPage;
@@ -36,11 +37,12 @@ const SearchPage = () => {
     perPage = 6; // Мобильный
   }
 
-  console.log(setPage);
-
   const recipesListByIngredient = useSelector(getRecipesListByIngredient);
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getIsError);
+
+  const totalIng = recipesListByIngredient.totalHits;
+  const totalQuery = recipesBySearchQuery.totalHits;
 
   const handleOnSubmit = (query1, type1) => {
     setSearchParams(
@@ -49,16 +51,21 @@ const SearchPage = () => {
         type: type1,
       })
     );
+    setPage(1);
   };
 
-  // console.log(recipesListByIngredient);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
+  console.log(recipesListByIngredient);
   console.log(recipesBySearchQuery);
 
   useEffect(() => {
     if (query === '' || type === '') return;
 
     if (type === 'title') {
-      dispatch(getRecipesByQuery(query));
+      dispatch(getRecipesByQuery({ query, page, per_page: perPage }));
       setRequest(true);
     } else {
       dispatch(
@@ -67,6 +74,7 @@ const SearchPage = () => {
       setRequest(false);
     }
   }, [dispatch, type, query, page, perPage]);
+
 
   return (
     <SearchCont>
@@ -78,21 +86,46 @@ const SearchPage = () => {
           startQuery={query}
         />
         {request && (
-          <ul>
-            {recipesBySearchQuery.map(el => (
-              <CardMeal meal={el} key={el.idMeal} />
-            ))}
-          </ul>
+          <>
+            <ul>
+              {recipesBySearchQuery?.meals?.map(el => (
+                <CardMeal meal={el} key={el.idMeal} />
+              ))}
+            </ul>
+            {totalQuery > 0 && (
+              <PaginationComp
+                count={Math.ceil(totalQuery / perPage)}
+                page={page}
+                handleChange={handleChange}
+              />
+            )}
+          </>
         )}
         {!request && (
-          <ul>
-            {recipesListByIngredient?.meals?.map(el => (
-              <CardMeal meal={el} key={el.idMeal} />
-            ))}
-          </ul>
+          <>
+            <ul>
+              {recipesListByIngredient?.meals?.map(el => (
+                <CardMeal meal={el} key={el.idMeal} />
+              ))}
+            </ul>
+            {totalIng > 0 && (
+              <PaginationComp
+                count={Math.ceil(totalIng / perPage)}
+                page={page}
+                handleChange={handleChange}
+              />
+            )}
+          </>
         )}
 
-        {/* <PaginationComp /> */}
+        {/* {(totalIng > 0 || totalQuery > 0) && (
+          <PaginationComp
+            count={Math.ceil((totalIng || totalQuery) / perPage)}
+            page={page}
+            handleChange={handleChange}
+          />
+        )} */}
+
         {errorSearch && <SearchNoFound />}
       </Container>
     </SearchCont>
