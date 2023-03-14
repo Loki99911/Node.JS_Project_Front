@@ -71,7 +71,9 @@ export const outerRecipesSlice = createSlice({
         state.isCategoryFetching = false;
       })
       .addCase(logOut.fulfilled, () => ({ ...initialState }))
-
+      .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
+          state.isError = false;
+      })
       .addCase(getMainCategories.pending, pending)
       .addCase(getLimitedRecipesByCategory.pending, pending)
       .addCase(getAllRecipesByCategory.pending, pending)
