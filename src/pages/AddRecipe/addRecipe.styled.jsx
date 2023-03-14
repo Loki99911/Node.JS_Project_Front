@@ -9,6 +9,28 @@ export const MainWrapper = styled.div`
 
 export const RecipeForm = styled.form`
   width: 100%;
+  p,
+  input,
+  textarea {
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
+  }
+
+  input,
+  textarea {
+    &::placeholder {
+      opacity: 1;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .css-l4u8b9-MuiInputBase-root-MuiInput-root::after {
+    border-bottom: ${({ theme }) => `2px solid ${theme.colors.mainAccent}`};
+  }
 `;
 
 export const IngredientsTitle = styled.div`
@@ -58,6 +80,15 @@ export const AddRecepiSection = styled.div`
   }
 `;
 
+export const SelectComp = styled.p`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  color: rgba(0, 0, 0, 0.5);
+`;
+
 export const InputsWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -67,10 +98,6 @@ export const InputsWrapper = styled.div`
 export const InputsWithSelectWrapper = styled.div`
   display: flex;
   align-items: flex-end;
-
-  input {
-    caret-color: transparent;
-  }
 `;
 
 export const IngredientsSection = styled.div`
