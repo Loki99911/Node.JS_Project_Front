@@ -3,7 +3,7 @@ import { SearchBarCont } from './SearchBar.styled';
 import { SearchTypeSelector } from '../SearchTypeSelector/SearchTypeSelector';
 import { useState } from 'react';
 
-export const SearchBar = ({ setSearchParams, startType, startQuery }) => {
+export const SearchBar = ({ handleOnSubmit, startType, startQuery }) => {
   const [type, setType] = useState('');
 
   const typeSubmit = inputType => {
@@ -16,7 +16,7 @@ export const SearchBar = ({ setSearchParams, startType, startQuery }) => {
       <SearchForm
         styled={'olive'}
         type={type}
-        setSearchParams={setSearchParams}
+        handleOnSubmit={handleOnSubmit}
         startQuery={startQuery}
       />
       <SearchTypeSelector startType={startType} typeSubmit={typeSubmit} />
