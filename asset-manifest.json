@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.5f7eb1b2.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.afde27d6.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.2a8cd99d.js",
     "static/media/mainpage2x_desk.png": "/Node.JS_Project_Front/static/media/mainpage2x_desk.906cdb4f2d00194ec785.png",
     "static/media/mainpage2x_tab.png": "/Node.JS_Project_Front/static/media/mainpage2x_tab.1e3f8e77edef9f06bd13.png",
     "static/media/mainpage2x_mob.png": "/Node.JS_Project_Front/static/media/mainpage2x_mob.d48be9cc28c1dcdfd6b1.png",
@@ -44,7 +44,7 @@
     "static/media/mobile-menu-bg-tab-1x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-tab-1x-min.94ab13c1f302b6f94cb9.png",
     "static/media/recipeHero_mob_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_mob_2x.04772b35d4bcde8116a5.jpg",
     "static/media/bg_error_mob@1x.png": "/Node.JS_Project_Front/static/media/bg_error_mob@1x.830623caea782215ca94.png",
-    "static/media/sprite.svg": "/Node.JS_Project_Front/static/media/sprite.3e027ecba317d455f5a5e03b50600bff.svg",
+    "static/media/sprite.svg": "/Node.JS_Project_Front/static/media/sprite.d5b5384cb95212f815b676ebf8628de0.svg",
     "static/media/bg_small_mob_1x.png": "/Node.JS_Project_Front/static/media/bg_small_mob_1x.22078318d1abb582886d.png",
     "static/media/recipeHero_tab_1x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_tab_1x.9eca7de25584899934cd.jpg",
     "static/media/mobile-menu-bg-mob-1x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-mob-1x-min.b236250f3373e3cd26b8.png",
@@ -55,10 +55,10 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.5f7eb1b2.css.map": "/Node.JS_Project_Front/static/css/main.5f7eb1b2.css.map",
-    "main.afde27d6.js.map": "/Node.JS_Project_Front/static/js/main.afde27d6.js.map"
+    "main.2a8cd99d.js.map": "/Node.JS_Project_Front/static/js/main.2a8cd99d.js.map"
   },
   "entrypoints": [
     "static/css/main.5f7eb1b2.css",
-    "static/js/main.afde27d6.js"
+    "static/js/main.2a8cd99d.js"
   ]
 }
