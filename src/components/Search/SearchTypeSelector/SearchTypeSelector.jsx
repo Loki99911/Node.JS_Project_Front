@@ -1,5 +1,5 @@
-import Select from 'react-select';
-import { SelectCon } from './SearchTypeSelector.styled';
+// import Select from 'react-select';
+import { SelectCon, SelectStyled } from './SearchTypeSelector.styled';
 import { useEffect, useState } from 'react';
 
 // const customStyles = {
@@ -95,11 +95,12 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
   return (
     <SelectCon>
       <span>Search by:</span>
-      <Select
+      <SelectStyled
         defaultValue={{ value: startType, label: startType }}
         onChange={setSelectedOption}
         options={options}
         isSearchable={false}
+        classNamePrefix="react-select"
         // styles={customStyles}
       />
     </SelectCon>
