@@ -9,20 +9,6 @@ export const MainWrapper = styled.div`
 
 export const RecipeForm = styled.form`
   width: 100%;
-  p,
-  input,
-  textarea {
-    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
-    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
-  }
-
-  input,
-  textarea {
-    &::placeholder {
-      opacity: 1;
-      color: rgba(0, 0, 0, 0.5);
-    }
-  }
 
   button {
     cursor: pointer;
@@ -80,19 +66,45 @@ export const AddRecepiSection = styled.div`
   }
 `;
 
-export const SelectComp = styled.p`
+export const SelectComp = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   border-bottom: 1px solid gray;
-  color: rgba(0, 0, 0, 0.5);
+
+  p {
+    color: ${({ localTheme }) =>
+      localTheme === 'light' ? 'rgba(0, 0, 0, 0.5)' : 'white'};
+  }
 `;
 
 export const InputsWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  .css-l4u8b9-MuiInputBase-root-MuiInput-root::before {
+    border-bottom: 1px solid grey;
+  }
+
+  input {
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
+    color: ${({ localTheme }) =>
+      localTheme === 'light' ? 'rgba(0, 0, 0, 0.5)' : 'white'};
+    background-color: transparent;
+
+    &::placeholder {
+      opacity: 1;
+      color: ${({ localTheme }) =>
+        localTheme === 'light' ? 'rgba(0, 0, 0, 0.5)' : 'white'};
+    }
+  }
+
+  .css-1dimb5e-singleValue {
+    color: ${({ localTheme }) => (localTheme === 'light' ? 'black' : 'white')};
+  }
 `;
 
 export const InputsWithSelectWrapper = styled.div`
@@ -117,7 +129,19 @@ export const RecepieSection = styled.div`
     border: none;
     margin-top: 24px;
     height: 155px;
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
+    color: ${({ theme }) => theme.colors.mainBlack};
     font-family: inherit;
+
+    background-color: ${({ localTheme, theme }) => {
+      return localTheme === 'light' ? theme.colors.mainGreyBg : 'transparent';
+    }};
+
+    &::placeholder {
+      opacity: 1;
+      color: ${({ theme }) => theme.colors.mainBlack};
+    }
   }
 
   button {
@@ -138,6 +162,14 @@ export const PopularRecipe = styled.div`
 export const IngredientsItem = styled.li`
   display: flex;
   align-items: center;
+
+  .css-1dimb5e-singleValue {
+    color: ${({ localTheme }) => (localTheme === 'light' ? 'black' : 'white')};
+  }
+
+  .css-7ossxv-menu {
+    color: red !important;
+  }
 `;
 
 export const IngredientsList = styled.ul`
@@ -149,10 +181,18 @@ export const IngredientsList = styled.ul`
 export const ValueInputWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  background-color: rgb(217, 217, 217);
+
+  background-color: ${({ localTheme, theme }) => {
+    return localTheme === 'light' ? theme.colors.mainGreyBg : 'transparent';
+  }};
   border-radius: 6px;
-  /* width: 150px; */
   margin-left: ${({ isMobile }) => (isMobile ? '14px' : '32px')};
+
+  .css-1dimb5e-singleValue {
+    color: ${({ localTheme }) => {
+      return localTheme === 'light' ? 'black' : 'white';
+    }};
+  }
 `;
 
 export const InputUnitValue = styled.input`
@@ -163,6 +203,7 @@ export const InputUnitValue = styled.input`
   padding: 0 8px;
   outline: none;
   width: 50px;
+  color: ${({ theme }) => theme.colors.mainBlack};
 `;
 
 export const PupularList = styled.ul`
@@ -185,6 +226,7 @@ export const RecipeTitle = styled.p`
   font-size: 16px;
   line-height: ${({ theme }) => theme.lineHeights.description};
   letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+  color: ${({ theme }) => theme.colors.mainBlack};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -205,6 +247,7 @@ export const RecipeText = styled.p`
   font-size: 12px;
   line-height: ${({ theme }) => theme.lineHeights.content};
   letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+  color: ${({ theme }) => theme.colors.mainBlack};
 `;
 
 export const RecepiImg = styled.img`
@@ -219,6 +262,10 @@ export const ButtonRemoveItem = styled.button`
   align-items: center;
   justify-content: center;
   margin-left: auto;
+
+  svg {
+    fill: ${({ theme }) => theme.colors.mainBlack};
+  }
 `;
 
 export const SocialLinksWrapper = styled.div`

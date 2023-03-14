@@ -170,6 +170,8 @@ const AddRecipe = () => {
     });
   };
 
+  const theme = store.get('theme');
+
   return (
     <Container>
       <Title>Add recipe</Title>
@@ -178,12 +180,14 @@ const AddRecipe = () => {
           onSubmit={handleSubmit}
           enctype="multipart/form-data"
           isMobile={isMobile}
+          localTheme={theme}
         >
           <AddRecipeMeta
             path={path}
             inputs={inputs}
             file={file}
             isDesktop={isDesktop}
+            isMobile={isMobile}
             handleFile={handleFile}
             handleChange={handleChange}
             handleSelect={handleSelect}
@@ -197,9 +201,14 @@ const AddRecipe = () => {
             handleUserIngredient={handleUserIngredient}
             handleUnitValue={handleUnitValue}
             handleRemove={handleRemove}
+            localTheme={theme}
           />
 
-          <AddRecipeSubmit inputs={inputs} handleChange={handleChange} />
+          <AddRecipeSubmit
+            inputs={inputs}
+            handleChange={handleChange}
+            localTheme={theme}
+          />
         </RecipeForm>
         <AddRecipePopular isDesktop={isDesktop} isTablet={isTablet} />
       </MainWrapper>

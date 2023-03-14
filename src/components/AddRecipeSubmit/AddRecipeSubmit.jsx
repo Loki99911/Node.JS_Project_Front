@@ -2,9 +2,9 @@ import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import { SubTitle } from 'components/SubTitle/SubTitle';
 import { RecepieSection } from 'pages/AddRecipe/addRecipe.styled';
 
-export const AddRecipeSubmit = ({ inputs, handleChange }) => {
+export const AddRecipeSubmit = ({ inputs, handleChange, localTheme }) => {
   return (
-    <RecepieSection>
+    <RecepieSection localTheme={localTheme}>
       <SubTitle text="Recipe Preparation" />
       <textarea
         name="recipe"
