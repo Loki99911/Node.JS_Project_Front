@@ -35,8 +35,8 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
-    .matches(/^[a-zа-я1-9]/, 'Enter a valid Password*')
     .matches(/[A-ZА-Я]/, 'Your password is little secure. Add uppercase letter!')
+    .matches(/^[a-zа-я1-9A-ZА-Я]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 

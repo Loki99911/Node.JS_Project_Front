@@ -4,7 +4,6 @@ export const stylesMeta = {
     backgroundColor: 'transparent',
     border: 'unset',
     borderRadius: 'none',
-    borderBottom: '1px solid gray',
     borderColor: state.isFocused ? 'transparent' : '#D9D9D9',
     boxShadow: state.isFocused && '0 0 0 1px transparent',
     fontFamily: 'inherit',

@@ -7,6 +7,8 @@ import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+// import { hover } from '@testing-library/user-event/dist/hover';
+
 
 
 export const CategoryList = () => {
@@ -15,7 +17,7 @@ export const CategoryList = () => {
     const [value, setValue] = useState(1);
     const [mapArray, setMapArray] = useState([]);
     const navigate = useNavigate();
-
+const [flag, setFlag] = useState(false);
     const fullCategoryList = useSelector(getFullCategoryList);
 
     useEffect(() => {
@@ -44,6 +46,7 @@ export const CategoryList = () => {
     }, [fullCategoryList, categoryName]);
 
     const handleChange = (event, newValue) => {
+       
         setValue(newValue);
         navigate(`/categories/${event.target.textContent}`);
     };
@@ -54,24 +57,29 @@ export const CategoryList = () => {
             paddingBottom: '28px',
             '&.Mui-selected': {
                 color: '#8BAA36', 
-                
-            },
-                
+                },
+             
         }} />
     ));
-
+const onMouseEnter = () => {setFlag(true)}
+const onMouseLeave = () => {setFlag(false)}
     return (
-        <Box sx={{ maxWidth: '100%', bgcolor: 'transparent' }}>
-            <Tabs value={value} onChange={handleChange}  aria-label="nav tabs example" scrollButtons="auto" sx={{
+        <Box sx={{ maxWidth: '100%', bgcolor: 'transparent' }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <Tabs
+        onChange={handleChange}
+        value={value}
+        variant="scrollable"
+    scrollButtons={true}
+    aria-label="scrollable auto tabs example"
+       
+   sx={{
                     '& .MuiTabs-scroller': {
                     '& .css-1aquho2-MuiTabs-indicator':{backgroundColor: '#8BAA36 ',},
                     overflowX: 'auto',
                     scrollbarWidth: 'none',
                     '&::-webkit-scrollbar': {
-                        display: 'none',
-                        
+                        display: 'none',                       
                     },
-                    
                 },
                 '& .MuiTabs-flexContainer': {
                     gap: '55px',
@@ -81,6 +89,9 @@ export const CategoryList = () => {
                     minWidth: 'unset',
                     fontSize: '18px', color: '#BDBDBD', fontFamily: "Poppins", fontWeight: "400", lineHeight: "18px",
                 borderColor: '#8BAA36'
+                },
+                '& svg': {
+                    opacity: `${flag?1:0}`,
                 },
             }}>
                 {items}

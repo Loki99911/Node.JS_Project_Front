@@ -81,8 +81,12 @@ export const HeaderComp = () => {
                     <img src={logo} alt="logo" />
                   </NavLinkStyled>
                 </LogoWrapper>
-                <BurgerWrapper>
-                  <HeaderUser name={userName} avatarUrl={userAvatar} />
+                <BurgerWrapper color={color}>
+                  <HeaderUser
+                    color={navColor}
+                    name={userName}
+                    avatarUrl={userAvatar}
+                  />
                   <BurgerButton type="button" onClick={toggleMobileMenu}>
                     <svg>
                       <use href={sprite + `#menu`} />

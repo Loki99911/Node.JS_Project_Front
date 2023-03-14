@@ -33,7 +33,7 @@ const MainPage = () => {
               future.
             </MainPageText>
             <СhooseYourBreakfast />
-            <SearchForm styled={'black'}/>
+            <SearchForm styled={'black'} />
           </MainPageDiv>
         </Container>
       </MainPageBg>

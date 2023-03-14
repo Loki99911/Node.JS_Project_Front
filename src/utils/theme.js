@@ -13,6 +13,7 @@ export const theme = {
     secondaryAccent: '#EBF3D4',
 
     mainHeaderText: '#22252A',
+    mainBtnText: '#22252A',
     bodyBg: '#FAFAFA',
     footerBg: '#22252A',
     footerSMlinks: '#8BAA36',
@@ -59,6 +60,7 @@ export const theme = {
   borders: {
     btnStandart: '2px solid #FAFAFA',
     btnHover: '2px solid #8BAA36',
+    mainSearchInput: '1px solid #F0F0F0',
   },
   radii: {
     btnStandart: '6px',
@@ -84,12 +86,13 @@ export const darkTheme = {
     mainWhite: '#000000',
     mainGrey: '#7E7E7E',
     secondaryGrey: '#656565',
-    disabledGrey: '#BDBDBD',
+    disabledGrey: 'rgba(255, 255, 255, 0.5)',
     mainLight: '#FAFAFA',
     mainAccent: '#8BAA36',
     secondaryAccent: '#1E1F28',
 
     mainHeaderText: '#FAFAFA',
+    mainBtnText: '#FAFAFA',
     bodyBg: '#23262A',
     footerBg: '#8BAA36',
     footerSMlinks: '#FAFAFA',
@@ -99,7 +102,7 @@ export const darkTheme = {
     recipeBlockBtnBg: '#8BAA36',
     recipeBlockBg: '#2A2C36',
     paginationBg: '#8BAA36',
-    mainSearchInput: 'transparent',
+    mainSearchInput: '#2A2C36',
     paginationShadow: '0px 4px 4px rgba(31, 30, 30, 0.2)',
     userName: '#22252A',
 
@@ -135,6 +138,7 @@ export const darkTheme = {
   borders: {
     btnStandart: '2px solid #FAFAFA',
     btnHover: '2px solid #8BAA36',
+    mainSearchInput: '1px solid rgba(255, 255, 255, 0.2)',
   },
   radii: {
     btnStandart: '6px',

@@ -7,12 +7,12 @@ import {
   TableHeaderTitle,
   BoxForItemNumber,
   BoxForItemRemove,
-} from './style';
+} from './style.js';
 import icons from 'images/sprite.svg';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
-const list = [{ _id: '22222', prod:"25" }, { _id: '4544', prod:"255" }];
+const list = [{ id: '22222', strIngredient:"25", weight:"22", image:"url" }, { id: '4544', strIngredient:"255", weight:"22" }];
 
 const ShopingTabl = () => {
 //    const dispatcher = useDispatch()
@@ -21,9 +21,7 @@ const ShopingTabl = () => {
 //         dispatcher();
 //     }, [dispatcher]);
 
-
   return (
-    <>
       <Table>
         <TableHeaded>
           <TableHeaderNameTitle>Products</TableHeaderNameTitle>
@@ -32,15 +30,15 @@ const ShopingTabl = () => {
         </TableHeaded>
         {list.map(elem => {
           return (
-            <TableHeaded key={elem._id}>
+            <TableHeaded key={elem.id}>
               <TableHeaderNameTitle>
                 <BoxForItemImage>
-            <img src={elem.prod} alt="product"/>
+            <img src={elem.image} alt="product"/>
                 </BoxForItemImage>
-                <ItemName>{elem.prod}</ItemName>
+                <ItemName>{elem.strIngredient}</ItemName>
               </TableHeaderNameTitle>
               <TableHeaderTitle>
-                <BoxForItemNumber>{elem.prod}</BoxForItemNumber>
+                <BoxForItemNumber>{elem.weight}</BoxForItemNumber>
               </TableHeaderTitle>
               <TableHeaderTitle>
                 <BoxForItemRemove onClick={()=>"jjj"}>
@@ -53,7 +51,6 @@ const ShopingTabl = () => {
           );
         })}
       </Table>
-    </>
   );
 };
 

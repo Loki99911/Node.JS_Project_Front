@@ -5,7 +5,7 @@ export const CloseBtnComp = ({ location, onClick }) => {
   return (
     <CloseBtn location={location} type="button" onClick={onClick}>
       <svg>
-        <use href={sprite + `#icon-cross`} />
+        <use href={sprite + `#close-btn`} />
       </svg>
     </CloseBtn>
   );
