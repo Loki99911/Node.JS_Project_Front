@@ -2,8 +2,8 @@ import { ButtonSkew } from 'components/ButtonSkew/ButtonSkew';
 import React, { useState } from 'react';
 import { SearchBlock, SearchIn, SearchInput } from './SearchForm.styled';
 
-export const SearchForm = ({ setSearchParams, type, styled }) => {
-  const [searchValue, setInputValue] = useState('');
+export const SearchForm = ({ handleOnSubmit, type = 'title', styled, startQuery }) => {
+  const [searchValue, setInputValue] = useState(startQuery??'');
 
   function handleInputChange(event) {
     setInputValue(event.target.value);
@@ -11,12 +11,7 @@ export const SearchForm = ({ setSearchParams, type, styled }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setSearchParams(
-      new URLSearchParams({
-        query: searchValue,
-        type,
-      })
-    );
+    handleOnSubmit(searchValue, type);
   }
 
   return (
@@ -25,7 +20,7 @@ export const SearchForm = ({ setSearchParams, type, styled }) => {
         <SearchInput
           type="text"
           value={searchValue}
-        //   placeholder="Beef |"
+          // placeholder="Beef |"
           onChange={handleInputChange}
         />
         <ButtonSkew type="submit" text="Search" styled={styled}></ButtonSkew>
