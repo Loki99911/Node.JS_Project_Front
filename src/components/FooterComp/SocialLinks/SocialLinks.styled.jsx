@@ -12,7 +12,7 @@ export const SocialLinksConteiner = styled.div`
     transition: ${p => p.theme.transitions.main};
 
     :hover {
-      fill: ${p => p.theme.colors.mainLight};
+      fill: ${p => p.theme.colors.footerBtnBg};
     }
   }
 
