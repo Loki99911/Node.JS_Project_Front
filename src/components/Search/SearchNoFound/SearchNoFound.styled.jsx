@@ -11,14 +11,13 @@ export const SearchCont = styled.div`
 `;
 
 export const TextSearch = styled.p`
-
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #000000;
+  color: ${p => p.theme.colors.mainBlack};
   opacity: 0.5;
 
   @media screen and (min-width: 768px) {

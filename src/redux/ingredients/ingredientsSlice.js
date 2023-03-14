@@ -12,6 +12,10 @@ const pending = state => {
 const rejected = state => {
   state.isIngredientsFetching = false;
 };
+const rejectedIngredients = state => {
+  state.isIngredientsFetching = false;
+  state.recipesByIngredients = [];
+};
 
 const initialState = {
   isIngredientsFetching: false,
@@ -38,7 +42,7 @@ export const ingredientsSlice = createSlice({
       .addCase(getRecipesByIngredient.pending, pending)
 
       .addCase(getAllIngredients.rejected, rejected)
-      .addCase(getRecipesByIngredient.rejected, rejected),
+      .addCase(getRecipesByIngredient.rejected, rejectedIngredients),
 });
 
 export default ingredientsSlice.reducer;

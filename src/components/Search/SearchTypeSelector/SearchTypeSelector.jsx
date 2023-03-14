@@ -1,12 +1,13 @@
 import Select from 'react-select';
 import { SelectCon } from './SearchTypeSelector.styled';
 import { useEffect, useState } from 'react';
+
 const customStyles = {
   control: (baseStyles, state) => ({
     ...baseStyles,
     backgroundColor: '#D9D9D9',
     borderColor: state.isFocused ? 'transparent' : '#D9D9D9',
-    boxShadow: state.isFocused && '0 0 0 1px transparent',
+    boxShadow: state.isFocused ? '0 0 0 1px transparent' : null,
     borderRadius: '6px',
     fontFamily: 'Poppins',
     fontStyle: 'normal',
@@ -15,19 +16,23 @@ const customStyles = {
     lineHeight: '18px',
     letterSpacing: '-0.02em',
     textAlign: 'left',
-    opacity: '0.5',
+    // opacity: '0.5',
     width: '146px',
     height: '34px',
+    border: 'unset',
     '@media (min-width: 768px)': {
       fontSize: '14px',
       lineHeight: '21px',
       width: '175px',
       height: '41px',
     },
-    '@media (min-width: 1440px)': {
-      width: '198px',
-      height: '49px',
-    },
+    outline: state.isSelected && state.isFocused ? 'grey' : null,
+  }),
+  contanier: (baseStyles, state) => ({
+    ...baseStyles,
+    outline: state.isSelected && state.isFocused ? 'grey' : null,
+    boxShadow: state.isFocused ? '0 0 0 1px transparent' : null,
+    color: 'rgba(0, 0, 0, 0.5) !important',
   }),
   menuList: (baseStyles, state) => ({
     ...baseStyles,
@@ -42,18 +47,21 @@ const customStyles = {
     },
     letterSpacing: '-0.02em',
     textAlign: 'left',
-    opacity: '0.5',
+    // opacity: '0.5',
+    color: 'rgba(0, 0, 0, 0.5) !important',
   }),
 
   option: (baseStyles, state) => ({
     ...baseStyles,
     backgroundColor: state.isSelected ? '#D9D9D9' : baseStyles.backgroundColor,
-    color: state.isSelected ? '#000000' : baseStyles.color,
+    color: state.isSelected
+      ? 'rgba(0, 0, 0, 0.5) !important'
+      : baseStyles.color,
   }),
   dropdownIndicator: baseStyles => ({
     ...baseStyles,
     color: '#8BAA36',
-    opacity: 1,
+    // opacity: 1,
   }),
   indicatorSeparator: baseStyles => ({
     ...baseStyles,
@@ -62,6 +70,10 @@ const customStyles = {
   menu: baseStyles => ({
     ...baseStyles,
     margin: 0,
+  }),
+  placeholder: baseStyles => ({
+    ...baseStyles,
+    color: 'rgba(0, 0, 0, 0.5) !important',
   }),
 };
 
