@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'hooks/useMedia';
 import { getName, getAvatar } from 'redux/auth/authSelectors';
 import sprite from '../../images/sprite.svg';
@@ -22,8 +23,26 @@ import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 import { CloseBtnComp } from 'components/CloseButton/CloseBtn';
 
 export const HeaderComp = () => {
+  const { pathname } = useLocation();
   const isRowBased = useMediaQuery('(min-width: 1440px)');
   const [showMenu, setShowMenu] = useState(false);
+  const [color, setColor] = useState('light');
+  const [navColor, setNavColor] = useState('light');
+
+  useEffect(() => {
+    if (pathname.includes('main') || pathname.includes('recipe')) {
+      setColor('dark');
+    } else {
+      setColor('light');
+    }
+  }, [pathname]);
+  useEffect(() => {
+    if (pathname.includes('recipe')) {
+      setNavColor('dark');
+    } else {
+      setNavColor('light');
+    }
+  }, [pathname]);
 
   const userName = useSelector(getName);
   const userAvatar = useSelector(getAvatar);
@@ -42,8 +61,12 @@ export const HeaderComp = () => {
                   <img src={logo} alt="logo" />
                 </NavLinkStyled>
               </LogoWrapper>
-              <HeaderNav />
-              <HeaderUser name={userName} avatarUrl={userAvatar} />
+              <HeaderNav navColor={navColor} />
+              <HeaderUser
+                color={color}
+                name={userName}
+                avatarUrl={userAvatar}
+              />
               <ThemeToggler />
             </HeaderWrapper>
           </Container>
