@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Node.JS_Project_Front/static/css/main.91a726fe.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.ff2a5409.js",
+    "main.css": "/Node.JS_Project_Front/static/css/main.f009d4f8.css",
+    "main.js": "/Node.JS_Project_Front/static/js/main.09c19039.js",
     "static/css/940.acf3b8c5.chunk.css": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css",
     "static/js/940.e4291f54.chunk.js": "/Node.JS_Project_Front/static/js/940.e4291f54.chunk.js",
     "static/js/347.4982ddfd.chunk.js": "/Node.JS_Project_Front/static/js/347.4982ddfd.chunk.js",
@@ -67,8 +67,8 @@
     "static/media/logo_desc.svg": "/Node.JS_Project_Front/static/media/logo_desc.3326a095578a5f612526f7ab93edd379.svg",
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
-    "main.91a726fe.css.map": "/Node.JS_Project_Front/static/css/main.91a726fe.css.map",
-    "main.ff2a5409.js.map": "/Node.JS_Project_Front/static/js/main.ff2a5409.js.map",
+    "main.f009d4f8.css.map": "/Node.JS_Project_Front/static/css/main.f009d4f8.css.map",
+    "main.09c19039.js.map": "/Node.JS_Project_Front/static/js/main.09c19039.js.map",
     "940.acf3b8c5.chunk.css.map": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css.map",
     "940.e4291f54.chunk.js.map": "/Node.JS_Project_Front/static/js/940.e4291f54.chunk.js.map",
     "347.4982ddfd.chunk.js.map": "/Node.JS_Project_Front/static/js/347.4982ddfd.chunk.js.map",
@@ -84,7 +84,7 @@
     "193.4615ff4c.chunk.js.map": "/Node.JS_Project_Front/static/js/193.4615ff4c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.91a726fe.css",
-    "static/js/main.ff2a5409.js"
+    "static/css/main.f009d4f8.css",
+    "static/js/main.09c19039.js"
   ]
 }
