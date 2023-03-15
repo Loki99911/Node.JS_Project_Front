@@ -41,18 +41,16 @@ const Favorites = () => {
             favorites.map(item => {
               return (
                 <li key={item.idMeal}>
-                  <NavLink to={`/recipe/${item.idMeal}`}>
-                    <RecipeBlock
-                      location="favorite"
-                      id={item.idMeal}
-                      img={item.strMealThumb ?? img}
-                      title={item.strMeal ?? 'No name'}
-                      text={
-                        <span>{item.strInstructions ?? 'No description'}</span>
-                      }
-                      time={item.cookingTime ?? '__ min'}
-                    />
-                  </NavLink>
+                  <RecipeBlock
+                    location="favorite"
+                    id={item.idMeal}
+                    img={item.strMealThumb ?? img}
+                    title={item.strMeal ?? 'No name'}
+                    text={
+                      <span>{item.strInstructions ?? 'No description'}</span>
+                    }
+                    time={item.cookingTime ?? '__ min'}
+                  />
                 </li>
               );
             })}
