@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export const PaginationWrapper = styled.div`
   position: relative;
   max-width: 275px;
+  width: fit-content;
   box-sizing: border-box;
   height: 51px;
   margin: 0 auto;
   margin-top: 50px;
   padding: 12px 26px;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   background-color: ${p => p.theme.colors.recipeBlockBg};
@@ -16,7 +18,8 @@ export const PaginationWrapper = styled.div`
   border-radius: ${p => p.theme.radii.pagination};
 
   & nav {
-    position: absolute;
+    /* position: absolute; */
+    max-width: 100%;
   }
 
   @media screen and (min-width: 768px) {
@@ -32,15 +35,25 @@ export const PaginationWrapper = styled.div`
 
   & .MuiPagination-ul {
     margin-top: 0;
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    gap: 0px;
     color: ${p => p.theme.colors.paginationText};
   }
 
   & .MuiPaginationItem-page {
     color: ${p => p.theme.colors.paginationText};
+    padding: 0;
+    min-width: 27px;
   }
 
   & .MuiPaginationItem-icon {
     fill: ${p => p.theme.colors.paginationText};
+  }
+
+  & .MuiPaginationItem-ellipsis {
+    color: ${p => p.theme.colors.paginationText};
   }
 
   & .MuiPaginationItem-page.Mui-selected {
