@@ -32,6 +32,15 @@ export const PaginationWrapper = styled.div`
 
   & .MuiPagination-ul {
     margin-top: 0;
+    color: ${p => p.theme.colors.paginationText};
+  }
+
+  & .MuiPaginationItem-page {
+    color: ${p => p.theme.colors.paginationText};
+  }
+
+  & .MuiPaginationItem-icon {
+    fill: ${p => p.theme.colors.paginationText};
   }
 
   & .MuiPaginationItem-page.Mui-selected {
