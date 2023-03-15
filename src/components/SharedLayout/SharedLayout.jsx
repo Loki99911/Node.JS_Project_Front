@@ -1,17 +1,20 @@
 import { FooterComp } from 'components/FooterComp/FooterComp';
 import { HeaderComp } from 'components/HeaderComp/HeaderComp';
+import { Loader } from 'components/Loader/Loader';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { SharedLayoutConteiner } from './SharedLayout.styled';
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
   return (
     <SharedLayoutConteiner>
       <HeaderComp />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader/>}>
         <Outlet />
       </Suspense>
       <FooterComp />
     </SharedLayoutConteiner>
   );
 };
+
+export default SharedLayout;
