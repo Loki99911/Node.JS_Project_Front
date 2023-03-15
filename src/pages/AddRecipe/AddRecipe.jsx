@@ -17,11 +17,12 @@ import {
   getPopularRecipes,
 } from 'redux/outerRecipes/outerRecipesOperations';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
-import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
+// import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { AddRecipePopular } from 'components/AddRecipePopular/AddRecipePopular';
 import { AddRecipeMeta } from 'components/AddRecipeMeta/AddRecipeMeta';
 import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeIngredients';
 import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
+import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 
 const init = {
   recipe: '',
@@ -119,32 +120,32 @@ const AddRecipe = () => {
       })
     );
 
-    const flags = {
-      recipe: {
-        isValid: !recipe ? false : true,
-        message: !recipe ? 'Invalid RECIPE' : '',
-      },
-      time: {
-        isValid: !time ? true : false,
-        message: !time ? 'Invalid TIME' : '',
-      },
-      category: {
-        isValid: !category ? true : false,
-        message: !category ? 'Invalid CATEGORY' : '',
-      },
-      about: {
-        isValid: !about ? true : false,
-        message: !about ? 'Invalid ABOUT' : '',
-      },
-      title: {
-        isValid: !title ? true : false,
-        message: !title ? 'Invalid TITLE' : '',
-      },
-      ingredients: {
-        isValid: !ingredientsList.length ? true : false,
-        message: !ingredientsList.length ? 'Invalid INGREDIENTS' : '',
-      },
-    };
+    // const flags = {
+    //   recipe: {
+    //     isValid: !recipe ? false : true,
+    //     message: !recipe ? 'Invalid RECIPE' : '',
+    //   },
+    //   time: {
+    //     isValid: !time ? true : false,
+    //     message: !time ? 'Invalid TIME' : '',
+    //   },
+    //   category: {
+    //     isValid: !category ? true : false,
+    //     message: !category ? 'Invalid CATEGORY' : '',
+    //   },
+    //   about: {
+    //     isValid: !about ? true : false,
+    //     message: !about ? 'Invalid ABOUT' : '',
+    //   },
+    //   title: {
+    //     isValid: !title ? true : false,
+    //     message: !title ? 'Invalid TITLE' : '',
+    //   },
+    //   ingredients: {
+    //     isValid: !ingredientsList.length ? true : false,
+    //     message: !ingredientsList.length ? 'Invalid INGREDIENTS' : '',
+    //   },
+    // };
 
     toast.error('Error Notification !', {
       position: 'bottom-right',
@@ -177,8 +178,8 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    // dispatch(addOwnRecipe(formData));
-    // resetForm();
+    dispatch(addOwnRecipe(formData));
+    resetForm();
   };
 
   const handleSelect = (...arg) => {
