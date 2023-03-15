@@ -15,9 +15,7 @@ import {
   deleteFavorite,
 } from 'redux/ownRecipes/ownRecipesOperations';
 
-const avocado = `Is a healthy salad recipe that’s big on nutrients and flavor. A moist, pan seared salmon is layered on top of spinach, avocado, tomatoes, and red onions. Then drizzled with a homemade lemon vinaigrette.`;
-
-const RecipePageHero = ({ meal, idMeal }) => {
+const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
   const [btnText, setBtnText] = useState(false);
 
   const dispatcher = useDispatch();
@@ -67,7 +65,7 @@ const RecipePageHero = ({ meal, idMeal }) => {
     <>
       <RecipeHeroConteiner>
         <HeroTitle>{meal}</HeroTitle>
-        <HeroText>{avocado}</HeroText>
+        <HeroText>{about}</HeroText>
         {btnText || getIngDescription(meal) ? (
           <ButtonSkew
             type="button"
@@ -89,7 +87,7 @@ const RecipePageHero = ({ meal, idMeal }) => {
           <svg>
             <use href={sprite + `#icon-clock`} />
           </svg>
-          <span> 2-3 weeks</span>
+          <span>{cookingTime}</span>
         </CookingTime>
       </RecipeHeroConteiner>
     </>
