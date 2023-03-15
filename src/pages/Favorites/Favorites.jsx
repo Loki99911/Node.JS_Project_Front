@@ -24,8 +24,8 @@ const Favorites = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(getFavorite({ page: 1, per_page: 4 }));
-  }, [dispatch]);
+    dispatch(getFavorite({ page: page, per_page: perPage }));
+  }, [dispatch, page]);
 
   const handleChange = (event, value) => {
     setPage(value);
