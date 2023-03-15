@@ -52,6 +52,10 @@ export const PaginationWrapper = styled.div`
     fill: ${p => p.theme.colors.paginationText};
   }
 
+  & .MuiPaginationItem-ellipsis {
+    color: ${p => p.theme.colors.paginationText};
+  }
+
   & .MuiPaginationItem-page.Mui-selected {
     background-color: ${p => p.theme.colors.paginationBg};
     transition: ${p => p.theme.transitions.main};
