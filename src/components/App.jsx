@@ -28,7 +28,6 @@ import { getMode } from 'redux/theme/themeSelector';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { Loader } from './Loader/Loader';
-import { ToastContainer } from 'react-toastify';
 
 // const Main = lazy(() => import('pages/Main/Main'));
 // const Register = lazy(() => import('pages/Register/Register'));
