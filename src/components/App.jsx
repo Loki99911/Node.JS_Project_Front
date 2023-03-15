@@ -28,7 +28,8 @@ import { getMode } from 'redux/theme/themeSelector';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { Loader } from './Loader/Loader';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // const Main = lazy(() => import('pages/Main/Main'));
 // const Register = lazy(() => import('pages/Register/Register'));
 // const Signin = lazy(() => import('pages/Signin/Signin'));
@@ -115,6 +116,7 @@ export const App = () => {
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </ThemeProvider>
   );
 };
