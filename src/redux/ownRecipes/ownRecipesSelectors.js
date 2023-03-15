@@ -7,6 +7,8 @@ export const getCustomRecipes = state => state.ownRecipes.ownRecipes;
 // ---- returns an Array of Objects
 // ---- Use with function "getFavorite()"
 export const getFavoriteRecipes = state => state.ownRecipes.favorites.recipes;
+export const getTotalFavoriteRecipes = state =>
+  state.ownRecipes.favorites.total;
 
 // ------------------ Own Recipe by ID ------------------
 // ---- returns an Object
