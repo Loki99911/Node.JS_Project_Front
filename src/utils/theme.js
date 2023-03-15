@@ -26,6 +26,7 @@ export const theme = {
     recipeBlockBtnBg: '#22252A',
     recipeBlockBg: '#FFFFFF',
     paginationBg: '#EBF3D4',
+    paginationText: '#656565',
     paginationShadow: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     mainSearchInput: '#FFFFFF',
     userName: '#22252A',
@@ -54,6 +55,7 @@ export const theme = {
     time: '1.43',
     headerLinks: '1.6',
     userLink: '1.7',
+    searchSelect: '1.5',
   },
   letterSpacings: {
     subheader: '-0.24px',
@@ -106,6 +108,7 @@ export const darkTheme = {
     recipeBlockBtnBg: '#8BAA36',
     recipeBlockBg: '#2A2C36',
     paginationBg: '#8BAA36',
+    paginationText: 'rgba(255, 255, 255, 0.6)',
     mainSearchInput: '#2A2C36',
     paginationShadow: '0px 4px 4px rgba(31, 30, 30, 0.2)',
     userName: '#22252A',
@@ -136,6 +139,7 @@ export const darkTheme = {
     time: '1.43',
     headerLinks: '1.6',
     userLink: '1.7',
+    searchSelect: '1.5',
   },
   letterSpacings: {
     subheader: '-0.24px',

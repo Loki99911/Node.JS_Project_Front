@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const PaginationWrapper = styled.div`
+  position: relative;
   max-width: 275px;
   box-sizing: border-box;
   height: 51px;
@@ -14,6 +15,10 @@ export const PaginationWrapper = styled.div`
   box-shadow: ${p => p.theme.colors.paginationShadow};
   border-radius: ${p => p.theme.radii.pagination};
 
+  & nav {
+    position: absolute;
+  }
+
   @media screen and (min-width: 768px) {
     max-width: 324px;
     height: 55px;
@@ -23,6 +28,19 @@ export const PaginationWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     max-width: 436px;
     padding: 14px 24px;
+  }
+
+  & .MuiPagination-ul {
+    margin-top: 0;
+    color: ${p => p.theme.colors.paginationText};
+  }
+
+  & .MuiPaginationItem-page {
+    color: ${p => p.theme.colors.paginationText};
+  }
+
+  & .MuiPaginationItem-icon {
+    fill: ${p => p.theme.colors.paginationText};
   }
 
   & .MuiPaginationItem-page.Mui-selected {

@@ -35,7 +35,8 @@ export const SelectStyled = styled(Select)`
   & .react-select__control {
     background-color: ${p => p.theme.colors.searchSelectBg};
     border: ${p => p.theme.borders.searchInput};
-
+    outline: none;
+    box-shadow: none;
     border-radius: ${p => p.theme.radii.searchSelectBg};
     width: 146px;
     height: 34px;
@@ -95,14 +96,14 @@ export const SelectStyled = styled(Select)`
   & .react-select__menu-list {
     background-color: ${p => p.theme.colors.searchDropDownBg};
     border-radius: 0px 0px 6px 6px;
+    ${p => p.theme.letterSpacings.content};
+    line-height: ${p => p.theme.lineHeights.searchSelect};
+    text-align: left;
 
     @media (min-width: 768px) {
       font-size: 14px;
-      line-height: 21px;
     }
 
-    letter-spacing: -0.02em;
-    text-align: left;
     color: rgba(0, 0, 0, 0.5) !important;
   }
 

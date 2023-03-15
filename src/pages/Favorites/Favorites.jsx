@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFavoriteRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
+import {
+  getFavoriteRecipes,
+  getTotalFavoriteRecipes,
+} from 'redux/ownRecipes/ownRecipesSelectors';
 import { getFavorite } from 'redux/ownRecipes/ownRecipesOperations';
 
 import { Container } from 'components/Container/Container';
@@ -16,10 +19,17 @@ import { ContentWrapper, Wrapper } from './Favorites.styled';
 const Favorites = () => {
   const dispatch = useDispatch();
   const favorites = useSelector(getFavoriteRecipes);
+  const total = useSelector(getTotalFavoriteRecipes);
+  const perPage = 4;
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(getFavorite({ page: 1, per_page: 4 }));
-  }, [dispatch]);
+    dispatch(getFavorite({ page: page, per_page: perPage }));
+  }, [dispatch, page]);
+
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   return (
     <Wrapper>
@@ -47,7 +57,13 @@ const Favorites = () => {
               );
             })}
         </ContentWrapper>
-        {favorites && favorites.length > 0 && <PaginationComp />}
+        {favorites && favorites.length > 0 && (
+          <PaginationComp
+            count={Math.ceil(total / perPage)}
+            page={page}
+            handleChange={handleChange}
+          />
+        )}
       </Container>
     </Wrapper>
   );

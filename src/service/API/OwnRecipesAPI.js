@@ -50,7 +50,7 @@ export const getFavoriteAPI = (page, per_page) => {
     return axios
       .get(`/favorite?page=${page}&per_page=${per_page}`)
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         return data;
       });
   }
