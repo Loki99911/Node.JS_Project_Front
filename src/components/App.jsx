@@ -1,7 +1,7 @@
 import AddRecipe from 'pages/AddRecipe/AddRecipe';
-// import Main from 'pages/Main/Main'; //lazy
-// import Register from 'pages/Register/Register'; //lazy
-// import Signin from 'pages/Signin/Signin'; //lazy
+import Main from 'pages/Main/Main'; //lazy
+import Register from 'pages/Register/Register'; //lazy
+import Signin from 'pages/Signin/Signin'; //lazy
 // import Categories from 'pages/Categories/Categories';//lazy
 // import Favorites from 'pages/Favorites/Favorites';//lazy
 // import MyRecipes from 'pages/MyRecipes/MyRecipes';//lazy
@@ -12,10 +12,12 @@ import AddRecipe from 'pages/AddRecipe/AddRecipe';
 // import MainPage from 'pages/MainPage/MainPage';//lazy
 import SharedLayout from './SharedLayout/SharedLayout';
 import { Route, Routes } from 'react-router-dom';
+
 import { PrivateRoute, PublicRoute } from 'service/routes';
 import { getIsLoggedIn, getIsUserFetching } from '../redux/auth/authSelectors';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
+
 import Error from 'pages/Error/Error';
 import { lazy, useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
@@ -27,9 +29,10 @@ import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { Loader } from './Loader/Loader';
 
-const Main = lazy(() => import('pages/Main/Main'));
-const Register = lazy(() => import('pages/Register/Register'));
-const Signin = lazy(() => import('pages/Signin/Signin'));
+// const Main = lazy(() => import('pages/Main/Main'));
+// const Register = lazy(() => import('pages/Register/Register'));
+// const Signin = lazy(() => import('pages/Signin/Signin'));
+// const SharedLayout = lazy(() => import('../components/SharedLayout/SharedLayout'));
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const Categories = lazy(() => import('pages/Categories/Categories'));
 const MyRecipes = lazy(() => import('pages/MyRecipes/MyRecipes'));
@@ -44,7 +47,7 @@ const CategoriesByName = lazy(() =>
 export const App = () => {
   const isUserFetching = useSelector(getIsUserFetching);
   const { mode } = useSelector(getMode);
-  const themeMode = mode === 'light' ? lightMode : darkMode;
+  const themeMode = mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
   const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
   const categories = useSelector(getFullCategoryList);
