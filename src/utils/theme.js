@@ -54,6 +54,7 @@ export const theme = {
     time: '1.43',
     headerLinks: '1.6',
     userLink: '1.7',
+    searchSelect: '1.5',
   },
   letterSpacings: {
     subheader: '-0.24px',
@@ -136,6 +137,7 @@ export const darkTheme = {
     time: '1.43',
     headerLinks: '1.6',
     userLink: '1.7',
+    searchSelect: '1.5',
   },
   letterSpacings: {
     subheader: '-0.24px',
