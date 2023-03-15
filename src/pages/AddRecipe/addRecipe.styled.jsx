@@ -133,6 +133,7 @@ export const RecepieSection = styled.div`
     line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
     color: ${({ theme }) => theme.colors.mainBlack};
     font-family: inherit;
+    border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
 
     background-color: ${({ localTheme, theme }) => {
       return localTheme === 'light' ? theme.colors.mainGreyBg : 'transparent';
@@ -181,6 +182,7 @@ export const IngredientsList = styled.ul`
 export const ValueInputWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
+  border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
 
   background-color: ${({ localTheme, theme }) => {
     return localTheme === 'light' ? theme.colors.mainGreyBg : 'transparent';
@@ -273,5 +275,10 @@ export const SocialLinksWrapper = styled.div`
 
   ${SocialLinksConteiner} {
     justify-content: flex-start;
+
+    svg:hover {
+      fill: ${({ theme, localTheme }) =>
+        localTheme === 'light' ? 'black' : theme.colors.mainAccent};
+    }
   }
 `;

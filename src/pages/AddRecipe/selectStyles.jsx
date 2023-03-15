@@ -70,9 +70,12 @@ export const stylesIngredient = theme => {
     control: (baseStyles, state) => ({
       ...baseStyles,
       backgroundColor: theme === 'light' ? 'rgb(217, 217, 217)' : 'transparent',
-      border: 'unset',
+      // border: 'unset',
       borderRadius: '6px',
-      borderColor: state.isFocused ? 'transparent' : '#D9D9D9',
+      borderColor: state.isFocused ? '#D9D9D9' : '#D9D9D9',
+      ':hover': {
+        borderColor: '#D9D9D9',
+      },
       boxShadow: state.isFocused && '0 0 0 1px transparent',
       fontFamily: 'inherit',
       fontStyle: 'inherit',
@@ -134,9 +137,14 @@ export const stylesUnit = theme => {
     control: (baseStyles, state) => ({
       ...baseStyles,
       backgroundColor: theme === 'light' ? 'rgb(217, 217, 217)' : 'transparent',
-      border: 'unset',
+      // border: 'none',
+      outline: theme === 'light' ? 'none' : "1px solid 'rgb(217, 217, 217)'",
       borderRadius: '6px',
-      borderColor: state.isFocused ? 'transparent' : '#D9D9D9',
+      borderColor: state.isFocused ? 'transparent' : 'transparent',
+      ':hover': {
+        borderColor: 'transparent',
+      },
+      outlineColor: state.isFocused ? 'transparent' : '#D9D9D9',
       boxShadow: state.isFocused && '0 0 0 1px transparent',
       fontFamily: 'inherit',
       fontStyle: 'inherit',

@@ -16,7 +16,7 @@ import { getPopular } from 'redux/outerRecipes/outerRecipesSelectors';
 import { Autoplay, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const AddRecipePopular = ({ isDesktop, isTablet }) => {
+export const AddRecipePopular = ({ isDesktop, isTablet, localTheme }) => {
   const popularRecepis = useSelector(getPopular);
 
   const popularList = tag =>
@@ -36,7 +36,7 @@ export const AddRecipePopular = ({ isDesktop, isTablet }) => {
   return (
     <PopularSection isDesktop={isDesktop}>
       {isDesktop && (
-        <SocialLinksWrapper>
+        <SocialLinksWrapper localTheme={localTheme}>
           <SubTitle text="Follow us" />
           <SocialLinks />
         </SocialLinksWrapper>
