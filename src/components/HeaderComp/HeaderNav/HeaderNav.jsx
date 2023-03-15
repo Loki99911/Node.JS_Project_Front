@@ -9,7 +9,7 @@ export const HeaderNav = ({ navColor = 'light', setShowMenu }) => {
         onClick={() => {
           setShowMenu(false);
         }}
-        to="/categories"
+        to="/categories/beef"
       >
         Categories
       </StyledLink>
