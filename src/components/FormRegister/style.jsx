@@ -109,7 +109,7 @@ export const InputForAuth = styled(Field)`
   background-color: transparent;
   border-radius: 10px;
   border: 1px solid ${({ bordercolor }) => bordercolor};
-  padding-left: 40px;
+  padding: 0 40px;
   color: ${theme.colors.mainLight};
   transition: ${theme.transitions.main};
 
