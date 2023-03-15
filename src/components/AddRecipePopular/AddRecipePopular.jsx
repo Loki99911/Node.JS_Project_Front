@@ -36,7 +36,7 @@ export const AddRecipePopular = ({ isDesktop, isTablet, localTheme }) => {
   return (
     <PopularSection isDesktop={isDesktop}>
       {isDesktop && (
-        <SocialLinksWrapper>
+        <SocialLinksWrapper localTheme={localTheme}>
           <SubTitle text="Follow us" />
           <SocialLinks />
         </SocialLinksWrapper>

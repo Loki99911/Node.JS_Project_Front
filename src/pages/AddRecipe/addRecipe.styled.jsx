@@ -275,5 +275,10 @@ export const SocialLinksWrapper = styled.div`
 
   ${SocialLinksConteiner} {
     justify-content: flex-start;
+
+    svg:hover {
+      fill: ${({ theme, localTheme }) =>
+        localTheme === 'light' ? 'black' : theme.colors.mainAccent};
+    }
   }
 `;
