@@ -1,6 +1,7 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { toast } from 'react-toastify';
 
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -118,7 +119,52 @@ const AddRecipe = () => {
       })
     );
 
-    if (!recipe || !time || !category || !about || !title) {
+    const flags = {
+      recipe: {
+        isValid: !recipe ? false : true,
+        message: !recipe ? 'Invalid RECIPE' : '',
+      },
+      time: {
+        isValid: !time ? true : false,
+        message: !time ? 'Invalid TIME' : '',
+      },
+      category: {
+        isValid: !category ? true : false,
+        message: !category ? 'Invalid CATEGORY' : '',
+      },
+      about: {
+        isValid: !about ? true : false,
+        message: !about ? 'Invalid ABOUT' : '',
+      },
+      title: {
+        isValid: !title ? true : false,
+        message: !title ? 'Invalid TITLE' : '',
+      },
+      ingredients: {
+        isValid: !ingredientsList.length ? true : false,
+        message: !ingredientsList.length ? 'Invalid INGREDIENTS' : '',
+      },
+    };
+
+    toast.error('Error Notification !', {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
+
+    if (
+      !recipe ||
+      !time ||
+      !category ||
+      !about ||
+      !title ||
+      !ingredientsList.length
+    ) {
       console.log('INVALID FORM DATA');
       return;
     }
@@ -131,8 +177,8 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    dispatch(addOwnRecipe(formData));
-    resetForm();
+    // dispatch(addOwnRecipe(formData));
+    // resetForm();
   };
 
   const handleSelect = (...arg) => {
@@ -210,7 +256,11 @@ const AddRecipe = () => {
             localTheme={theme}
           />
         </RecipeForm>
-        <AddRecipePopular isDesktop={isDesktop} isTablet={isTablet} />
+        <AddRecipePopular
+          isDesktop={isDesktop}
+          isTablet={isTablet}
+          localTheme={theme}
+        />
       </MainWrapper>
     </Container>
   );
