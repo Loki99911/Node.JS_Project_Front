@@ -74,7 +74,8 @@ const onMouseLeave = () => {setFlag(false)}
        
    sx={{
                     '& .MuiTabs-scroller': {
-                    '& .css-1aquho2-MuiTabs-indicator':{backgroundColor: '#8BAA36',},
+                    '& .css-1aquho2-MuiTabs-indicator':{backgroundColor: '#8BAA36'},
+                    '& .css-ttwr4n':{backgroundColor: '#8BAA36'},
                     overflowX: 'auto',
                     scrollbarWidth: 'none',
                     '&::-webkit-scrollbar': {
