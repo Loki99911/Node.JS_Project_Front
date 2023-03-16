@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getAllIngredients } from './ingredientsOperations';
+
 import {
-  getAllIngredients,
-  getRecipesByIngredient,
+  getShoppingIngredient,
+  addShoppingIngredient,
+  removeShoppingIngredient,
 } from './ingredientsOperations';
 
 import { logOut } from 'redux/auth/authOperations';
@@ -16,10 +19,7 @@ const rejected = state => {
 const initialState = {
   isIngredientsFetching: false,
   ingredients: [],
-  recipesByIngredients: {
-    totalHits: 0,
-    meals: [],
-  },
+  shoppingList: [],
 };
 
 export const ingredientsSlice = createSlice({
@@ -31,22 +31,26 @@ export const ingredientsSlice = createSlice({
         state.ingredients = payload;
         state.isIngredientsFetching = false;
       })
-      .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
-        state.recipesByIngredients.meals = payload.meals;
-        state.recipesByIngredients.totalHits = payload.totalHits;
+      .addCase(logOut.fulfilled, () => ({ ...initialState }))
+      .addCase(getShoppingIngredient.fulfilled, (state, { payload }) => {
+        state.shoppingList = payload;
         state.isIngredientsFetching = false;
       })
-      .addCase(logOut.fulfilled, () => ({ ...initialState }))
+      .addCase(addShoppingIngredient.fulfilled, (state, { payload }) => {
+        state.shoppingList.unshift(payload);
+        state.isIngredientsFetching = false;
+      })
+      .addCase(removeShoppingIngredient.fulfilled, (state, { payload }) => {
+        state.shoppingList = state.shoppingList.filter(
+          el => el.idIngredient !== payload.id
+        );
+      })
 
       .addCase(getAllIngredients.pending, pending)
-      .addCase(getRecipesByIngredient.pending, pending)
+      .addCase(getShoppingIngredient.pending, pending)
 
       .addCase(getAllIngredients.rejected, rejected)
-      .addCase(getRecipesByIngredient.rejected, state => {
-        state.isIngredientsFetching = false;
-        state.recipesByIngredients.meals = [];
-        state.recipesByIngredients.totalHits = 0;
-      }),
+      .addCase(getShoppingIngredient.rejected, rejected),
 });
 
 export default ingredientsSlice.reducer;

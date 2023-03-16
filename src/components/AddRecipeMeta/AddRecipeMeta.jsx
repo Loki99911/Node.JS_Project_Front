@@ -70,7 +70,7 @@ export const AddRecipeMeta = ({
             <Select
               styles={stylesMeta(theme)}
               options={categoriesOptionsList(optionsCategoris)}
-              defaultValue={{ label: 'Breakfast', value: 'Breakfast' }}
+              defaultValue={{ label: inputs.title, value: inputs.title }}
               placeholder=" "
               onChange={handleSelect}
               name="category"
@@ -83,7 +83,7 @@ export const AddRecipeMeta = ({
             <Select
               styles={stylesMeta(theme)}
               options={timeOptionsList()}
-              defaultValue={timeOptionsList()[2]}
+              defaultValue={{ label: inputs.time + ' min', value: inputs.time }}
               placeholder=" "
               onChange={handleSelect}
               name="time"

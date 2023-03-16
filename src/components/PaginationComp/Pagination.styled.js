@@ -60,6 +60,8 @@ export const PaginationWrapper = styled.div`
     background-color: ${p => p.theme.colors.paginationBg};
     transition: ${p => p.theme.transitions.main};
     color: ${p => p.theme.colors.mainDark};
+    width: 27px;
+    height: 27px;
 
     &:hover,
     &:focus {

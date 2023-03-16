@@ -76,7 +76,7 @@ export const FooterSm = styled.div`
     font-style: normal;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: ${p => p.theme.colors.footerSMlinks};
+    color: ${p => p.theme.colors.footerCopyRight};
     opacity: 0.5;
 
     @media screen and (min-width: 768px) {

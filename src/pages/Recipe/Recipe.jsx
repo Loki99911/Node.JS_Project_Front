@@ -33,29 +33,15 @@ const Recipe = () => {
     }
   }, [recipeId, dispatcher]);
 
-  function ObjectConvertor(obj) {
-    let array = [];
-    for (let i = 1; i <= 20; i++) {
-      const strIngredient = `strIngredient${i}`;
-      const strMeasure = `strMeasure${i}`;
-      const strIngredientImg = `strIngredientImg${i}`;
-      if (obj[strIngredient] !== null && obj[strIngredient] !== '') {
-        array.push({
-          name: obj[strIngredient],
-          img: obj[strIngredientImg],
-          number: obj[strMeasure],
-          id: i,
-        });
-      }
-    }
-    // console.log(array);
-    return array;
-  }
-
   return (
     myRecipe() && (
       <>
-        <RecipePageHero meal={myRecipe().strMeal} idMeal={myRecipe().idMeal} />
+        <RecipePageHero
+          meal={myRecipe().title}
+          idMeal={recipeId}
+          about={myRecipe().about}
+          cookingTime={myRecipe().cookingTime}
+        />
         <Container>
           <ReportsTable>
             <p>Ingredients</p>
@@ -63,10 +49,10 @@ const Recipe = () => {
               Number <span>Add to list</span>
             </p>
           </ReportsTable>
-          <RecipeInngredientsList ingredients={ObjectConvertor(myRecipe())} />
+          <RecipeInngredientsList ingredients={myRecipe().ingredients} />
           <RecipePreparation
-            image={myRecipe().strMealThumb}
-            instructions={myRecipe().strInstructions}
+            image={myRecipe().imgURL}
+            instructions={myRecipe().description}
           />
         </Container>
       </>
