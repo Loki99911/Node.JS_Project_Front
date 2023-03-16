@@ -138,7 +138,14 @@ const FormLogin = props => {
                 )}
               </BoxForInput>
             </BoxForForm>
-            <FormButton type="submit">Login</FormButton>
+            <FormButton
+              type="submit"
+              disabled={
+                props.errors.password || props.errors.email ? true : false
+              }
+            >
+              Login
+            </FormButton>
           </FormForAuth>
         )}
       </Formik>

@@ -20,9 +20,11 @@ import { getColor } from 'utils/formikColors.js';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(1)
+    .min(2)
     .max(16)
-    .matches(/^[a-zA-Zа-яА-Я1-9]+(([' -][a-zA-Zа-яА-Я1-9 ])?[a-zA-Zа-яА-Я1-9]*)*$/)
+    .matches(
+      /^[a-zA-Zа-яА-Я1-9]+(([' -][a-zA-Zа-яА-Я1-9 ])?[a-zA-Zа-яА-Я1-9]*)*$/
+    )
     .required(),
 
   email: Yup.mixed().test({
@@ -35,7 +37,10 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
-    .matches(/[A-ZА-Я]/, 'Your password is little secure. Add uppercase letter!')
+    .matches(
+      /[A-ZА-Я]/,
+      'Your password is little secure. Add uppercase letter!'
+    )
     .matches(/^[a-zа-я1-9A-ZА-Я]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
@@ -177,7 +182,16 @@ const FormRegister = props => {
                 )}
               </BoxForInput>
             </BoxForForm>
-            <FormButton type="submit">Register</FormButton>
+            <FormButton
+              type="submit"
+              disabled={
+                props.errors.password || props.errors.email || props.errors.name
+                  ? true
+                  : false
+              }
+            >
+              Register
+            </FormButton>
           </FormForAuth>
         )}
       </Formik>

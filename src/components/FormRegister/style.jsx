@@ -159,9 +159,15 @@ export const FormButton = styled.button`
     font-size: 20px;
     margin-top: 50px;
   }
-  &:hover {
+  &:hover:not([disabled]),
+  :focus:not([disabled]) {
     color: ${theme.colors.btnHoverBg};
   }
+    &[disabled] {
+    opacity: 0.7;
+    /* cursor: not-allowed; */
+  }
+
 `;
 
 export const ErrorMessage = styled.p`
@@ -186,6 +192,10 @@ export const LinkAuth = styled(Link)`
   text-decoration: underline;
   font-size: 14px;
   line-height: calc(24 / 16);
+  transition: ${theme.transitions.main};
+    &:hover {
+    color: ${theme.colors.mainAccent};
+  }
 
   @media screen and (min-width: 769px) {
     font-size: 16px;
