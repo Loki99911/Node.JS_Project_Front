@@ -25,6 +25,11 @@ const MyRecipes = () => {
     dispatch(getOwnRecipes({ page: page, per_page: perPage }));
   }, [dispatch, page]);
 
+  useEffect(() => {
+    if (recipes.length < perPage)
+      dispatch(getOwnRecipes({ page: page, per_page: perPage }));
+  }, [dispatch, recipes.length, page]);
+
   const handleChange = (event, value) => {
     setPage(value);
   };
