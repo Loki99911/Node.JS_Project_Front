@@ -37,16 +37,14 @@ const MyRecipes = () => {
           <ContentWrapper>
             {recipes.map(item => {
               return (
-                <li key={item.id}>
+                <li key={item._id}>
                   <RecipeBlock
                     location="recipes"
-                    id={item.idMeal}
-                    img={item.strMealThumb ?? img}
-                    title={item.strMeal ?? 'No name'}
-                    text={
-                      <span>{item.strInstructions ?? 'No description'}</span>
-                    }
-                    time={item.cookingTime ?? '__ min'}
+                    id={item._id}
+                    img={item.imgURL ?? img}
+                    title={item.title ?? 'No name'}
+                    text={<span>{item.about ?? 'No description'}</span>}
+                    time={item.cookingTime ?? ''}
                   />
                 </li>
               );

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const RecipeBlockWrapper = styled.div`
   height: 152px;
+  width: 100%;
   display: flex;
   gap: ${p => (p.location === 'favorite' ? '14px' : '4px')};
   background-color: ${p =>
@@ -49,6 +50,7 @@ export const DataWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 
   border-radius: ${p =>
     p.location === 'recipes' ? p.theme.radii.image : 'none'};
