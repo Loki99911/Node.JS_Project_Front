@@ -24,14 +24,17 @@ const LoginSchema = Yup.object().shape({
     name: 'email',
     params: { a: 'test', b: 'qwe' },
     test: value => {
-      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+      return /\w+@\w+\.\w{1,5}/.test(value);
     },
   }),
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
-    .matches(/[A-ZА-Я]/, 'Enter a valid Password*')
-    .matches(/^[a-zа-я1-9A-ZА-Я]/, 'Enter a valid Password*')
+    .matches(
+      /[1-9]/,
+      'Enter a valid Password*'
+    )
+    .matches(/^[a-zа-я1-9A-ZА-Яії]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 

@@ -23,7 +23,7 @@ const SignupSchema = Yup.object().shape({
     .min(2)
     .max(16)
     .matches(
-      /^[a-zA-Zа-яА-Я1-9і]+(([' -][a-zA-Zа-яА-Я1-9і ])?[a-zA-Zа-яА-Я1-9і]*)*$/
+      /^[a-zA-Zа-яА-Я1-9ії]+(([' -][a-zA-Zа-яА-Я1-9ії ])?[a-zA-Zа-яА-Я1-9ії]*)*$/
     )
     .required(),
 
@@ -31,17 +31,17 @@ const SignupSchema = Yup.object().shape({
     name: 'email',
     params: { a: 'test', b: 'qwe' },
     test: value => {
-      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+      return /\w+@\w+\.\w{1,5}/.test(value);
     },
   }),
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
     .matches(
-      /[A-ZА-Я]/,
+      /[1-9]/,
       'Your password is little secure. Add uppercase letter!'
     )
-    .matches(/^[a-zа-я1-9A-ZА-Я]/, 'Enter a valid Password*')
+    .matches(/^[a-zа-я1-9A-ZА-Яії]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 
@@ -190,7 +190,7 @@ const FormRegister = props => {
                   : false
               }
             >
-              Register
+              Sign up
             </FormButton>
           </FormForAuth>
         )}

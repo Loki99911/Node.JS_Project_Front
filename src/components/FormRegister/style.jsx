@@ -154,6 +154,7 @@ export const FormButton = styled.button`
   text-align: center;
   color: ${theme.colors.btnTextLight};
   transition: ${theme.transitions.main};
+  cursor: pointer;
   @media screen and (min-width: 769px) {
     height: 60px;
     font-size: 20px;
