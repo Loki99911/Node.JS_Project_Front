@@ -28,7 +28,18 @@ export const ButtonSkewStyle = styled.button`
       ? '6px 14px'
       : '16px 30px'};
 
-  background-color: ${({ styled, theme }) => {
+  background-color: ${p =>
+    p.styled === 'black'
+      ? p.theme.colors.recipeBlockBtnBg
+      : p.styled === 'olive'
+      ? p.theme.colors.mainAccent
+      : p.styled === 'other'
+      ? 'transparent'
+      : p.styled === 'transparent'
+      ? 'transparent'
+      : 'red'};
+  /*   
+  ${({ styled, theme }) => {
     switch (styled) {
       case 'black':
         return theme.colors.recipeBlockBtnBg;
@@ -42,6 +53,7 @@ export const ButtonSkewStyle = styled.button`
         return 'red';
     }
   }};
+*/
   outline: none;
   border: none;
 
@@ -56,6 +68,8 @@ export const ButtonSkewStyle = styled.button`
     switch (styled) {
       case 'other':
         return `1px solid ${theme.colors.mainAccent}`;
+      // case 'olive':
+      //   return `1px solid transparent`;
       case 'transparent':
         return `1px solid ${theme.colors.btnTextLight}`;
       default:
@@ -72,9 +86,9 @@ export const ButtonSkewStyle = styled.button`
     color: ${({ styled, theme }) => {
       switch (styled) {
         case 'black':
-          return theme.colors.btnTextLight;
+          return theme.colors.mainSerchHoverText;
         case 'olive':
-          return theme.colors.btnTextLight;
+          return theme.colors.searchDropDownBg;
         case 'other':
           return theme.colors.btnTextLight;
         case 'transparent':
@@ -86,9 +100,9 @@ export const ButtonSkewStyle = styled.button`
     background-color: ${({ styled, theme }) => {
       switch (styled) {
         case 'black':
-          return theme.colors.mainAccent;
+          return theme.colors.footerSMlinks;
         case 'olive':
-          return theme.colors.btnHoverBg;
+          return theme.colors.searchFormHoverBtn;
         case 'transparent':
           return 'transparent';
         case 'other':
@@ -97,11 +111,20 @@ export const ButtonSkewStyle = styled.button`
           return 'red';
       }
     }};
-    border: ${({ styled, theme }) => {
+    border: ${p =>
+      p.styled === 'black'
+        ? `1px solid ${p.theme.colors.mainAccent}`
+        : p.styled === 'olive'
+        ? p.theme.borders.mainNavBord
+        : p.styled === 'transparent'
+        ? `1px solid ${p.theme.colors.mainAccent}`
+        : '1px solid transparent'};
+
+    /* ${({ styled, theme }) => {
       return styled === 'transparent'
         ? `1px solid ${theme.colors.mainAccent}`
         : '1px solid transparent';
-    }};
+    }}; */
   }
 
   @media screen and (min-width: 768px) {
