@@ -30,13 +30,16 @@ export const BtnCategories = styled(NavLink)`
   font-size: 14px;
   line-height: 18px;
   color: ${theme.colors.btnTextLight};
+    border: ${p=>p.theme.borders.mainNavBord};
   padding: 10px 24px;
   background-color: ${theme.colors.mainAccent};
   cursor: pointer;
   float: right;
   transition: ${theme.transitions.main};
   &:hover {
-    background-color: ${theme.colors.mainDark};
+    background-color: ${p=>p.theme.colors.mainNavLinkHover};
+    border: ${p=>p.theme.borders.mainNavBord};
+    color: ${p=>p.theme.colors.searchDropDownBg};
   }
 `;
 
