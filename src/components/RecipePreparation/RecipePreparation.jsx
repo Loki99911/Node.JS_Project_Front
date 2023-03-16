@@ -4,17 +4,25 @@ import {
   InstructionWrapper,
   InstructionTitle,
   InstructionText,
+  InstructionList,
 } from './RecipePreparation.styled';
 
 const RecipePreparation = ({ image, instructions }) => {
+  const items = instructions.split('\r\n').map((item, index) => (
+    <InstructionText key={item}>
+      <span>{index + 1}</span>
+      <p>{item}</p>
+    </InstructionText>
+  ));
+
   return (
     <PreparationWrapper>
       <InstructionWrapper>
         <InstructionTitle>Recipe Preparation</InstructionTitle>
-        <InstructionText>{instructions}</InstructionText>
+        <InstructionList>{items}</InstructionList>
       </InstructionWrapper>
       <ImageWrapper>
-        <img src={image} alt="ImgText"/>
+        <img src={image} alt="ImgText" />
       </ImageWrapper>
     </PreparationWrapper>
   );
