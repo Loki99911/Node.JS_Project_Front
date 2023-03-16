@@ -6,7 +6,7 @@ import searchDesktop1 from '../../../images/bg/bgSearch/bg_search_desktop@1x.png
 import searchDesktop2 from '../../../images/bg/bgSearch/bg_search_desktop@2x.png';
 import { SearchCont, TextSearch, ImgContSearch } from './SearchNoFound.styled';
 
-export const SearchNoFound = () => {
+export const SearchNoFound = ({text}) => {
   return (
     <SearchCont>
       <ImgContSearch>
@@ -26,7 +26,7 @@ export const SearchNoFound = () => {
           />
         </picture>
       </ImgContSearch>
-      <TextSearch>Try looking for something else..</TextSearch>
+      <TextSearch>{text}</TextSearch>
     </SearchCont>
   );
 };
