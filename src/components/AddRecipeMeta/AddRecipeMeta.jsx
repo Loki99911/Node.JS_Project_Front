@@ -62,8 +62,8 @@ export const AddRecipeMeta = ({
               styles={stylesMeta(theme)}
               options={categoriesOptionsList(optionsCategoris)}
               defaultValue={{
-                label: inputs.categories,
-                value: inputs.categories,
+                label: inputs.category,
+                value: inputs.category,
               }}
               placeholder=" "
               onChange={handleSelect}
