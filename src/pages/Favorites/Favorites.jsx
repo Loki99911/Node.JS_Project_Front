@@ -15,6 +15,7 @@ import { PaginationComp } from 'components/PaginationComp/Pagination';
 import img from '../../images/default.jpg';
 
 import { ContentWrapper, Wrapper } from './Favorites.styled';
+import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -35,10 +36,9 @@ const Favorites = () => {
     <Wrapper>
       <Container>
         <Title>Favorites</Title>
-        <ContentWrapper>
-          {favorites &&
-            favorites.length > 0 &&
-            favorites.map(item => {
+        {favorites && favorites.length > 0 ? (
+          <ContentWrapper>
+            {favorites.map(item => {
               return (
                 <li key={item.idMeal}>
                   <RecipeBlock
@@ -54,7 +54,11 @@ const Favorites = () => {
                 </li>
               );
             })}
-        </ContentWrapper>
+          </ContentWrapper>
+        ) : (
+          <EmptyPagePlug text="You currently don't have any favorite recipes added. Let's add some!" />
+        )}
+
         {favorites && favorites.length > 0 && (
           <PaginationComp
             count={Math.ceil(total / perPage)}
