@@ -43,8 +43,12 @@ const MyRecipes = () => {
                     id={item._id}
                     img={item.imgURL ?? img}
                     title={item.title ?? 'No name'}
-                    text={<span>{item.about ?? 'No description'}</span>}
-                    time={item.cookingTime ?? ''}
+                    text={
+                      <span>
+                        {item.about ?? item.description ?? 'No description'}
+                      </span>
+                    }
+                    time={item.cookingTime ? `${item.cookingTime} min` : ''}
                   />
                 </li>
               );
