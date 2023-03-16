@@ -42,8 +42,6 @@ export const AddRecipeMeta = ({
       </div>
       <InputsWrapper localTheme={theme} isMobile={isMobile}>
         <input
-          size="normal"
-          variant="standard"
           placeholder="Enter item title"
           name="title"
           value={inputs.title}
@@ -51,8 +49,6 @@ export const AddRecipeMeta = ({
           autoComplete="off"
         />
         <input
-          size="normal"
-          variant="standard"
           placeholder="Enter about recipe"
           name="about"
           value={inputs.about}
@@ -65,7 +61,10 @@ export const AddRecipeMeta = ({
             <Select
               styles={stylesMeta(theme)}
               options={categoriesOptionsList(optionsCategoris)}
-              defaultValue={{ label: inputs.title, value: inputs.title }}
+              defaultValue={{
+                label: inputs.categories,
+                value: inputs.categories,
+              }}
               placeholder=" "
               onChange={handleSelect}
               name="category"
