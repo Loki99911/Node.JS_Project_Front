@@ -5,6 +5,10 @@ export const ContentWrapper = styled.ul`
   flex-direction: column;
   gap: 18px;
 
+  & li {
+    width: 100%;
+  }
+
   @media screen and (min-width: 768px) {
     gap: 40px;
   }

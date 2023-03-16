@@ -70,6 +70,7 @@ export const BurgerButton = styled.button`
   align-items: center;
   border: none;
   padding: 0;
+  cursor: pointer;
 `;
 
 export const UserInfo = styled.div`
