@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.f009d4f8.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.ae18b53b.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.3c7efa85.js",
     "static/css/940.acf3b8c5.chunk.css": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css",
     "static/js/940.ae8a8540.chunk.js": "/Node.JS_Project_Front/static/js/940.ae8a8540.chunk.js",
     "static/js/347.ca68e743.chunk.js": "/Node.JS_Project_Front/static/js/347.ca68e743.chunk.js",
@@ -68,7 +68,7 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.f009d4f8.css.map": "/Node.JS_Project_Front/static/css/main.f009d4f8.css.map",
-    "main.ae18b53b.js.map": "/Node.JS_Project_Front/static/js/main.ae18b53b.js.map",
+    "main.3c7efa85.js.map": "/Node.JS_Project_Front/static/js/main.3c7efa85.js.map",
     "940.acf3b8c5.chunk.css.map": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css.map",
     "940.ae8a8540.chunk.js.map": "/Node.JS_Project_Front/static/js/940.ae8a8540.chunk.js.map",
     "347.ca68e743.chunk.js.map": "/Node.JS_Project_Front/static/js/347.ca68e743.chunk.js.map",
@@ -85,6 +85,6 @@
   },
   "entrypoints": [
     "static/css/main.f009d4f8.css",
-    "static/js/main.ae18b53b.js"
+    "static/js/main.3c7efa85.js"
   ]
 }
