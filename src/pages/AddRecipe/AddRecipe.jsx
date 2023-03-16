@@ -25,11 +25,11 @@ import { useMediaRules } from 'MediaRules/MediaRules';
 
 const init = {
   recipe: '',
-  title: 'Breakfast',
+  title: '',
   about: '',
-  category: '',
+  category: 'Breakfast',
   time: '30',
-  unitValue: '',
+  unitValue: 'g',
 };
 
 const AddRecipe = () => {
