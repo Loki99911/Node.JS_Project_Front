@@ -19,6 +19,7 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+
 const LoginSchema = Yup.object().shape({
   email: Yup.mixed().test({
     name: 'email',
@@ -30,18 +31,19 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
+    .matches(/[1-9]/, 'Enter a valid Password*')
     .matches(
-      /[1-9]/,
+      /[a-zа-яA-ZА-Яії]/,
       'Enter a valid Password*'
     )
-    .matches(/^[a-zа-я1-9A-ZА-Яії]/, 'Enter a valid Password*')
+    .matches(/^[a-zа-яA-ZА-Яії1-9]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 
 const FormLogin = props => {
   const dispatch = useDispatch();
 
-  return (
+  return (<>
     <div>
       <Formik
         initialValues={{
@@ -154,6 +156,8 @@ const FormLogin = props => {
       </Formik>
       <LinkAuth to="/register">Registration</LinkAuth>
     </div>
+      </>
+
   );
 };
 

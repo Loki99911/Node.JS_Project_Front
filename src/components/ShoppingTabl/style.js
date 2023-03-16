@@ -123,3 +123,7 @@ export const BoxForItemRemove = styled.div`
   padding: 0 30px;
   }
 `;
+
+export const BowForEmptyList = styled.div`
+  margin-bottom: 100px;
+`

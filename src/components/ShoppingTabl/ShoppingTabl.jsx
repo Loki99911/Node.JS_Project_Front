@@ -7,6 +7,7 @@ import {
   TableHeaderTitle,
   BoxForItemNumber,
   BoxForItemRemove,
+  BowForEmptyList
 } from './style.js';
 import icons from 'images/sprite.svg';
 import { useEffect } from 'react';
@@ -16,6 +17,7 @@ import {
   getShoppingIngredient,
   removeShoppingIngredient,
 } from 'redux/ingredients/ingredientsOperations.js';
+import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug.jsx';
 
 const ShopingTabl = () => {
   const dispatcher = useDispatch();
@@ -25,12 +27,13 @@ const ShopingTabl = () => {
   }, [dispatcher]);
 
   const deleteIngredient = e => {
-    const id = e.target.parentNode.parentNode.id;
+    const id = e.target.parentNode.id;
     dispatcher(removeShoppingIngredient(id));
   };
 
-  return (
-    <Table>
+  return (<>{
+      list.length === 0 ? (<BowForEmptyList><EmptyPagePlug text='Your shopping list is empty' /></BowForEmptyList>) :
+        (<Table>
       <TableHeaded key="123654789">
         <TableHeaderNameTitle>Products</TableHeaderNameTitle>
         <TableHeaderTitle>Number</TableHeaderTitle>
@@ -49,8 +52,8 @@ const ShopingTabl = () => {
               <BoxForItemNumber>{elem.weight}</BoxForItemNumber>
             </TableHeaderTitle>
             <TableHeaderTitle>
-              <BoxForItemRemove onClick={deleteIngredient} id={elem._id}>
-                <svg width="20" height="20">
+              <BoxForItemRemove>
+                <svg width="20" height="20" onClick={deleteIngredient} id={elem._id}>
                   <use href={icons + '#icon-cross'}></use>
                 </svg>
               </BoxForItemRemove>
@@ -58,7 +61,8 @@ const ShopingTabl = () => {
           </TableHeaded>
         );
       })}
-    </Table>
+    </Table>)
+  }</>
   );
 };
 
