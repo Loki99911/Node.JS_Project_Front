@@ -1,4 +1,3 @@
-import { TextField } from '@mui/material';
 import {
   AddRecepiSection,
   InputsWithSelectWrapper,
@@ -42,9 +41,7 @@ export const AddRecipeMeta = ({
         <input type="file" id="file" name="file" onChange={handleFile} />
       </div>
       <InputsWrapper localTheme={theme} isMobile={isMobile}>
-        <TextField
-          hiddenLabel
-          fullWidth
+        <input
           size="normal"
           variant="standard"
           placeholder="Enter item title"
@@ -53,9 +50,7 @@ export const AddRecipeMeta = ({
           onChange={handleChange}
           autoComplete="off"
         />
-        <TextField
-          hiddenLabel
-          fullWidth
+        <input
           size="normal"
           variant="standard"
           placeholder="Enter about recipe"
@@ -65,7 +60,7 @@ export const AddRecipeMeta = ({
           autoComplete="off"
         />
         <InputsWithSelectWrapper>
-          <SelectComp localTheme={theme}>
+          <SelectComp localTheme={theme} isMobile={isMobile}>
             <p>Categories</p>
             <Select
               styles={stylesMeta(theme)}
@@ -78,7 +73,7 @@ export const AddRecipeMeta = ({
           </SelectComp>
         </InputsWithSelectWrapper>
         <InputsWithSelectWrapper>
-          <SelectComp localTheme={theme}>
+          <SelectComp localTheme={theme} isMobile={isMobile}>
             <p>Cooking time</p>
             <Select
               styles={stylesMeta(theme)}

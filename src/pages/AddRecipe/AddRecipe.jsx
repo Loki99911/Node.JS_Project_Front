@@ -4,7 +4,6 @@ import 'swiper/css/pagination';
 import { toast } from 'react-toastify';
 
 import { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import store from 'store';
 
 import { RecipeForm, MainWrapper } from './addRecipe.styled';
@@ -17,12 +16,12 @@ import {
   getPopularRecipes,
 } from 'redux/outerRecipes/outerRecipesOperations';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
-// import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { AddRecipePopular } from 'components/AddRecipePopular/AddRecipePopular';
 import { AddRecipeMeta } from 'components/AddRecipeMeta/AddRecipeMeta';
 import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeIngredients';
 import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
+import { useMediaRules } from 'MediaRules/MediaRules';
 
 const init = {
   recipe: '',
@@ -36,9 +35,7 @@ const init = {
 const AddRecipe = () => {
   const dispatch = useDispatch();
 
-  const isDesktop = useMediaQuery({ minWidth: 1440 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1399 });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const { isDesktop, isTablet, isMobile } = useMediaRules();
 
   const [inputs, setInputs] = useState(() => {
     const inputs = store.get('userInputs');

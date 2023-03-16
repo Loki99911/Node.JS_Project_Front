@@ -11,7 +11,7 @@ export const theme = {
     mainLight: '#FFFFFF',
     mainAccent: '#8BAA36',
     secondaryAccent: '#EBF3D4',
-
+    mainNavLinkHover: '#23262A',
     mainHeaderText: '#22252A',
     mainBtnText: '#22252A',
     bodyBg: '#FAFAFA',
@@ -38,6 +38,7 @@ export const theme = {
 
     ingredientsBgrCol: '#EBF3D4',
 
+mainSerchHoverText: '#ffffff',
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
@@ -71,6 +72,7 @@ export const theme = {
     btnHover: '2px solid #8BAA36',
     mainSearchInput: '1px solid #F0F0F0',
     searchInput: '1px solid #F0F0F0',
+    mainNavBord: '1px solid transparent',
   },
   radii: {
     btnStandart: '6px',
@@ -100,7 +102,7 @@ export const darkTheme = {
     mainLight: '#FAFAFA',
     mainAccent: '#8BAA36',
     secondaryAccent: '#1E1F28',
-
+    mainNavLinkHover: '#FFFFFF',
     mainHeaderText: '#FAFAFA',
     mainBtnText: '#FAFAFA',
     bodyBg: '#23262A',
@@ -124,6 +126,7 @@ export const darkTheme = {
 
     ingredientsBgrCol: '#2A2C36',
 
+mainSerchHoverText: '#8BAA36',
     mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
     sectionHeader: '#FAFAFA',
@@ -159,6 +162,7 @@ export const darkTheme = {
     btnHover: '2px solid #8BAA36',
     mainSearchInput: '1px solid rgba(255, 255, 255, 0.2)',
     searchInput: '1px solid rgba(255, 255, 255, 0.2)',
+     mainNavBord: '1px solid #8BAA36',
   },
   radii: {
     btnStandart: '6px',

@@ -49,12 +49,15 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
   }
 
   function getIngDescription(recipeName) {
-    const recipe = obj.some(
-      recipe =>
-        recipe.strMeal ===
-        recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
-    );
-    return recipe;
+    if (obj !== undefined) {
+      const recipe = obj.some(
+        recipe =>
+          recipe.strMeal ===
+          recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
+      );
+      return recipe;
+    }
+    return false;
   }
 
   useEffect(() => {
