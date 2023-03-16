@@ -12,6 +12,7 @@ const RecipePreparation = ({ image, instructions }) => {
     .split('\r\n')
     .filter(elem => {
       if (!elem) return false;
+      if (!isNaN(elem)) return false;
       if (elem.toLowerCase().includes('step')) return false;
       return true;
     })
