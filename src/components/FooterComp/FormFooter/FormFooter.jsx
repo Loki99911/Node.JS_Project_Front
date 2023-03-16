@@ -26,7 +26,7 @@ export const FormFooter = () => {
   const { isDesktop } = useMediaRules();
 
   const getDisabledBtn = (errors, value) => {
-    return !value|| errors ? true : false;
+    return !value || errors ? true : false;
   };
 
   return (
@@ -98,7 +98,9 @@ export const FormFooter = () => {
                 </svg>
               </FlagForInput>
             )}
-            <ErrorMessage className="error" name="email" component="div" />
+            {props.errors.email && props.values.email && (
+              <ErrorMessage className="error" name="email" component="div" />
+            )}
             <FooterFormaBtn
               type="submit"
               disabled={getDisabledBtn(props.errors.email, props.values.email)}

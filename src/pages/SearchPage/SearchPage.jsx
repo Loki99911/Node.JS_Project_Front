@@ -10,39 +10,32 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipesByQuery } from 'redux/outerRecipes/outerRecipesOperations';
 import { getRecipesByIngredient } from 'redux/ingredients/ingredientsOperations';
-import { getRecipesListByIngredient } from 'redux/ingredients/ingredientsSelectors';
 import {
   getIsError,
   getRecipesBySearchQuery,
 } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useMediaRules } from 'MediaRules/MediaRules';
-// import { useState } from 'react';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const query = searchParams.get('query') ?? '';
   const type = searchParams.get('type') ?? '';
-  const [request, setRequest] = useState(null);
+  const [request, setRequest] = useState(false);
   const [page, setPage] = useState(1);
-  // const [totalPages, setTotalPages] = useState(0);
   const { isTablet, isDesktop } = useMediaRules();
+  const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
+  const errorSearch = useSelector(getIsError);
+  const totalQuery = recipesBySearchQuery.totalHits;
 
   let perPage;
   if (isDesktop) {
-    perPage = 12; // Десктоп
+    perPage = 12;
   } else if (isTablet) {
-    perPage = 6; // Планшет
+    perPage = 6;
   } else {
-    perPage = 6; // Мобильный
+    perPage = 6;
   }
-
-  const recipesListByIngredient = useSelector(getRecipesListByIngredient);
-  const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
-  const errorSearch = useSelector(getIsError);
-
-  const totalIng = recipesListByIngredient.totalHits;
-  const totalQuery = recipesBySearchQuery.totalHits;
 
   const handleOnSubmit = (query1, type1) => {
     setSearchParams(
@@ -58,9 +51,6 @@ const SearchPage = () => {
     setPage(value);
   };
 
-  console.log(recipesListByIngredient);
-  console.log(recipesBySearchQuery);
-
   useEffect(() => {
     if (query === '' || type === '') return;
 
@@ -71,10 +61,9 @@ const SearchPage = () => {
       dispatch(
         getRecipesByIngredient({ ingredient: query, page, per_page: perPage })
       );
-      setRequest(false);
+      setRequest(true);
     }
   }, [dispatch, type, query, page, perPage]);
-
 
   return (
     <SearchCont>
@@ -85,48 +74,24 @@ const SearchPage = () => {
           startType={type}
           startQuery={query}
         />
-        {request && (
-          <>
-            <ul>
-              {recipesBySearchQuery?.meals?.map(el => (
-                <CardMeal meal={el} key={el.idMeal} />
-              ))}
-            </ul>
-            {totalQuery > 0 && (
-              <PaginationComp
-                count={Math.ceil(totalQuery / perPage)}
-                page={page}
-                handleChange={handleChange}
-              />
-            )}
-          </>
-        )}
-        {!request && (
-          <>
-            <ul>
-              {recipesListByIngredient?.meals?.map(el => (
-                <CardMeal meal={el} key={el.idMeal} />
-              ))}
-            </ul>
-            {totalIng > 0 && (
-              <PaginationComp
-                count={Math.ceil(totalIng / perPage)}
-                page={page}
-                handleChange={handleChange}
-              />
-            )}
-          </>
-        )}
-
-        {/* {(totalIng > 0 || totalQuery > 0) && (
+        <ul>
+          {recipesBySearchQuery?.meals?.map(el => (
+            <CardMeal meal={el} key={el.idMeal} />
+          ))}
+        </ul>
+        {totalQuery > 0 && (
           <PaginationComp
-            count={Math.ceil((totalIng || totalQuery) / perPage)}
+            count={Math.ceil(totalQuery / perPage)}
             page={page}
             handleChange={handleChange}
           />
-        )} */}
-
-        {errorSearch && <SearchNoFound />}
+        )}
+        {!request && (
+          <SearchNoFound text={`You haven't searched anything yet`} />
+        )}
+        {errorSearch && (
+          <SearchNoFound text={'Try looking for something else...'} />
+        )}
       </Container>
     </SearchCont>
   );
