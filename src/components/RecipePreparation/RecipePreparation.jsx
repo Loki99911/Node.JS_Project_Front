@@ -8,13 +8,11 @@ import {
 } from './RecipePreparation.styled';
 
 const RecipePreparation = ({ image, instructions }) => {
-  console.log(instructions);
   const items = instructions
     .split('\r\n')
     .filter(elem => {
       if (!elem) return false;
       if (elem.toLowerCase().includes('step')) return false;
-      console.log(elem);
       return true;
     })
     .map((item, index) => {
