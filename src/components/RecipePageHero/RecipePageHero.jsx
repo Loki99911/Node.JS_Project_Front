@@ -90,7 +90,7 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
           <svg>
             <use href={sprite + `#icon-clock`} />
           </svg>
-          <span>{cookingTime}</span>
+          <span>{cookingTime + ` min`}</span>
         </CookingTime>
       </RecipeHeroConteiner>
     </>

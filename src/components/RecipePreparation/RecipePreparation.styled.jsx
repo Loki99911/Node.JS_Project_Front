@@ -32,23 +32,61 @@ export const InstructionTitle = styled.title`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #3e4462;
+  color: ${({ theme }) => theme.colors.secondaryDark};
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
     letter-spacing: -0.24px;
   }
 `;
 
-export const InstructionText = styled.p`
+export const InstructionList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.8);
+  gap: 14px;
 
   @media screen and (min-width: 768px) {
+    gap: 18px;
     font-size: 14px;
     line-height: 1.29;
+  }
+`;
+
+export const InstructionText = styled.li`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+
+  & span {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 21px;
+    height: 21px;
+    padding: 2px 7px 1px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #ffffff;
+    background: #8baa36;
+    border-radius: 100px;
+    flex: none;
+
+    @media screen and (min-width: 768px) {
+      padding: 0.5px 7px 2.5px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  & p {
+    padding-top: 2px;
+    color: ${({ theme }) => theme.colors.mainBlack};
   }
 `;
 
