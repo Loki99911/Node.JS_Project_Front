@@ -12,10 +12,11 @@ import {
   MainPageText,
   SpanGr,
 } from './MainPage.styled';
+// import store from 'store';
 
 const MainPage = () => {
   const navigate = useNavigate();
-  
+//   const theme = store.get('theme');
   const onClick = e => {
     navigate('/categories');
   };
@@ -51,6 +52,7 @@ const MainPage = () => {
             fn={onClick}
             styled={'other'}
             text={'Other categories'}
+            
           />
         </ButtonOthCtgWrap>
       </Container>

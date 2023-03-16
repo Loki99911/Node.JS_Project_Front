@@ -13,36 +13,48 @@ export const ButtonSkewStyle = styled.button`
   font-size: 14px;
 
   color: ${p =>
-    p.styled === 'black'
-      ? p.theme.colors.btnTextLight
-      : p.styled === 'olive'
-      ? p.theme.colors.btnTextLight
-      : p.styled === 'other'
-      ? p.theme.colors.mainBtnText
-      : p.styled === 'transparent'
-      ? p.theme.colors.mainDark
-      : 'red'};
+        p.styled === 'black'
+            ? p.theme.colors.btnTextLight
+            : p.styled === 'olive'
+                ? p.theme.colors.btnTextLight
+                : p.styled === 'other'
+                    ? p.theme.colors.mainBtnText
+                    : p.styled === 'transparent'
+                        ? p.theme.colors.mainDark
+                        : 'red'};
 
   padding: ${p =>
-    p.location === 'favorite' || p.location === 'recipes'
-      ? '6px 14px'
-      : '16px 30px'};
+        p.location === 'favorite' || p.location === 'recipes'
+            ? '6px 14px'
+            : '16px 30px'};
 
-  background-color: ${({ styled, theme }) => {
-    switch (styled) {
-      case 'black':
-        return theme.colors.recipeBlockBtnBg;
-      case 'olive':
-        return theme.colors.mainAccent;
-      case 'transparent':
-        return 'transparent';
-      case 'other':
-        return 'transparent';
-      default:
-        return 'red';
-    }
-  }};
-  outline: none;
+  background-color: ${p =>
+        p.styled === 'black'
+            ? p.theme.colors.recipeBlockBtnBg
+            : p.styled === 'olive'
+                ? p.theme.colors.mainAccent
+                : p.styled === 'other'
+                    ? 'transparent'
+                    : p.styled === 'transparent'
+                        ? 'transparent'
+                        : 'red'};
+/*   
+  ${({ styled, theme }) => {
+        switch (styled) {
+            case 'black':
+                return theme.colors.recipeBlockBtnBg;
+            case 'olive':
+                return theme.colors.mainAccent;
+            case 'transparent':
+                return 'transparent';
+            case 'other':
+                return 'transparent';
+            default:
+                return 'red';
+        }
+    }};
+*/
+  outline: none; 
   border: none;
 
   border-top-left-radius: 30px;
@@ -53,62 +65,70 @@ export const ButtonSkewStyle = styled.button`
   text-align: center;
 
   border: ${({ styled, theme }) => {
-    switch (styled) {
-      case 'other':
-        return `1px solid ${theme.colors.mainAccent}`;
-      case 'transparent':
-        return `1px solid ${theme.colors.btnTextLight}`;
-      default:
-        return '1px solid transparent';
-    }
-  }};
+        switch (styled) {
+            case 'other':
+                return `1px solid ${theme.colors.mainAccent}`;
+            case 'transparent':
+                return `1px solid ${theme.colors.btnTextLight}`;
+            default:
+                return '1px solid transparent';
+        }
+    }};
 
   cursor: pointer;
   transition: ${({ theme }) => {
-    return theme.transitions.main;
-  }};
+        return theme.transitions.main;
+    }};
 
   &:hover {
     color: ${({ styled, theme }) => {
-      switch (styled) {
-        case 'black':
-          return theme.colors.btnTextLight;
-        case 'olive':
-          return theme.colors.btnTextLight;
-        case 'other':
-          return theme.colors.btnTextLight;
-        case 'transparent':
-          return theme.colors.mainAccent;
-        default:
-          return 'red';
-      }
+        switch (styled) {
+            case 'black':
+                return theme.colors.mainSerchHoverText;
+            case 'olive':
+                return theme.colors.btnTextLight;
+            case 'other':
+                return theme.colors.btnTextLight;
+            case 'transparent':
+                return theme.colors.mainAccent;
+            default:
+                return 'red';
+        }
     }};
     background-color: ${({ styled, theme }) => {
-      switch (styled) {
-        case 'black':
-          return theme.colors.mainAccent;
-        case 'olive':
-          return theme.colors.btnHoverBg;
-        case 'transparent':
-          return 'transparent';
-        case 'other':
-          return theme.colors.mainAccent;
-        default:
-          return 'red';
-      }
+        switch (styled) {
+            case 'black':
+                return theme.colors.footerSMlinks;
+            case 'olive':
+                return theme.colors.btnHoverBg;
+            case 'transparent':
+                return 'transparent';
+            case 'other':
+                return theme.colors.mainAccent;
+            default:
+                return 'red';
+        }
     }};
-    border: ${({ styled, theme }) => {
-      return styled === 'transparent'
-        ? `1px solid ${theme.colors.mainAccent}`
-        : '1px solid transparent';
-    }};
+     border:
+      ${p =>
+        p.styled === 'black'
+            ? `1px solid ${p.theme.colors.mainAccent}`
+            : p.styled === 'transparent'
+                ? `1px solid ${p.theme.colors.mainAccent}`
+                : '1px solid transparent'};
+    
+    /* ${({ styled, theme }) => {
+        return styled === 'transparent'
+            ? `1px solid ${theme.colors.mainAccent}`
+            : '1px solid transparent';
+    }}; */
   }
 
   @media screen and (min-width: 768px) {
     padding: ${p =>
-      p.location === 'favorite' || p.location === 'recipes'
-        ? '12px 32px'
-        : '16px 32px'};
+        p.location === 'favorite' || p.location === 'recipes'
+            ? '12px 32px'
+            : '16px 32px'};
     min-width: 130px;
   }
 
@@ -116,9 +136,9 @@ export const ButtonSkewStyle = styled.button`
     font-size: 16px;
     line-height: ${p => p.theme.lineHeights.btnText};
     padding: ${p =>
-      p.location === 'favorite' || p.location === 'recipes'
-        ? '18px 44px'
-        : '20px 40px'};
+        p.location === 'favorite' || p.location === 'recipes'
+            ? '18px 44px'
+            : '20px 40px'};
     min-width: 160px;
   }
 `;
