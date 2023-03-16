@@ -49,7 +49,7 @@ const Favorites = () => {
                     text={
                       <span>{item.strInstructions ?? 'No description'}</span>
                     }
-                    time={item.cookingTime ?? '__ min'}
+                    time={item.cookingTime ?? ''}
                   />
                 </li>
               );
