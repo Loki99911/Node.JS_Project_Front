@@ -9,17 +9,18 @@ import {
   BoxForItemRemove,
 } from './style.js';
 import icons from 'images/sprite.svg';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-
-const list = [{ id: '22222', strIngredient:"25", weight:"22", image:"url" }, { id: '4544', strIngredient:"255", weight:"22" }];
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getShoppingList } from 'redux/ingredients/ingredientsSelectors.js';
+import { getShoppingIngredient } from 'redux/ingredients/ingredientsOperations.js';
 
 const ShopingTabl = () => {
-//    const dispatcher = useDispatch()
+  const dispatcher = useDispatch()
 
-//     useEffect(() => {
-//         dispatcher();
-//     }, [dispatcher]);
+    useEffect(() => {
+        dispatcher(getShoppingIngredient());
+    }, [dispatcher]);
+  const list = []
 
   return (
       <Table>

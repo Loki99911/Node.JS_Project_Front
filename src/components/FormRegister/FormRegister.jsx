@@ -23,7 +23,7 @@ const SignupSchema = Yup.object().shape({
     .min(2)
     .max(16)
     .matches(
-      /^[a-zA-Zа-яА-Я1-9]+(([' -][a-zA-Zа-яА-Я1-9 ])?[a-zA-Zа-яА-Я1-9]*)*$/
+      /^[a-zA-Zа-яА-Я1-9і]+(([' -][a-zA-Zа-яА-Я1-9і ])?[a-zA-Zа-яА-Я1-9і]*)*$/
     )
     .required(),
 
