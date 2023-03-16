@@ -12,6 +12,7 @@ import { getMainCategories } from 'redux/outerRecipes/outerRecipesOperations';
 import { useMediaQuery } from 'react-responsive';
 import 'react-tooltip/dist/react-tooltip.css';
 import { CardMeal } from 'components/CardMeal/CardMeal';
+import { scrollToTop } from 'components/FooterComp/NavFooter/NavFooter';
 
 
 
@@ -48,7 +49,7 @@ export const PreviewCategories = () => {
                 //   </CardDish>
                 ))}
               </CardWrapper>
-              <BtnCategories to={`/categories/${category}`}>
+              <BtnCategories to={`/categories/${category}`} onClick={scrollToTop}>
                 See all
               </BtnCategories>
             </CategoryItem>
