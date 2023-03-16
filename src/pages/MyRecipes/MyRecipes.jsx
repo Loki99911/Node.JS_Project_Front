@@ -9,6 +9,7 @@ import { ContentWrapper, Wrapper } from './MyRecipes.styled';
 
 import img from '../../images/default.jpg';
 import { PaginationComp } from 'components/PaginationComp/Pagination';
+import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
 
 const MyRecipes = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,9 @@ const MyRecipes = () => {
     <Wrapper>
       <Container>
         <Title>My recipes</Title>
-        <ContentWrapper>
-          {recipes &&
-            recipes.length > 0 &&
-            recipes.map(item => {
+        {recipes && recipes.length > 0 ? (
+          <ContentWrapper>
+            {recipes.map(item => {
               return (
                 <li key={item.id}>
                   <RecipeBlock
@@ -42,7 +42,10 @@ const MyRecipes = () => {
                 </li>
               );
             })}
-        </ContentWrapper>
+          </ContentWrapper>
+        ) : (
+          <EmptyPagePlug text="You currently don't have any own recipes added. Let`s add some!" />
+        )}
         {recipes && recipes.length > 0 && <PaginationComp />}
       </Container>
     </Wrapper>
