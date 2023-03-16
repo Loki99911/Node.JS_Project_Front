@@ -8,12 +8,23 @@ import {
 } from './RecipePreparation.styled';
 
 const RecipePreparation = ({ image, instructions }) => {
-  const items = instructions.split('\r\n').map((item, index) => (
-    <InstructionText key={item}>
-      <span>{index + 1}</span>
-      <p>{item}</p>
-    </InstructionText>
-  ));
+  console.log(instructions);
+  const items = instructions
+    .split('\r\n')
+    .filter(elem => {
+      if (!elem) return false;
+      if (elem.toLowerCase().includes('step')) return false;
+      console.log(elem);
+      return true;
+    })
+    .map((item, index) => {
+      return (
+        <InstructionText key={item}>
+          <span>{index + 1}</span>
+          <p>{item}</p>
+        </InstructionText>
+      );
+    });
 
   return (
     <PreparationWrapper>

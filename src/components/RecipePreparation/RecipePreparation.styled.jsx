@@ -32,7 +32,7 @@ export const InstructionTitle = styled.title`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #3e4462;
+  color: ${({ theme }) => theme.colors.secondaryDark};
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
     letter-spacing: -0.24px;
@@ -47,7 +47,6 @@ export const InstructionList = styled.ul`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.8);
   gap: 14px;
 
   @media screen and (min-width: 768px) {
@@ -60,7 +59,7 @@ export const InstructionList = styled.ul`
 export const InstructionText = styled.li`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
 
   & span {
@@ -83,6 +82,11 @@ export const InstructionText = styled.li`
       font-size: 14px;
       line-height: 21px;
     }
+  }
+
+  & p {
+    padding-top: 2px;
+    color: ${({ theme }) => theme.colors.mainBlack};
   }
 `;
 
