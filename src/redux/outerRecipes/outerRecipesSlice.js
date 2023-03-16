@@ -67,12 +67,15 @@ export const outerRecipesSlice = createSlice({
       .addCase(getRecipesByQuery.fulfilled, (state, { payload }) => {
         state.recipesByQuery.meals = payload.meals;
         state.recipesByQuery.totalHits = payload.totalHits;
-
         state.isCategoryFetching = false;
+        state.isError = false;
       })
       .addCase(logOut.fulfilled, () => ({ ...initialState }))
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
         state.isError = false;
+        state.recipesByQuery.meals = payload.meals;
+        state.recipesByQuery.totalHits = payload.totalHits;
+        state.isCategoryFetching = false;
       })
       .addCase(getMainCategories.pending, pending)
       .addCase(getLimitedRecipesByCategory.pending, pending)
@@ -80,6 +83,7 @@ export const outerRecipesSlice = createSlice({
       .addCase(getOneRecipeById.pending, pending)
       .addCase(getPopularRecipes.pending, pending)
       .addCase(getRecipesByQuery.pending, pending)
+      .addCase(getRecipesByIngredient.pending, pending)
 
       .addCase(getMainCategories.rejected, rejected)
       .addCase(getLimitedRecipesByCategory.rejected, rejected)
@@ -95,6 +99,8 @@ export const outerRecipesSlice = createSlice({
       .addCase(getRecipesByIngredient.rejected, state => {
         state.isCategoryFetching = false;
         state.isError = true;
+        state.recipesByQuery.meals = [];
+        state.recipesByQuery.totalHits = 0;
       }),
 });
 
