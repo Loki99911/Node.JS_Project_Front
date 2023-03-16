@@ -1,10 +1,12 @@
 import { Link, NavFooterCont } from './NavFooter.styled';
 
-export const NavFooter = () => {
-
-  function scrollToTop() {
+  export const scrollToTop = () =>  {
     window.scrollTo(0, 0);
   }
+
+export const NavFooter = () => {
+
+
  
   return (
     <NavFooterCont>

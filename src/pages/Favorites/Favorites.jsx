@@ -28,6 +28,11 @@ const Favorites = () => {
     dispatch(getFavorite({ page: page, per_page: perPage }));
   }, [dispatch, page]);
 
+  useEffect(() => {
+    if (favorites.length < perPage)
+      dispatch(getFavorite({ page: page, per_page: perPage }));
+  }, [dispatch, favorites.length, page]);
+
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -49,7 +54,7 @@ const Favorites = () => {
                     text={
                       <span>{item.strInstructions ?? 'No description'}</span>
                     }
-                    time={item.cookingTime ?? ''}
+                    time={item.cookingTime ? `${item.cookingTime} min` : ''}
                   />
                 </li>
               );

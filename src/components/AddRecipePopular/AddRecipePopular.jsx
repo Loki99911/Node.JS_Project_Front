@@ -4,7 +4,6 @@ import {
   PopularItem,
   PopularRecipe,
   PopularSection,
-  PupularList,
   RecepiImg,
   RecipeText,
   RecipeTitle,
@@ -19,10 +18,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export const AddRecipePopular = ({ isDesktop, isTablet, localTheme }) => {
   const popularRecepis = useSelector(getPopular);
 
-  const popularList = tag =>
-    popularRecepis.map(({ idMeal, strMealThumb, strInstructions, strMeal }) => (
+  const popularList = popularRecepis.map(
+    ({ idMeal, strMealThumb, strInstructions, strMeal }) => (
       <SwiperSlide key={idMeal}>
-        <PopularItem as={tag}>
+        <PopularItem as={'div'}>
           <Link to={`/recipe/${idMeal}`}>
             <RecepiImg src={strMealThumb} alt={strMeal} />
             <div>
@@ -32,7 +31,8 @@ export const AddRecipePopular = ({ isDesktop, isTablet, localTheme }) => {
           </Link>
         </PopularItem>
       </SwiperSlide>
-    ));
+    )
+  );
   return (
     <PopularSection isDesktop={isDesktop}>
       {isDesktop && (
@@ -43,27 +43,25 @@ export const AddRecipePopular = ({ isDesktop, isTablet, localTheme }) => {
       )}
       <PopularRecipe>
         <SubTitle text="Popular recipe" />
-
-        {isTablet && (
-          <Swiper
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            centeredSlides={false}
-            slidesPerView={2}
-            spaceBetween={32}
-            freeMode={true}
-            modules={[FreeMode, Autoplay]}
-            style={{ padding: '20px 0' }}
-          >
-            {popularList('div')}
-          </Swiper>
-        )}
-
-        {!isTablet && (
-          <PupularList>{popularList('li').slice(0, 4)}</PupularList>
-        )}
+        <Swiper
+          direction={isTablet ? 'horizontal' : 'vertical'}
+          style={
+            isTablet
+              ? { padding: '20px 0' }
+              : { height: '480px', width: '340px', padding: '10px 0' }
+          }
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          centeredSlides={false}
+          slidesPerView={isTablet ? 2 : 4}
+          spaceBetween={isTablet ? 30 : 10}
+          freeMode={true}
+          modules={[FreeMode, Autoplay]}
+        >
+          {popularList}
+        </Swiper>
       </PopularRecipe>
     </PopularSection>
   );

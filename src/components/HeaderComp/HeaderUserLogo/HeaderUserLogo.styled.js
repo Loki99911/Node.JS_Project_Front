@@ -16,6 +16,7 @@ export const HeaderUserButton = styled.button`
   line-height: ${p => p.theme.lineHeights.userLink};
   color: ${p =>
     p.color === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
+  cursor: pointer;
 
   & img {
     width: 34px;

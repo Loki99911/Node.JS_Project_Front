@@ -27,7 +27,7 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
           {isRowBased && location === 'favorite' && (
             <DeleteBtn location={location} id={id} />
           )}
-          {location === 'recipes' && <DeleteBtn location={location} />}
+          {location === 'recipes' && <DeleteBtn location={location} id={id} />}
         </TitleWrapper>
         <DescrWrapper>{text}</DescrWrapper>
         <TimeWrapper>

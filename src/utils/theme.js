@@ -38,7 +38,8 @@ export const theme = {
 
     ingredientsBgrCol: '#EBF3D4',
 
-mainSerchHoverText: '#ffffff',
+    mainSerchHoverText: '#ffffff',
+    searchFormHoverBtn: '#23262A',
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
@@ -126,7 +127,8 @@ export const darkTheme = {
 
     ingredientsBgrCol: '#2A2C36',
 
-mainSerchHoverText: '#8BAA36',
+    mainSerchHoverText: '#8BAA36',
+    searchFormHoverBtn: '#FFFFFF',
     mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
     sectionHeader: '#FAFAFA',
@@ -162,7 +164,7 @@ mainSerchHoverText: '#8BAA36',
     btnHover: '2px solid #8BAA36',
     mainSearchInput: '1px solid rgba(255, 255, 255, 0.2)',
     searchInput: '1px solid rgba(255, 255, 255, 0.2)',
-     mainNavBord: '1px solid #8BAA36',
+    mainNavBord: '1px solid #8BAA36',
   },
   radii: {
     btnStandart: '6px',

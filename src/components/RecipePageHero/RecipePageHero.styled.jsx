@@ -22,7 +22,7 @@ export const RecipeHeroConteiner = styled.div`
   ${ButtonSkewStyle} {
     margin-top: auto;
     padding: 10px 18px;
-    color: ${p => p.theme.colors.mainBlack};
+    color: black;
 
     @media screen and (min-width: 768px) {
       padding-bottom: 90px;
@@ -32,7 +32,7 @@ export const RecipeHeroConteiner = styled.div`
     }
 
     &:hover {
-      color: ${p => p.theme.colors.mainWhite};
+      color: white;
     }
   }
 
@@ -118,7 +118,7 @@ export const CookingTime = styled.div`
   display: flex;
   width: fit-content;
   align-items: center;
-  color: ${p => p.theme.colors.mainBlack};
+  color: black;
   margin-top: 42px;
   font-weight: ${p => p.theme.fontWeights[1]};
   font-size: 10px;
@@ -136,7 +136,7 @@ export const CookingTime = styled.div`
 
   & svg {
     margin-right: 5px;
-    stroke: ${p => p.theme.colors.mainBlack};
+    stroke: black;
     display: inline-block;
     width: 14px;
     height: 14px;

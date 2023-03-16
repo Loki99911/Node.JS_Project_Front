@@ -1,4 +1,5 @@
 import { SocialLinksConteiner } from 'components/FooterComp/SocialLinks/SocialLinks.styled';
+import { H3 } from 'components/SubTitle/subTitle.styled';
 import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
@@ -157,6 +158,9 @@ export const PopularSection = styled.div`
 
 export const PopularRecipe = styled.div`
   width: 100%;
+  ${H3} {
+    padding-bottom: 32px;
+  }
 `;
 
 export const IngredientsItem = styled.li`
@@ -205,12 +209,6 @@ export const InputUnitValue = styled.input`
   outline: none;
   width: 50px;
   color: ${({ theme }) => theme.colors.mainBlack};
-`;
-
-export const PupularList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  margin-top: 32px;
 `;
 
 export const PopularItem = styled.li`

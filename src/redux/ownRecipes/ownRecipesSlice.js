@@ -34,7 +34,7 @@ export const ingredientsSlice = createSlice({
         state.isOwnRecipesFetching = false;
       })
       .addCase(addOwnRecipe.fulfilled, (state, { payload }) => {
-        state.ownRecipes.recipes.unshift(payload);
+        // state.ownRecipes.recipes.unshift(payload);
         state.isOwnRecipesFetching = false;
       })
       .addCase(deleteOwnRecipe.fulfilled, (state, { payload }) => {
@@ -50,7 +50,7 @@ export const ingredientsSlice = createSlice({
         state.isOwnRecipesFetching = false;
       })
       .addCase(addFavorite.fulfilled, (state, { payload }) => {
-        state.favorites.recipes.unshift(payload);
+        // state.favorites.recipes.unshift(payload);
         state.isOwnRecipesFetching = false;
       })
       .addCase(deleteFavorite.fulfilled, (state, { payload }) => {
