@@ -137,7 +137,6 @@ export const stylesUnit = theme => {
     control: (baseStyles, state) => ({
       ...baseStyles,
       backgroundColor: theme === 'light' ? 'rgb(217, 217, 217)' : 'transparent',
-      // border: 'none',
       outline: theme === 'light' ? 'none' : "1px solid 'rgb(217, 217, 217)'",
       borderRadius: '6px',
       borderColor: state.isFocused ? 'transparent' : 'transparent',

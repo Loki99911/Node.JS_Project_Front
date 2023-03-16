@@ -71,9 +71,10 @@ export const SelectComp = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.mainGreyBg};
 
   p {
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
     color: ${({ localTheme }) =>
       localTheme === 'light' ? 'rgba(0, 0, 0, 0.5)' : 'white'};
   }
@@ -84,16 +85,14 @@ export const InputsWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  .css-l4u8b9-MuiInputBase-root-MuiInput-root::before {
-    border-bottom: 1px solid grey;
-  }
-
   input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.mainGreyBg};
     font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
     line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
-    color: ${({ localTheme }) =>
-      localTheme === 'light' ? 'rgba(0, 0, 0, 0.5)' : 'white'};
-    background-color: transparent;
+    color: ${({ theme }) => theme.colors.mainBlack};
 
     &::placeholder {
       opacity: 1;

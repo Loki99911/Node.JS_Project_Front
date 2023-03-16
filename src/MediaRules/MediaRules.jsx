@@ -9,4 +9,3 @@ export const useMediaRules = () => {
 
   return { isMobile, isDesktop, isTablet };
 };
-
