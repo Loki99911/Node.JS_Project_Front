@@ -28,7 +28,7 @@ const MyRecipes = () => {
   const handleChange = (event, value) => {
     setPage(value);
   };
-  console.log(recipes);
+  // console.log(recipes);
   return (
     <Wrapper>
       <Container>
