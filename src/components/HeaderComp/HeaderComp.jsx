@@ -46,6 +46,7 @@ export const HeaderComp = () => {
 
   const userName = useSelector(getName);
   const userAvatar = useSelector(getAvatar);
+  // console.log(userAvatar);
 
   const toggleMobileMenu = e => {
     setShowMenu(!showMenu);

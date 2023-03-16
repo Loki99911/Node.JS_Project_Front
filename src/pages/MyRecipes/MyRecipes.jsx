@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getCustomRecipes } from 'redux/ownRecipes/ownRecipesSelectors';
+import { useEffect, useState } from 'react';
+import {
+  getCustomRecipes,
+  getTotalCustomRecipes,
+} from 'redux/ownRecipes/ownRecipesSelectors';
 import { getOwnRecipes } from 'redux/ownRecipes/ownRecipesOperations';
 import { Container } from 'components/Container/Container';
 import { RecipeBlock } from 'components/RecipeBlock/RecipeBlock';
@@ -14,12 +17,18 @@ import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
 const MyRecipes = () => {
   const dispatch = useDispatch();
   const recipes = useSelector(getCustomRecipes);
+  const total = useSelector(getTotalCustomRecipes);
+  const perPage = 4;
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(getOwnRecipes());
-  }, [dispatch]);
+    dispatch(getOwnRecipes({ page: page, per_page: perPage }));
+  }, [dispatch, page]);
 
-  // console.log(recipes);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+  console.log(recipes);
   return (
     <Wrapper>
       <Container>
@@ -44,9 +53,15 @@ const MyRecipes = () => {
             })}
           </ContentWrapper>
         ) : (
-          <EmptyPagePlug text="You currently don't have any own recipes added. Let`s add some!" />
+          <EmptyPagePlug text="You currently don't have any own recipes added. Let's add some!" />
         )}
-        {recipes && recipes.length > 0 && <PaginationComp />}
+        {recipes && recipes.length > 0 && (
+          <PaginationComp
+            count={Math.ceil(total / perPage)}
+            page={page}
+            handleChange={handleChange}
+          />
+        )}
       </Container>
     </Wrapper>
   );
