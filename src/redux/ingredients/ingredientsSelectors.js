@@ -14,6 +14,11 @@ export const getIngredients = state => state.ingredients.ingredients;
 export const getRecipesListByIngredient = state =>
   state.ingredients.recipesByIngredients;
 
+// ------------------ Shopping List ------------------
+// ---- returns an array
+// ---- Use with function "getShoppingIngredient()"
+export const getShoppingList = state => state.ingredients.shoppingList;
+
 // ------------------ Additional ------------------
 export const getIsIngredientsFetching = state =>
   state.ingredients.isIngredientsFetching;
