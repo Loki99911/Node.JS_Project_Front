@@ -3,6 +3,7 @@ import { InngredientsWrapper } from './RecipeInngredientsList.styled';
 
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
 
 const RecipeInngredientsList = ({ ingredients }) => {
   const allOfIngredients = useSelector(getIngredients);
@@ -14,7 +15,7 @@ const RecipeInngredientsList = ({ ingredients }) => {
           <RecipeInngredientsItem
             image={inngredient.imgURL}
             strIngredient={inngredient.ingredient}
-            key={inngredient.id}
+            key={nanoid(6)}
             weight={inngredient.qty}
             strDescription={inngredient.description}
             idIngredient={inngredient.id}
