@@ -12,13 +12,23 @@ import {
 import sprite from '../../images/sprite.svg';
 
 import { useState } from 'react';
+import { addShoppingIngredient } from 'redux/ingredients/ingredientsOperations';
+import { useDispatch } from 'react-redux';
 
 const RecipeInngredientsItem = obj => {
   const [toShoppingList, setToShoppingList] = useState(false);
+  const dispatcher = useDispatch();
 
   const addToShoppingList = () => {
     setToShoppingList(true);
-    console.log(obj);
+    dispatcher(
+      addShoppingIngredient({
+        idIngredient: obj.idIngredient,
+        image: obj.image,
+        strIngredient: obj.strIngredient,
+        weight: obj.weight,
+      })
+    );
     return;
   };
 
