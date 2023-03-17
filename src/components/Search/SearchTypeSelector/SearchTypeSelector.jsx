@@ -96,7 +96,10 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
     <SelectCon>
       <span>Search by:</span>
       <SelectStyled
-        defaultValue={{ value: startType, label: startType }}
+        defaultValue={{
+          value: startType,
+          label: startType.charAt(0).toUpperCase() + startType.slice(1),
+        }}
         onChange={setSelectedOption}
         options={options}
         isSearchable={false}

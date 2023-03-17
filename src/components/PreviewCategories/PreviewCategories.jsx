@@ -12,7 +12,8 @@ import { getMainCategories } from 'redux/outerRecipes/outerRecipesOperations';
 import { useMediaQuery } from 'react-responsive';
 import 'react-tooltip/dist/react-tooltip.css';
 import { CardMeal } from 'components/CardMeal/CardMeal';
-import { scrollToTop } from 'components/FooterComp/NavFooter/NavFooter';
+import { scrollToTop } from 'utils/scrollUp';
+
 
 
 

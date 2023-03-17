@@ -5,6 +5,7 @@ import { PreviewCategories } from 'components/PreviewCategories/PreviewCategorie
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { СhooseYourBreakfast } from 'components/СhooseYourBreakfast/СhooseYourBreakfast';
 import { Link, useNavigate } from 'react-router-dom';
+import { scrollToTop } from 'utils/scrollUp';
 import {
     MainPageBg,
     MainPageDiv,
@@ -13,7 +14,6 @@ import {
     SpanGr,
 } from './MainPage.styled';
 // import store from 'store';
-import { scrollToTop } from 'components/FooterComp/NavFooter/NavFooter'; 
 
 const MainPage = () => {
     const navigate = useNavigate();

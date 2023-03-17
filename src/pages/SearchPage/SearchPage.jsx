@@ -15,6 +15,7 @@ import {
   getRecipesBySearchQuery,
 } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useMediaRules } from 'MediaRules/MediaRules';
+import { scrollToTop } from 'utils/scrollUp';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,6 +50,7 @@ const SearchPage = () => {
 
   const handleChange = (event, value) => {
     setPage(value);
+    scrollToTop();
   };
 
   useEffect(() => {

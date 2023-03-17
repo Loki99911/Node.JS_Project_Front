@@ -16,6 +16,7 @@ import img from '../../images/default.jpg';
 
 import { ContentWrapper, Wrapper } from './Favorites.styled';
 import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
+import { scrollToTop } from 'utils/scrollUp';
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const Favorites = () => {
 
   const handleChange = (event, value) => {
     setPage(value);
+     scrollToTop();
   };
 
   return (
