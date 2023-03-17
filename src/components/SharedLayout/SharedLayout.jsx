@@ -6,7 +6,6 @@ import { Outlet } from 'react-router-dom';
 import { SharedLayoutConteiner } from './SharedLayout.styled';
 
 const SharedLayout = () => {
-  // export const SharedLayout = () => {
   return (
     <SharedLayoutConteiner>
       <HeaderComp />

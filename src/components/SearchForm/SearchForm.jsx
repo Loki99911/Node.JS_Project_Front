@@ -20,7 +20,6 @@ export const SearchForm = ({ handleOnSubmit, type = 'title', styled, startQuery 
         <SearchInput
           type="text"
           value={searchValue}
-          // placeholder="Beef |"
           onChange={handleInputChange}
         />
         <ButtonSkew type="submit" text="Search" styled={styled}></ButtonSkew>

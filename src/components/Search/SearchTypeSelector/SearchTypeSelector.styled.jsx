@@ -8,9 +8,6 @@ export const SelectCon = styled.div`
   gap: 15px;
   text-align: center;
 
-  /* .css-1dimb5e-singleValue {
-    color: rgba(0, 0, 0, 0.5);
-  } */
   span {
     font-style: normal;
     font-weight: 500;

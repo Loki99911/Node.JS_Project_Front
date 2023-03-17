@@ -17,7 +17,7 @@ const LoginSchema = Yup.object().shape({
     name: 'email',
     params: { a: 'test', b: 'qwe' },
     test: value => {
-      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+      return /\w+@\w+\.\w{1,5}/.test(value);
     },
   }),
 });
