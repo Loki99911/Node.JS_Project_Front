@@ -27,7 +27,7 @@ export const HeaderNav = ({ navColor = 'light', setShowMenu }) => {
         onClick={() => {
           setShowMenu(false);
         }}
-        to="/my"
+        to="/my?page=1"
       >
         My recipes
       </StyledLink>
