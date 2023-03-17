@@ -14,6 +14,7 @@ import { ContentWrapper, Wrapper } from './MyRecipes.styled';
 import img from '../../images/default.jpg';
 import { PaginationComp } from 'components/PaginationComp/Pagination';
 import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
+import { scrollToTop } from 'utils/scrollUp';
 
 const MyRecipes = () => {
   const history = useNavigate();
@@ -36,6 +37,7 @@ const MyRecipes = () => {
 
   const handleChange = (event, value) => {
     setPageNumber(value);
+     scrollToTop();
   };
 
   useEffect(() => {
