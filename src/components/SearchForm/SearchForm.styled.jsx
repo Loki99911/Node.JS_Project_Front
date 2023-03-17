@@ -5,22 +5,20 @@ import { theme } from 'utils/theme';
 export const SearchBlock = styled.div`
   width: 295px;
   height: 52px;
-    background-color: ${p => p.theme.colors.mainSearchInput};
-  /* border-radius: 30px 80px ; */
-/* background-color: red; */
+  background-color: ${p => p.theme.colors.mainSearchInput};
   border-top-left-radius: 30px;
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 30px;
   margin: 0 16px 83px;
-  border: ${p =>p.theme.borders.mainSearchInput};
+  border: ${p => p.theme.borders.mainSearchInput};
   color: ${theme.colors.disabledGrey};
   font-family: ${theme.fonts.main};
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-position: relative;
+  position: relative;
 
   @media (min-width: 768px) {
     width: 369px;
@@ -59,47 +57,12 @@ position: relative;
     }
   }
 `;
-// export const SearhButton = styled.div`
-//   /* width: 113px;
-//     height: 52px; */
-//   padding: 16px 32px;
-//   background-color: ${p => p.theme.colors.recipeBlockBtnBg};
-//   border-radius: 20px 40px;
-
-//   font-family: ${theme.fonts.main};
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 21px;
-//   color: ${theme.colors.btnTextLight};
-//   cursor: pointer;
-//   transition: ${theme.transitions.main};
-
-//   &:hover {
-//     background-color: ${theme.colors.mainAccent};
-//   }
-
-//   @media (min-width: 768px) {
-//     width: 161px;
-//     height: 59px;
-//     font-size: 16px;
-//     line-height: 24px;
-//   }
-
-//   @media (min-width: 1440px) {
-//     width: 161px;
-//     height: 70px;
-//     font-size: 16px;
-//     line-height: 24px;
-//   }
-// `;
 
 export const SearchIn = styled.form`
   display: flex;
   justify-content: flex-end;
   border-radius: 30px, 80px;
-height: 100%;
-  
+  height: 100%;
 `;
 
 export const SearchInput = styled.input`

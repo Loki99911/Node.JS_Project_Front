@@ -22,11 +22,6 @@ export const TitleConteiner = styled.div`
   background-position: top 80px left 104px, top 145px left 231px,
     top 112px left 329px;
 
-  /* padding-top: 50px; */
-  /* margin-bottom: 42px; */
-  /* background-position: top 12px left 120px, bottom 0px right 120px,
-    top 44px right 0px; */
-
   @media screen and (min-width: 768px) {
     height: 240px;
     padding-top: 136px;
@@ -41,11 +36,6 @@ export const TitleConteiner = styled.div`
     background-size: 18px 18px, 15px 15px, 18px 18px;
     background-position: top 91px left 187px, top 160px left 405px,
       top 104px left 682px;
-
-    /* padding-top: 72px;
-    margin-bottom: 37px; */
-    /* background-position: top 21px left 219px, bottom 0px right 315px,
-      top 34px right 0px; */
   }
 
   @media screen and (min-width: 1440px) {
@@ -53,11 +43,6 @@ export const TitleConteiner = styled.div`
     padding-top: 164px;
     background-position: top 122px left 228px, top 205px left 707px,
       top 135px left 1150px;
-
-    /* padding-top: 100px;
-    margin-bottom: 65px; */
-    /* background-position: top 52px left 328px, bottom 0px right 617px,
-      top 65px right 71px; */
   }
 
   h2 {
