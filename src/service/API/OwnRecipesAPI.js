@@ -69,19 +69,19 @@ export const removeFavoriteAPI = id => {
 // ------------- SHOPPING_LIST -------------
 
 export const addShoppingIngredientAPI = body => {
-  return axios.post('/shoping-list', body).then(({ data }) => {
+  return axios.post('/shopping-list', body).then(({ data }) => {
     return data;
   });
 };
 
 export const getShoppingIngredientAPI = () => {
-  return axios.get('/shoping-list').then(({ data }) => {
+  return axios.get('/shopping-list').then(({ data }) => {
     return data;
   });
 };
 
 export const removeShoppingIngredientAPI = id => {
-  return axios.delete(`/shoping-list/${id}`).then(({ data }) => {
+  return axios.delete(`/shopping-list/${id}`).then(({ data }) => {
     return data;
   });
 };
