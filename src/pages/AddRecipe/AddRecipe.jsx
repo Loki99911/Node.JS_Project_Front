@@ -148,7 +148,7 @@ const AddRecipe = () => {
     formData.append('title', title);
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
-
+    console.log(formData);
     dispatch(addOwnRecipe(formData));
     resetForm();
   };

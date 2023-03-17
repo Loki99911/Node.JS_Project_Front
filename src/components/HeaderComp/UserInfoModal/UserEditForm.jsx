@@ -47,6 +47,14 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
     picture: avatarUrl,
   });
 
+  const handleSubmit = values => {
+    const formData = new FormData();
+    formData.append('name', values.name.trim());
+    formData.append('picture', values.picture);
+    dispatch(updateUserInfo(formData));
+    closeModal();
+  };
+
   return (
     <Formik
       initialValues={{
@@ -55,13 +63,7 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
       }}
       validationSchema={EditNameSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
-        dispatch(
-          updateUserInfo({
-            name: values.name.trim(),
-            picture: values.picture,
-          })
-        );
+        handleSubmit(values);
         actions.setSubmitting(false);
         actions.resetForm();
       }}
