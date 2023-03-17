@@ -30,33 +30,18 @@ export const BtnCategories = styled(NavLink)`
   font-size: 14px;
   line-height: 18px;
   color: ${theme.colors.btnTextLight};
-    border: ${p=>p.theme.borders.mainNavBord};
+  border: ${p => p.theme.borders.mainNavBord};
   padding: 10px 24px;
   background-color: ${theme.colors.mainAccent};
   cursor: pointer;
   float: right;
   transition: ${theme.transitions.main};
   &:hover {
-    background-color: ${p=>p.theme.colors.mainNavLinkHover};
-    border: ${p=>p.theme.borders.mainNavBord};
-    color: ${p=>p.theme.colors.searchDropDownBg};
+    background-color: ${p => p.theme.colors.mainNavLinkHover};
+    border: ${p => p.theme.borders.mainNavBord};
+    color: ${p => p.theme.colors.searchDropDownBg};
   }
 `;
-
-// export const CardDish = styled.li`
-//   width: 343px;
-//   height: 323px;
-//   border-radius: 8px;
-//   position: relative;
-//   /* overflow: hidden; */
-//   @media (min-width: 768px) {
-//     width: calc((100% - 32px) / 2);
-//   }
-
-//   @media (min-width: 1440px) {
-//     width: calc((100% - 42px) / 4);
-//   }
-// `;
 
 export const CardWrapper = styled.ul`
   /* margin-top: 0; */
