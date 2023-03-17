@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { logOut } from 'redux/auth/authOperations';
 import {
   getOwnRecipes,
   deleteOwnRecipe,
@@ -63,6 +64,7 @@ export const ingredientsSlice = createSlice({
         state.singleRecipe = payload;
         state.isOwnRecipesFetching = false;
       })
+      .addCase(logOut.fulfilled, () => ({ ...initialState }))
 
       .addCase(getOwnRecipes.pending, pending)
       .addCase(addOwnRecipe.pending, pending)

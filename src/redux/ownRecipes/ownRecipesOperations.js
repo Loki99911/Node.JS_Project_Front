@@ -11,6 +11,7 @@ import {
 } from 'service/API/OwnRecipesAPI';
 
 import { token } from 'redux/auth/authOperations';
+import { toast } from 'react-toastify';
 
 export const getOwnRecipes = createAsyncThunk(
   'ownRecipes/getRecipes',
@@ -43,10 +44,30 @@ export const addOwnRecipe = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await addOwnRecipeAPI(body);
-      console.log('own recipe successfully added', data);
+      // console.log('own recipe successfully added', data);
+      toast.success('Recepi has been added', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
       return data;
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
+      toast.error('Recepi hasn`t been added', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
       return rejectWithValue(error.response.status);
     }
   }

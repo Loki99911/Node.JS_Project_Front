@@ -6,7 +6,7 @@ export const UserLogoModal = ({ toggleModal }) => {
     <>
       <UserMenu>
         <EditBtn type="button" onClick={() => toggleModal('edit')}>
-          <span>Edit</span>
+          <span>Edit profile</span>
           <svg>
             <use href={sprite + `#edit`} />
           </svg>
