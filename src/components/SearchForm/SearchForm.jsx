@@ -14,20 +14,6 @@ export const SearchForm = ({ handleOnSubmit, type = 'title', styled, startQuery 
         handleOnSubmit(searchValue, type);
     }
 
-<<<<<<< Updated upstream
-  return (
-    <SearchBlock>
-      <SearchIn onSubmit={handleSubmit}>
-        <SearchInput
-          type="text"
-          value={searchValue}
-          onChange={handleInputChange}
-        />
-        <ButtonSkew type="submit" text="Search" styled={styled}></ButtonSkew>
-      </SearchIn>
-    </SearchBlock>
-  );
-=======
     return (
         <SearchBlock>
             <SearchIn onSubmit={handleSubmit}>
@@ -40,5 +26,4 @@ export const SearchForm = ({ handleOnSubmit, type = 'title', styled, startQuery 
             </SearchIn>
         </SearchBlock>
     );
->>>>>>> Stashed changes
 };
