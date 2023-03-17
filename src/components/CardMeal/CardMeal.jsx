@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Tooltip } from 'react-tooltip';
 import {
   CardImg,
   CardTitle,
@@ -19,12 +18,7 @@ export const CardMeal = ({ meal }) => {
         <CardTitle data-tooltip-id={meal.idMeal}>{meal.strMeal}</CardTitle>
         {meal.strMeal.length > 30 && (
           <TooltipWrapper>
-            <Tooltip
-              id={meal.idMeal}
-              content={meal.strMeal}
-              place="bottom"
-              noArrow="false"
-            />
+            <p>{meal.strMeal}</p>
           </TooltipWrapper>
         )}
       </Link>

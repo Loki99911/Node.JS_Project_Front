@@ -26,6 +26,7 @@ export const CardTitle = styled.div`
   text-overflow: ellipsis;
 
   :hover + ${TooltipWrapper} {
+    width: 100%;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -37,6 +38,11 @@ export const CardTitle = styled.div`
     font-family: ${p => p.theme.fonts.main};
     color: ${p => p.theme.colors.mainHeaderText};
     background-color: #8baa36;
+
+    p {
+      width: 100%;
+      padding: 5px;
+    }
 
     @media (min-width: 1440px) {
       margin-top: 8px;
