@@ -38,22 +38,7 @@ export const ButtonSkewStyle = styled.button`
       : p.styled === 'transparent'
       ? 'transparent'
       : 'red'};
-  /*   
-  ${({ styled, theme }) => {
-    switch (styled) {
-      case 'black':
-        return theme.colors.recipeBlockBtnBg;
-      case 'olive':
-        return theme.colors.mainAccent;
-      case 'transparent':
-        return 'transparent';
-      case 'other':
-        return 'transparent';
-      default:
-        return 'red';
-    }
-  }};
-*/
+
   outline: none;
   border: none;
 
@@ -68,8 +53,6 @@ export const ButtonSkewStyle = styled.button`
     switch (styled) {
       case 'other':
         return `1px solid ${theme.colors.mainAccent}`;
-      // case 'olive':
-      //   return `1px solid transparent`;
       case 'transparent':
         return `1px solid ${theme.colors.btnTextLight}`;
       default:
@@ -119,12 +102,6 @@ export const ButtonSkewStyle = styled.button`
         : p.styled === 'transparent'
         ? `1px solid ${p.theme.colors.mainAccent}`
         : '1px solid transparent'};
-
-    /* ${({ styled, theme }) => {
-      return styled === 'transparent'
-        ? `1px solid ${theme.colors.mainAccent}`
-        : '1px solid transparent';
-    }}; */
   }
 
   @media screen and (min-width: 768px) {
