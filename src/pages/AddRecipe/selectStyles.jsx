@@ -34,7 +34,7 @@ export const stylesMeta = theme => {
       lineHeight: '1.5',
       textAlign: 'right',
       letterSpacing: '-0.02em',
-      maxHeight: '230px',
+      maxHeight: '200px',
       borderRadius: '6px',
       backgroundColor: theme === 'light' ? 'white' : '#8BAA36',
       color: theme === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)',
@@ -42,6 +42,7 @@ export const stylesMeta = theme => {
       '@media (min-width: 768px)': {
         fontSize: '16px',
         lineHeight: '1.3',
+        maxHeight: '230px',
       },
     }),
     option: (baseStyles, state) => ({
@@ -101,7 +102,7 @@ export const stylesIngredient = theme => {
       lineHeight: '1.5',
       textAlign: 'left',
       letterSpacing: '-0.02em',
-      maxHeight: '230px',
+      maxHeight: '200px',
       borderRadius: '6px',
       backgroundColor: theme === 'light' ? 'white' : '#8BAA36',
       color: theme === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)',
@@ -109,6 +110,7 @@ export const stylesIngredient = theme => {
       '@media (min-width: 768px)': {
         fontSize: '16px',
         lineHeight: '1.3',
+        maxHeight: '230px',
       },
     }),
     option: (baseStyles, state) => ({
@@ -168,7 +170,7 @@ export const stylesUnit = theme => {
       lineHeight: '1.5',
       textAlign: 'center',
       letterSpacing: '-0.02em',
-      maxHeight: '230px',
+      maxHeight: '200px',
       borderRadius: '6px',
       backgroundColor: theme === 'light' ? 'white' : '#8BAA36',
       color: theme === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)',
@@ -176,6 +178,7 @@ export const stylesUnit = theme => {
       '@media (min-width: 768px)': {
         fontSize: '16px',
         lineHeight: '1.3',
+        maxHeight: '230px',
       },
     }),
     option: (baseStyles, state) => ({

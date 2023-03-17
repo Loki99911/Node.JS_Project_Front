@@ -3,6 +3,7 @@ export const AddRecipeToastifyError = ({
   about,
   ingredientsList,
   recipe,
+  unit,
 }) => {
   return (
     <ul>
@@ -10,6 +11,7 @@ export const AddRecipeToastifyError = ({
       <li>{!about ? 'Invalid ABOUT' : ''}</li>
       <li>{!ingredientsList.length ? 'Invalid INGREDIENTS' : ''}</li>
       <li>{!recipe ? 'Invalid RECIPE' : ''}</li>
+      <li>{unit ? 'Invalid UNIT VALUE' : ''}</li>
     </ul>
   );
 };

@@ -69,19 +69,6 @@ const AddRecipe = () => {
   };
 
   const handleIncrement = () => {
-    if (!inputs.unitValue) {
-      toast.error('Invalid UNIT VALUE', {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      return;
-    }
     setUserIngredients(prev => [
       ...prev,
       { id: nanoid(), ingredient: 'Beef', unitValue: 100, qty: 'g' },
@@ -89,19 +76,6 @@ const AddRecipe = () => {
   };
 
   const handleRemove = ({ currentTarget }) => {
-    if (!inputs.unitValue) {
-      toast.error('Invalid UNIT VALUE', {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      return;
-    }
     const newList = userIngredients.filter(el => el.id !== currentTarget.id);
     setUserIngredients(newList);
   };
@@ -138,6 +112,11 @@ const AddRecipe = () => {
     e.preventDefault();
     const formData = new FormData();
     const { recipe, time, category, about, title } = inputs;
+
+    const unit = userIngredients.some(
+      ({ unitValue }) => Number(unitValue) <= 0
+    );
+
     const ingredientsList = userIngredients.map(
       ({ unitValue, ingredient, qty: unit }) => ({
         ingredient,
@@ -145,7 +124,8 @@ const AddRecipe = () => {
       })
     );
 
-    const isInvalid = !recipe || !about || !title || !ingredientsList.length;
+    const isInvalid =
+      !recipe || !about || !title || !ingredientsList.length || unit;
 
     if (isInvalid) {
       toast.error(
@@ -154,6 +134,7 @@ const AddRecipe = () => {
           about={about}
           ingredientsList={ingredientsList}
           recipe={recipe}
+          unit={unit}
         />,
         {
           position: 'bottom-right',
