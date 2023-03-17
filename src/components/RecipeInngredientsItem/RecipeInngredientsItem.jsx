@@ -23,7 +23,6 @@ const RecipeInngredientsItem = obj => {
     setToShoppingList(true);
     dispatcher(
       addShoppingIngredient({
-        idIngredient: obj.idIngredient,
         image: obj.image,
         strIngredient: obj.strIngredient,
         weight: obj.weight,
