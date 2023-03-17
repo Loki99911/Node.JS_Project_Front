@@ -22,6 +22,7 @@ import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeI
 import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
+import { AddRecipeToastifyError } from 'pages/AddRecipeToastifyError/AddRecipeToastifyError';
 
 const init = {
   recipe: '',
@@ -29,7 +30,7 @@ const init = {
   about: '',
   category: 'Breakfast',
   time: '30',
-  unitValue: 'g',
+  unitValue: 100,
 };
 
 const AddRecipe = () => {
@@ -68,6 +69,19 @@ const AddRecipe = () => {
   };
 
   const handleIncrement = () => {
+    if (!inputs.unitValue) {
+      toast.error('Invalid UNIT VALUE', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      return;
+    }
     setUserIngredients(prev => [
       ...prev,
       { id: nanoid(), ingredient: 'Beef', unitValue: 100, qty: 'g' },
@@ -75,6 +89,19 @@ const AddRecipe = () => {
   };
 
   const handleRemove = ({ currentTarget }) => {
+    if (!inputs.unitValue) {
+      toast.error('Invalid UNIT VALUE', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      return;
+    }
     const newList = userIngredients.filter(el => el.id !== currentTarget.id);
     setUserIngredients(newList);
   };
@@ -104,6 +131,7 @@ const AddRecipe = () => {
     setInputs(init);
     setUserIngredients([]);
     setFile(null);
+    setPath('');
   };
 
   const handleSubmit = e => {
@@ -121,12 +149,12 @@ const AddRecipe = () => {
 
     if (isInvalid) {
       toast.error(
-        <ul>
-          <li>{!title ? 'Invalid TITLE' : ''}</li>
-          <li>{!about ? 'Invalid ABOUT' : ''}</li>
-          <li>{!ingredientsList.length ? 'Invalid INGREDIENTS' : ''}</li>
-          <li>{!recipe ? 'Invalid RECIPE' : ''}</li>
-        </ul>,
+        <AddRecipeToastifyError
+          title={title}
+          about={about}
+          ingredientsList={ingredientsList}
+          recipe={recipe}
+        />,
         {
           position: 'bottom-right',
           autoClose: 5000,
