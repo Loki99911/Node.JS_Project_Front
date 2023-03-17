@@ -151,16 +151,6 @@ const AddRecipe = () => {
 
     dispatch(addOwnRecipe(formData));
     resetForm();
-    toast.success('Recepi has been added', {
-      position: 'bottom-right',
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    });
   };
 
   const handleSelect = (...arg) => {
