@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
+import { updateUserInfo } from 'redux/auth/authOperations';
+import { getAvatar } from 'redux/auth/authSelectors';
 import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
 
@@ -16,8 +19,6 @@ import {
   UserIcon,
   UserSvgWrapper,
 } from './UserEditForm.styled';
-import { useDispatch } from 'react-redux';
-import { updateUserInfo } from 'redux/auth/authOperations';
 
 const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
@@ -41,11 +42,20 @@ const EditNameSchema = Yup.object().shape({
 
 export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
   const dispatch = useDispatch();
+  const userAvatar = useSelector(getAvatar);
   const [path, setPath] = useState('');
   const [inputs, setInputs] = useState({
     name: name,
     picture: avatarUrl,
   });
+
+  const handleSubmit = values => {
+    const formData = new FormData();
+    formData.append('name', values.name.trim());
+    formData.append('picture', values.picture);
+    dispatch(updateUserInfo(formData));
+    closeModal();
+  };
 
   return (
     <Formik
@@ -55,13 +65,7 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
       }}
       validationSchema={EditNameSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
-        dispatch(
-          updateUserInfo({
-            name: values.name.trim(),
-            picture: values.picture,
-          })
-        );
+        handleSubmit(values);
         actions.setSubmitting(false);
         actions.resetForm();
       }}
@@ -70,7 +74,11 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
         <UserEditForm onSubmit={props.handleSubmit}>
           <UserAvatarWrapper>
             <label htmlFor="picture" id="labelFile">
-              {inputs.picture?.name ? (
+              {userAvatar ? (
+                <UserSvgWrapper>
+                  <img src={userAvatar} alt="user_picture" />
+                </UserSvgWrapper>
+              ) : inputs.picture?.name ? (
                 <UserSvgWrapper>
                   <img src={path} alt="user_picture" />
                 </UserSvgWrapper>
