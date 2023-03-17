@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { theme } from 'utils/theme';
 
-export const CardTitle = styled.p`
+export const CardTitle = styled.div`
   font-family: ${theme.fonts.main};
   font-style: normal;
   font-weight: 500;
@@ -42,4 +42,16 @@ export const CardDish = styled.li`
   @media (min-width: 1440px) {
     width: calc((100% - 42px) / 4);
   }
+`;
+
+export const TooltipWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
+  margin-top: 8px;
+  padding: 4px;
+  font-family: ${p => p.theme.fonts.main};
+  color: ${p => p.theme.colors.mainHeaderText};
+  /* background-color: ${p => p.theme.colors.tooltipbg}; */
 `;
