@@ -38,7 +38,7 @@ export const SelectStyled = styled(Select)`
     width: 146px;
     height: 34px;
     font-size: 12px;
-    line-height: ${p => p.theme.lineHeights.subheader};
+    line-height: 18px;
     letter-spacing: ${p => p.theme.letterSpacings.content};
     color: ${p => p.theme.colors.searchSelectText};
 
@@ -55,6 +55,7 @@ export const SelectStyled = styled(Select)`
       outline: none;
       border-color: transparent;
       box-shadow: 0 0 0 1px transparent;
+     
     }
 
     @media (min-width: 768px) {
@@ -63,6 +64,16 @@ export const SelectStyled = styled(Select)`
       width: 175px;
       height: 41px;
     }
+    & .react-select__value-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      & .react-select__single-value {
+        display: flex;
+        align-items: center;
+        height: 21px;
+      }
+    }
   }
 
   & .react-select__single-value {
@@ -70,9 +81,13 @@ export const SelectStyled = styled(Select)`
     font-weight: ${p => p.theme.fontWeights[0]};
     text-align: left;
     font-size: 12px;
-    line-height: ${p => p.theme.lineHeights.subheader};
+    line-height: 18px;
     letter-spacing: ${p => p.theme.letterSpacings.content};
     color: ${p => p.theme.colors.searchSelectText};
+    @media (min-width: 768px) {
+      font-size: 14px;
+      line-height: 21px;
+    }
   }
 
   & .react-select-contanier {
@@ -87,6 +102,7 @@ export const SelectStyled = styled(Select)`
       outline: none;
       border-color: transparent;
       box-shadow: 0 0 0 1px transparent;
+      
     }
   }
 
@@ -94,11 +110,13 @@ export const SelectStyled = styled(Select)`
     background-color: ${p => p.theme.colors.searchDropDownBg};
     border-radius: 0px 0px 6px 6px;
     ${p => p.theme.letterSpacings.content};
-    line-height: ${p => p.theme.lineHeights.searchSelect};
+    font-size: 12px;
+    line-height: 18px;
     text-align: left;
 
     @media (min-width: 768px) {
       font-size: 14px;
+      line-height: 21px;
     }
 
     color: rgba(0, 0, 0, 0.5) !important;
