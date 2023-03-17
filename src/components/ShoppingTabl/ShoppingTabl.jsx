@@ -24,7 +24,7 @@ const ShopingTabl = () => {
   const list = useSelector(getShoppingList);
   useEffect(() => {
     dispatcher(getShoppingIngredient());
-  }, [dispatcher, list]);
+  }, [dispatcher]);
 
   const deleteIngredient = e => {
     const id = e.target.parentNode.id;

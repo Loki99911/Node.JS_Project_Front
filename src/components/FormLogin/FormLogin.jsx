@@ -30,7 +30,7 @@ const LoginSchema = Yup.object().shape({
   }),
   password: Yup.string()
     .min(6, 'Your password is short')
-    .max(16, 'Enter a valid Password*')
+    .max(16, 'Your password is to long')
     .matches(/[1-9]/, 'Enter a valid Password*')
     .matches(
       /[a-zа-яA-ZА-Яії]/,
@@ -149,7 +149,7 @@ const FormLogin = props => {
                 props.errors.password || props.errors.email ? true : false
               }
             >
-              Login
+              Sign in
             </FormButton>
           </FormForAuth>
         )}

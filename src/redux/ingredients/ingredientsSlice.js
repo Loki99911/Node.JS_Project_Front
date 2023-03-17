@@ -42,7 +42,7 @@ export const ingredientsSlice = createSlice({
       })
       .addCase(removeShoppingIngredient.fulfilled, (state, { payload }) => {
         state.shoppingList = state.shoppingList.filter(
-          el => el.idIngredient !== payload.id
+          el => el._id !== payload.id
         );
       })
 
