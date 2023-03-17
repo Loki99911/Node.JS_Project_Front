@@ -19,26 +19,31 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+
 const LoginSchema = Yup.object().shape({
   email: Yup.mixed().test({
     name: 'email',
     params: { a: 'test', b: 'qwe' },
     test: value => {
-      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+      return /\w+@\w+\.\w{1,5}/.test(value);
     },
   }),
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
-    .matches(/[A-ZА-Я]/, 'Enter a valid Password*')
-    .matches(/^[a-zа-я1-9A-ZА-Я]/, 'Enter a valid Password*')
+    .matches(/[1-9]/, 'Enter a valid Password*')
+    .matches(
+      /[a-zа-яA-ZА-Яії]/,
+      'Enter a valid Password*'
+    )
+    .matches(/^[a-zа-яA-ZА-Яії1-9]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 
 const FormLogin = props => {
   const dispatch = useDispatch();
 
-  return (
+  return (<>
     <div>
       <Formik
         initialValues={{
@@ -138,12 +143,21 @@ const FormLogin = props => {
                 )}
               </BoxForInput>
             </BoxForForm>
-            <FormButton type="submit">Login</FormButton>
+            <FormButton
+              type="submit"
+              disabled={
+                props.errors.password || props.errors.email ? true : false
+              }
+            >
+              Login
+            </FormButton>
           </FormForAuth>
         )}
       </Formik>
       <LinkAuth to="/register">Registration</LinkAuth>
     </div>
+      </>
+
   );
 };
 

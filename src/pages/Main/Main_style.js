@@ -26,11 +26,7 @@ export const BoxForMain = styled.div`
       rgba(0, 0, 0, 0) 100%
     ),
     url(${bgrImageMob});
-  @media screen and (min-width: 376px) and (max-width: 768px) {
-    width: 375px;
-  }
   @media screen and (min-width: 769px) and (max-width: 1440px) {
-    width: 768px;
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
@@ -40,7 +36,6 @@ export const BoxForMain = styled.div`
       url(${bgrImageTab});
   }
   @media screen and (min-width: 1441px) {
-    width: 1440px;
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
@@ -108,7 +103,7 @@ export const LinkToRegister = styled(Link)`
   font-size: 14px;
   padding: 12px 24px;
   background-color: transparent;
-  color: aliceblue;
+  color: ${theme.colors.mainWhite};
   border-radius: 20px 60px;
   display: block;
   font-family: ${theme.fonts.main};
@@ -116,9 +111,18 @@ export const LinkToRegister = styled(Link)`
   border: 1px solid ${theme.colors.btnTextLight};
   transition: ${theme.transitions.main};
   &:hover {
+    background-color: ${theme.colors.mainWhite};
+    border: none;
+  color: ${theme.colors.mainAccent};
+  }
+    &:first-of-type {
     background-color: ${theme.colors.mainAccent};
     border: none;
+  &:hover {
+    background-color: ${theme.colors.mainBtnText};
+  color: ${theme.colors.mainWhite};
   }
+    }
 
   @media screen and (min-width: 769px) {
     padding: 22px 44px;

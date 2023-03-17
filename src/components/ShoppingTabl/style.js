@@ -54,7 +54,8 @@ export const TableHeaded = styled.li`
 export const BoxForItemImage = styled.div`
   height: 60px;
   width: 60px;
-  background-color: ${p=> p.theme.colors.mainAccent};
+  background-color: ${p => p.theme.colors.ingredientsBgrCol};
+  border-radius: 10px;
   margin-right: 10px;
 
   @media screen and (min-width: 769px) {
@@ -122,3 +123,7 @@ export const BoxForItemRemove = styled.div`
   padding: 0 30px;
   }
 `;
+
+export const BowForEmptyList = styled.div`
+  margin-bottom: 100px;
+`

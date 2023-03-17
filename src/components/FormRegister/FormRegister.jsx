@@ -18,32 +18,39 @@ import {
 import SVG from 'images/sprite.svg';
 import { getColor } from 'utils/formikColors.js';
 
+
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(1)
     .max(16)
-    .matches(/^[a-zA-Zа-яА-Я1-9]+(([' -][a-zA-Zа-яА-Я1-9 ])?[a-zA-Zа-яА-Я1-9]*)*$/)
+    .matches(
+      /^[a-zA-Zа-яА-Я1-9ії]+(([' -][a-zA-Zа-яА-Я1-9ії ])?[a-zA-Zа-яА-Я1-9ії]*)*$/
+    )
     .required(),
 
   email: Yup.mixed().test({
     name: 'email',
     params: { a: 'test', b: 'qwe' },
     test: value => {
-      return /\w+[^\s]\w+@\w+\.\w{1,5}/.test(value);
+      return /\w+@\w+\.\w{1,5}/.test(value);
     },
   }),
   password: Yup.string()
     .min(6, 'Your password is short')
     .max(16, 'Enter a valid Password*')
-    .matches(/[A-ZА-Я]/, 'Your password is little secure. Add uppercase letter!')
-    .matches(/^[a-zа-я1-9A-ZА-Я]/, 'Enter a valid Password*')
+    .matches(/[1-9]/, 'Your password is little secure. Add a number!')
+    .matches(
+      /[a-zа-яA-ZА-Яії]/,
+      'Your password is little secure. Add a letter!'
+    )
+    .matches(/^[a-zа-яA-ZА-Яії1-9]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 
 const FormRegister = props => {
   const dispatch = useDispatch();
 
-  return (
+  return (<>
     <div>
       <Formik
         initialValues={{
@@ -177,12 +184,22 @@ const FormRegister = props => {
                 )}
               </BoxForInput>
             </BoxForForm>
-            <FormButton type="submit">Register</FormButton>
+            <FormButton
+              type="submit"
+              disabled={
+                props.errors.password || props.errors.email || props.errors.name
+                  ? true
+                  : false
+              }
+            >
+              Sign up
+            </FormButton>
           </FormForAuth>
         )}
       </Formik>
       <LinkAuth to="/signin">Sign in</LinkAuth>
     </div>
+    </>
   );
 };
 

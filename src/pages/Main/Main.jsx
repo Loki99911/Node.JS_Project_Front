@@ -5,7 +5,7 @@ import {
   TextMain,
   TitleMain,
   BoxForLink,
-} from './style';
+} from './Main_style';
 import logo from 'images/svg-before sprite/logo_desc.svg';
 
 const Main = () => {

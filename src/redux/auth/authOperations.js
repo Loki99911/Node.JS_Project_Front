@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 import {
   signUpUserAPI,
@@ -28,7 +29,11 @@ export const signUp = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error.message);
+    toast.error(`${error.response.data.message}`,{
+        position: toast.POSITION.TOP_CENTER
+      });
       return rejectWithValue(error);
+
     }
   }
 );
@@ -43,7 +48,10 @@ export const logIn = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error.message);
-      return rejectWithValue(error.message);
+    toast.error(`${error.response.data.message}`,{
+        position: toast.POSITION.TOP_CENTER
+      });
+      return rejectWithValue(error);
     }
   }
 );

@@ -35,8 +35,11 @@ export const theme = {
     searchSelectBg: 'rgba(217, 217, 217, 0.2)',
     searchSelectText: 'rgba(0, 0, 0, 0.5)',
     searchDropDownBg: '#FFFFFF',
-    searchFormHoverBtn: '#23262A',
+
+    ingredientsBgrCol: '#EBF3D4',
+
     mainSerchHoverText: '#ffffff',
+    searchFormHoverBtn: '#23262A',
     mainGreyBg: '#D9D9D9',
     secondaryGreyBg: '#C4C4C4',
     btnHoverBg: '#22252A',
@@ -121,8 +124,11 @@ export const darkTheme = {
     searchSelectBg: 'transparent',
     searchSelectText: '#FAFAFA',
     searchDropDownBg: '#8BAA36',
-    searchFormHoverBtn: '#FFFFFF',
+
+    ingredientsBgrCol: '#2A2C36',
+
     mainSerchHoverText: '#8BAA36',
+    searchFormHoverBtn: '#FFFFFF',
     mainBg: '#ECECEC',
     btnTextLight: '#FAFAFA',
     sectionHeader: '#FAFAFA',
@@ -159,7 +165,6 @@ export const darkTheme = {
     mainSearchInput: '1px solid rgba(255, 255, 255, 0.2)',
     searchInput: '1px solid rgba(255, 255, 255, 0.2)',
     mainNavBord: '1px solid #8BAA36',
-   
   },
   radii: {
     btnStandart: '6px',
