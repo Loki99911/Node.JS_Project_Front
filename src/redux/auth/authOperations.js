@@ -6,6 +6,7 @@ import {
   signUpUserAPI,
   logInUserAPI,
   logOutUserAPI,
+  updateUserInfoAPI,
 } from 'service/API/Auth&UserAPI';
 
 export const token = {
@@ -29,11 +30,10 @@ export const signUp = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error.message);
-    toast.error(`${error.response.data.message}`,{
-        position: toast.POSITION.TOP_CENTER
+      toast.error(`${error.response.data.message}`, {
+        position: toast.POSITION.TOP_CENTER,
       });
       return rejectWithValue(error);
-
     }
   }
 );
@@ -48,8 +48,8 @@ export const logIn = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error.message);
-    toast.error(`${error.response.data.message}`,{
-        position: toast.POSITION.TOP_CENTER
+      toast.error(`${error.response.data.message}`, {
+        position: toast.POSITION.TOP_CENTER,
       });
       return rejectWithValue(error);
     }
@@ -73,6 +73,29 @@ export const logOut = createAsyncThunk(
     } catch (error) {
       console.log(error.message);
       return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const updateUserInfo = createAsyncThunk(
+  'auth/update',
+  async (user, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
+    try {
+      const data = await updateUserInfoAPI(user);
+      console.log('update user info:', data);
+      return data;
+    } catch (error) {
+      console.log(error.message);
+      toast.error(`${error.response.data.message}`, {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return rejectWithValue(error);
     }
   }
 );
