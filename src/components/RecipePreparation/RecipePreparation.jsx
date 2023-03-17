@@ -7,6 +7,8 @@ import {
   InstructionList,
 } from './RecipePreparation.styled';
 
+import { nanoid } from 'nanoid';
+
 const RecipePreparation = ({ image, instructions }) => {
   const items = instructions
     .split('\r\n')
@@ -17,10 +19,16 @@ const RecipePreparation = ({ image, instructions }) => {
       return true;
     })
     .map((item, index) => {
+      let slicedItem = item;
+      for (let i = 0; i < 2; i++) {
+        if (!isNaN(slicedItem[i]) || slicedItem[i] === '.') {
+          slicedItem = slicedItem.slice(i + 1);
+        }
+      }
       return (
-        <InstructionText key={item}>
+        <InstructionText key={nanoid()}>
           <span>{index + 1}</span>
-          <p>{item}</p>
+          <p>{slicedItem}</p>
         </InstructionText>
       );
     });
