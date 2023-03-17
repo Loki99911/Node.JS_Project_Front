@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { theme } from 'utils/theme';
 
+export const TooltipWrapper = styled.div`
+  display: none;
+`;
+
 export const CardTitle = styled.div`
   font-family: ${theme.fonts.main};
   font-style: normal;
@@ -20,6 +24,24 @@ export const CardTitle = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  :hover + ${TooltipWrapper} {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+    margin-top: -25px;
+    border-radius: 5px;
+    padding: 4px;
+    font-family: ${p => p.theme.fonts.main};
+    color: ${p => p.theme.colors.mainHeaderText};
+    background-color: #8baa36;
+
+    @media (min-width: 1440px) {
+      margin-top: 8px;
+    }
+  }
 `;
 
 export const CardImg = styled.img`
@@ -42,16 +64,4 @@ export const CardDish = styled.li`
   @media (min-width: 1440px) {
     width: calc((100% - 42px) / 4);
   }
-`;
-
-export const TooltipWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  max-width: 100%;
-  margin-top: 8px;
-  padding: 4px;
-  font-family: ${p => p.theme.fonts.main};
-  color: ${p => p.theme.colors.mainHeaderText};
-  /* background-color: ${p => p.theme.colors.tooltipbg}; */
 `;
