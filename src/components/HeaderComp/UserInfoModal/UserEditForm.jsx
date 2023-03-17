@@ -16,6 +16,8 @@ import {
   UserIcon,
   UserSvgWrapper,
 } from './UserEditForm.styled';
+import { useDispatch } from 'react-redux';
+import { updateUserInfo } from 'redux/auth/authOperations';
 
 const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
@@ -38,6 +40,7 @@ const EditNameSchema = Yup.object().shape({
 });
 
 export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
+  const dispatch = useDispatch();
   const [path, setPath] = useState('');
   const [inputs, setInputs] = useState({
     name: name,
@@ -53,12 +56,12 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
       validationSchema={EditNameSchema}
       onSubmit={(values, actions) => {
         console.log(values);
-        //   dispatch(
-        //     edit({
-        //       name: values.name.trim(),
-        //       picture: values.picture,
-        //     })
-        //   );
+        dispatch(
+          updateUserInfo({
+            name: values.name.trim(),
+            picture: values.picture,
+          })
+        );
         actions.setSubmitting(false);
         actions.resetForm();
       }}

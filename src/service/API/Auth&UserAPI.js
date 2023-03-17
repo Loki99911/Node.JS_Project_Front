@@ -21,6 +21,14 @@ export const logOutUserAPI = () => {
   });
 };
 
-export const getUserInfoAPI = () => {};
+export const getUserInfoAPI = id => {
+  return axios.get(`/auth/user-data/${id}`).then(({ data }) => {
+    return data;
+  });
+};
 
-export const updateUserInfoAPI = body => {};
+export const updateUserInfoAPI = body => {
+  return axios.patch('/auth/user-data', body).then(({ data }) => {
+    return data;
+  });
+};
