@@ -1,13 +1,10 @@
 import { Link, NavFooterCont } from './NavFooter.styled';
 
-  export const scrollToTop = () =>  {
-    window.scrollTo(0, 0);
-  }
+export const scrollToTop = () => {
+  window.scrollTo(0, 0);
+};
 
 export const NavFooter = () => {
-
-
- 
   return (
     <NavFooterCont>
       <Link to="/search?query=&type=ingredients" onClick={scrollToTop}>
@@ -16,7 +13,7 @@ export const NavFooter = () => {
       <Link to="/add" onClick={scrollToTop}>
         Add recipes
       </Link>
-      <Link to="/my" onClick={scrollToTop}>
+      <Link to="/my?page=1" onClick={scrollToTop}>
         My recipes
       </Link>
       <Link to="/favorite" onClick={scrollToTop}>

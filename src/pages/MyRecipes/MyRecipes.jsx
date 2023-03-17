@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   getCustomRecipes,
   getTotalCustomRecipes,
@@ -15,25 +16,32 @@ import { PaginationComp } from 'components/PaginationComp/Pagination';
 import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
 
 const MyRecipes = () => {
+  const history = useNavigate();
   const dispatch = useDispatch();
+  const { search } = useLocation();
+  const page = search.slice(-1);
   const recipes = useSelector(getCustomRecipes);
   const total = useSelector(getTotalCustomRecipes);
   const perPage = 4;
-  const [page, setPage] = useState(1);
+  const [pageNumber, setPageNumber] = useState(+page);
 
   useEffect(() => {
-    dispatch(getOwnRecipes({ page: page, per_page: perPage }));
-  }, [dispatch, page]);
+    dispatch(getOwnRecipes({ page: pageNumber, per_page: perPage }));
+  }, [dispatch, pageNumber]);
 
   useEffect(() => {
     if (recipes.length < perPage)
-      dispatch(getOwnRecipes({ page: page, per_page: perPage }));
-  }, [dispatch, recipes.length, page]);
+      dispatch(getOwnRecipes({ page: pageNumber, per_page: perPage }));
+  }, [dispatch, recipes.length, pageNumber]);
 
   const handleChange = (event, value) => {
-    setPage(value);
+    setPageNumber(value);
   };
-  // console.log(recipes);
+
+  useEffect(() => {
+    history(`?page=${pageNumber}`);
+  }, [history, pageNumber]);
+
   return (
     <Wrapper>
       <Container>
@@ -65,7 +73,7 @@ const MyRecipes = () => {
         {recipes && recipes.length > 0 && (
           <PaginationComp
             count={Math.ceil(total / perPage)}
-            page={page}
+            page={pageNumber}
             handleChange={handleChange}
           />
         )}
