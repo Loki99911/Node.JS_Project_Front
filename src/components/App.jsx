@@ -37,6 +37,7 @@ import { Loader } from './Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentUser } from 'redux/auth/authOperations';
+import Subscribe from 'pages/Subscribe/Subscribe';
 // const Main = lazy(() => import('pages/Main/Main'));
 // const Register = lazy(() => import('pages/Register/Register'));
 // const Signin = lazy(() => import('pages/Signin/Signin'));
@@ -106,6 +107,14 @@ export const App = () => {
             element={
               <PublicRoute restricted>
                 <Signin />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/confirm-email"
+            element={
+              <PublicRoute>
+                <Subscribe />
               </PublicRoute>
             }
           />
