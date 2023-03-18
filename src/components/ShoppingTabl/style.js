@@ -112,7 +112,7 @@ export const BoxForItemNumber = styled.p`
   }
 `;
 
-export const BoxForItemRemove = styled.div`
+export const BtnForItemRemove = styled.button`
   width: 54px;
   height: 14px;
   padding: 0 20px;
