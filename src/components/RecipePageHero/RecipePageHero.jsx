@@ -72,7 +72,7 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
         {btnText || getIngDescription(meal) ? (
           <ButtonSkew
             type="button"
-            text={'delete from favorite recipes'}
+            text={'remove from favorite recipes'}
             styled="other"
             location="recipes"
             fn={deleteFromFav}
