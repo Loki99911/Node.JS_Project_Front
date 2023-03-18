@@ -24,7 +24,7 @@ const SignupSchema = Yup.object().shape({
     .min(1)
     .max(16)
     .matches(
-      /^[a-zA-Zа-яА-Я1-9ії]+(([' -][a-zA-Zа-яА-Я1-9ії ])?[a-zA-Zа-яА-Я1-9ії]*)*$/
+      /^[a-zA-Zа-яА-Я1-9іїІЇєЄ]+(([' -][a-zA-Zа-яА-Я1-9іїЇІЄє ])?[a-zA-Zа-яА-Я1-9іїЇІЄє]*)*$/
     )
     .required(),
 
@@ -40,10 +40,10 @@ const SignupSchema = Yup.object().shape({
     .max(16, 'Your password is to long')
     .matches(/[1-9]/, 'Your password is little secure. Add a number!')
     .matches(
-      /[a-zа-яA-ZА-Яії]/,
+      /[a-zа-яA-ZА-ЯіїЇІєЄ]/,
       'Your password is little secure. Add a letter!'
     )
-    .matches(/^[a-zа-яA-ZА-Яії1-9]/, 'Enter a valid Password*')
+    .matches(/^[a-zа-яA-ZА-ЯіїЇІЄє1-9]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 
