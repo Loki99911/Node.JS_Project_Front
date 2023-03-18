@@ -14,16 +14,17 @@ export const StyledLink = styled(NavLink)`
   line-height: ${p => p.theme.lineHeights.subheader};
   color: ${p =>
     p.navcolor === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
+  transition: ${p => p.theme.transitions.main};
 
   &.active {
     color: ${p => p.theme.colors.mainAccent};
-    font-weight: ${p => p.theme.fontWeights[2]};
+    /* font-weight: ${p => p.theme.fontWeights[2]}; */
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: ${p => p.theme.colors.mainAccent};
-    font-weight: ${p => p.theme.fontWeights[2]};
+    /* font-weight: ${p => p.theme.fontWeights[2]}; */
   }
 
   &:hover svg,

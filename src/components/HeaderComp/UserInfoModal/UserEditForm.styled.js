@@ -171,7 +171,9 @@ export const ResetBtn = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
 
+  
   & svg {
     stroke: ${p => p.theme.colors.mainDark};
     width: 18px;
