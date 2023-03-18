@@ -1,5 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import { DeleteBtn } from 'components/DeleteBtn/DeleteBtn';
 import { SubTitle } from 'components/SubTitle/SubTitle';
+import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 import { useMediaQuery } from 'hooks/useMedia';
 
 import {
@@ -11,16 +13,23 @@ import {
   TimeWrapper,
   TitleWrapper,
 } from './RecipeBlock.styled';
-import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 
 export const RecipeBlock = ({ location, id, text, title, img, time }) => {
   const isRowBased = useMediaQuery('(min-width: 768px)');
 
   return (
     <RecipeBlockWrapper location={location}>
-      <ImageWrapper location={location}>
-        <img src={img} alt={title} />
-      </ImageWrapper>
+      {!isRowBased && location === 'favorite' ? (
+        <NavLink to={`/recipe/${id}`}>
+          <ImageWrapper location={location}>
+            <img src={img} alt={title} />
+          </ImageWrapper>
+        </NavLink>
+      ) : (
+        <ImageWrapper location={location}>
+          <img src={img} alt={title} />
+        </ImageWrapper>
+      )}
       <DataWrapper location={location}>
         <TitleWrapper>
           <SubTitle text={title} />
