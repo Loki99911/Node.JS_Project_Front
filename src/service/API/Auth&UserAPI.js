@@ -44,3 +44,11 @@ export const subscribeEmail = email => {
     return data;
   });
 };
+
+export const subscribeEmailConfirmation = token => {
+  return axios
+    .get(`auth/user-data/subscribe?token=${token}`)
+    .then(({ data }) => {
+      return data;
+    });
+};
