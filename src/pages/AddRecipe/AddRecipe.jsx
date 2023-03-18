@@ -11,11 +11,6 @@ import { Title } from 'components/Title/Title';
 import { nanoid } from '@reduxjs/toolkit';
 import { Container } from 'components/Container/Container';
 import { useDispatch } from 'react-redux';
-import {
-  getCategoryList,
-  getPopularRecipes,
-} from 'redux/outerRecipes/outerRecipesOperations';
-import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { AddRecipePopular } from 'components/AddRecipePopular/AddRecipePopular';
 import { AddRecipeMeta } from 'components/AddRecipeMeta/AddRecipeMeta';
 import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeIngredients';
@@ -56,12 +51,6 @@ const AddRecipe = () => {
     store.set('userInputs', inputs);
     store.set('userIngredients', userIngredients);
   }, [inputs, userIngredients]);
-
-  useEffect(() => {
-    dispatch(getPopularRecipes());
-    dispatch(getAllIngredients());
-    dispatch(getCategoryList());
-  }, [dispatch]);
 
   const handleDecrement = () => {
     if (userIngredients.length <= 0) return;
