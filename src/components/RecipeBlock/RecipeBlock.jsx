@@ -1,5 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import { DeleteBtn } from 'components/DeleteBtn/DeleteBtn';
 import { SubTitle } from 'components/SubTitle/SubTitle';
+import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 import { useMediaQuery } from 'hooks/useMedia';
 
 import {
@@ -11,8 +13,6 @@ import {
   TimeWrapper,
   TitleWrapper,
 } from './RecipeBlock.styled';
-import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
-import { NavLink } from 'react-router-dom';
 
 export const RecipeBlock = ({ location, id, text, title, img, time }) => {
   const isRowBased = useMediaQuery('(min-width: 768px)');
