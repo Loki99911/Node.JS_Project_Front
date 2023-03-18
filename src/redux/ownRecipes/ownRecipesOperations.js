@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 import {
   getOwnRecipesAPI,
@@ -10,18 +11,9 @@ import {
   getOwnRecipeByIdAPI,
 } from 'service/API/OwnRecipesAPI';
 
-import { token } from 'redux/auth/authOperations';
-import { toast } from 'react-toastify';
-
 export const getOwnRecipes = createAsyncThunk(
   'ownRecipes/getRecipes',
-  async ({ page, per_page }, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async ({ page, per_page }, { rejectWithValue }) => {
     try {
       const data = await getOwnRecipesAPI(page ?? null, per_page ?? null);
       console.log('own recipes', data);
@@ -35,16 +27,9 @@ export const getOwnRecipes = createAsyncThunk(
 
 export const addOwnRecipe = createAsyncThunk(
   'ownRecipes/addRecipe',
-  async (body, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (body, { rejectWithValue }) => {
     try {
       const data = await addOwnRecipeAPI(body);
-      // console.log('own recipe successfully added', data);
       toast.success('Recipe has been added', {
         position: 'bottom-right',
         autoClose: 5000,
@@ -57,7 +42,6 @@ export const addOwnRecipe = createAsyncThunk(
       });
       return data;
     } catch (error) {
-      // console.log(error.message);
       toast.error('Recipe hasn`t been added', {
         position: 'bottom-right',
         autoClose: 5000,
@@ -75,13 +59,7 @@ export const addOwnRecipe = createAsyncThunk(
 
 export const deleteOwnRecipe = createAsyncThunk(
   'ownRecipes/deleteRecipe',
-  async (id, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (id, { rejectWithValue }) => {
     try {
       const data = await deleteOwnRecipeAPI(id);
       console.log('own recipe successfully deleted', data);
@@ -95,13 +73,7 @@ export const deleteOwnRecipe = createAsyncThunk(
 
 export const getOwnRecipeByID = createAsyncThunk(
   'ownRecipes/singleRecipeByID',
-  async (id, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (id, { rejectWithValue }) => {
     try {
       const data = await getOwnRecipeByIdAPI(id);
       console.log('own recipe', data);
@@ -115,13 +87,7 @@ export const getOwnRecipeByID = createAsyncThunk(
 
 export const addFavorite = createAsyncThunk(
   'ownRecipes/addFavorite',
-  async (id, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (id, { rejectWithValue }) => {
     try {
       const data = await addFavoriteAPI({ idMeal: id });
       console.log('fav recipe successfully added', data);
@@ -135,13 +101,7 @@ export const addFavorite = createAsyncThunk(
 
 export const getFavorite = createAsyncThunk(
   'ownRecipes/getFavorite',
-  async ({ page, per_page }, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async ({ page, per_page }, { rejectWithValue }) => {
     try {
       const data = await getFavoriteAPI(page ?? null, per_page ?? null);
       console.log('fav recipes', {
@@ -158,13 +118,7 @@ export const getFavorite = createAsyncThunk(
 
 export const deleteFavorite = createAsyncThunk(
   'ownRecipes/deleteFavorite',
-  async (id, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (id, { rejectWithValue }) => {
     try {
       const data = await removeFavoriteAPI(id);
       console.log('fav recipe successfully deleted', data);

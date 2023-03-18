@@ -7,6 +7,7 @@ import {
   logInUserAPI,
   logOutUserAPI,
   updateUserInfoAPI,
+  getCurrentUserAPI,
 } from 'service/API/Auth&UserAPI';
 
 export const token = {
@@ -58,13 +59,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk(
   'auth/logout',
-  async (_, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (_, { rejectWithValue }) => {
     try {
       const data = await logOutUserAPI();
       token.unset();
@@ -79,13 +74,7 @@ export const logOut = createAsyncThunk(
 
 export const updateUserInfo = createAsyncThunk(
   'auth/update',
-  async (user, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async (user, { rejectWithValue }) => {
     try {
       const data = await updateUserInfoAPI(user);
       console.log('update user info:', data);
@@ -95,6 +84,25 @@ export const updateUserInfo = createAsyncThunk(
       toast.error(`${error.response.data.message}`, {
         position: toast.POSITION.TOP_CENTER,
       });
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const getCurrentUser = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
+    try {
+      const data = await getCurrentUserAPI();
+      console.log('current user', data);
+      return data;
+    } catch (error) {
       return rejectWithValue(error);
     }
   }
