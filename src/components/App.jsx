@@ -25,11 +25,18 @@ import { GlobalStyle } from './App.styled';
 import { ThemeProvider } from 'styled-components';
 import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
 import { getMode } from 'redux/theme/themeSelector';
-import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
-import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
+import {
+  getFullCategoryList,
+  getPopular,
+} from 'redux/outerRecipes/outerRecipesSelectors';
+import {
+  getCategoryList,
+  getPopularRecipes,
+} from 'redux/outerRecipes/outerRecipesOperations';
 import { Loader } from './Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getCurrentUser } from 'redux/auth/authOperations';
 // const Main = lazy(() => import('pages/Main/Main'));
 // const Register = lazy(() => import('pages/Register/Register'));
 // const Signin = lazy(() => import('pages/Signin/Signin'));
@@ -52,16 +59,24 @@ export const App = () => {
   const isUserLogin = useSelector(getIsLoggedIn);
   const ingredients = useSelector(getIngredients);
   const categories = useSelector(getFullCategoryList);
+  const popularRecipes = useSelector(getPopular);
   const dispatcher = useDispatch();
 
   useEffect(() => {
+    dispatcher(getCurrentUser());
+  }, [dispatcher]);
+
+  useEffect(() => {
+    if (isUserLogin === true && popularRecipes.length === 0) {
+      dispatcher(getPopularRecipes());
+    }
     if (isUserLogin === true && ingredients.length === 0) {
       dispatcher(getAllIngredients());
     }
     if (isUserLogin === true && categories.length === 0) {
       dispatcher(getCategoryList());
     }
-  }, [dispatcher, ingredients, categories, isUserLogin]);
+  }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
 
   return isUserFetching ? (
     <Loader />
