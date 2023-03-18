@@ -16,6 +16,7 @@ import {
 } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { scrollToTop } from 'utils/scrollUp';
+import { Loader } from 'components/Loader/Loader';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,6 +29,7 @@ const SearchPage = () => {
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getIsError);
   const totalQuery = recipesBySearchQuery.totalHits;
+  const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 
   let perPage;
   if (isDesktop) {
@@ -76,11 +78,15 @@ const SearchPage = () => {
           startType={type}
           startQuery={query}
         />
-        <ul>
-          {recipesBySearchQuery?.meals?.map(el => (
-            <CardMeal meal={el} key={el.idMeal} />
-          ))}
-        </ul>
+        {isPending ? (
+          <Loader />
+        ) : (
+          <ul>
+            {recipesBySearchQuery?.meals?.map(el => (
+              <CardMeal meal={el} key={el.idMeal} />
+            ))}
+          </ul>
+        )}
         {totalQuery > 0 && (
           <PaginationComp
             count={Math.ceil(totalQuery / perPage)}
