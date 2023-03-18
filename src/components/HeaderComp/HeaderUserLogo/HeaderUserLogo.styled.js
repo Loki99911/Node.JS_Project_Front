@@ -17,6 +17,7 @@ export const HeaderUserButton = styled.button`
   color: ${p =>
     p.color === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
   cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
 
   & img {
     width: 34px;
