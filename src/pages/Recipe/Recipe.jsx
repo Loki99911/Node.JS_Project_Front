@@ -23,6 +23,7 @@ const Recipe = () => {
   };
   // ownRecipe && console.log(Object.keys(ownRecipe).length);
 
+  // [massiveShoppilng];
   useEffect(() => {
     if (('' + recipeId).length < 10) {
       dispatcher(getOneRecipeById(recipeId));
@@ -49,7 +50,10 @@ const Recipe = () => {
               Number <span>Add to list</span>
             </p>
           </ReportsTable>
-          <RecipeInngredientsList ingredients={myRecipe().ingredients} />
+          <RecipeInngredientsList
+            ingredients={myRecipe().ingredients}
+            recipeId={recipeId}
+          />
           <RecipePreparation
             image={myRecipe().imgURL}
             instructions={myRecipe().description}
