@@ -7,6 +7,7 @@ export const BoxForAuth = styled.div`
   margin: 0 auto;
   min-height: 100vh;
   width: 100%;
+  background-color: #FFFFFF;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;

@@ -45,7 +45,7 @@ export const addOwnRecipe = createAsyncThunk(
     try {
       const data = await addOwnRecipeAPI(body);
       // console.log('own recipe successfully added', data);
-      toast.success('Recepi has been added', {
+      toast.success('Recipe has been added', {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: true,
@@ -58,7 +58,7 @@ export const addOwnRecipe = createAsyncThunk(
       return data;
     } catch (error) {
       // console.log(error.message);
-      toast.error('Recepi hasn`t been added', {
+      toast.error('Recipe hasn`t been added', {
         position: 'bottom-right',
         autoClose: 5000,
         hideProgressBar: true,

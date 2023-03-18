@@ -65,8 +65,8 @@ export const getShoppingIngredient = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await getShoppingIngredientAPI();
-      console.log('shopping list', data.shopingList);
-      return data.shopingList;
+      console.log('shopping list', data);
+      return data;
     } catch (error) {
       console.log(error.message);
       return rejectWithValue(error.response.status);
