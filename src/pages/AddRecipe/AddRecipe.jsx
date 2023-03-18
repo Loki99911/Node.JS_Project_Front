@@ -22,7 +22,7 @@ import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeI
 import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
-import { AddRecipeToastifyError } from 'pages/AddRecipeToastifyError/AddRecipeToastifyError';
+import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
 
 const init = {
   recipe: '',
