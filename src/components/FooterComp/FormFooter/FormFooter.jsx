@@ -11,6 +11,8 @@ import * as Yup from 'yup';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
+import { subscribeEmail } from 'service/API/Auth&UserAPI';
+import { toast } from 'react-toastify';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.mixed().test({
@@ -35,11 +37,14 @@ export const FormFooter = () => {
         initialValues={{ email: `` }}
         validationSchema={LoginSchema}
         onSubmit={(values, actions) => {
-          //  dispatch(
-          //    XXXX({
-          //      email: values.email,
-          //    })
-          //  );
+          subscribeEmail({ email: values.email })
+            .then(r => toast.success('проверьте почту'))
+            .catch(error => {
+              if (error === 409) {
+                toast.warning('вы уже подписаны');
+              }
+              toast.error('что-то пошло не так');
+            });
 
           console.log(values.email);
           actions.setSubmitting(false);

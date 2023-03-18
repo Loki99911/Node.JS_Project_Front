@@ -33,10 +33,10 @@ const LoginSchema = Yup.object().shape({
     .max(16, 'Your password is to long')
     .matches(/[1-9]/, 'Enter a valid Password*')
     .matches(
-      /[a-zа-яA-ZА-Яії]/,
+      /[a-zа-яA-ZА-ЯіїЇІєЄ]/,
       'Enter a valid Password*'
     )
-    .matches(/^[a-zа-яA-ZА-Яії1-9]/, 'Enter a valid Password*')
+    .matches(/^[a-zа-яA-ZА-ЯіїЇІЄє1-9]/, 'Enter a valid Password*')
     .required('Enter a valid Password*'),
 });
 
