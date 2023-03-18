@@ -43,11 +43,7 @@ const EditNameSchema = Yup.object().shape({
 export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
   const dispatch = useDispatch();
   const userAvatar = useSelector(getAvatar);
-  const [path, setPath] = useState('');
-  const [inputs, setInputs] = useState({
-    name: name,
-    picture: avatarUrl,
-  });
+  const [path, setPath] = useState(userAvatar);
 
   const handleSubmit = values => {
     const formData = new FormData();
@@ -74,11 +70,7 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
         <UserEditForm onSubmit={props.handleSubmit}>
           <UserAvatarWrapper>
             <label htmlFor="picture" id="labelFile">
-              {userAvatar ? (
-                <UserSvgWrapper>
-                  <img src={userAvatar} alt="user_picture" />
-                </UserSvgWrapper>
-              ) : inputs.picture?.name ? (
+              {path ? (
                 <UserSvgWrapper>
                   <img src={path} alt="user_picture" />
                 </UserSvgWrapper>
@@ -102,10 +94,6 @@ export const UserEditFormComp = ({ name, avatarUrl, closeModal }) => {
               onChange={event => {
                 if (event.target.files[0]) {
                   if (SUPPORTED_FORMATS.includes(event.target.files[0].type)) {
-                    setInputs(prev => ({
-                      ...prev,
-                      picture: event.target.files[0],
-                    }));
                     setPath(window.URL.createObjectURL(event.target.files[0]));
                     props.setFieldValue('picture', event.target.files[0]);
                   }

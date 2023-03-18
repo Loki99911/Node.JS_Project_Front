@@ -35,7 +35,7 @@ export const theme = {
     searchSelectBg: 'rgba(217, 217, 217, 0.2)',
     searchSelectText: 'rgba(0, 0, 0, 0.5)',
     searchDropDownBg: '#FFFFFF',
-
+    tooltipbg: '#EBF3D4',
     ingredientsBgrCol: '#EBF3D4',
 
     mainSerchHoverText: '#ffffff',
@@ -124,7 +124,7 @@ export const darkTheme = {
     searchSelectBg: 'transparent',
     searchSelectText: '#FAFAFA',
     searchDropDownBg: '#8BAA36',
-
+    tooltipbg: '#8BAA36',
     ingredientsBgrCol: '#2A2C36',
 
     mainSerchHoverText: '#8BAA36',

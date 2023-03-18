@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { theme } from 'utils/theme';
 
-export const CardTitle = styled.p`
+export const TooltipWrapper = styled.div`
+  display: none;
+`;
+
+export const CardTitle = styled.div`
   font-family: ${theme.fonts.main};
   font-style: normal;
   font-weight: 500;
@@ -20,6 +24,30 @@ export const CardTitle = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  :hover + ${TooltipWrapper} {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+    margin-top: -25px;
+    border-radius: 5px;
+    padding: 4px;
+    font-family: ${p => p.theme.fonts.main};
+    color: ${p => p.theme.colors.mainHeaderText};
+    background-color: #8baa36;
+
+    p {
+      width: 100%;
+      padding: 5px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-top: 8px;
+    }
+  }
 `;
 
 export const CardImg = styled.img`
