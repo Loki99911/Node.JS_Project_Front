@@ -17,6 +17,7 @@ import {
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { scrollToTop } from 'utils/scrollUp';
 import { Loader } from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,6 +42,12 @@ const SearchPage = () => {
   }
 
   const handleOnSubmit = (query1, type1) => {
+    if (query1 === '') {
+      toast.error(`You didn't enter anything to search`, {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
     setSearchParams(
       new URLSearchParams({
         query: query1,
