@@ -6,7 +6,7 @@ import {
   TableHeaderNameTitle,
   TableHeaderTitle,
   BoxForItemNumber,
-  BoxForItemRemove,
+  BtnForItemRemove,
   BowForEmptyList
 } from './style.js';
 import icons from 'images/sprite.svg';
@@ -27,8 +27,18 @@ const ShopingTabl = () => {
   }, [dispatcher]);
 
   const deleteIngredient = e => {
+    if (e.target.parentNode.parentNode.id) {
+    const id = e.target.parentNode.parentNode.id;
+    dispatcher(removeShoppingIngredient(id));
+    }
+    if (e.target.parentNode.id) {
     const id = e.target.parentNode.id;
     dispatcher(removeShoppingIngredient(id));
+    }
+    if (e.target.id) {
+    const id = e.target.id;
+    dispatcher(removeShoppingIngredient(id));
+    }
   };
 
   return (<>{
@@ -52,11 +62,11 @@ const ShopingTabl = () => {
               <BoxForItemNumber>{elem.weight}</BoxForItemNumber>
             </TableHeaderTitle>
             <TableHeaderTitle>
-              <BoxForItemRemove>
-                <svg width="20" height="20" onClick={deleteIngredient} id={elem._id}>
+              <BtnForItemRemove type='button' id={elem._id} onClick={deleteIngredient}>
+                <svg width="20" height="20">
                   <use href={icons + '#icon-cross'}></use>
                 </svg>
-              </BoxForItemRemove>
+              </BtnForItemRemove>
             </TableHeaderTitle>
           </TableHeaded>
         );
