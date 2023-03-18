@@ -11,17 +11,17 @@ export const FormForAuth = styled(Form)`
   border-radius: 30px;
   background-color: #2a2c36;
   color: ${theme.colors.btnTextLight};
-  margin-top: -35px;
+  margin: -35px auto 0 auto;
   padding: 20px 10px;
 
   @media screen and (min-width: 376px) and (max-width: 768px) {
-    width: 350px;
+    width: 330px;
     padding: 40px 28px;
   }
   @media screen and (min-width: 769px) and (max-width: 1440px) {
     width: 500px;
     padding: 44px 50px;
-    margin-top: -10px;
+    margin: -10px auto 0 auto;
   }
   @media screen and (min-width: 1441px) {
     width: 400px;
