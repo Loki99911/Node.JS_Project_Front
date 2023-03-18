@@ -32,11 +32,13 @@ const EditNameSchema = Yup.object().shape({
   ),
 
   name: Yup.string()
-    .min(2, 'Name must contain at least 2 letters')
+    .min(1, 'Name must contain at least 2 letters')
+    .max(16, 'Name must contain maximum 16 letters')
     .matches(
-      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+      /^[ыЫа-яА-Я1-9a-zA-ZіІєЄґҐїЇ]+(([' -][ыЫа-яА-Я1-9a-zA-ZіІєЄґҐїЇ])?[ыЫа-яА-Я1-9a-zA-ZіІєЄґҐїЇ]*)*$/,
       'Name must contain only letters'
     )
+
     .required('Name is required'),
 });
 
