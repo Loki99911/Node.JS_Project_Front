@@ -89,7 +89,7 @@ export const SubTitle = styled.div`
   & h3 {
     display: inline-block;
     max-width: 130px;
-    overflow-x: hidden;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 
