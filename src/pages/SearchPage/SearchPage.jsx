@@ -16,6 +16,8 @@ import {
 } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { scrollToTop } from 'utils/scrollUp';
+import { Loader } from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,6 +30,7 @@ const SearchPage = () => {
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getIsError);
   const totalQuery = recipesBySearchQuery.totalHits;
+  const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 
   let perPage;
   if (isDesktop) {
@@ -39,6 +42,12 @@ const SearchPage = () => {
   }
 
   const handleOnSubmit = (query1, type1) => {
+    if (query1 === '') {
+      toast.error(`You didn't enter anything to search`, {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
     setSearchParams(
       new URLSearchParams({
         query: query1,
@@ -76,11 +85,15 @@ const SearchPage = () => {
           startType={type}
           startQuery={query}
         />
-        <ul>
-          {recipesBySearchQuery?.meals?.map(el => (
-            <CardMeal meal={el} key={el.idMeal} />
-          ))}
-        </ul>
+        {isPending ? (
+          <Loader />
+        ) : (
+          <ul>
+            {recipesBySearchQuery?.meals?.map(el => (
+              <CardMeal meal={el} key={el.idMeal} />
+            ))}
+          </ul>
+        )}
         {totalQuery > 0 && (
           <PaginationComp
             count={Math.ceil(totalQuery / perPage)}
