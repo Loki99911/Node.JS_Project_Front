@@ -33,7 +33,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             image={inngredient.imgURL}
             strIngredient={inngredient.ingredient}
             key={nanoid(6)}
-            weight={inngredient.qty}
+            weight={inngredient.qty ? inngredient.qty : 'any'}
             strDescription={inngredient.description}
             list={list}
             recipeId={recipeId + index}

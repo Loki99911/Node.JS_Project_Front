@@ -124,8 +124,10 @@ export const CookingTime = styled.div`
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: ${p => p.theme.letterSpacings.subheader};
+  height: 14px;
 
   @media screen and (min-width: 768px) {
+    height: 20px;
     margin-top: 65px;
     font-size: 14px;
     line-height: ${p => p.theme.lineHeights.time};

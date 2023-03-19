@@ -23,7 +23,7 @@ const RecipeInngredientsItem = obj => {
 
   const addToShoppingList = () => {
     if (obj.inShoppingList) {
-      const ingrid = obj.list.filter(item => item.recipeId === obj.recipeId)[0];
+      const ingrid = obj.list.find(item => item.recipeId === obj.recipeId);
       dispatcher(removeShoppingIngredient(ingrid._id));
       return;
     }

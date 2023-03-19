@@ -86,12 +86,16 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
             fn={addtoFavorite}
           />
         )}
-        <CookingTime>
-          <svg>
-            <use href={sprite + `#icon-clock`} />
-          </svg>
-          <span>{cookingTime + ` min`}</span>
-        </CookingTime>
+        {cookingTime !== '' ? (
+          <CookingTime>
+            <svg>
+              <use href={sprite + `#icon-clock`} />
+            </svg>
+            <span>{cookingTime + ` min`}</span>
+          </CookingTime>
+        ) : (
+          <CookingTime></CookingTime>
+        )}
       </RecipeHeroConteiner>
     </>
   );
