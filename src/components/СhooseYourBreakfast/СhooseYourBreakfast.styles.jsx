@@ -100,7 +100,8 @@ export const RightArrow = styled.svg`
   margin-left: 4px;
   display: flex;
   stroke: ${p => p.theme.colors.secondaryDark};
-
+  transition: ${p => p.theme.transitions.main};
+  
   &:hover {
     transform: scale(1.2);
   }
