@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { DeleteBtn } from 'components/DeleteBtn/DeleteBtn';
-import { SubTitle } from 'components/SubTitle/SubTitle';
 import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 import { useMediaQuery } from 'hooks/useMedia';
 
@@ -9,6 +8,7 @@ import {
   DescrWrapper,
   ImageWrapper,
   RecipeBlockWrapper,
+  SubTitle,
   Time,
   TimeWrapper,
   TitleWrapper,
@@ -32,7 +32,9 @@ export const RecipeBlock = ({ location, id, text, title, img, time }) => {
       )}
       <DataWrapper location={location}>
         <TitleWrapper>
-          <SubTitle text={title} />
+          <SubTitle>
+            <h3>{title}</h3>
+          </SubTitle>
           {isRowBased && location === 'favorite' && (
             <DeleteBtn location={location} id={id} />
           )}
