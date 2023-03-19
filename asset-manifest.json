@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.d2123060.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.a1161d74.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.e49579d6.js",
     "static/css/940.acf3b8c5.chunk.css": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css",
     "static/js/940.0a4b601d.chunk.js": "/Node.JS_Project_Front/static/js/940.0a4b601d.chunk.js",
-    "static/js/347.b2b49f97.chunk.js": "/Node.JS_Project_Front/static/js/347.b2b49f97.chunk.js",
+    "static/js/347.a979cc3a.chunk.js": "/Node.JS_Project_Front/static/js/347.a979cc3a.chunk.js",
     "static/js/583.dd8eb53c.chunk.js": "/Node.JS_Project_Front/static/js/583.dd8eb53c.chunk.js",
     "static/js/786.dcaca162.chunk.js": "/Node.JS_Project_Front/static/js/786.dcaca162.chunk.js",
     "static/js/854.a33a008c.chunk.js": "/Node.JS_Project_Front/static/js/854.a33a008c.chunk.js",
@@ -67,10 +67,10 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.d2123060.css.map": "/Node.JS_Project_Front/static/css/main.d2123060.css.map",
-    "main.a1161d74.js.map": "/Node.JS_Project_Front/static/js/main.a1161d74.js.map",
+    "main.e49579d6.js.map": "/Node.JS_Project_Front/static/js/main.e49579d6.js.map",
     "940.acf3b8c5.chunk.css.map": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css.map",
     "940.0a4b601d.chunk.js.map": "/Node.JS_Project_Front/static/js/940.0a4b601d.chunk.js.map",
-    "347.b2b49f97.chunk.js.map": "/Node.JS_Project_Front/static/js/347.b2b49f97.chunk.js.map",
+    "347.a979cc3a.chunk.js.map": "/Node.JS_Project_Front/static/js/347.a979cc3a.chunk.js.map",
     "583.dd8eb53c.chunk.js.map": "/Node.JS_Project_Front/static/js/583.dd8eb53c.chunk.js.map",
     "786.dcaca162.chunk.js.map": "/Node.JS_Project_Front/static/js/786.dcaca162.chunk.js.map",
     "854.a33a008c.chunk.js.map": "/Node.JS_Project_Front/static/js/854.a33a008c.chunk.js.map",
@@ -83,6 +83,6 @@
   },
   "entrypoints": [
     "static/css/main.d2123060.css",
-    "static/js/main.a1161d74.js"
+    "static/js/main.e49579d6.js"
   ]
 }
