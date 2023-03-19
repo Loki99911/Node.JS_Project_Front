@@ -57,7 +57,7 @@ export const SpanGr = styled.span`
 
 export const MainPageText = styled.p`
   margin: 14px 40px 157px 40px;
-  color: ${theme.colors.mainDark};
+  color: ${p => p.theme.colors.secondaryDark};
   font-family: ${theme.fonts.main};
   font-style: normal;
   font-weight: 400;
