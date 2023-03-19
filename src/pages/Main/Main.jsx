@@ -17,8 +17,8 @@ const Main = () => {
         </BoxForSVG>
         <TitleMain>Welcome to the app!</TitleMain>
         <TextMain>
-          Is not only a recipe app, it is, in fact, your cookbook. You can add
-          your own recipes to save them for the future.
+          Not only a recipe app. In fact, it is your cookbook. You can add your
+          own recipes to save them for the future.
         </TextMain>
         <BoxForLink>
           <LinkToRegister to="/register">Registration</LinkToRegister>

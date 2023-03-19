@@ -112,7 +112,7 @@ export const LinkToRegister = styled(Link)`
   transition: ${theme.transitions.main};
   &:hover {
     background-color: ${theme.colors.mainWhite};
-    border: none;
+  border: 1px solid ${theme.colors.mainAccent};
   color: ${theme.colors.mainAccent};
   }
     &:first-of-type {
