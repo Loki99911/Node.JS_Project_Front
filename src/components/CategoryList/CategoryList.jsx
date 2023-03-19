@@ -7,96 +7,109 @@ import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-// import { hover } from '@testing-library/user-event/dist/hover';
-
-
 
 export const CategoryList = () => {
-    const { categoryName } = useParams();
-    const dispatcher = useDispatch();
-    const [value, setValue] = useState(1);
-    const [mapArray, setMapArray] = useState([]);
-    const navigate = useNavigate();
-const [flag, setFlag] = useState(false);
-    const fullCategoryList = useSelector(getFullCategoryList);
+  const { categoryName } = useParams();
+  const dispatcher = useDispatch();
+  const [value, setValue] = useState(1);
+  const [mapArray, setMapArray] = useState([]);
+  const navigate = useNavigate();
+  const [flag, setFlag] = useState(false);
+  const fullCategoryList = useSelector(getFullCategoryList);
 
-    useEffect(() => {
-        dispatcher(getCategoryList());
-    }, [dispatcher]);
+  useEffect(() => {
+    dispatcher(getCategoryList());
+  }, [dispatcher]);
 
-    useEffect(() => {
-        if (fullCategoryList.length === 0) return;
+  useEffect(() => {
+    if (fullCategoryList.length === 0) return;
 
-        const newArray = fullCategoryList.map((e, index) => {
-            if (index === 3) {
-                return 'desserts';
-            }
-            return e;
-        });
+    const newArray = fullCategoryList.map((e, index) => {
+      if (index === 3) {
+        return 'desserts';
+      }
+      return e;
+    });
 
-        setMapArray(prev => [...prev, ...newArray]);
+    setMapArray([...newArray]);
 
-        const idx = newArray.findIndex(e => {
-            return e.toLowerCase() === categoryName;
-        });
+    const idx = newArray.findIndex(e => {
+      return e.toLowerCase() === categoryName;
+    });
 
-        if (idx !== -1) {
-            setValue(idx);
-        }
-    }, [fullCategoryList, categoryName]);
+    if (idx !== -1) {
+      setValue(idx);
+    }
+  }, [fullCategoryList, categoryName]);
 
-    const handleChange = (event, newValue) => {
-       
-        setValue(newValue);
-        navigate(`/categories/${event.target.textContent}`);
-    };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    navigate(`/categories/${event.target.textContent}`);
+  };
 
-    const items = mapArray.map((e, index) => (
-        <Tab label={e.toLowerCase()} key={index} sx={{
-            padding: '0',
-            paddingBottom: '28px',
-            '&.Mui-selected': {
-                color: '#8BAA36', 
-                },
-             
-        }} />
-    ));
-const onMouseEnter = () => {setFlag(true)}
-const onMouseLeave = () => {setFlag(false)}
-    return (
-        <Box sx={{ maxWidth: '100%', bgcolor: 'transparent' }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Tabs
+  const items = mapArray.map((e, index) => (
+    <Tab
+      label={e.toLowerCase()}
+      key={index}
+      sx={{
+        padding: '0',
+        paddingBottom: '28px',
+        '&.Mui-selected': {
+          color: '#8BAA36',
+        },
+      }}
+    />
+  ));
+  const onMouseEnter = () => {
+    setFlag(true);
+  };
+  const onMouseLeave = () => {
+    setFlag(false);
+  };
+
+  console.log(mapArray);
+  return (
+    <Box
+      sx={{ maxWidth: '100%', bgcolor: 'transparent' }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <Tabs
         onChange={handleChange}
         value={value}
         variant="scrollable"
-    scrollButtons={true}
-    aria-label="scrollable auto tabs example"
-       
-   sx={{
-                    '& .MuiTabs-scroller': {
-                    '& .css-1aquho2-MuiTabs-indicator':{backgroundColor: '#8BAA36'},
-                    '& .css-ttwr4n':{backgroundColor: '#8BAA36'},
-                    overflowX: 'auto',
-                    scrollbarWidth: 'none',
-                    '&::-webkit-scrollbar': {
-                        display: 'none',                       
-                    },
-                },
-                '& .MuiTabs-flexContainer': {
-                    gap: '55px',
-                },
-                '& .MuiTab-root': {
-                    textTransform: 'capitalize',
-                    minWidth: 'unset',
-                    fontSize: '18px', color: '#BDBDBD', fontFamily: "Poppins", fontWeight: "400", lineHeight: "18px",
-                borderColor: '#8BAA36'
-                },
-                '& svg': {
-                    opacity: `${flag?1:0}`,
-                },
-            }}>
-                {items}
-            </Tabs>
-        </Box>
-    );
+        scrollButtons={true}
+        aria-label="scrollable auto tabs example"
+        sx={{
+          '& .MuiTabs-scroller': {
+            '& .css-1aquho2-MuiTabs-indicator': { backgroundColor: '#8BAA36' },
+            '& .css-ttwr4n': { backgroundColor: '#8BAA36' },
+            overflowX: 'auto',
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+          },
+          '& .MuiTabs-flexContainer': {
+            gap: '55px',
+          },
+          '& .MuiTab-root': {
+            textTransform: 'capitalize',
+            minWidth: 'unset',
+            fontSize: '18px',
+            color: '#BDBDBD',
+            fontFamily: 'Poppins',
+            fontWeight: '400',
+            lineHeight: '18px',
+            borderColor: '#8BAA36',
+          },
+          '& svg': {
+            opacity: `${flag ? 1 : 0}`,
+          },
+        }}
+      >
+        {items}
+      </Tabs>
+    </Box>
+  );
 };
