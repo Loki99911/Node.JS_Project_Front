@@ -50,18 +50,6 @@ export const NavLinkStyled = styled(NavLink)`
 export const BurgerWrapper = styled.div`
   display: flex;
   align-items: center;
-
-  & svg {
-    width: 28px;
-    height: 28px;
-    stroke: ${p =>
-      p.color === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
-
-    @media screen and (min-width: 768px) {
-      width: 32px;
-      height: 32px;
-    }
-  }
 `;
 
 export const BurgerButton = styled.button`
@@ -71,6 +59,22 @@ export const BurgerButton = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
+
+  & svg {
+    width: 28px;
+    height: 28px;
+    stroke: ${p =>
+      p.color === 'light' ? p.theme.colors.mainLight : p.theme.colors.mainDark};
+
+    @media screen and (min-width: 768px) {
+      width: 32px;
+      height: 32px;
+      stroke: ${p =>
+        p.color === 'light'
+          ? p.theme.colors.mainDark
+          : p.theme.colors.userName};
+    }
+  }
 `;
 
 export const UserInfo = styled.div`
