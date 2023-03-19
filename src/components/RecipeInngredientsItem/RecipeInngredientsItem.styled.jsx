@@ -100,9 +100,10 @@ export const IngNumber = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-left: auto;
+  padding: 4px;
   min-width: 37px;
-  height: 23px;
   border-radius: ${p => p.theme.radii.btnIcon};
   background: ${p => p.theme.colors.mainAccent};
   font-weight: ${p => p.theme.fontWeights[2]};
@@ -112,7 +113,6 @@ export const IngNumber = styled.p`
 
   @media screen and (min-width: 768px) {
     min-width: 68px;
-    height: 35px;
     font-size: 18px;
     line-height: 1.5;
   }
