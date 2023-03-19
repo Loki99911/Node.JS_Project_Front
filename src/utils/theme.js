@@ -46,6 +46,7 @@ export const theme = {
     btnHoverText: '#22252A',
     iconHover: ' #1E1F28',
     switchBg: '#EFEFEF',
+    burgerRecipeBtn: '#23262A',
   },
 
   fonts: {
@@ -138,6 +139,7 @@ export const darkTheme = {
     btnHoverText: '#8BAA36',
     iconHover: ' #1E1F28',
     switchBg: '#EFEFEF',
+    burgerRecipeBtn: '#23262A',
   },
   fonts: {
     main: 'Poppins, sans-serif',

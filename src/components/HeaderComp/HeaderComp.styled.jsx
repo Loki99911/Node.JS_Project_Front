@@ -64,15 +64,17 @@ export const BurgerButton = styled.button`
     width: 28px;
     height: 28px;
     stroke: ${p =>
-      p.color === 'light' ? p.theme.colors.mainLight : p.theme.colors.mainDark};
+      p.color === 'light'
+        ? p.theme.colors.burgerRecipeBtn
+        : p.theme.colors.mainDark};
 
     @media screen and (min-width: 768px) {
       width: 32px;
       height: 32px;
       stroke: ${p =>
-        p.color === 'light'
-          ? p.theme.colors.mainDark
-          : p.theme.colors.userName};
+        p.color === 'tab-light' || p.color === 'light'
+          ? p.theme.colors.burgerRecipeBtn
+          : p.theme.colors.mainDark};
     }
   }
 `;
