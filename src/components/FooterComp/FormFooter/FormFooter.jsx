@@ -6,7 +6,6 @@ import {
   FlagForInput,
 } from './FormFooter.styled';
 import { Formik, ErrorMessage } from 'formik';
-// import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import sprite from '../../../images/sprite.svg';
@@ -38,15 +37,13 @@ export const FormFooter = () => {
         validationSchema={LoginSchema}
         onSubmit={(values, actions) => {
           subscribeEmail({ email: values.email })
-            .then(r => toast.success('проверьте почту'))
+            .then(r => toast.success('Сheck your email'))
             .catch(error => {
               if (error === 409) {
-                toast.warning('вы уже подписаны');
+                toast.warning('You have already subscribed');
               }
-              toast.error('что-то пошло не так');
+              toast.error('Something went wrong');
             });
-
-          console.log(values.email);
           actions.setSubmitting(false);
           actions.resetForm();
         }}
