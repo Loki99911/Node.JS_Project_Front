@@ -28,6 +28,7 @@ export const HeaderComp = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [color, setColor] = useState('light');
   const [navColor, setNavColor] = useState('light');
+  const [burgerColor, setBurgerColor] = useState('light');
 
   useEffect(() => {
     if (pathname.includes('main') || pathname.includes('recipe')) {
@@ -36,11 +37,22 @@ export const HeaderComp = () => {
       setColor('light');
     }
   }, [pathname]);
+
   useEffect(() => {
     if (pathname.includes('recipe')) {
       setNavColor('dark');
     } else {
       setNavColor('light');
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname.includes('recipe')) {
+      setBurgerColor('light');
+    } else if (pathname.includes('main')) {
+      setBurgerColor('tab-light');
+    } else {
+      setBurgerColor('dark');
     }
   }, [pathname]);
 
@@ -91,7 +103,7 @@ export const HeaderComp = () => {
                   <BurgerButton
                     type="button"
                     onClick={toggleMobileMenu}
-                    color={color}
+                    color={burgerColor}
                   >
                     <svg>
                       <use href={sprite + `#menu`} />
