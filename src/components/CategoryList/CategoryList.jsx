@@ -54,6 +54,7 @@ export const CategoryList = () => {
       sx={{
         padding: '0',
         paddingBottom: '28px',
+        color: '#BDBDBD',
         '&.Mui-selected': {
           color: '#8BAA36',
         },
@@ -67,7 +68,6 @@ export const CategoryList = () => {
     setFlag(false);
   };
 
-  console.log(mapArray);
   return (
     <Box
       sx={{ maxWidth: '100%', bgcolor: 'transparent' }}
@@ -92,19 +92,23 @@ export const CategoryList = () => {
           },
           '& .MuiTabs-flexContainer': {
             gap: '55px',
+            
           },
           '& .MuiTab-root': {
             textTransform: 'capitalize',
             minWidth: 'unset',
             fontSize: '18px',
-            color: '#BDBDBD',
             fontFamily: 'Poppins',
             fontWeight: '400',
             lineHeight: '18px',
             borderColor: '#8BAA36',
           },
+
           '& svg': {
             opacity: `${flag ? 1 : 0}`,
+            stroke: '#8BAA36',
+            strokeWidth: '3px',
+            transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
           },
         }}
       >
