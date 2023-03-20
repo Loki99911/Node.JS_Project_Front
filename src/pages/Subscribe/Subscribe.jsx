@@ -10,9 +10,10 @@ const Subscribe = () => {
   const [text, setText] = useState('');
 
   useEffect(() => {
+    console.log(token);
     subscribeEmailConfirmation(token)
       .then(el => setText('You have subscribed to the newsletter.'))
-      .catch(error => setText('You have subscribed. Try again later.'));
+      .catch(error => setText('You haven`t subscribed. Try again later.'));
   });
   return (
     <>
