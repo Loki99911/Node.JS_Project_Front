@@ -16,6 +16,7 @@ const Subscribe = () => {
     console.log('effect before');
     if (userSubscribed) return;
     console.log('effect after');
+    console.log('userSubscribed', userSubscribed);
     subscribeEmailConfirmation(token)
       .then(el => {
         if (el.user.subscribed)
