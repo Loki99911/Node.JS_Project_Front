@@ -19,6 +19,7 @@ export const RecipeHeroConteiner = styled.div`
   margin-bottom: 32px;
   padding-top: 144px;
   padding-bottom: 90px;
+  background-size: 100%;
   ${ButtonSkewStyle} {
     margin-top: auto;
     padding: 10px 18px;
