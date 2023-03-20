@@ -18,7 +18,6 @@ export const CardTitle = styled.div`
   position: absolute;
   top: 245px;
   left: 18px;
-
   border-radius: 8px;
   width: calc(100% - 36px);
   white-space: nowrap;
@@ -76,7 +75,6 @@ export const CardDish = styled.li`
     display: block;
     overflow: hidden;
     border-radius: 8px;
-    /* transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1); */
 
     :hover img {
       transform: scale(1.25);

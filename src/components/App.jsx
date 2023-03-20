@@ -1,18 +1,9 @@
 import AddRecipe from 'pages/AddRecipe/AddRecipe';
-import Main from 'pages/Main/Main'; //lazy
-import Register from 'pages/Register/Register'; //lazy
-import Signin from 'pages/Signin/Signin'; //lazy
-// import Categories from 'pages/Categories/Categories';//lazy
-// import Favorites from 'pages/Favorites/Favorites';//lazy
-// import MyRecipes from 'pages/MyRecipes/MyRecipes';//lazy
-// import Recipe from 'pages/Recipe/Recipe';//lazy
-// import SearchPage from 'pages/SearchPage/SearchPage';//lazy
-// import ShopingList from 'pages/ShoppingList/ShoppingList';//lazy
-// import CategoriesByName from 'pages/CategoriesByName/CategoriesByName';//lazy
-// import MainPage from 'pages/MainPage/MainPage';//lazy
+import Main from 'pages/Main/Main';
+import Register from 'pages/Register/Register'; 
+import Signin from 'pages/Signin/Signin'; 
 import SharedLayout from './SharedLayout/SharedLayout';
 import { Route, Routes } from 'react-router-dom';
-
 import { PrivateRoute, PublicRoute } from 'service/routes';
 import {
   getAccessToken,
@@ -21,7 +12,6 @@ import {
 } from '../redux/auth/authSelectors';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
-
 import Error from 'pages/Error/Error';
 import { lazy, useEffect } from 'react';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
@@ -42,10 +32,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentUser } from 'redux/auth/authOperations';
 import Subscribe from 'pages/Subscribe/Subscribe';
-// const Main = lazy(() => import('pages/Main/Main'));
-// const Register = lazy(() => import('pages/Register/Register'));
-// const Signin = lazy(() => import('pages/Signin/Signin'));
-// const SharedLayout = lazy(() => import('../components/SharedLayout/SharedLayout'));
+
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const Categories = lazy(() => import('pages/Categories/Categories'));
 const MyRecipes = lazy(() => import('pages/MyRecipes/MyRecipes'));

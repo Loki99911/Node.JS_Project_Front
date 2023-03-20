@@ -111,7 +111,6 @@ export const NameInput = styled(Field)`
   line-height: ${p => p.theme.lineHeights.subheader};
   color: ${p => p.theme.colors.mainDark};
   outline: none;
-  /* border: 2px solid #c4c4c4; */
   border: 2px solid ${({ color }) => color};
   background-color: transparent;
 `;

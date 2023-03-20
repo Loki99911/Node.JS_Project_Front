@@ -18,13 +18,11 @@ export const StyledLink = styled(NavLink)`
 
   &.active {
     color: ${p => p.theme.colors.mainAccent};
-    /* font-weight: ${p => p.theme.fontWeights[2]}; */
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: ${p => p.theme.colors.mainAccent};
-    /* font-weight: ${p => p.theme.fontWeights[2]}; */
   }
 
   &:hover svg,

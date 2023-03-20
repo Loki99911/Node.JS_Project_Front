@@ -6,8 +6,6 @@ export const SearchCont = styled.div`
   text-align: center;
   width: 100%;
   height: auto;
-
-
 `;
 
 export const TextSearch = styled.p`

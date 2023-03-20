@@ -18,7 +18,6 @@ export const PaginationWrapper = styled.div`
   border-radius: ${p => p.theme.radii.pagination};
 
   & nav {
-    /* position: absolute; */
     max-width: 100%;
   }
 
