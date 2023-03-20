@@ -16,8 +16,12 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
   const dispatcher = useDispatch();
   const list = useSelector(getShoppingList);
+
   useEffect(() => {
     dispatcher(getShoppingIngredient());
+    if (list.length === 1) {
+      setTriger(1);
+    }
   }, [dispatcher, list.length]);
 
   function getIngDescription(id) {
@@ -27,12 +31,6 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
     }
     return false;
   }
-
-  useEffect(() => {
-    if (list.length === 1) {
-      setTriger(1);
-    }
-  }, [list.length]);
 
   return (
     allOfIngredients && (
