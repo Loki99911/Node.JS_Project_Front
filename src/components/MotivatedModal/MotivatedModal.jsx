@@ -18,8 +18,20 @@ export const MotivatedModal = ({ type, isOpen }) => {
     setIsOpenModal(true);
   }, []);
 
+  useEffect(() => {
+    const onPressEsc = ({ key }) => {
+      key === 'Escape' && setIsOpenModal(false);
+    };
+    document.addEventListener('keydown', onPressEsc);
+    return () => document.removeEventListener('keydown', onPressEsc);
+  }, []);
+
   const handleClose = () => {
     setIsOpenModal(false);
+  };
+
+  const onClickBackdrop = ({ target }) => {
+    target.id === 'backdrop' && setIsOpenModal(false);
   };
 
   switch (type) {
@@ -80,7 +92,7 @@ export const MotivatedModal = ({ type, isOpen }) => {
   return (
     <>
       {createPortal(
-        <Backdrop>
+        <Backdrop onClick={onClickBackdrop} id="backdrop">
           <Box img={modalType.img}>
             <Wrapper img={modalType.img}>
               <div>{modalType.message}</div>
