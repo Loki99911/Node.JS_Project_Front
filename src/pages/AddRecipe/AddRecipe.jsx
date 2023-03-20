@@ -18,6 +18,7 @@ import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
+import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 
 const init = {
   recipe: '',
@@ -189,50 +190,53 @@ const AddRecipe = () => {
   const theme = store.get('theme');
 
   return (
-    <Container>
-      <Title>Add recipe</Title>
-      <MainWrapper isDesktop={isDesktop}>
-        <RecipeForm
-          onSubmit={handleSubmit}
-          enctype="multipart/form-data"
-          isMobile={isMobile}
-          localTheme={theme}
-        >
-          <AddRecipeMeta
-            path={path}
-            inputs={inputs}
-            file={file}
-            isDesktop={isDesktop}
+    <>
+      <MotivatedModal type="first shopping" isOpen="true" />
+      <Container>
+        <Title>Add recipe</Title>
+        <MainWrapper isDesktop={isDesktop}>
+          <RecipeForm
+            onSubmit={handleSubmit}
+            enctype="multipart/form-data"
             isMobile={isMobile}
-            handleFile={handleFile}
-            handleChange={handleChange}
-            handleSelect={handleSelect}
-          />
-          <AddRecipeIngredients
-            counter={userIngredients.length}
-            userIngredients={userIngredients}
-            isMobile={isMobile}
-            handleDecrement={handleDecrement}
-            handleIncrement={handleIncrement}
-            handleUserIngredient={handleUserIngredient}
-            handleUnitValue={handleUnitValue}
-            handleRemove={handleRemove}
             localTheme={theme}
-          />
+          >
+            <AddRecipeMeta
+              path={path}
+              inputs={inputs}
+              file={file}
+              isDesktop={isDesktop}
+              isMobile={isMobile}
+              handleFile={handleFile}
+              handleChange={handleChange}
+              handleSelect={handleSelect}
+            />
+            <AddRecipeIngredients
+              counter={userIngredients.length}
+              userIngredients={userIngredients}
+              isMobile={isMobile}
+              handleDecrement={handleDecrement}
+              handleIncrement={handleIncrement}
+              handleUserIngredient={handleUserIngredient}
+              handleUnitValue={handleUnitValue}
+              handleRemove={handleRemove}
+              localTheme={theme}
+            />
 
-          <AddRecipeSubmit
-            inputs={inputs}
-            handleChange={handleChange}
+            <AddRecipeSubmit
+              inputs={inputs}
+              handleChange={handleChange}
+              localTheme={theme}
+            />
+          </RecipeForm>
+          <AddRecipePopular
+            isDesktop={isDesktop}
+            isTablet={isTablet}
             localTheme={theme}
           />
-        </RecipeForm>
-        <AddRecipePopular
-          isDesktop={isDesktop}
-          isTablet={isTablet}
-          localTheme={theme}
-        />
-      </MainWrapper>
-    </Container>
+        </MainWrapper>
+      </Container>
+    </>
   );
 };
 
