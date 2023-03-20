@@ -14,10 +14,8 @@ export const getCategoryList = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await getCategoryListAPI();
-      // console.log('categories list', data.meals);
       return data.meals;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -46,10 +44,8 @@ export const getMainCategories = createAsyncThunk(
         desserts: desserts.meals,
       };
 
-      console.log('main recipes', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -60,10 +56,8 @@ export const getAllRecipesByCategory = createAsyncThunk(
   async (category, { rejectWithValue }) => {
     try {
       const data = await getAllRecipesByCategoryAPI(category);
-      console.log('all recipes by category', data.meals);
       return data.meals;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -75,10 +69,8 @@ export const getLimitedRecipesByCategory = createAsyncThunk(
     try {
       const { category, limit } = params;
       const data = await getLimitedRecipesByCategoryAPI(category, limit);
-      console.log('limited recipes', data.meals);
       return data.meals;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -89,10 +81,8 @@ export const getOneRecipeById = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await getOneRecipeByIdAPI(id);
-      console.log('1 recipe', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -103,10 +93,8 @@ export const getPopularRecipes = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await getPopularRecipesAPI();
-      console.log('popular', data.meals);
       return data.meals;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -118,10 +106,8 @@ export const getRecipesByQuery = createAsyncThunk(
     try {
       const { query, page, per_page } = params;
       const data = await getRecipesByQueryAPI(query, page, per_page);
-      console.log('recipes by search query', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }

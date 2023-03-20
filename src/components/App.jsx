@@ -14,7 +14,11 @@ import SharedLayout from './SharedLayout/SharedLayout';
 import { Route, Routes } from 'react-router-dom';
 
 import { PrivateRoute, PublicRoute } from 'service/routes';
-import { getIsLoggedIn, getIsUserFetching } from '../redux/auth/authSelectors';
+import {
+  getAccessToken,
+  getIsLoggedIn,
+  getIsUserFetching,
+} from '../redux/auth/authSelectors';
 import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -54,6 +58,7 @@ const CategoriesByName = lazy(() =>
 );
 
 export const App = () => {
+  const token = useSelector(getAccessToken);
   const isUserFetching = useSelector(getIsUserFetching);
   const { mode } = useSelector(getMode);
   const themeMode = mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
@@ -64,8 +69,9 @@ export const App = () => {
   const dispatcher = useDispatch();
 
   useEffect(() => {
+    if (token === null) return;
     dispatcher(getCurrentUser());
-  }, [dispatcher]);
+  }, [dispatcher, token]);
 
   useEffect(() => {
     if (isUserLogin === true && popularRecipes.length === 0) {
