@@ -80,7 +80,9 @@ export const App = () => {
   }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
 
   return isUserFetching ? (
-    <Loader />
+    <ThemeProvider theme={themeMode}>
+      <Loader />
+    </ThemeProvider>
   ) : (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />

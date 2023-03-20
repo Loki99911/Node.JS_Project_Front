@@ -3,4 +3,5 @@ export const unitsOptionsList = [
   { value: 'tsp', label: 'tsp' },
   { value: 'kg', label: 'kg' },
   { value: 'g', label: 'g' },
+  { value: 'pcs', label: 'pcs' },
 ];
