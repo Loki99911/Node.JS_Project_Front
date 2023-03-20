@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const RowTable = styled.ul`
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 100px 14px;  */
+  
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -23,7 +21,3 @@ export const RowTable = styled.ul`
     
   }
 `;
-
-// export const CardTableWrap = styled.li`
-// position: relative;
-// `
