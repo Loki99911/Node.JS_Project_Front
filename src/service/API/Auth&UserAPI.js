@@ -46,9 +46,11 @@ export const subscribeEmail = email => {
 };
 
 export const subscribeEmailConfirmation = token => {
+  console.log("Запрос>",token);
   return axios
     .get(`auth/user-data/subscribe?token=${token}`)
-    .then(({ data }) => {
+    .then((data) => {
+      console.log('Ответ>', data);
       return data;
     });
 };
