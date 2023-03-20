@@ -15,7 +15,8 @@ const Subscribe = () => {
     subscribeEmailConfirmation(token)
       .then(el => setText('You have subscribed to the newsletter.'))
       .catch(error => setText('You haven`t subscribed. Try again later.'));
-  }, [token]);
+    // eslint-disable-next-line
+  }, []);
 
   console.log(token);
   
