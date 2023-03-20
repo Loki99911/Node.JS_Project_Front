@@ -6,7 +6,7 @@ import { subscribeEmailConfirmation } from 'service/API/Auth&UserAPI';
 import { StyledLink } from './Subscribe.styled';
 
 const Subscribe = () => {
-  const { token } = useParams();
+  const token = useParams();
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -15,8 +15,7 @@ const Subscribe = () => {
     subscribeEmailConfirmation(token)
       .then(el => setText('You have subscribed to the newsletter.'))
       .catch(error => setText('You haven`t subscribed. Try again later.'));
-    // eslint-disable-next-line
-  }, []);
+  }, [token]);
 
   console.log(token);
   
