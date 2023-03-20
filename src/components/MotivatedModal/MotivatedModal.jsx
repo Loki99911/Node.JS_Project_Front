@@ -1,11 +1,35 @@
 import { createPortal } from 'react-dom';
 import { Accent, Backdrop, Box, ButtonClose, Message, Wrapper } from './styled';
-import tenRecipes from '../../images/motivatedModal/10_recepies.jpg';
-import hundredDays from '../../images/motivatedModal/100_days.jpg';
-import firstFavoriteRecipe from '../../images/motivatedModal/first_favorite_recipe.jpg';
-import firstShoppingList from '../../images/motivatedModal/first_shopping_list.jpg';
 import icons from '../../images/sprite.svg';
 import { useEffect, useState } from 'react';
+
+import firstFavoriteDesktopRetinaOne from '../../images/bg/achieve/desktop_1_favorites@1x.png';
+import firstFavoriteDesktopRetinaTwo from '../../images/bg/achieve/desktop_1_favorites@2x.png';
+import firstFavoriteTabletRetinaOne from '../../images/bg/achieve/tablet_1_favorites@1x.png';
+import firstFavoriteTabletRetinaTwo from '../../images/bg/achieve/tablet_1_favorites@2x.png';
+import firstFavoriteMobileRetinaOne from '../../images/bg/achieve/mob_1_favorites@1x.png';
+import firstFavoriteMobileRetinaTwo from '../../images/bg/achieve/mob_1_favorites@2x.png';
+
+import tenFavoriteDesktopRetinaOne from '../../images/bg/achieve/desktop_10_favorites@1x.png';
+import tenFavoriteDesktopRetinaTwo from '../../images/bg/achieve/desktop_10_favorites@2x.png';
+import tenFavoriteTabletRetinaOne from '../../images/bg/achieve/tablet_10_favorites@1x.png';
+import tenFavoriteTabletRetinaTwo from '../../images/bg/achieve/tablet_10_favorites@2x.png';
+import tenFavoriteMobileRetinaOne from '../../images/bg/achieve/mob_10_favorites@1x.png';
+import tenFavoriteMobileRetinaTwo from '../../images/bg/achieve/mob_10_favorites@2x.png';
+
+import hundredDaysDesktopRetinaOne from '../../images/bg/achieve/desktop_100_days@1x.png';
+import hundredDaysDesktopRetinaTwo from '../../images/bg/achieve/desktop_100_day@2x.png';
+import hundredDaysTabletRetinaOne from '../../images/bg/achieve/tablet_100_days@1x.png';
+import hundredDaysTabletRetinaTwo from '../../images/bg/achieve/tablet_100_days@2x.png';
+import hundredDaysMobileRetinaOne from '../../images/bg/achieve/mob_100_days@1x.png';
+import hundredDaysMobileRetinaTwo from '../../images/bg/achieve/mob_100_days@2x.png';
+
+import firstShopDesktopRetinaOne from '../../images/bg/achieve/desktop_shp_list@1x.png';
+import firstShopDesktopRetinaTwo from '../../images/bg/achieve/desktop_shp_list@2x.png';
+import firstShopTabletRetinaOne from '../../images/bg/achieve/tablet_shp_list@1x.png';
+import firstShopTabletRetinaTwo from '../../images/bg/achieve/tablet_shp_list@2x.png';
+import firstShopMobileRetinaOne from '../../images/bg/achieve/mob_shp_list@1x.png';
+import firstShopMobileRetinaTwo from '../../images/bg/achieve/mob_shp_list@2x.png';
 
 const modalRoot = document.querySelector('#motivated-modal');
 
@@ -37,7 +61,20 @@ export const MotivatedModal = ({ type, isOpen }) => {
   switch (type) {
     case 'ten-recipes':
       modalType = {
-        img: tenRecipes,
+        img: {
+          desktop: {
+            retinaOne: tenFavoriteDesktopRetinaOne,
+            retinaTwo: tenFavoriteDesktopRetinaTwo,
+          },
+          tablet: {
+            retinaOne: tenFavoriteTabletRetinaOne,
+            retinaTwo: tenFavoriteTabletRetinaTwo,
+          },
+          mobile: {
+            retinaOne: tenFavoriteMobileRetinaOne,
+            retinaTwo: tenFavoriteMobileRetinaTwo,
+          },
+        },
         message: (
           <Message>
             <Accent>Wow!</Accent> You have added 10 recipes to your favorites!
@@ -47,7 +84,20 @@ export const MotivatedModal = ({ type, isOpen }) => {
       break;
     case '100-days':
       modalType = {
-        img: hundredDays,
+        img: {
+          desktop: {
+            retinaOne: hundredDaysDesktopRetinaOne,
+            retinaTwo: hundredDaysDesktopRetinaTwo,
+          },
+          tablet: {
+            retinaOne: hundredDaysTabletRetinaOne,
+            retinaTwo: hundredDaysTabletRetinaTwo,
+          },
+          mobile: {
+            retinaOne: hundredDaysMobileRetinaOne,
+            retinaTwo: hundredDaysMobileRetinaTwo,
+          },
+        },
         message: (
           <Message>
             <Accent>Wow!</Accent> You have been using the application for{' '}
@@ -59,7 +109,20 @@ export const MotivatedModal = ({ type, isOpen }) => {
       break;
     case 'first favorite':
       modalType = {
-        img: firstFavoriteRecipe,
+        img: {
+          desktop: {
+            retinaOne: firstFavoriteDesktopRetinaOne,
+            retinaTwo: firstFavoriteDesktopRetinaTwo,
+          },
+          tablet: {
+            retinaOne: firstFavoriteTabletRetinaOne,
+            retinaTwo: firstFavoriteTabletRetinaTwo,
+          },
+          mobile: {
+            retinaOne: firstFavoriteMobileRetinaOne,
+            retinaTwo: firstFavoriteMobileRetinaTwo,
+          },
+        },
         message: (
           <Message>
             <Accent>Wow!</Accent> You have added the first recipe to your
@@ -70,7 +133,20 @@ export const MotivatedModal = ({ type, isOpen }) => {
       break;
     case 'first shopping':
       modalType = {
-        img: firstShoppingList,
+        img: {
+          desktop: {
+            retinaOne: firstShopDesktopRetinaOne,
+            retinaTwo: firstShopDesktopRetinaTwo,
+          },
+          tablet: {
+            retinaOne: firstShopTabletRetinaOne,
+            retinaTwo: firstShopTabletRetinaTwo,
+          },
+          mobile: {
+            retinaOne: firstShopMobileRetinaOne,
+            retinaTwo: firstShopMobileRetinaTwo,
+          },
+        },
         message: (
           <Message>
             <Accent>Wow!</Accent> You have created your first shopping list!
