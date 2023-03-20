@@ -29,26 +29,12 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
     return;
   }
 
-  // function toFavorite() {
-  //   console.log(btnText);
-
-  //   if (btnText) {
-  //     dispatcher(deleteFavorite(idMeal));
-  //     setBtnText(false);
-  //     console.log(btnText);
-  //     return;
-  //   }
-
-  //   dispatcher(addFavorite(idMeal));
-  //   setBtnText(true);
-  //   return;
-  // }
-
   function addtoFavorite() {
     dispatcher(addFavorite(idMeal));
     setBtnText(true);
-    obj.length === 0 ? setTriger(1) : setTriger(0);
-    obj.length === 9 ? setTriger(10) : setTriger(0);
+    console.log(obj.length);
+    obj.length === 0 && setTriger(1);
+    obj.length === 9 && setTriger(10);
     return;
   }
 

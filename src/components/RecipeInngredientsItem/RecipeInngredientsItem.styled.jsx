@@ -104,6 +104,7 @@ export const IngNumber = styled.p`
   margin-left: auto;
   padding: 4px;
   min-width: 37px;
+  max-width: 100px;
   border-radius: ${p => p.theme.radii.btnIcon};
   background: ${p => p.theme.colors.mainAccent};
   font-weight: ${p => p.theme.fontWeights[2]};
@@ -113,13 +114,14 @@ export const IngNumber = styled.p`
 
   @media screen and (min-width: 768px) {
     min-width: 68px;
+    max-width: 150px;
     font-size: 18px;
     line-height: 1.5;
   }
 `;
 
 export const TextContainer = styled.div`
-  width: 114px;
+  max-width: 114px;
   height: 52px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -128,12 +130,12 @@ export const TextContainer = styled.div`
   -webkit-box-orient: vertical;
 
   @media screen and (min-width: 768px) {
-    width: 208px;
+    max-width: 208px;
     height: 114px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 547px;
+    max-width: 547px;
     height: 104px;
   }
 `;
