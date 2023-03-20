@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { theme } from 'utils/theme';
 import { Field, Form } from 'formik';
 import { Link } from 'react-router-dom';
 
 export const FormForAuth = styled(Form)`
-  width: calc(100% - 20px);
+  width: calc(100vw - 20px);
   display: flex;
   flex-direction: column;
   font-family: ${theme.fonts.main};
@@ -109,14 +109,14 @@ export const InputForAuth = styled(Field)`
   background-color: transparent;
   border-radius: 10px;
   border: 1px solid ${({ bordercolor }) => bordercolor};
-  padding: 0 40px;
+  padding: 0 45px;
   color: ${theme.colors.mainLight};
   transition: ${theme.transitions.main};
 
   @media screen and (min-width: 769px) {
     height: 60px;
     font-size: 20px;
-    padding-left: 50px;
+    padding: 0 50px;
   }
 
   :-webkit-autofill {
@@ -125,8 +125,6 @@ export const InputForAuth = styled(Field)`
   &::placeholder {
     font-size: 14px;
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
     line-height: calc(27 / 18);
     letter-spacing: -0.02em;
     color: ${theme.colors.mainLight};
@@ -164,11 +162,10 @@ export const FormButton = styled.button`
   :focus:not([disabled]) {
     color: ${theme.colors.btnHoverBg};
   }
-    &[disabled] {
+  &[disabled] {
     opacity: 0.7;
-    /* cursor: not-allowed; */
+    cursor: not-allowed;
   }
-
 `;
 
 export const ErrorMessage = styled.p`
@@ -194,7 +191,7 @@ export const LinkAuth = styled(Link)`
   font-size: 14px;
   line-height: calc(24 / 16);
   transition: ${theme.transitions.main};
-    &:hover {
+  &:hover {
     color: ${theme.colors.mainAccent};
   }
 
