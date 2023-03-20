@@ -4,12 +4,10 @@ import ShopingTabl from 'components/ShoppingTabl/ShoppingTabl';
 
 const ShopingList = () => {
   return (
-    <>
-      <Container>
-        <Title>Shopping list</Title>
-        <ShopingTabl/>
-      </Container>
-    </>
+    <Container>
+      <Title>Shopping list</Title>
+      <ShopingTabl />
+    </Container>
   );
 };
 
