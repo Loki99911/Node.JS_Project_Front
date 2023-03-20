@@ -18,7 +18,6 @@ import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
-import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 
 const init = {
   recipe: '',
@@ -191,7 +190,6 @@ const AddRecipe = () => {
 
   return (
     <>
-      <MotivatedModal type="first shopping" isOpen="true" />
       <Container>
         <Title>Add recipe</Title>
         <MainWrapper isDesktop={isDesktop}>
