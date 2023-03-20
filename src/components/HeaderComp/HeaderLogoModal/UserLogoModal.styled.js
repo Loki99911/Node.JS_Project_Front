@@ -85,6 +85,7 @@ export const LogOutBtn = styled.button`
     width: 18px;
     height: 18px;
     stroke: ${p => p.theme.colors.btnTextLight};
+    transition: ${p => p.theme.transitions.main};
   }
 
   @media screen and (min-width: 768px) {
