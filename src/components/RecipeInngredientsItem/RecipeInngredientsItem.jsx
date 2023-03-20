@@ -11,7 +11,6 @@ import {
 } from './RecipeInngredientsItem.styled';
 import sprite from '../../images/sprite.svg';
 
-// import { useState, useEffect } from 'react';
 import {
   addShoppingIngredient,
   removeShoppingIngredient,

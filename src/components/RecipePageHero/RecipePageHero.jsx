@@ -32,7 +32,6 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
   function addtoFavorite() {
     dispatcher(addFavorite(idMeal));
     setBtnText(true);
-    console.log(obj.length);
     obj.length === 0 && setTriger(1);
     obj.length === 9 && setTriger(10);
     return;

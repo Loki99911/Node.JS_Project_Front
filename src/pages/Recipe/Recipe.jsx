@@ -21,9 +21,7 @@ const Recipe = () => {
   const myRecipe = () => {
     return recipeObj ? recipe : ownRecipe;
   };
-  // ownRecipe && console.log(Object.keys(ownRecipe).length);
 
-  // [massiveShoppilng];
   useEffect(() => {
     if (('' + recipeId).length < 10) {
       dispatcher(getOneRecipeById(recipeId));
