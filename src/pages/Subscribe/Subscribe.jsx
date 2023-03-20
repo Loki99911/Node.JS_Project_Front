@@ -10,20 +10,23 @@ const Subscribe = () => {
   const urlParams = new URLSearchParams(queryString);
   const token = urlParams.get('token');
   const [text, setText] = useState('');
+  const [userSubscribed, setUserSubscribed] = useState(false);
 
   useEffect(() => {
-     console.log('effect before');
-    if (text === 'You have subscribed to the newsletter.') return;
-     console.log('effect after');
+    console.log('effect before');
+    if (userSubscribed) return;
+    console.log('effect after');
+    console.log('userSubscribed', userSubscribed);
     subscribeEmailConfirmation(token)
       .then(el => {
         if (el.user.subscribed)
           setText('You have subscribed to the newsletter.');
+        setUserSubscribed(true);
         console.log('then', el);
       })
       .catch(error => setText('You haven`t subscribed. Try again later.'));
-  }, [token, text]);
- 
+  }, [token, text, userSubscribed]);
+
   return (
     <>
       <Container>
