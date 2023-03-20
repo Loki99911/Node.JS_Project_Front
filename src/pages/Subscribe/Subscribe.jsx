@@ -12,7 +12,7 @@ const Subscribe = () => {
   useEffect(() => {
     subscribeEmailConfirmation(token)
       .then(el => setText('You have subscribed to the newsletter.'))
-      .cath(error => setText('You have subscribed. Try again later.'));
+      .catch(error => setText('You have subscribed. Try again later.'));
   });
   return (
     <>
