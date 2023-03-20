@@ -8,32 +8,29 @@ import { getLimitedRecipes } from 'redux/outerRecipes/outerRecipesSelectors';
 import { RowTable } from './CategoriesByName.styled';
 
 const CategoriesByName = () => {
-  const dispatch = useDispatch();
-  const { categoryName } = useParams();
-  const limitedRecipes = useSelector(getLimitedRecipes);
-  const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
+    const dispatch = useDispatch();
+    const { categoryName } = useParams();
+    const limitedRecipes = useSelector(getLimitedRecipes);
+    const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 
-  // console.log();
-  useEffect(() => {
-    const params = { category: categoryName, limit: 12 };
-    if (categoryName === 'desserts') {
-      dispatch(getLimitedRecipesByCategory({ category: 'dessert', limit: 12 }));
-    } else {
-      dispatch(getLimitedRecipesByCategory(params));
-    }
-  }, [dispatch, categoryName]);
 
-  return isPending ? (
-    <Loader />
-  ) : (
-    <RowTable>
-      {limitedRecipes.slice(0, 8).map(meal => (
-        //   <CardTableWrap key={meal.idMeal}>
-        <CardMeal meal={meal} key={meal.idMeal} />
-        //   </CardTableWrap>
-      ))}
-    </RowTable>
-  );
+    useEffect(() => {
+        const params = { category: categoryName, limit: 12 };
+        if (categoryName === 'desserts') {
+            dispatch(getLimitedRecipesByCategory({ category: 'dessert', limit: 12 }));
+        } else {
+            dispatch(getLimitedRecipesByCategory(params));
+        }
+    }, [dispatch, categoryName]);
+    return isPending ? (
+        <Loader />
+    ) : (
+        <RowTable>
+            {limitedRecipes.slice(0, 8).map(meal => (
+                <CardMeal meal={meal} key={meal.idMeal} />
+            ))}
+        </RowTable>
+    );
 };
 
 export default CategoriesByName;

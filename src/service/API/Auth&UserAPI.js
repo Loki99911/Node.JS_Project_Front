@@ -16,7 +16,6 @@ export const logInUserAPI = user => {
 
 export const logOutUserAPI = () => {
   return axios.post('/auth/logout').then(({ data }) => {
-    console.log('data in API', data);
     return data;
   });
 };
@@ -48,7 +47,7 @@ export const subscribeEmail = email => {
 export const subscribeEmailConfirmation = token => {
   return axios
     .get(`auth/user-data/subscribe?token=${token}`)
-    .then(({data}) => {
+    .then(({ data }) => {
       return data;
     });
 };

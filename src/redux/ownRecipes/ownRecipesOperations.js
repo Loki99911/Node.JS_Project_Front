@@ -16,10 +16,8 @@ export const getOwnRecipes = createAsyncThunk(
   async ({ page, per_page }, { rejectWithValue }) => {
     try {
       const data = await getOwnRecipesAPI(page ?? null, per_page ?? null);
-      console.log('own recipes', data);
       return { recipes: data.meals, total: data.totalHits };
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -62,10 +60,8 @@ export const deleteOwnRecipe = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await deleteOwnRecipeAPI(id);
-      console.log('own recipe successfully deleted', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -76,10 +72,8 @@ export const getOwnRecipeByID = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await getOwnRecipeByIdAPI(id);
-      console.log('own recipe', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -90,10 +84,8 @@ export const addFavorite = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await addFavoriteAPI({ idMeal: id });
-      console.log('fav recipe successfully added', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -104,13 +96,9 @@ export const getFavorite = createAsyncThunk(
   async ({ page, per_page }, { rejectWithValue }) => {
     try {
       const data = await getFavoriteAPI(page ?? null, per_page ?? null);
-      console.log('fav recipes', {
-        recipes: data.meals,
-        total: data.totalHits,
-      });
+
       return { recipes: data.meals, total: data.totalHits };
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
@@ -121,10 +109,8 @@ export const deleteFavorite = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await removeFavoriteAPI(id);
-      console.log('fav recipe successfully deleted', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }
