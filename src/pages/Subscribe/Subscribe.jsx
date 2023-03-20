@@ -13,13 +13,20 @@ const Subscribe = () => {
 
   useEffect(() => {
     // if (token && token !== undefined)
+    console.log('Effe');
     subscribeEmailConfirmation(token)
-      .then(el => setText('You have subscribed to the newsletter.'))
-      .catch(error => setText('You haven`t subscribed. Try again later.'));
+      .then(el => {
+        console.log('then', el);
+        setText('You have subscribed to the newsletter.');
+      })
+      .catch(error => {
+        console.log('catch', error);
+        setText('You haven`t subscribed. Try again later.');
+      });
     // eslint-disable-next-line
   }, []);
 
-  console.log(token);
+  // console.log(token);
 
   return (
     <>
