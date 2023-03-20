@@ -9,12 +9,10 @@ export const getOwnRecipesAPI = (page, per_page) => {
     return axios
       .get(`/own-recipes?page=${page}&per_page=${per_page}`)
       .then(({ data }) => {
-        // console.log(data);
         return data;
       });
   }
   return axios.get(`/own-recipes`).then(({ data }) => {
-    // console.log(data);
     return data;
   });
 };
@@ -50,12 +48,10 @@ export const getFavoriteAPI = (page, per_page) => {
     return axios
       .get(`/favorite?page=${page}&per_page=${per_page}`)
       .then(({ data }) => {
-        // console.log(data);
         return data;
       });
   }
   return axios.get(`/favorite`).then(({ data }) => {
-    // console.log(data);
     return data;
   });
 };
