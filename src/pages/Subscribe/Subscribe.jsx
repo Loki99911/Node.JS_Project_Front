@@ -12,21 +12,18 @@ const Subscribe = () => {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    // if (token && token !== undefined)
-    console.log('Effe');
+     console.log('effect before');
+    if (text === 'You have subscribed to the newsletter.') return;
+     console.log('effect after');
     subscribeEmailConfirmation(token)
       .then(el => {
+        if (el.user.subscribed)
+          setText('You have subscribed to the newsletter.');
         console.log('then', el);
-        setText('You have subscribed to the newsletter.');
       })
-      .catch(error => {
-        console.log('catch', error);
-        setText('You haven`t subscribed. Try again later.');
-      });
-    // eslint-disable-next-line
-  }, []);
-  // console.log(token);
-
+      .catch(error => setText('You haven`t subscribed. Try again later.'));
+  }, [token, text]);
+ 
   return (
     <>
       <Container>
