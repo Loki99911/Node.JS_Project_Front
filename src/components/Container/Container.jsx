@@ -1,4 +1,3 @@
-
 import { MainConteiner } from './Container.styled';
 
 export const Container = ({children}) => {

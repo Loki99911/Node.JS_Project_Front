@@ -14,9 +14,6 @@ import 'react-tooltip/dist/react-tooltip.css';
 import { CardMeal } from 'components/CardMeal/CardMeal';
 import { scrollToTop } from 'utils/scrollUp';
 
-
-
-
 export const PreviewCategories = () => {
     const mainCategories = useSelector(getContentForMain);
     const dispatcher = useDispatch();
@@ -30,11 +27,11 @@ export const PreviewCategories = () => {
 
     let numCard;
     if (isDesktop) {
-        numCard = 4; // Десктоп
+        numCard = 4; 
     } else if (isTablet) {
-        numCard = 2; // Планшет
+        numCard = 2;
     } else {
-        numCard = 1; // Мобильный
+        numCard = 1; 
     }
 
     return (

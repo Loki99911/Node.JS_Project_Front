@@ -1,6 +1,5 @@
 import { BtnOthCtg, ButtonOthCtgWrap } from "./ButtonOthCtg.styled";
 
-
 export const ButtonOthCtg = () => {
     return (
         <ButtonOthCtgWrap>

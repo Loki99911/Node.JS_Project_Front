@@ -44,7 +44,6 @@ export const BtnCategories = styled(NavLink)`
 `;
 
 export const CardWrapper = styled.ul`
-  /* margin-top: 0; */
   margin-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
