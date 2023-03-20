@@ -24,7 +24,7 @@ const Subscribe = () => {
         console.log('then', el);
       })
       .catch(error => setText('You haven`t subscribed. Try again later.'));
-  }, [token, text]);
+  }, [token, text, userSubscribed]);
 
   return (
     <>
