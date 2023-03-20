@@ -79,11 +79,12 @@ export const App = () => {
     }
   }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
 
-  return (
+  return isUserFetching ? (
     <ThemeProvider theme={themeMode}>
-      {isUserFetching} ? (
       <Loader />
-      ) : (
+    </ThemeProvider>
+  ) : (
+    <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Routes>
         <>
@@ -142,7 +143,6 @@ export const App = () => {
         </Route>
       </Routes>
       <ToastContainer />
-      );
     </ThemeProvider>
   );
 };
