@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import bgrImageDes from 'images/desktop/FormAuthDes.png';
 import bgrImageTab from 'images/tablet/FormAuthTab-min.png';
 import bgrImageMob from 'images/mobile/FormAuthMob-min.png';
@@ -46,4 +46,5 @@ export const BoxForImage = styled.div`
 
 export const AuthImage = styled.picture`
   width: 100%;
+  display: block;
 `;

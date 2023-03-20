@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { signUp } from 'redux/auth/authOperations';
+import SVG from 'images/sprite.svg';
+import { getColor } from 'utils/formikColors.js';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -14,10 +16,7 @@ import {
   BoxForForm,
   LinkAuth,
   SvgAuth,
-} from './style.jsx';
-import SVG from 'images/sprite.svg';
-import { getColor } from 'utils/formikColors.js';
-
+} from './AuthForm_style.js';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -44,18 +43,18 @@ const SignupSchema = Yup.object().shape({
       'Your password is little secure. Add a letter!'
     )
     .matches(/^[a-zа-яA-ZА-ЯіїЇІЄє1-9]/, 'Enter a valid Password*')
-    .required('Enter a valid Password*'),
+    .required('Enter a Password*'),
 });
 
-const FormRegister = props => {
+const FormRegister = () => {
   const dispatch = useDispatch();
 
-  return (<>
+  return (
     <div>
       <Formik
         initialValues={{
-          name: ``,
-          email: ``,
+          name: '',
+          email: '',
           password: '',
         }}
         validationSchema={SignupSchema}
@@ -63,7 +62,7 @@ const FormRegister = props => {
           dispatch(
             signUp({
               name: values.name.trim(),
-              email: values.email,
+              email: values.email.trim(),
               password: values.password.trim(),
             })
           );
@@ -71,26 +70,21 @@ const FormRegister = props => {
           actions.resetForm();
         }}
       >
-        {props => (
+        {({ errors, values }) => (
           <FormForAuth>
             <TitleForForm>Registration</TitleForForm>
             <BoxForForm>
               <BoxForInput>
                 <IconForInput>
-                  <SvgAuth
-                    color={getColor(props.errors.name, props.values.name)}
-                  >
+                  <SvgAuth color={getColor(errors.name, values.name)}>
                     <use href={`${SVG}#person`}></use>
                   </SvgAuth>
                 </IconForInput>
-                {props.values.name && (
+                {values.name && (
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(
-                          props.errors.name,
-                          props.values.name
-                        )}`}
+                        href={`${SVG}${getColor(errors.name, values.name)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -99,28 +93,25 @@ const FormRegister = props => {
                   type="text"
                   name="name"
                   placeholder="Name"
-                  color={getColor(props.errors.name, props.values.name)}
+                  color={getColor(errors.name, values.name)}
                   bordercolor={getColor(
-                    props.errors.name,
-                    props.values.name,
+                    errors.name,
+                    values.name,
                     'rgba(255, 255, 255, 0.3)'
                   )}
                 />
               </BoxForInput>
               <BoxForInput>
                 <IconForInput>
-                  <svg fill={getColor(props.errors.email, props.values.email)}>
+                  <svg fill={getColor(errors.email, values.email)}>
                     <use href={`${SVG}#email`}></use>
                   </svg>
                 </IconForInput>
-                {props.values.email && (
+                {values.email && (
                   <FlagForInput>
                     <svg>
                       <use
-                        href={`${SVG}${getColor(
-                          props.errors.email,
-                          props.values.email
-                        )}`}
+                        href={`${SVG}${getColor(errors.email, values.email)}`}
                       ></use>
                     </svg>
                   </FlagForInput>
@@ -129,32 +120,27 @@ const FormRegister = props => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  color={getColor(props.errors.email, props.values.email)}
+                  color={getColor(errors.email, values.email)}
                   bordercolor={getColor(
-                    props.errors.email,
-                    props.values.email,
+                    errors.email,
+                    values.email,
                     'rgba(255, 255, 255, 0.3)'
                   )}
                 />
               </BoxForInput>
               <BoxForInput>
                 <IconForInput>
-                  <SvgAuth
-                    color={getColor(
-                      props.errors.password,
-                      props.values.password
-                    )}
-                  >
+                  <SvgAuth color={getColor(errors.password, values.password)}>
                     <use href={`${SVG}#password`}></use>
                   </SvgAuth>
                 </IconForInput>
-                {props.values.password && (
+                {values.password && (
                   <FlagForInput>
                     <svg>
                       <use
                         href={`${SVG}${getColor(
-                          props.errors.password,
-                          props.values.password
+                          errors.password,
+                          values.password
                         )}`}
                       ></use>
                     </svg>
@@ -164,22 +150,19 @@ const FormRegister = props => {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  color={getColor(props.errors.password, props.values.password)}
+                  color={getColor(errors.password, values.password)}
                   bordercolor={getColor(
-                    props.errors.password,
-                    props.values.password,
+                    errors.password,
+                    values.password,
                     'rgba(255, 255, 255, 0.3)'
                   )}
                 />
-                {props.values.password && (
+                {values.password && (
                   <ErrorMessage
                     id="feedback"
-                    color={getColor(
-                      props.errors.password,
-                      props.values.password
-                    )}
+                    color={getColor(errors.password, values.password)}
                   >
-                    {props.errors.password || 'Password is secure'}
+                    {errors.password || 'Password is secure'}
                   </ErrorMessage>
                 )}
               </BoxForInput>
@@ -187,9 +170,7 @@ const FormRegister = props => {
             <FormButton
               type="submit"
               disabled={
-                props.errors.password || props.errors.email || props.errors.name
-                  ? true
-                  : false
+                errors.password || errors.email || errors.name ? true : false
               }
             >
               Sign up
@@ -199,7 +180,6 @@ const FormRegister = props => {
       </Formik>
       <LinkAuth to="/signin">Sign in</LinkAuth>
     </div>
-    </>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Circles } from 'react-loader-spinner';
-import styles from './Loader.module.css';
+import { BoxForLoader } from './Loader_style';
 
 export const Loader = () => (
-  <div className={styles.loader}>
+  <BoxForLoader>
     <Circles
       height="40"
       width="40"
@@ -12,5 +12,5 @@ export const Loader = () => (
       wrapperStyle={{}}
       wrapperClass="Loader"
     />
-  </div>
+  </BoxForLoader>
 );
