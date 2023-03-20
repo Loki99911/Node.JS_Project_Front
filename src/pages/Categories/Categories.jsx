@@ -7,20 +7,17 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const Categories = () => {
-  return (
-    <div>
-    <Container>
-      <Title>Category</Title>
-      
-      <CategoryList />
-  
-      
-        <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
-      </Container>
-    </div>
-  );
+    return (
+        <div>
+            <Container>
+                <Title>Category</Title>
+                <CategoryList />
+                <Suspense fallback={<Loader />}>
+                    <Outlet />
+                </Suspense>
+            </Container>
+        </div>
+    );
 };
 
 export default Categories;
