@@ -16,7 +16,7 @@ export const MotivatedModal = ({ type, isOpen }) => {
 
   useEffect(() => {
     setIsOpenModal(isOpen);
-  }, []);
+  }, [isOpen]);
 
   const handleClose = () => {
     setIsOpenModal(false);
