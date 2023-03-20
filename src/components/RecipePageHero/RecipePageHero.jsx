@@ -14,9 +14,11 @@ import {
   addFavorite,
   deleteFavorite,
 } from 'redux/ownRecipes/ownRecipesOperations';
+import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 
 const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
   const [btnText, setBtnText] = useState(false);
+  const [triger, setTriger] = useState(0);
 
   const dispatcher = useDispatch();
   const obj = useSelector(getFavoriteRecipes);
@@ -45,16 +47,14 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
   function addtoFavorite() {
     dispatcher(addFavorite(idMeal));
     setBtnText(true);
+    obj.length === 0 ? setTriger(1) : setTriger(0);
+    obj.length === 9 ? setTriger(10) : setTriger(0);
     return;
   }
 
   function getIngDescription(recipeName) {
     if (obj !== undefined) {
-      const recipe = obj.some(
-        recipe =>
-          recipe.strMeal ===
-          recipeName.replace(recipeName[0], recipeName[0].toUpperCase())
-      );
+      const recipe = obj.some(recipe => recipe.strMeal === recipeName);
       return recipe;
     }
     return false;
@@ -66,6 +66,8 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
 
   return (
     <>
+      {triger === 1 && <MotivatedModal type="first favorite" isOpen={true} />}
+      {triger === 10 && <MotivatedModal type="ten-recipes" isOpen={true} />}
       <RecipeHeroConteiner>
         <HeroTitle>{meal}</HeroTitle>
         <HeroText>{about}</HeroText>
