@@ -23,7 +23,16 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 18px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+
+  @media (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
+
   padding: 0 24px;
 `;
 export const TemplateImg = styled.img`
@@ -34,22 +43,61 @@ export const TemplateImg = styled.img`
 export const Box = styled.div`
   width: 300px;
   height: 300px;
-
-  @media (min-width: 768px) {
-    width: 400px;
-    height: 400px;
-  }
-  @media (min-width: 1440px) {
-    width: 500px;
-    height: 500px;
-  }
-
   background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
     ),
-    url(${({ img }) => img});
+    url(${({ img }) => img.mobile.retinaOne});
+
+  @media only screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      ),
+      url(${({ img }) => img.mobile.retinaTwo});
+  }
+
+  @media (min-width: 768px) {
+    width: 400px;
+    height: 400px;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      ),
+      url(${({ img }) => img.tablet.retinaOne});
+
+    @media only screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url(${({ img }) => img.tablet.retinaTwo});
+    }
+  }
+  @media (min-width: 1440px) {
+    width: 500px;
+    height: 500px;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      ),
+      url(${({ img }) => img.desktop.retinaOne});
+
+    @media only screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url(${({ img }) => img.desktop.retinaTwo});
+    }
+  }
+
   border-radius: 30px;
   background-size: cover;
   display: flex;
