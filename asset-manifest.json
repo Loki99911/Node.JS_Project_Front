@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Node.JS_Project_Front/static/css/main.d2123060.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.27ea7003.js",
+    "main.css": "/Node.JS_Project_Front/static/css/main.86f99d15.css",
+    "main.js": "/Node.JS_Project_Front/static/js/main.dc398222.js",
     "static/css/940.acf3b8c5.chunk.css": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css",
     "static/js/940.8264b153.chunk.js": "/Node.JS_Project_Front/static/js/940.8264b153.chunk.js",
     "static/js/347.a979cc3a.chunk.js": "/Node.JS_Project_Front/static/js/347.a979cc3a.chunk.js",
@@ -24,6 +24,8 @@
     "static/media/mainTab-min.png": "/Node.JS_Project_Front/static/media/mainTab-min.0b3a2e47751bdfde27fc.png",
     "static/media/bg_search_desktop@2x.png": "/Node.JS_Project_Front/static/media/bg_search_desktop@2x.195c8cc165ac8d4aba1f.png",
     "static/media/bg_search_tablet@2x.png": "/Node.JS_Project_Front/static/media/bg_search_tablet@2x.195c8cc165ac8d4aba1f.png",
+    "static/media/first_favorite_recipe.jpg": "/Node.JS_Project_Front/static/media/first_favorite_recipe.0e2aaac9e330be7ad8cd.jpg",
+    "static/media/first_shopping_list.jpg": "/Node.JS_Project_Front/static/media/first_shopping_list.1ded7f7929f607d64f28.jpg",
     "static/media/mainpage1x_tab.png": "/Node.JS_Project_Front/static/media/mainpage1x_tab.a72e2a0525816c730bc6.png",
     "static/media/bg_small_desktop_2x.png": "/Node.JS_Project_Front/static/media/bg_small_desktop_2x.0832559b62dc82041efa.png",
     "static/media/mainpage1x_mob.png": "/Node.JS_Project_Front/static/media/mainpage1x_mob.65dcf270532f0a855f41.png",
@@ -31,6 +33,7 @@
     "static/media/bg_big_mobile_2x.png": "/Node.JS_Project_Front/static/media/bg_big_mobile_2x.e6bddf98431a062a2c9a.png",
     "static/media/bg_search_mob@2x.png": "/Node.JS_Project_Front/static/media/bg_search_mob@2x.7f02eca71ddf396f17e0.png",
     "static/media/mainMob-min.png": "/Node.JS_Project_Front/static/media/mainMob-min.80644ea7b24a2a58d8eb.png",
+    "static/media/10_recepies.jpg": "/Node.JS_Project_Front/static/media/10_recepies.bb27b7b3c015fdee0f04.jpg",
     "static/media/bg_big_tablet_1x.png": "/Node.JS_Project_Front/static/media/bg_big_tablet_1x.df22f7cad53eb74831f8.png",
     "static/media/bg_small_tablet_2x.png": "/Node.JS_Project_Front/static/media/bg_small_tablet_2x.d0755725e0e15adf9ea0.png",
     "static/media/recipeHero_desktop_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_desktop_2x.924484b464f126e26139.jpg",
@@ -52,6 +55,7 @@
     "static/media/bg_error_mob@2x.png": "/Node.JS_Project_Front/static/media/bg_error_mob@2x.b3175fd4a71fd9a8c792.png",
     "static/media/bg_error_desktop@1x.png": "/Node.JS_Project_Front/static/media/bg_error_desktop@1x.0fce8791c1b5e9b8cbf9.png",
     "static/media/bg_error_tablet@1x.png": "/Node.JS_Project_Front/static/media/bg_error_tablet@1x.a4d4ef93bde63ef4e6fc.png",
+    "static/media/100_days.jpg": "/Node.JS_Project_Front/static/media/100_days.772232de9f80bae49bc6.jpg",
     "static/media/AuthPanaMobRet-min.png": "/Node.JS_Project_Front/static/media/AuthPanaMobRet-min.14335bd09b581e799964.png",
     "static/media/mobile-menu-bg-tab-1x-min.png": "/Node.JS_Project_Front/static/media/mobile-menu-bg-tab-1x-min.94ab13c1f302b6f94cb9.png",
     "static/media/recipeHero_mob_2x.jpg": "/Node.JS_Project_Front/static/media/recipeHero_mob_2x.04772b35d4bcde8116a5.jpg",
@@ -66,8 +70,8 @@
     "static/media/logo_desc.svg": "/Node.JS_Project_Front/static/media/logo_desc.3326a095578a5f612526f7ab93edd379.svg",
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
-    "main.d2123060.css.map": "/Node.JS_Project_Front/static/css/main.d2123060.css.map",
-    "main.27ea7003.js.map": "/Node.JS_Project_Front/static/js/main.27ea7003.js.map",
+    "main.86f99d15.css.map": "/Node.JS_Project_Front/static/css/main.86f99d15.css.map",
+    "main.dc398222.js.map": "/Node.JS_Project_Front/static/js/main.dc398222.js.map",
     "940.acf3b8c5.chunk.css.map": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css.map",
     "940.8264b153.chunk.js.map": "/Node.JS_Project_Front/static/js/940.8264b153.chunk.js.map",
     "347.a979cc3a.chunk.js.map": "/Node.JS_Project_Front/static/js/347.a979cc3a.chunk.js.map",
@@ -82,7 +86,7 @@
     "48.79aaaa44.chunk.js.map": "/Node.JS_Project_Front/static/js/48.79aaaa44.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2123060.css",
-    "static/js/main.27ea7003.js"
+    "static/css/main.86f99d15.css",
+    "static/js/main.dc398222.js"
   ]
 }
