@@ -16,6 +16,9 @@ const Subscribe = () => {
       .then(el => setText('You have subscribed to the newsletter.'))
       .catch(error => setText('You haven`t subscribed. Try again later.'));
   }, [token]);
+
+  console.log(token);
+  
   return (
     <>
       <Container>
