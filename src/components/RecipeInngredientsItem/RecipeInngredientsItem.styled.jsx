@@ -41,6 +41,10 @@ export const Label = styled.label`
   align-items: center;
   padding: 14px 29px 14px 14px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 768px) {
     padding: 21px 58px 21px 28px;
   }

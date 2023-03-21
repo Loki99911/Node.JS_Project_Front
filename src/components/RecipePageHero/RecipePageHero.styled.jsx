@@ -19,6 +19,7 @@ export const RecipeHeroConteiner = styled.div`
   margin-bottom: 32px;
   padding-top: 144px;
   padding-bottom: 90px;
+  background-size: 100%;
   ${ButtonSkewStyle} {
     margin-top: auto;
     padding: 10px 18px;
@@ -88,11 +89,21 @@ export const HeroTitle = styled.title`
   letter-spacing: ${p => p.theme.letterSpacings.content};
   color: ${p => p.theme.colors.mainAccent};
 
+  max-width: 330px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow-y: clip;
+
   @media screen and (min-width: 768px) {
+    max-width: 680px;
     font-size: 44px;
     margin-bottom: 24px;
   }
   @media screen and (min-width: 1440px) {
+    max-width: 1000px;
   }
 `;
 
@@ -103,6 +114,13 @@ export const HeroText = styled.p`
   line-height: ${p => p.theme.lineHeights.description};
   letter-spacing: ${p => p.theme.letterSpacings.content};
   width: 303px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow-y: clip;
 
   @media screen and (min-width: 768px) {
     width: 506px;
@@ -110,6 +128,7 @@ export const HeroText = styled.p`
     line-height: 1.33;
   }
   @media screen and (min-width: 1440px) {
+    margin-bottom: 15px;
     width: 656px;
   }
 `;
