@@ -122,8 +122,7 @@ export const DescrWrapper = styled.div`
   color: ${p => p.theme.colors.mainDark};
 
   & span {
-    max-width: 100%;
-    width: 100%;
+    max-width: 130px;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     -webkit-line-clamp: 5;
@@ -132,7 +131,11 @@ export const DescrWrapper = styled.div`
     white-space: normal;
 
     @media screen and (min-width: 768px) {
-      -webkit-line-clamp: 5;
+      max-width: 650px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      max-width: 650px;
     }
   }
 
