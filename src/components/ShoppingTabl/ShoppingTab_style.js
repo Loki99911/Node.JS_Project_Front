@@ -117,10 +117,16 @@ export const BtnForItemRemove = styled.button`
   padding: 0 20px;
   stroke: ${p => p.theme.colors.secondaryDark};
   cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
   @media screen and (min-width: 769px) {
     width: 80px;
     height: 20px;
     padding: 0 30px;
+      &:hover {
+    stroke: ${p => p.theme.colors.mainAccent};
+    transform: rotate(-0.25turn);
+  }
+
   }
 `;
 

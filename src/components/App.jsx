@@ -7,8 +7,6 @@ import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute, PublicRoute } from 'service/routes';
 import {
   getAccessToken,
-  // getIsLoggedIn,
-  getIsUserFetching,
 } from '../redux/auth/authSelectors';
 // import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,15 +17,6 @@ import { GlobalStyle } from './App.styled';
 import { ThemeProvider } from 'styled-components';
 import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
 import { getMode } from 'redux/theme/themeSelector';
-// import {
-//   getFullCategoryList,
-//   getPopular,
-// } from 'redux/outerRecipes/outerRecipesSelectors';
-// import {
-//   getCategoryList,
-//   getPopularRecipes,
-// } from 'redux/outerRecipes/outerRecipesOperations';
-import { Loader } from './Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentUser } from 'redux/auth/authOperations';
@@ -46,7 +35,7 @@ const CategoriesByName = lazy(() =>
 
 export const App = () => {
   const token = useSelector(getAccessToken);
-  const isUserFetching = useSelector(getIsUserFetching);
+  // const isUserFetching = useSelector(getIsUserFetching);
   const { mode } = useSelector(getMode);
   const themeMode = mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
   // const isUserLogin = useSelector(getIsLoggedIn);
@@ -72,11 +61,7 @@ export const App = () => {
   //   }
   // }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
 
-  return isUserFetching ? (
-    <ThemeProvider theme={themeMode}>
-      <Loader />
-    </ThemeProvider>
-  ) : (
+  return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <Routes>

@@ -25,7 +25,7 @@ export const BoxForMain = styled.div`
       rgba(0, 0, 0, 0) 100%
     ),
     url(${bgrImageMob});
-  @media screen and (min-width: 769px) and (max-width: 1440px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
@@ -34,7 +34,7 @@ export const BoxForMain = styled.div`
       ),
       url(${bgrImageTab});
   }
-  @media screen and (min-width: 1441px) {
+  @media screen and (min-width: 1440px) {
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,

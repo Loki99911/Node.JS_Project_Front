@@ -28,7 +28,7 @@ export const addOwnRecipe = createAsyncThunk(
   async ({ body, cb }, { rejectWithValue }) => {
     try {
       const data = await addOwnRecipeAPI(body);
-      cb('/my?page=1');
+      cb();
       return data;
     } catch (error) {
       toast.error('Recipe hasn`t been added', {
