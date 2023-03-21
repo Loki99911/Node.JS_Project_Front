@@ -7,26 +7,26 @@ import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute, PublicRoute } from 'service/routes';
 import {
   getAccessToken,
-  getIsLoggedIn,
+  // getIsLoggedIn,
   getIsUserFetching,
 } from '../redux/auth/authSelectors';
-import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
+// import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import Error from 'pages/Error/Error';
 import { lazy, useEffect } from 'react';
-import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
+// import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { GlobalStyle } from './App.styled';
 import { ThemeProvider } from 'styled-components';
 import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
 import { getMode } from 'redux/theme/themeSelector';
-import {
-  getFullCategoryList,
-  getPopular,
-} from 'redux/outerRecipes/outerRecipesSelectors';
-import {
-  getCategoryList,
-  getPopularRecipes,
-} from 'redux/outerRecipes/outerRecipesOperations';
+// import {
+//   getFullCategoryList,
+//   getPopular,
+// } from 'redux/outerRecipes/outerRecipesSelectors';
+// import {
+//   getCategoryList,
+//   getPopularRecipes,
+// } from 'redux/outerRecipes/outerRecipesOperations';
 import { Loader } from './Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -49,10 +49,10 @@ export const App = () => {
   const isUserFetching = useSelector(getIsUserFetching);
   const { mode } = useSelector(getMode);
   const themeMode = mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
-  const isUserLogin = useSelector(getIsLoggedIn);
-  const ingredients = useSelector(getIngredients);
-  const categories = useSelector(getFullCategoryList);
-  const popularRecipes = useSelector(getPopular);
+  // const isUserLogin = useSelector(getIsLoggedIn);
+  // const ingredients = useSelector(getIngredients);
+  // const categories = useSelector(getFullCategoryList);
+  // const popularRecipes = useSelector(getPopular);
   const dispatcher = useDispatch();
 
   useEffect(() => {
@@ -60,17 +60,17 @@ export const App = () => {
     dispatcher(getCurrentUser());
   }, [dispatcher, token]);
 
-  useEffect(() => {
-    if (isUserLogin === true && popularRecipes.length === 0) {
-      dispatcher(getPopularRecipes());
-    }
-    if (isUserLogin === true && ingredients.length === 0) {
-      dispatcher(getAllIngredients());
-    }
-    if (isUserLogin === true && categories.length === 0) {
-      dispatcher(getCategoryList());
-    }
-  }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
+  // useEffect(() => {
+  //   if (isUserLogin === true && popularRecipes.length === 0) {
+  //     dispatcher(getPopularRecipes());
+  //   }
+  //   if (isUserLogin === true && ingredients.length === 0) {
+  //     dispatcher(getAllIngredients());
+  //   }
+  //   if (isUserLogin === true && categories.length === 0) {
+  //     dispatcher(getCategoryList());
+  //   }
+  // }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
 
   return isUserFetching ? (
     <ThemeProvider theme={themeMode}>
