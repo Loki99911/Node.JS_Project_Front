@@ -39,8 +39,8 @@ export const MotivatedModal = ({ type, isOpen }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
-    setIsOpenModal(true);
-  }, []);
+    setIsOpenModal(isOpen);
+  }, [isOpen]);
 
   useEffect(() => {
     const onPressEsc = ({ key }) => {

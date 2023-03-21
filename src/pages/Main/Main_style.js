@@ -17,8 +17,7 @@ export const BoxForMain = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
-  width: 100%;
+  width: 100vw;
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.6) 58.58%,
@@ -112,17 +111,17 @@ export const LinkToRegister = styled(Link)`
   transition: ${theme.transitions.main};
   &:hover {
     background-color: ${theme.colors.mainWhite};
-    border: none;
-  color: ${theme.colors.mainAccent};
+    border: 1px solid ${theme.colors.mainAccent};
+    color: ${theme.colors.mainAccent};
   }
-    &:first-of-type {
+  &:first-of-type {
     background-color: ${theme.colors.mainAccent};
     border: none;
-  &:hover {
-    background-color: ${theme.colors.mainBtnText};
-  color: ${theme.colors.mainWhite};
-  }
+    &:hover {
+      background-color: ${theme.colors.mainBtnText};
+      color: ${theme.colors.mainWhite};
     }
+  }
 
   @media screen and (min-width: 769px) {
     padding: 22px 44px;

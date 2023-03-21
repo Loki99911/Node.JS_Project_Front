@@ -21,7 +21,6 @@ const Recipe = () => {
   const myRecipe = () => {
     return recipeObj ? recipe : ownRecipe;
   };
-  // ownRecipe && console.log(Object.keys(ownRecipe).length);
 
   useEffect(() => {
     if (('' + recipeId).length < 10) {
@@ -49,7 +48,10 @@ const Recipe = () => {
               Number <span>Add to list</span>
             </p>
           </ReportsTable>
-          <RecipeInngredientsList ingredients={myRecipe().ingredients} />
+          <RecipeInngredientsList
+            ingredients={myRecipe().ingredients}
+            recipeId={recipeId}
+          />
           <RecipePreparation
             image={myRecipe().imgURL}
             instructions={myRecipe().description}

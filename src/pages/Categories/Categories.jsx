@@ -1,4 +1,3 @@
-
 import { CategoryList } from 'components/CategoryList/CategoryList';
 import { Container } from 'components/Container/Container';
 import { Loader } from 'components/Loader/Loader';
@@ -9,15 +8,12 @@ import { Outlet } from 'react-router-dom';
 const Categories = () => {
   return (
     <div>
-    <Container>
-      <Title>Category</Title>
-      
-      <CategoryList />
-  
-      
+      <Container>
+        <Title>Categories</Title>
+        <CategoryList />
         <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+          <Outlet />
+        </Suspense>
       </Container>
     </div>
   );

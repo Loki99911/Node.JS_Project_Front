@@ -68,13 +68,42 @@ export const DataWrapper = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
+  max-width: 100%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 18px;
+  flex-grow: 0;
+`;
+
+export const SubTitle = styled.div`
+  max-width: calc(80% - 18px);
+  height: fit-content;
+  font-family: ${p => p.theme.fonts.main};
+  font-size: 14px;
+  font-weight: ${p => p.theme.fontWeights[1]};
+  letter-spacing: ${p => p.theme.letterSpacings.subheader};
+  color: ${p => p.theme.colors.secondaryDark};
 
   & h3 {
-    font-weight: ${p => p.theme.fontWeights[1]};
+    display: inline-block;
+    max-width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @media screen and (min-width: 768px) {
+      max-width: 300px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      max-width: 650px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
   }
 `;
 
@@ -100,6 +129,10 @@ export const DescrWrapper = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+
+    @media screen and (min-width: 768px) {
+      -webkit-line-clamp: 5;
+    }
   }
 
   @media screen and (min-width: 768px) {

@@ -4,6 +4,7 @@ export const ContentWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
+  width: 100%;
 
   & li {
     width: 100%;

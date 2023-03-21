@@ -71,7 +71,6 @@ export const stylesIngredient = theme => {
     control: (baseStyles, state) => ({
       ...baseStyles,
       backgroundColor: theme === 'light' ? 'rgb(217, 217, 217)' : 'transparent',
-      // border: 'unset',
       borderRadius: '6px',
       borderColor: state.isFocused ? '#D9D9D9' : '#D9D9D9',
       ':hover': {

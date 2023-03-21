@@ -16,7 +16,6 @@ export const logInUserAPI = user => {
 
 export const logOutUserAPI = () => {
   return axios.post('/auth/logout').then(({ data }) => {
-    console.log('data in API', data);
     return data;
   });
 };
@@ -31,4 +30,24 @@ export const updateUserInfoAPI = body => {
   return axios.patch('/auth/user-data', body).then(({ data }) => {
     return data;
   });
+};
+
+export const getCurrentUserAPI = () => {
+  return axios.get('/auth/user-data').then(({ data }) => {
+    return data;
+  });
+};
+
+export const subscribeEmail = email => {
+  return axios.post('/auth/user-data/subscribe', email).then(({ data }) => {
+    return data;
+  });
+};
+
+export const subscribeEmailConfirmation = token => {
+  return axios
+    .get(`auth/user-data/subscribe?token=${token}`)
+    .then(({ data }) => {
+      return data;
+    });
 };

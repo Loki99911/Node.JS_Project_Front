@@ -11,24 +11,31 @@ import {
 } from './RecipeInngredientsItem.styled';
 import sprite from '../../images/sprite.svg';
 
-import { useState } from 'react';
-import { addShoppingIngredient } from 'redux/ingredients/ingredientsOperations';
+import {
+  addShoppingIngredient,
+  removeShoppingIngredient,
+} from 'redux/ingredients/ingredientsOperations';
 import { useDispatch } from 'react-redux';
 
 const RecipeInngredientsItem = obj => {
-  const [toShoppingList, setToShoppingList] = useState(false);
   const dispatcher = useDispatch();
 
   const addToShoppingList = () => {
-    setToShoppingList(true);
+    if (obj.inShoppingList) {
+      const ingrid = obj.list.find(item => item.recipeId === obj.recipeId);
+      dispatcher(removeShoppingIngredient(ingrid._id));
+      return;
+    }
+
     dispatcher(
       addShoppingIngredient({
         image: obj.image,
         strIngredient: obj.strIngredient,
         weight: obj.weight,
+        recipeId: obj.recipeId,
       })
     );
-    return;
+    return obj.inShoppingList;
   };
 
   return (
@@ -46,7 +53,7 @@ const RecipeInngredientsItem = obj => {
           <RealCheckbox
             type="checkbox"
             onChange={addToShoppingList}
-            disabled={toShoppingList}
+            checked={obj.inShoppingList}
           />
           <CustomCheckbox>
             <svg>

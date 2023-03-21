@@ -105,5 +105,3 @@ export const outerRecipesSlice = createSlice({
 });
 
 export default outerRecipesSlice.reducer;
-
-// .addCase(logOut.fulfilled, (state, { payload }) => {})

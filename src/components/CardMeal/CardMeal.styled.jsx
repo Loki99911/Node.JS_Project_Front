@@ -18,7 +18,6 @@ export const CardTitle = styled.div`
   position: absolute;
   top: 245px;
   left: 18px;
-
   border-radius: 8px;
   width: calc(100% - 36px);
   white-space: nowrap;
@@ -55,6 +54,7 @@ export const CardImg = styled.img`
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
+  transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const CardDish = styled.li`
@@ -62,12 +62,23 @@ export const CardDish = styled.li`
   height: 323px;
   border-radius: 8px;
   position: relative;
-  /* overflow: hidden; */
+
   @media (min-width: 768px) {
     width: calc((100% - 32px) / 2);
   }
 
   @media (min-width: 1440px) {
     width: calc((100% - 42px) / 4);
+  }
+
+  a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+
+    :hover img {
+      transform: scale(1.25);
+      filter: contrast(130%);
+    }
   }
 `;

@@ -6,11 +6,12 @@ import {
   FlagForInput,
 } from './FormFooter.styled';
 import { Formik, ErrorMessage } from 'formik';
-// import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
+import { subscribeEmail } from 'service/API/Auth&UserAPI';
+import { toast } from 'react-toastify';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.mixed().test({
@@ -35,13 +36,14 @@ export const FormFooter = () => {
         initialValues={{ email: `` }}
         validationSchema={LoginSchema}
         onSubmit={(values, actions) => {
-          //  dispatch(
-          //    XXXX({
-          //      email: values.email,
-          //    })
-          //  );
-
-          console.log(values.email);
+          subscribeEmail({ email: values.email })
+            .then(r => toast.success('Сheck your email'))
+            .catch(error => {
+              if (error === 409) {
+                toast.warning('You have already subscribed');
+              }
+              toast.error('Something went wrong');
+            });
           actions.setSubmitting(false);
           actions.resetForm();
         }}

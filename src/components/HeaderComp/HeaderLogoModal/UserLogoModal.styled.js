@@ -31,6 +31,7 @@ export const EditBtn = styled.button`
   line-height: ${p => p.theme.lineHeights.headerLinks};
   font-size: 14px;
   color: ${p => p.theme.colors.mainDark};
+  transition: ${p => p.theme.transitions.main};
 
   & svg {
     width: 14px;
@@ -59,7 +60,7 @@ export const LogOutBtn = styled.button`
   padding: 12px 30px;
   background-color: ${p => p.theme.colors.mainAccent};
   outline: none;
-  border: none;
+  border: 1px solid transparent;
   border-top-left-radius: 30px;
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
@@ -70,14 +71,21 @@ export const LogOutBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.btnTextLight};
-    background-color: ${p => p.theme.colors.btnHoverBg};
+    border: ${p => p.theme.borders.mainNavBord};
+    color: ${p => p.theme.colors.mainSerchHoverText};
+    background-color: ${p => p.theme.colors.searchFormHoverBtn};
+  }
+
+  &:hover svg,
+  &:focus svg {
+    stroke: ${p => p.theme.colors.mainSerchHoverText};
   }
 
   & svg {
     width: 18px;
     height: 18px;
     stroke: ${p => p.theme.colors.btnTextLight};
+    transition: ${p => p.theme.transitions.main};
   }
 
   @media screen and (min-width: 768px) {
