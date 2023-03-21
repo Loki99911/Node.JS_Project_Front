@@ -33,11 +33,13 @@ const MyRecipes = () => {
   useEffect(() => {
     if (recipes.length < perPage)
       dispatch(getOwnRecipes({ page: pageNumber, per_page: perPage }));
+    if (recipes.length <= 0)
+      dispatch(getOwnRecipes({ page: pageNumber - 1, per_page: perPage }));
   }, [dispatch, recipes.length, pageNumber]);
 
   const handleChange = (event, value) => {
     setPageNumber(value);
-     scrollToTop();
+    scrollToTop();
   };
 
   useEffect(() => {
