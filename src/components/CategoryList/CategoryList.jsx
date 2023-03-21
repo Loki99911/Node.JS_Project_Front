@@ -7,6 +7,7 @@ import { getCategoryList } from 'redux/outerRecipes/outerRecipesOperations';
 import { getFullCategoryList } from 'redux/outerRecipes/outerRecipesSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 export const CategoryList = () => {
   const { categoryName } = useParams();
@@ -57,6 +58,7 @@ export const CategoryList = () => {
         color: '#BDBDBD',
         '&.Mui-selected': {
           color: '#8BAA36',
+          
         },
       }}
     />
@@ -92,7 +94,9 @@ export const CategoryList = () => {
           },
           '& .MuiTabs-flexContainer': {
             gap: '55px',
-            
+            '& :hover': {
+            color: '#8BAA36'
+            },
           },
           '& .MuiTab-root': {
             textTransform: 'capitalize',
@@ -102,6 +106,7 @@ export const CategoryList = () => {
             fontWeight: '400',
             lineHeight: '18px',
             borderColor: '#8BAA36',
+            
           },
 
           '& svg': {

@@ -10,7 +10,7 @@ export const SearchBlock = styled.div`
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 30px;
-  margin: 0 16px 83px;
+  margin: 0 24px 83px;
   border: ${p => p.theme.borders.mainSearchInput};
   color: ${theme.colors.disabledGrey};
   font-family: ${theme.fonts.main};
@@ -25,7 +25,7 @@ export const SearchBlock = styled.div`
     height: 59px;
     font-size: 16px;
     line-height: 24px;
-    margin: 0 16px 195px;
+    margin: 0 0 195px;
   }
 
   @media (min-width: 1440px) {
