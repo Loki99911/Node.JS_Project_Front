@@ -3,7 +3,7 @@ import {
   getCategoryList,
   getLimitedRecipesByCategory,
   getAllRecipesByCategory,
-  getOneRecipeById,
+//   getOneRecipeById,
   getPopularRecipes,
   getMainCategories,
   getRecipesByQuery,
