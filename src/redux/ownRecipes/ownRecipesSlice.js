@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from 'redux/auth/authOperations';
+import { getOneRecipeById } from 'redux/outerRecipes/outerRecipesOperations';
 import {
   getOwnRecipes,
   deleteOwnRecipe,
@@ -15,6 +16,15 @@ const pending = state => {
 };
 const rejected = state => {
   state.isOwnRecipesFetching = false;
+};
+
+const pendingSingle = state => {
+  state.isOwnRecipesFetching = true;
+  state.singleRecipe = null;
+};
+const rejectedSingle = state => {
+  state.isOwnRecipesFetching = false;
+  state.singleRecipe = null;
 };
 
 const initialState = {
@@ -61,6 +71,10 @@ export const ingredientsSlice = createSlice({
         state.singleRecipe = payload;
         state.isOwnRecipesFetching = false;
       })
+      .addCase(getOneRecipeById.fulfilled, (state, { payload }) => {
+        state.singleRecipe = payload;
+        state.isOwnRecipesFetching = false;
+      })
       .addCase(logOut.fulfilled, () => ({ ...initialState }))
 
       .addCase(getOwnRecipes.pending, pending)
@@ -68,14 +82,16 @@ export const ingredientsSlice = createSlice({
       .addCase(deleteOwnRecipe.pending, pending)
       .addCase(getFavorite.pending, pending)
       .addCase(addFavorite.pending, pending)
-      .addCase(getOwnRecipeByID.pending, pending)
+      .addCase(getOwnRecipeByID.pending, pendingSingle)
+      .addCase(getOneRecipeById.pending, pendingSingle)
 
       .addCase(getOwnRecipes.rejected, rejected)
       .addCase(addOwnRecipe.rejected, rejected)
       .addCase(deleteOwnRecipe.rejected, rejected)
       .addCase(getFavorite.rejected, rejected)
       .addCase(addFavorite.rejected, rejected)
-      .addCase(getOwnRecipeByID.rejected, rejected),
+      .addCase(getOwnRecipeByID.rejected, rejectedSingle)
+      .addCase(getOneRecipeById.rejected, rejectedSingle),
 });
 
 export default ingredientsSlice.reducer;
