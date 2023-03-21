@@ -18,6 +18,9 @@ import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
+import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
+import { useNavigate } from 'react-router-dom';
+
 
 const init = {
   recipe: '',
@@ -30,6 +33,7 @@ const init = {
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isDesktop, isTablet, isMobile } = useMediaRules();
 
@@ -147,7 +151,7 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    dispatch(addOwnRecipe(formData));
+    dispatch(addOwnRecipe(formData, navigate('/my?page=1')));
     resetForm();
   };
 
@@ -177,6 +181,7 @@ const AddRecipe = () => {
       ...prev,
       [name]: value,
     }));
+
     setUserIngredients(prev => {
       const idx = prev.findIndex(el => el.id === id);
       const [item] = prev.filter(el => el.id === id);
