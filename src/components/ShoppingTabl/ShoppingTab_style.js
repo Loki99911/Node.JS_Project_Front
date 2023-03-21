@@ -122,10 +122,11 @@ export const BtnForItemRemove = styled.button`
     width: 80px;
     height: 20px;
     padding: 0 30px;
-  }
-  &:hover {
+      &:hover {
     stroke: ${p => p.theme.colors.mainAccent};
     transform: rotate(-0.25turn);
+  }
+
   }
 `;
 
