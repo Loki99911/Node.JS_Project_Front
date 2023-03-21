@@ -4,14 +4,15 @@ import { Container } from 'components/Container/Container';
 import { PreviewCategories } from 'components/PreviewCategories/PreviewCategories';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { СhooseYourBreakfast } from 'components/СhooseYourBreakfast/СhooseYourBreakfast';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {
-} from 'redux/outerRecipes/outerRecipesOperations';
-import {
-
-} from 'redux/outerRecipes/outerRecipesSelectors';
+import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
+import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
+import { getCategoryList, getPopularRecipes } from 'redux/outerRecipes/outerRecipesOperations';
+import { getFullCategoryList, getPopular } from 'redux/outerRecipes/outerRecipesSelectors';
 import { scrollToTop } from 'utils/scrollUp';
 import {
   MainPageBg,
@@ -22,7 +23,12 @@ import {
 } from './MainPage.styled';
 
 const MainPage = () => {
+    const ingredients = useSelector(getIngredients);
+    const categories = useSelector(getFullCategoryList);
+    const popularRecipes = useSelector(getPopular);
+    const dispatcher = useDispatch();
     const navigate = useNavigate();
+    
     const onClick = e => {
         navigate('/categories');
     };
@@ -36,6 +42,24 @@ const MainPage = () => {
         }
         navigate(`/search?query=${query}&type=${type}`);
     };
+
+    useEffect(() => {
+      if (categories.length === 0) {
+        dispatcher(getCategoryList());
+      }
+    }, [dispatcher, categories.length]);
+
+    useEffect(() => {
+      if (popularRecipes.length === 0) {
+        dispatcher(getPopularRecipes());
+      }
+    }, [dispatcher, popularRecipes.length]);
+
+    useEffect(() => {
+      if (ingredients.length === 0) {
+        dispatcher(getAllIngredients());
+      }
+    }, [dispatcher, ingredients.length]);
 
     return (
         <>
