@@ -37,7 +37,7 @@ export const theme = {
     searchDropDownBg: '#FFFFFF',
     tooltipbg: '#EBF3D4',
     ingredientsBgrCol: '#EBF3D4',
-
+    // logoutCancelBtnHover: '',
     mainSerchHoverText: '#ffffff',
     searchFormHoverBtn: '#23262A',
     mainGreyBg: '#D9D9D9',
