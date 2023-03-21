@@ -84,7 +84,15 @@ export const ChooseLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  transform: ${theme.transitions.main};
+&:hover {
+    color: ${theme.colors.mainAccent};
+    svg path {
+      stroke: ${theme.colors.mainAccent};
+    }
+  }
 
+  
   @media (min-width: 768px) {
     font-size: 14px;
   }
@@ -101,8 +109,6 @@ export const RightArrow = styled.svg`
   display: flex;
   stroke: ${p => p.theme.colors.secondaryDark};
   transition: ${p => p.theme.transitions.main};
+  transform: ${theme.transitions.main};
   
-  &:hover {
-    transform: scale(1.2);
-  }
 `;
