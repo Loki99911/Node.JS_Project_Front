@@ -20,9 +20,10 @@ export const MainPageH1 = styled.h1`
   letter-spacing: -0.005em;
 
   @media (min-width: 768px) {
-    margin: 204px 12px 0px 12px;
+    margin: 204px 0 0px ;
     font-size: 72px;
     line-height: 72px;
+    text-align: left;
   }
 
   @media (min-width: 1440px) {
@@ -65,18 +66,25 @@ export const MainPageText = styled.p`
   line-height: 18px;
   text-align: center;
   letter-spacing: ${theme.letterSpacings.content};
+  & br {
+    display: none;
+  }
 
   @media (min-width: 768px) {
-    margin: 24px 40px 32px 40px;
+    margin: 24px 0 32px;
     font-size: 14px;
     line-height: 18px;
+    text-align: left;
+    & br {
+    display: flex;
+    }
   }
 
   @media (min-width: 1440px) {
-    margin: 14px 55px 50px 24px;
+    margin: 14px 0 50px;
     font-size: 18px;
     line-height: 24px;
-    text-align: left;
+    
   }
 `;
 

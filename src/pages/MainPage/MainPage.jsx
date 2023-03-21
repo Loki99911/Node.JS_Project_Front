@@ -45,8 +45,8 @@ const MainPage = () => {
                             <SpanGr>So</SpanGr>Yummy
                         </MainPageH1>
                         <MainPageText>
-                            "What to cook?" is not only a recipe app, it is, in fact, your
-                            cookbook. You can add your own recipes to save them for the
+                            "What to cook?" is not only a recipe app, it is, in fact, <br/> your
+                            cookbook. You can add your own recipes to <br/> save them for the
                             future.
                         </MainPageText>
                         <СhooseYourBreakfast />
