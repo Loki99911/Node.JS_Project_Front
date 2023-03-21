@@ -6,11 +6,12 @@ import {
   TooltipWrapper,
 } from './CardMeal.styled';
 import NoImage from '../../images/default.jpg';
+import { scrollToTop } from 'utils/scrollUp';
 
 export const CardMeal = ({ meal }) => {
   return (
     <CardDish>
-      <Link to={`/recipe/${meal.idMeal}`}>
+      <Link to={`/recipe/${meal.idMeal}`} onClick={scrollToTop}>
         <CardImg
           src={meal.strMealThumb ? meal.strMealThumb : { NoImage }}
           alt={meal.strMeal}
