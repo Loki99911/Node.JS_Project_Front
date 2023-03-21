@@ -52,7 +52,7 @@ export const LogoutMenuBtn = styled.button`
   white-space: nowrap;
   color: ${p =>
     p.status === 'cancel'
-      ? p.theme.colors.mainDark
+      ? p.theme.colors.btnHoverBg
       : p.theme.colors.btnTextLight};
   cursor: pointer;
   transition: ${p => p.theme.transitions.main};
