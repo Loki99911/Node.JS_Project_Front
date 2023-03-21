@@ -25,18 +25,11 @@ export const getOwnRecipes = createAsyncThunk(
 
 export const addOwnRecipe = createAsyncThunk(
   'ownRecipes/addRecipe',
-
-  async ({ body, cb }, { rejectWithValue, getState }) => {
-    const state = getState();
-    const persistedAccessToken = state.auth.accessToken;
-    if (!persistedAccessToken) {
-      return rejectWithValue();
-    }
-    token.set(persistedAccessToken);
+  async ({ body, cb }, { rejectWithValue }) => {
     try {
       const data = await addOwnRecipeAPI(body);
       cb();
-
+      return data;
     } catch (error) {
       toast.error('Recipe hasn`t been added', {
         position: 'bottom-right',
