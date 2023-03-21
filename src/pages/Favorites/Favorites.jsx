@@ -31,11 +31,13 @@ const Favorites = () => {
   useEffect(() => {
     if (favorites.length < perPage)
       dispatch(getFavorite({ page: page, per_page: perPage }));
+    if (favorites.length <= 0)
+      dispatch(getFavorite({ page: page - 1, per_page: perPage }));
   }, [dispatch, favorites.length, page]);
 
   const handleChange = (event, value) => {
     setPage(value);
-     scrollToTop();
+    scrollToTop();
   };
 
   return (
