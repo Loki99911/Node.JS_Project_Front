@@ -1,7 +1,6 @@
 import RecipeInngredientsItem from 'components/RecipeInngredientsItem/RecipeInngredientsItem';
 import { InngredientsWrapper } from './RecipeInngredientsList.styled';
 
-import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
@@ -10,8 +9,6 @@ import { getShoppingIngredient } from 'redux/ingredients/ingredientsOperations.j
 import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
-  const allOfIngredients = useSelector(getIngredients);
-
   const [triger, setTriger] = useState(0);
 
   const dispatcher = useDispatch();
@@ -19,7 +16,6 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
   useEffect(() => {
     dispatcher(getShoppingIngredient());
-    console.log(list.length);
     if (list.length === 1) {
       setTriger(1);
     }
@@ -34,23 +30,21 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   }
 
   return (
-    allOfIngredients && (
-      <InngredientsWrapper>
-        {triger === 1 && <MotivatedModal type="first shopping" isOpen={true} />}
-        {ingredients.map((inngredient, index) => (
-          <RecipeInngredientsItem
-            image={inngredient.imgURL}
-            strIngredient={inngredient.ingredient}
-            key={nanoid(6)}
-            weight={inngredient.qty ? inngredient.qty : 'any'}
-            strDescription={inngredient.description}
-            list={list}
-            recipeId={recipeId + index}
-            inShoppingList={getIngDescription(recipeId + index)}
-          />
-        ))}
-      </InngredientsWrapper>
-    )
+    <InngredientsWrapper>
+      {triger === 1 && <MotivatedModal type="first shopping" isOpen={true} />}
+      {ingredients.map((inngredient, index) => (
+        <RecipeInngredientsItem
+          image={inngredient.imgURL}
+          strIngredient={inngredient.ingredient}
+          key={nanoid(6)}
+          weight={inngredient.qty ? inngredient.qty : 'any'}
+          strDescription={inngredient.description}
+          list={list}
+          recipeId={recipeId + index}
+          inShoppingList={getIngDescription(recipeId + index)}
+        />
+      ))}
+    </InngredientsWrapper>
   );
 };
 
