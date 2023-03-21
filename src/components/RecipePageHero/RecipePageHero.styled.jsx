@@ -7,6 +7,7 @@ import tab2 from '../../images/tablet/recipeHero_tab_2x.jpg';
 import desktop1 from '../../images/desktop/recipeHero_desktop_1x.jpg';
 import desktop2 from '../../images/desktop/recipeHero_desktop_2x.jpg';
 import { ButtonSkewStyle } from 'components/ButtonSkew/buttonSkew.styled';
+import { BoxForLoader } from 'components/Loader/Loader_style';
 
 export const RecipeHeroConteiner = styled.div`
   display: flex;
@@ -20,6 +21,9 @@ export const RecipeHeroConteiner = styled.div`
   padding-top: 144px;
   padding-bottom: 90px;
   background-size: 100%;
+  ${BoxForLoader} {
+    background-color: transparent;
+  }
   ${ButtonSkewStyle} {
     margin-top: auto;
     padding: 10px 18px;
@@ -84,7 +88,6 @@ export const HeroTitle = styled.title`
   text-align: center;
   font-weight: ${p => p.theme.fontWeights[2]};
   font-size: 24px;
-  line-height: ${p => p.theme.lineHeights.subheader};
   margin-bottom: 18px;
   letter-spacing: ${p => p.theme.letterSpacings.content};
   color: ${p => p.theme.colors.mainAccent};
@@ -121,6 +124,7 @@ export const HeroText = styled.p`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow-y: clip;
+  hyphens: auto;
 
   @media screen and (min-width: 768px) {
     width: 506px;
@@ -128,6 +132,7 @@ export const HeroText = styled.p`
     line-height: 1.33;
   }
   @media screen and (min-width: 1440px) {
+    -webkit-line-clamp: 3;
     margin-bottom: 15px;
     width: 656px;
   }

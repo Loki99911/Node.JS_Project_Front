@@ -16,11 +16,18 @@ import {
 } from 'redux/ownRecipes/ownRecipesOperations';
 import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 
+import { Loader } from 'components/Loader/Loader';
+
 const RecipePageHero = ({ idMeal, recipeObj }) => {
   const [btnText, setBtnText] = useState(false);
   const [triger, setTriger] = useState(0);
   const dispatcher = useDispatch();
   const obj = useSelector(getFavoriteRecipes);
+
+  const isPendingOwn = useSelector(
+    state => state.ownRecipes.isOwnRecipesFetching
+  );
+  const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 
   function deleteFromFav() {
     dispatcher(deleteFavorite(idMeal));
@@ -48,41 +55,45 @@ const RecipePageHero = ({ idMeal, recipeObj }) => {
     dispatcher(getFavorite({}));
   }, [dispatcher]);
 
-  console.log(recipeObj);
-
   return (
     <>
       {triger === 1 && <MotivatedModal type="first favorite" isOpen={true} />}
       {triger === 10 && <MotivatedModal type="ten-recipes" isOpen={true} />}
       <RecipeHeroConteiner>
-        <HeroTitle>{recipeObj.title}</HeroTitle>
-        <HeroText>{recipeObj.about}</HeroText>
-        {btnText || getIngDescription(recipeObj.title) ? (
-          <ButtonSkew
-            type="button"
-            text={'Remove from favorite recipes'}
-            styled="other"
-            location="recipes"
-            fn={deleteFromFav}
-          />
+        {isPendingOwn || isPending ? (
+          <Loader />
         ) : (
-          <ButtonSkew
-            type="button"
-            text="Add to favorite recipes"
-            styled="other"
-            location="recipes"
-            fn={addtoFavorite}
-          />
-        )}
-        {recipeObj.cookingTime !== '' ? (
-          <CookingTime>
-            <svg>
-              <use href={sprite + `#icon-clock`} />
-            </svg>
-            <span>{recipeObj.cookingTime + ` min`}</span>
-          </CookingTime>
-        ) : (
-          <CookingTime></CookingTime>
+          <>
+            <HeroTitle>{recipeObj.title}</HeroTitle>
+            <HeroText>{recipeObj.about}</HeroText>
+            {btnText || getIngDescription(recipeObj.title) ? (
+              <ButtonSkew
+                type="button"
+                text={'Remove from favorite recipes'}
+                styled="other"
+                location="recipes"
+                fn={deleteFromFav}
+              />
+            ) : (
+              <ButtonSkew
+                type="button"
+                text="Add to favorite recipes"
+                styled="other"
+                location="recipes"
+                fn={addtoFavorite}
+              />
+            )}
+            {recipeObj.cookingTime !== '' ? (
+              <CookingTime>
+                <svg>
+                  <use href={sprite + `#icon-clock`} />
+                </svg>
+                <span>{recipeObj.cookingTime + ` min`}</span>
+              </CookingTime>
+            ) : (
+              <CookingTime></CookingTime>
+            )}
+          </>
         )}
       </RecipeHeroConteiner>
     </>

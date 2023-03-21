@@ -59,6 +59,7 @@ export const InstructionList = styled.ul`
 export const InstructionText = styled.li`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   align-items: flex-start;
   gap: 14px;
 
@@ -87,6 +88,14 @@ export const InstructionText = styled.li`
   & p {
     padding-top: 2px;
     color: ${({ theme }) => theme.colors.mainBlack};
+    width: 311px;
+    @media screen and (min-width: 768px) {
+      width: 660px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 433px;
+    }
   }
 `;
 
