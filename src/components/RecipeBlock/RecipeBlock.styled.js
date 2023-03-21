@@ -129,6 +129,10 @@ export const DescrWrapper = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+
+    @media screen and (min-width: 768px) {
+      -webkit-line-clamp: 5;
+    }
   }
 
   @media screen and (min-width: 768px) {

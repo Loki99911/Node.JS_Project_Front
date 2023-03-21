@@ -13,12 +13,12 @@ export const StyledLink = styled(NavLink)`
   letter-spacing: ${p => p.theme.letterSpacings.content};
   line-height: ${p => p.theme.lineHeights.subheader};
   color: ${p =>
-    p.navcolor === 'light' ? p.theme.colors.mainDark : p.theme.colors.userName};
+    p.selection === 'true'
+      ? p.theme.colors.mainAccent
+      : p.navcolor === 'light'
+      ? p.theme.colors.mainDark
+      : p.theme.colors.userName};
   transition: ${p => p.theme.transitions.main};
-
-  &.active {
-    color: ${p => p.theme.colors.mainAccent};
-  }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
@@ -51,7 +51,9 @@ export const StyledLink = styled(NavLink)`
     width: 20px;
     height: 20px;
     stroke: ${p =>
-      p.navcolor === 'light'
+      p.selection === 'true'
+        ? p.theme.colors.mainAccent
+        : p.navcolor === 'light'
         ? p.theme.colors.mainDark
         : p.theme.colors.userName};
 
