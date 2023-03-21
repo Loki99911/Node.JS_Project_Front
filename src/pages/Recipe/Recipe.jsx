@@ -11,10 +11,17 @@ import { getOneRecipeById } from 'redux/outerRecipes/outerRecipesOperations';
 import { getOwnRecipeByID } from 'redux/ownRecipes/ownRecipesOperations';
 import { getSingleOwnRecipe } from 'redux/ownRecipes/ownRecipesSelectors';
 import { useDispatch, useSelector } from 'react-redux';
+import { Loader } from 'components/Loader/Loader';
 
 const Recipe = () => {
   const [recipeObj, setRecipeObj] = useState(null);
   const { recipeId } = useParams();
+
+  // const isPendingOwn = useSelector(
+  //   state => (state.isOwnRecipesFetching = true)
+  // );
+  // const isPending = useSelector(state => (state.isCategoryFetching = true));
+
   const dispatcher = useDispatch();
   const recipe = useSelector(getSingleRecipe);
   const ownRecipe = useSelector(getSingleOwnRecipe);
@@ -32,33 +39,30 @@ const Recipe = () => {
     }
   }, [recipeId, dispatcher]);
 
-  return (
-    myRecipe() && (
-      <>
-        <RecipePageHero
-          meal={myRecipe().title}
-          idMeal={recipeId}
-          about={myRecipe().about}
-          cookingTime={myRecipe().cookingTime}
+  return myRecipe() === null ? (
+    <>
+      <Loader />
+    </>
+  ) : (
+    <>
+      <RecipePageHero recipeObj={myRecipe()} idMeal={recipeId} />
+      <Container>
+        <ReportsTable>
+          <p>Ingredients</p>
+          <p>
+            Number <span>Add to list</span>
+          </p>
+        </ReportsTable>
+        <RecipeInngredientsList
+          ingredients={myRecipe().ingredients}
+          recipeId={recipeId}
         />
-        <Container>
-          <ReportsTable>
-            <p>Ingredients</p>
-            <p>
-              Number <span>Add to list</span>
-            </p>
-          </ReportsTable>
-          <RecipeInngredientsList
-            ingredients={myRecipe().ingredients}
-            recipeId={recipeId}
-          />
-          <RecipePreparation
-            image={myRecipe().imgURL}
-            instructions={myRecipe().description}
-          />
-        </Container>
-      </>
-    )
+        <RecipePreparation
+          image={myRecipe().imgURL}
+          instructions={myRecipe().description}
+        />
+      </Container>
+    </>
   );
 };
 

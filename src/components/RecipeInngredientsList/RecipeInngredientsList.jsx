@@ -19,6 +19,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
   useEffect(() => {
     dispatcher(getShoppingIngredient());
+    console.log(list.length);
     if (list.length === 1) {
       setTriger(1);
     }
