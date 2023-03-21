@@ -149,7 +149,7 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    dispatch(addOwnRecipe(formData, navigate('/my?page=1')));
+    dispatch(addOwnRecipe(formData, navigate));
     resetForm();
   };
 
