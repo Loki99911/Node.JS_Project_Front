@@ -1,8 +1,11 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { getIsUserFetching, getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { Loader } from 'components/Loader/Loader';
+
 
 export const PrivateRoute = ({ children }) => {
+    const isUserFetching = useSelector(getIsUserFetching);
   const isLogin = useSelector(getIsLoggedIn);
-  return isLogin ? children : <Navigate to="/" />;
+  return isLogin ? (isUserFetching ? (<Loader/>): children) : <Navigate to="/" />;
 };

@@ -46,15 +46,19 @@ const FormLogin = () => {
           password: '',
         }}
         validationSchema={LoginSchema}
-        onSubmit={(values, actions) => {
-          dispatch(
+        onSubmit={async(values, actions) => {
+          await dispatch(
             logIn({
               email: values.email.trim(),
               password: values.password.trim(),
             })
-          );
-          actions.setSubmitting(false);
-          actions.resetForm();
+          ).then((res) => {
+            if (res.payload.name === "AxiosError") {
+              actions.setSubmitting(false);
+            } else {
+              actions.resetForm();
+            }
+          })
         }}
       >
         {({ errors, values }) => (

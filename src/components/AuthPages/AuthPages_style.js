@@ -17,10 +17,10 @@ export const BoxForAuth = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 20px 10px;
-  @media screen and (min-width: 769px) and (max-width: 1440px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     background-image: url(${bgrImageTab});
   }
-  @media screen and (min-width: 1441px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 115px;
     background-image: url(${bgrImageDes});
