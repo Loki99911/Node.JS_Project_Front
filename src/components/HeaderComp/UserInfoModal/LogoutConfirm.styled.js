@@ -62,14 +62,21 @@ export const LogoutMenuBtn = styled.button`
     pointer-events: none;
   }
 
+  &:hover,
+  &:focus {
+    color: ${p =>
+      p.status === 'cancel'
+        ? p.theme.colors.btnTextLight
+        : p.theme.colors.btnHoverBg};
+    background-color: ${p =>
+      p.status === 'cancel'
+        ? p.theme.colors.secondaryGrey
+        : p.theme.colors.mainAccent};
+  }
+
   @media screen and (min-width: 768px) {
     width: calc(50% - 8px);
     font-size: 16px;
     line-height: ${p => p.theme.lineHeights.btnText};
-  }
-
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.btnHoverBg};
   }
 `;
