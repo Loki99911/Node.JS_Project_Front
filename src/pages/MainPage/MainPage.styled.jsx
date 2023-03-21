@@ -89,6 +89,7 @@ export const MainPageBg = styled.div`
   display: flex;
   height: 777px;
   margin-bottom: 60px;
+  padding: 0 16px;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -100,6 +101,7 @@ export const MainPageBg = styled.div`
     background-image: url(${bgrImageTab});
     height: 640px;
     margin-bottom: 72px;
+    padding: 0 32px;
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     (-webkit-min-device-pixel-ratio: 2),
@@ -112,6 +114,7 @@ export const MainPageBg = styled.div`
     background-image: url(${bgrImageDesk});
     height: 800px;
     margin-bottom: 100px;
+    padding: 0 100px;
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     (-webkit-min-device-pixel-ratio: 2),
