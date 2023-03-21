@@ -7,6 +7,7 @@ import {
   getOneRecipeByIdAPI,
   getPopularRecipesAPI,
   getRecipesByQueryAPI,
+  getSetOfCategoriestAPI,
 } from 'service/API/TheMealAPI';
 
 export const getCategoryList = createAsyncThunk(
@@ -24,27 +25,9 @@ export const getCategoryList = createAsyncThunk(
 export const getMainCategories = createAsyncThunk(
   'outerRecipes/mainCategories',
   async (_, { rejectWithValue }) => {
-    const limit = 4;
     try {
-      const breakfast = await getLimitedRecipesByCategoryAPI(
-        'breakfast',
-        limit
-      );
-      const miscellaneous = await getLimitedRecipesByCategoryAPI(
-        'miscellaneous',
-        limit
-      );
-      const vegan = await getLimitedRecipesByCategoryAPI('vegan', limit);
-      const desserts = await getLimitedRecipesByCategoryAPI('dessert', limit);
-
-      const data = {
-        breakfast: breakfast.meals,
-        miscellaneous: miscellaneous.meals,
-        vegan: vegan.meals,
-        desserts: desserts.meals,
-      };
-
-      return data;
+      const data = await getSetOfCategoriestAPI();
+      return data.mainCtegories;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }
