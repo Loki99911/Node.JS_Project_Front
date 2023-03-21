@@ -27,6 +27,7 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
 
   & img {
     border-radius: ${p => p.theme.radii.image};
