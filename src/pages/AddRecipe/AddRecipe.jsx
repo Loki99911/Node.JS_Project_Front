@@ -18,9 +18,7 @@ import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
-import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 import { useNavigate } from 'react-router-dom';
-
 
 const init = {
   recipe: '',
