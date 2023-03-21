@@ -19,6 +19,7 @@ import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
 import { useMediaRules } from 'MediaRules/MediaRules';
 import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
 import { useNavigate } from 'react-router-dom';
+import { scrollToTop } from 'utils/scrollUp';
 
 const init = {
   recipe: '',
@@ -99,6 +100,11 @@ const AddRecipe = () => {
     setPath('');
   };
 
+  const cb = () => {
+    scrollToTop();
+    navigate('/my?page=1');
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
@@ -149,7 +155,7 @@ const AddRecipe = () => {
     formData.append('picture', file);
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
-    dispatch(addOwnRecipe({ body: formData, cb: navigate }));
+    dispatch(addOwnRecipe({ body: formData, cb }));
     resetForm();
   };
 
