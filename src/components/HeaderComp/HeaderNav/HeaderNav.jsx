@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Navi, StyledLink } from './HeaderNav.styled';
 import sprite from '../../../images/sprite.svg';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 export const HeaderNav = ({ navColor = 'light', setShowMenu }) => {
   const { pathname } = useLocation();
