@@ -27,6 +27,7 @@ export const СhooseYourBreakfast = () => {
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        
                     />
                 </RightArrow>
             </ChooseLink>

@@ -16,10 +16,9 @@ import {
 } from 'redux/ownRecipes/ownRecipesOperations';
 import { MotivatedModal } from 'components/MotivatedModal/MotivatedModal';
 
-const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
+const RecipePageHero = ({ idMeal, recipeObj }) => {
   const [btnText, setBtnText] = useState(false);
   const [triger, setTriger] = useState(0);
-
   const dispatcher = useDispatch();
   const obj = useSelector(getFavoriteRecipes);
 
@@ -49,14 +48,16 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
     dispatcher(getFavorite({}));
   }, [dispatcher]);
 
+  console.log(recipeObj);
+
   return (
     <>
       {triger === 1 && <MotivatedModal type="first favorite" isOpen={true} />}
       {triger === 10 && <MotivatedModal type="ten-recipes" isOpen={true} />}
       <RecipeHeroConteiner>
-        <HeroTitle>{meal}</HeroTitle>
-        <HeroText>{about}</HeroText>
-        {btnText || getIngDescription(meal) ? (
+        <HeroTitle>{recipeObj.title}</HeroTitle>
+        <HeroText>{recipeObj.about}</HeroText>
+        {btnText || getIngDescription(recipeObj.title) ? (
           <ButtonSkew
             type="button"
             text={'Remove from favorite recipes'}
@@ -73,12 +74,12 @@ const RecipePageHero = ({ meal, idMeal, about, cookingTime }) => {
             fn={addtoFavorite}
           />
         )}
-        {cookingTime !== '' ? (
+        {recipeObj.cookingTime !== '' ? (
           <CookingTime>
             <svg>
               <use href={sprite + `#icon-clock`} />
             </svg>
-            <span>{cookingTime + ` min`}</span>
+            <span>{recipeObj.cookingTime + ` min`}</span>
           </CookingTime>
         ) : (
           <CookingTime></CookingTime>

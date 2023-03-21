@@ -27,6 +27,7 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
 
   & img {
     border-radius: ${p => p.theme.radii.image};
@@ -129,6 +130,10 @@ export const DescrWrapper = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+
+    @media screen and (min-width: 768px) {
+      -webkit-line-clamp: 5;
+    }
   }
 
   @media screen and (min-width: 768px) {
