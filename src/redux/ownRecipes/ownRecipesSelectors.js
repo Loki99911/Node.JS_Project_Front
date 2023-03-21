@@ -11,7 +11,7 @@ export const getFavoriteRecipes = state => state.ownRecipes.favorites.recipes;
 export const getTotalFavoriteRecipes = state =>
   state.ownRecipes.favorites.total;
 
-// ------------------ Own Recipe by ID ------------------
+// ------------------ Own Recipe by ID & Outer recipe by ID ------------------
 // ---- returns an Object
 // ---- Use with function "getOwnRecipeByID('4657855345')"
 export const getSingleOwnRecipe = state => state.ownRecipes.singleRecipe;
