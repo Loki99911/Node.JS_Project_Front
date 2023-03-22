@@ -15,14 +15,17 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const list = useSelector(getShoppingList);
 
   useEffect(() => {
-    dispatcher(getShoppingIngredient());
+    if (list.length === 0) {
+      dispatcher(getShoppingIngredient());
+    }
+
     if (list.length === 1) {
       setTriger(1);
     }
   }, [dispatcher, list.length]);
 
   function getIngDescription(id) {
-    if (id !== undefined) {
+    if (list.length !== 0) {
       const ingridID = list.some(ingrid => ingrid.recipeId === id);
       return ingridID;
     }
