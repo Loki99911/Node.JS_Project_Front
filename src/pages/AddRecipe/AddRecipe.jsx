@@ -16,7 +16,7 @@ import { AddRecipeMeta } from 'components/AddRecipeMeta/AddRecipeMeta';
 import { AddRecipeIngredients } from 'components/AddRecipeIngredients/AddRecipeIngredients';
 import { AddRecipeSubmit } from 'components/AddRecipeSubmit/AddRecipeSubmit';
 import { addOwnRecipe } from 'redux/ownRecipes/ownRecipesOperations';
-import { useMediaRules } from 'MediaRules/MediaRules';
+import { useMediaRules } from 'hooks/MediaRules';
 import { AddRecipeToastifyError } from 'components/AddRecipeToastifyError/AddRecipeToastifyError';
 import { useNavigate } from 'react-router-dom';
 import { scrollToTop } from 'utils/scrollUp';
