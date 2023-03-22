@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL_BACK;
-// axios.defaults.baseURL = 'https://soyummy.onrender.com';
 
 //  ------------- OWN RECIPE -------------
 
