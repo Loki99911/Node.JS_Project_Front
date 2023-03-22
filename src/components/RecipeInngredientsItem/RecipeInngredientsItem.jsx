@@ -35,7 +35,7 @@ const RecipeInngredientsItem = obj => {
         recipeId: obj.recipeId,
       })
     );
-    return obj.inShoppingList;
+    return;
   };
 
   return (
