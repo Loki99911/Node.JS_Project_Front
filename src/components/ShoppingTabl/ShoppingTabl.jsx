@@ -23,8 +23,10 @@ const ShopingTabl = () => {
   const dispatcher = useDispatch();
   const list = useSelector(getShoppingList);
   useEffect(() => {
-    dispatcher(getShoppingIngredient());
-  }, [dispatcher]);
+    if (list.length === 0) {
+      dispatcher(getShoppingIngredient());
+    }
+  }, [dispatcher, list]);
 
   const deleteIngredient = e => {
     if (e.target.parentNode.parentNode.id) {
