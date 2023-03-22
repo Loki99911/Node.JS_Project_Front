@@ -60,7 +60,7 @@ export const App = () => {
   //     dispatcher(getCategoryList());
   //   }
   // }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
-console.log(process.env.REACT_APP_BASE_URL_BACK);
+console.log(process.env);
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
