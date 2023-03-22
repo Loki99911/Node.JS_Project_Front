@@ -1,9 +1,9 @@
 import { Link, ContentFooter, TextFooterContainer } from './TextFooter.styled';
 import logoFooter from '../../../images/footer/logo_tablet-desk_footer.svg';
-import { useMediaRules } from 'MediaRules/MediaRules';
+import { useMediaRules } from 'hooks/MediaRules';
 
 export const TextFooter = () => {
-const { isMobile } = useMediaRules();
+  const { isMobile } = useMediaRules();
   return (
     <TextFooterContainer>
       <Link to="/">

@@ -7,7 +7,7 @@ import {
 } from './FormFooter.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useMediaRules } from 'MediaRules/MediaRules';
+import { useMediaRules } from 'hooks/MediaRules';
 import sprite from '../../../images/sprite.svg';
 import { getColor } from 'utils/formikColors';
 import { subscribeEmail } from 'service/API/Auth&UserAPI';

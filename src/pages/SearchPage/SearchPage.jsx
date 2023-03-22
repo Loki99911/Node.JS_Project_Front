@@ -14,7 +14,7 @@ import {
   getIsError,
   getRecipesBySearchQuery,
 } from 'redux/outerRecipes/outerRecipesSelectors';
-import { useMediaRules } from 'MediaRules/MediaRules';
+import { useMediaRules } from 'hooks/MediaRules';
 import { scrollToTop } from 'utils/scrollUp';
 import { Loader } from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
