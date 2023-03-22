@@ -26,7 +26,7 @@ const ShopingTabl = () => {
     if (list.length === 0) {
       dispatcher(getShoppingIngredient());
     }
-  }, [dispatcher, list]);
+  }, [dispatcher, list.length]);
 
   const deleteIngredient = e => {
     if (e.target.parentNode.parentNode.id) {
