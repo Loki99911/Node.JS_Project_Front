@@ -35,13 +35,9 @@ const CategoriesByName = lazy(() =>
 
 export const App = () => {
   const token = useSelector(getAccessToken);
-  // const isUserFetching = useSelector(getIsUserFetching);
   const { mode } = useSelector(getMode);
-  const themeMode = mode === 'light' ? lightMode : darkMode; //selectedMode.mode === 'light' ? lightMode : darkMode;
-  // const isUserLogin = useSelector(getIsLoggedIn);
-  // const ingredients = useSelector(getIngredients);
-  // const categories = useSelector(getFullCategoryList);
-  // const popularRecipes = useSelector(getPopular);
+  const themeMode = mode === 'light' ? lightMode : darkMode;
+
   const dispatcher = useDispatch();
 
   useEffect(() => {
@@ -49,18 +45,6 @@ export const App = () => {
     dispatcher(getCurrentUser());
   }, [dispatcher, token]);
 
-  // useEffect(() => {
-  //   if (isUserLogin === true && popularRecipes.length === 0) {
-  //     dispatcher(getPopularRecipes());
-  //   }
-  //   if (isUserLogin === true && ingredients.length === 0) {
-  //     dispatcher(getAllIngredients());
-  //   }
-  //   if (isUserLogin === true && categories.length === 0) {
-  //     dispatcher(getCategoryList());
-  //   }
-  // }, [dispatcher, ingredients, categories, isUserLogin, popularRecipes]);
-  console.log(process.env);
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
