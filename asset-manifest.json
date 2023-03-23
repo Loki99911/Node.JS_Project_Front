@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.3edb6277.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.5ea3a95f.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.74657ba4.js",
     "static/css/940.acf3b8c5.chunk.css": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css",
-    "static/js/940.1d9f3a1b.chunk.js": "/Node.JS_Project_Front/static/js/940.1d9f3a1b.chunk.js",
+    "static/js/940.2e4e299c.chunk.js": "/Node.JS_Project_Front/static/js/940.2e4e299c.chunk.js",
     "static/js/347.a0140f26.chunk.js": "/Node.JS_Project_Front/static/js/347.a0140f26.chunk.js",
     "static/js/583.af1ed47c.chunk.js": "/Node.JS_Project_Front/static/js/583.af1ed47c.chunk.js",
     "static/js/786.4c7bf2d5.chunk.js": "/Node.JS_Project_Front/static/js/786.4c7bf2d5.chunk.js",
@@ -91,9 +91,9 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.3edb6277.css.map": "/Node.JS_Project_Front/static/css/main.3edb6277.css.map",
-    "main.5ea3a95f.js.map": "/Node.JS_Project_Front/static/js/main.5ea3a95f.js.map",
+    "main.74657ba4.js.map": "/Node.JS_Project_Front/static/js/main.74657ba4.js.map",
     "940.acf3b8c5.chunk.css.map": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css.map",
-    "940.1d9f3a1b.chunk.js.map": "/Node.JS_Project_Front/static/js/940.1d9f3a1b.chunk.js.map",
+    "940.2e4e299c.chunk.js.map": "/Node.JS_Project_Front/static/js/940.2e4e299c.chunk.js.map",
     "347.a0140f26.chunk.js.map": "/Node.JS_Project_Front/static/js/347.a0140f26.chunk.js.map",
     "583.af1ed47c.chunk.js.map": "/Node.JS_Project_Front/static/js/583.af1ed47c.chunk.js.map",
     "786.4c7bf2d5.chunk.js.map": "/Node.JS_Project_Front/static/js/786.4c7bf2d5.chunk.js.map",
@@ -107,6 +107,6 @@
   },
   "entrypoints": [
     "static/css/main.3edb6277.css",
-    "static/js/main.5ea3a95f.js"
+    "static/js/main.74657ba4.js"
   ]
 }
