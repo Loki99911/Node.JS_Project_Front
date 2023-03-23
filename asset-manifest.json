@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Node.JS_Project_Front/static/css/main.3edb6277.css",
-    "main.js": "/Node.JS_Project_Front/static/js/main.00125921.js",
+    "main.js": "/Node.JS_Project_Front/static/js/main.c4bc825e.js",
     "static/css/940.acf3b8c5.chunk.css": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css",
     "static/js/940.1d9f3a1b.chunk.js": "/Node.JS_Project_Front/static/js/940.1d9f3a1b.chunk.js",
     "static/js/347.a0140f26.chunk.js": "/Node.JS_Project_Front/static/js/347.a0140f26.chunk.js",
-    "static/js/583.74cb2f07.chunk.js": "/Node.JS_Project_Front/static/js/583.74cb2f07.chunk.js",
-    "static/js/786.511e95db.chunk.js": "/Node.JS_Project_Front/static/js/786.511e95db.chunk.js",
+    "static/js/583.af1ed47c.chunk.js": "/Node.JS_Project_Front/static/js/583.af1ed47c.chunk.js",
+    "static/js/786.4c7bf2d5.chunk.js": "/Node.JS_Project_Front/static/js/786.4c7bf2d5.chunk.js",
     "static/js/854.a7cc09ce.chunk.js": "/Node.JS_Project_Front/static/js/854.a7cc09ce.chunk.js",
     "static/js/634.b2136272.chunk.js": "/Node.JS_Project_Front/static/js/634.b2136272.chunk.js",
-    "static/js/620.340047ad.chunk.js": "/Node.JS_Project_Front/static/js/620.340047ad.chunk.js",
+    "static/js/620.1a29b2ee.chunk.js": "/Node.JS_Project_Front/static/js/620.1a29b2ee.chunk.js",
     "static/js/545.602a14b4.chunk.js": "/Node.JS_Project_Front/static/js/545.602a14b4.chunk.js",
     "static/js/472.939d67dc.chunk.js": "/Node.JS_Project_Front/static/js/472.939d67dc.chunk.js",
     "static/js/958.3ea13e7c.chunk.js": "/Node.JS_Project_Front/static/js/958.3ea13e7c.chunk.js",
@@ -91,15 +91,15 @@
     "static/media/logo_tablet-desk_footer.svg": "/Node.JS_Project_Front/static/media/logo_tablet-desk_footer.3973999e1d5e8f9f9106b706397f54e9.svg",
     "static/media/plus.svg": "/Node.JS_Project_Front/static/media/plus.e2a277e044198db3f782f3e240f0af13.svg",
     "main.3edb6277.css.map": "/Node.JS_Project_Front/static/css/main.3edb6277.css.map",
-    "main.00125921.js.map": "/Node.JS_Project_Front/static/js/main.00125921.js.map",
+    "main.c4bc825e.js.map": "/Node.JS_Project_Front/static/js/main.c4bc825e.js.map",
     "940.acf3b8c5.chunk.css.map": "/Node.JS_Project_Front/static/css/940.acf3b8c5.chunk.css.map",
     "940.1d9f3a1b.chunk.js.map": "/Node.JS_Project_Front/static/js/940.1d9f3a1b.chunk.js.map",
     "347.a0140f26.chunk.js.map": "/Node.JS_Project_Front/static/js/347.a0140f26.chunk.js.map",
-    "583.74cb2f07.chunk.js.map": "/Node.JS_Project_Front/static/js/583.74cb2f07.chunk.js.map",
-    "786.511e95db.chunk.js.map": "/Node.JS_Project_Front/static/js/786.511e95db.chunk.js.map",
+    "583.af1ed47c.chunk.js.map": "/Node.JS_Project_Front/static/js/583.af1ed47c.chunk.js.map",
+    "786.4c7bf2d5.chunk.js.map": "/Node.JS_Project_Front/static/js/786.4c7bf2d5.chunk.js.map",
     "854.a7cc09ce.chunk.js.map": "/Node.JS_Project_Front/static/js/854.a7cc09ce.chunk.js.map",
     "634.b2136272.chunk.js.map": "/Node.JS_Project_Front/static/js/634.b2136272.chunk.js.map",
-    "620.340047ad.chunk.js.map": "/Node.JS_Project_Front/static/js/620.340047ad.chunk.js.map",
+    "620.1a29b2ee.chunk.js.map": "/Node.JS_Project_Front/static/js/620.1a29b2ee.chunk.js.map",
     "545.602a14b4.chunk.js.map": "/Node.JS_Project_Front/static/js/545.602a14b4.chunk.js.map",
     "472.939d67dc.chunk.js.map": "/Node.JS_Project_Front/static/js/472.939d67dc.chunk.js.map",
     "958.3ea13e7c.chunk.js.map": "/Node.JS_Project_Front/static/js/958.3ea13e7c.chunk.js.map",
@@ -107,6 +107,6 @@
   },
   "entrypoints": [
     "static/css/main.3edb6277.css",
-    "static/js/main.00125921.js"
+    "static/js/main.c4bc825e.js"
   ]
 }
