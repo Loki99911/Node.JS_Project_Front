@@ -88,6 +88,7 @@ export const HeroTitle = styled.title`
   text-align: center;
   font-weight: ${p => p.theme.fontWeights[2]};
   font-size: 24px;
+  line-height: 1.3;
   margin-bottom: 18px;
   letter-spacing: ${p => p.theme.letterSpacings.content};
   color: ${p => p.theme.colors.mainAccent};
