@@ -103,6 +103,7 @@ const AddRecipe = () => {
   const cb = () => {
     scrollToTop();
     navigate('/my?page=1');
+    resetForm();
   };
 
   const handleSubmit = e => {
@@ -156,7 +157,6 @@ const AddRecipe = () => {
     formData.append('ingredients', JSON.stringify(ingredientsList));
 
     dispatch(addOwnRecipe({ body: formData, cb }));
-    resetForm();
   };
 
   const handleSelect = (...arg) => {
