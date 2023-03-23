@@ -4,7 +4,8 @@
 
 Цей проект було створено за допомогою
 [Create React App](https://github.com/facebook/create-react-app).
-З використанням технологій: `HTML/CSS` `React` `Redux` `Styled Components`
+
+Використанням технологій: `HTML/CSS` `React` `Redux` `Styled Components`
 `Axios` `Formik` `MUI` `Swiper` `Yup` `Toastify`
 
 ## Про проект: 
