@@ -8,11 +8,9 @@ import { PrivateRoute, PublicRoute } from 'service/routes';
 import {
   getAccessToken,
 } from '../redux/auth/authSelectors';
-// import { getIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import Error from 'pages/Error/Error';
 import { lazy, useEffect } from 'react';
-// import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 import { GlobalStyle } from './App.styled';
 import { ThemeProvider } from 'styled-components';
 import { theme as lightMode, darkTheme as darkMode } from 'utils/theme';
