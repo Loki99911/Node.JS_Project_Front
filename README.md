@@ -1,5 +1,7 @@
 # SoYummy (Node.js Team-project (Front-end)) 
 
+[Посилання на живу сторінку...](https://loki99911.github.io/Node.JS_Project_Front/)
+
 Цей проект було створено за допомогою
 [Create React App](https://github.com/facebook/create-react-app).
 З використанням технологій: `HTML/CSS` `React` `Redux` `Styled Components`
