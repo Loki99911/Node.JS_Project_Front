@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { logIn } from 'redux/auth/authOperations';
 import SVG from 'images/sprite.svg';
 import { getColor } from 'utils/formikColors.js';
@@ -37,7 +38,10 @@ const LoginSchema = Yup.object().shape({
 
 const FormLogin = () => {
   const dispatch = useDispatch();
-
+  const [vissiblPassword, setVissiblPassword] = useState(false);
+  const onClick = () => {
+    setVissiblPassword(!vissiblPassword);
+  };
   return (
     <div>
       <Formik
@@ -46,19 +50,19 @@ const FormLogin = () => {
           password: '',
         }}
         validationSchema={LoginSchema}
-        onSubmit={async(values, actions) => {
+        onSubmit={async (values, actions) => {
           await dispatch(
             logIn({
               email: values.email.trim(),
               password: values.password.trim(),
             })
-          ).then((res) => {
-            if (res.payload.name === "AxiosError") {
+          ).then(res => {
+            if (res.payload.name === 'AxiosError') {
               actions.setSubmitting(false);
             } else {
               actions.resetForm();
             }
-          })
+          });
         }}
       >
         {({ errors, values }) => (
@@ -93,8 +97,11 @@ const FormLogin = () => {
                 />
               </BoxForInput>
               <BoxForInput>
-                <IconForInput>
-                  <SvgAuth color={getColor(errors.password, values.password)}>
+                <IconForInput onClick={onClick}>
+                  <SvgAuth
+                    color={getColor(errors.password, values.password)}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <use href={`${SVG}#password`}></use>
                   </SvgAuth>
                 </IconForInput>
@@ -111,7 +118,7 @@ const FormLogin = () => {
                   </FlagForInput>
                 )}
                 <InputForAuth
-                  type="password"
+                  type={vissiblPassword ? 'text' : 'password'}
                   name="password"
                   placeholder="Password"
                   color={getColor(errors.password, values.password)}

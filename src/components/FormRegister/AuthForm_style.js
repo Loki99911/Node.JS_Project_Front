@@ -72,7 +72,6 @@ export const IconForInput = styled.div`
   justify-content: center;
   position: absolute;
   top: 14px;
-  pointer-events: none;
   @media screen and (min-width: 769px) {
     width: 24px;
     height: 24px;
@@ -89,7 +88,6 @@ export const FlagForInput = styled.div`
   justify-content: center;
   position: absolute;
   top: 14px;
-  pointer-events: none;
   @media screen and (min-width: 769px) {
     width: 24px;
     height: 24px;
